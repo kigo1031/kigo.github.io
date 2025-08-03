@@ -54,7 +54,7 @@ your-blog/
 # 한국어 포스트
 hugo new content/korean/blog/포스트-제목.md
 
-# 영어 포스트  
+# 영어 포스트
 hugo new content/english/blog/post-title.md
 ```
 
@@ -215,7 +215,7 @@ git push origin main
 # ❌ 따옴표 불일치
 title: "Hugo 가이드'
 
-# ❌ 배열 문법 오류  
+# ❌ 배열 문법 오류
 tags: [tag1, tag2, tag3
 
 # ✅ 올바른 형식

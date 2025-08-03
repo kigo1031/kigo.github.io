@@ -1,0 +1,27 @@
+{{ if site.Params.utterances.enable }}
+<div class="utterances-container">
+  <script src="https://utteranc.es/client.js" repo="{{ site.Params.utterances.repo }}"
+    issue-term="{{ site.Params.utterances.issue_term }}" theme="{{ site.Params.utterances.theme }}"
+    crossorigin="{{ site.Params.utterances.crossorigin }}" async>
+    </script>
+</div>
+
+<style>
+  /* Utterances 스타일 */
+  .utterances-container {
+    margin-top: 2rem;
+  }
+
+  .utterances {
+    max-width: 100%;
+  }
+
+  /* 반응형 지원 */
+  @media (max-width: 768px) {
+    .utterances {
+      margin: 0 -1rem;
+    }
+  }
+
+</style>
+{{ end }}
