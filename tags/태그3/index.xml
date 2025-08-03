@@ -1,15 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>태그3 on Kigo's Blog - 백엔드 Java 개발자</title><link>https://kigo1031.github.io/kigo.github.io/tags/%ED%83%9C%EA%B7%B83/</link><description>Recent content in 태그3 on Kigo's Blog - 백엔드 Java 개발자</description><generator>Hugo</generator><language>ko-kr</language><lastBuildDate>Sun, 03 Aug 2025 15:00:00 +0900</lastBuildDate><atom:link href="https://kigo1031.github.io/kigo.github.io/tags/%ED%83%9C%EA%B7%B83/index.xml" rel="self" type="application/rss+xml"/><item><title>포스트 제목</title><link>https://kigo1031.github.io/kigo.github.io/blog/%EC%98%88%EC%8B%9C%ED%8F%AC%EC%8A%A4%ED%8A%B8/</link><pubDate>Sun, 03 Aug 2025 15:00:00 +0900</pubDate><guid>https://kigo1031.github.io/kigo.github.io/blog/%EC%98%88%EC%8B%9C%ED%8F%AC%EC%8A%A4%ED%8A%B8/</guid><description>&lt;p>여기서부터 본문을 작성하세요.&lt;/p>
-&lt;h2 id="소제목-예시">소제목 예시&lt;/h2>
-&lt;p>내용을 자유롭게 작성하면 됩니다.&lt;/p>
-&lt;h3 id="더-작은-소제목">더 작은 소제목&lt;/h3>
-&lt;ul>
-&lt;li>리스트 아이템 1&lt;/li>
-&lt;li>리스트 아이템 2&lt;/li>
-&lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-java" data-lang="java">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// 코드 블록 예시&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Example&lt;/span> {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>(String&lt;span style="color:#f92672">[]&lt;/span> args) {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> System.&lt;span style="color:#a6e22e">out&lt;/span>.&lt;span style="color:#a6e22e">println&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Hello World!&amp;#34;&lt;/span>);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>볼드체&lt;/strong>, &lt;em>이탤릭체&lt;/em>, &lt;code>인라인 코드&lt;/code>&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>태그3 on Kigo&#39;s Blog - 백엔드 Java 개발자</title>
+    <link>http://localhost:1313/tags/%ED%83%9C%EA%B7%B83/</link>
+    <description>Recent content in 태그3 on Kigo&#39;s Blog - 백엔드 Java 개발자</description>
+    <generator>Hugo</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Sun, 03 Aug 2025 15:00:00 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/%ED%83%9C%EA%B7%B83/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>포스트 제목</title>
+      <link>http://localhost:1313/blog/%EC%98%88%EC%8B%9C%ED%8F%AC%EC%8A%A4%ED%8A%B8/</link>
+      <pubDate>Sun, 03 Aug 2025 15:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/blog/%EC%98%88%EC%8B%9C%ED%8F%AC%EC%8A%A4%ED%8A%B8/</guid>
+      <description>&lt;p&gt;여기서부터 본문을 작성하세요.&lt;/p&gt;&#xA;&lt;h2 id=&#34;소제목-예시&#34;&gt;소제목 예시&lt;/h2&gt;&#xA;&lt;p&gt;내용을 자유롭게 작성하면 됩니다.&lt;/p&gt;&#xA;&lt;h3 id=&#34;더-작은-소제목&#34;&gt;더 작은 소제목&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;리스트 아이템 1&lt;/li&gt;&#xA;&lt;li&gt;리스트 아이템 2&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// 코드 블록 예시&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Example&lt;/span&gt; {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;(String&lt;span style=&#34;color:#f92672&#34;&gt;[]&lt;/span&gt; args) {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        System.&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;println&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello World!&amp;#34;&lt;/span&gt;);&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;볼드체&lt;/strong&gt;, &lt;em&gt;이탤릭체&lt;/em&gt;, &lt;code&gt;인라인 코드&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
