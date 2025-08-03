@@ -47,22 +47,12 @@
           </div>
         </div>
         
+                
         <!-- comments -->
-        {{ if .Site.Config.Services.Disqus.Shortname }}
+        {{ if and .Site.Params.disqus.enable .Site.Params.disqus.shortname }}
         <div class="mt-20">
-          <h3 class="mb-8">Comments</h3>
+          <h3 class="mb-8">{{ T "comments" | default "Comments" }}</h3>
           {{ template "_internal/disqus.html" . }}
-        </div>
-        {{ else if .Site.Params.disqus.shortname }}
-        <div class="mt-20">
-          <h3 class="mb-8">Comments</h3>
-          {{ template "_internal/disqus.html" . }}
-        </div>
-        {{ else }}
-        <div class="mt-20">
-          <p>Debug: Disqus not configured</p>
-          <p>Config.Services.Disqus.Shortname: {{ .Site.Config.Services.Disqus.Shortname }}</p>
-          <p>Params.disqus.shortname: {{ .Site.Params.disqus.shortname }}</p>
         </div>
         {{ end }}
       </article>
