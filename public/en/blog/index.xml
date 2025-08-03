@@ -1,1 +1,96 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blog on Kigo's Blog - 백엔드 Java 개발자</title><link>https://kigo1031.github.io/en/blog/</link><description>Recent content in Blog on Kigo's Blog - 백엔드 Java 개발자</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 03 Aug 2025 15:00:00 +0900</lastBuildDate><atom:link href="https://kigo1031.github.io/en/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Complete Hugo Blog Posting Guide - Tips from Real Experience</title><link>https://kigo1031.github.io/en/blog/hugo-blog-posting-guide/</link><pubDate>Sun, 03 Aug 2025 15:00:00 +0900</pubDate><guid>https://kigo1031.github.io/en/blog/hugo-blog-posting-guide/</guid><description>&lt;p>Based on the trial and error I experienced while running a Hugo blog, I&amp;rsquo;ll share efficient posting methods and useful tips. This will be especially helpful if you&amp;rsquo;re using it with GitHub Pages.&lt;/p></description></item><item><title>Getting Started with Cloud Native Java Development using Quarkus</title><link>https://kigo1031.github.io/en/blog/quarkus-cloud-native-java/</link><pubDate>Sun, 03 Aug 2025 13:00:00 +0900</pubDate><guid>https://kigo1031.github.io/en/blog/quarkus-cloud-native-java/</guid><description>&lt;p>Recently, there&amp;rsquo;s been a lot of discussion about the limitations of Java applications in cloud-native environments. Particularly, &lt;strong>high memory usage&lt;/strong> and &lt;strong>slow startup times&lt;/strong> have made Java somewhat disadvantageous in containerized environments. &lt;strong>Quarkus&lt;/strong> emerged to solve these exact problems.&lt;/p></description></item><item><title>Complete Quarkus JPA Guide - From Entity to Transaction</title><link>https://kigo1031.github.io/en/blog/quarkus-jpa-guide/</link><pubDate>Sun, 03 Aug 2025 10:00:00 +0900</pubDate><guid>https://kigo1031.github.io/en/blog/quarkus-jpa-guide/</guid><description>&lt;p>When transitioning from Spring Boot to Quarkus, one of the first questions that comes to mind is &amp;ldquo;How do I handle database integration?&amp;rdquo; Fortunately, Quarkus provides excellent JPA support, often with better performance and simpler configuration.&lt;/p></description></item><item><title>Optimizing VS Code Development Environment</title><link>https://kigo1031.github.io/en/blog/vscode-optimization/</link><pubDate>Sat, 02 Aug 2025 14:00:00 +0000</pubDate><guid>https://kigo1031.github.io/en/blog/vscode-optimization/</guid><description>&lt;p>For developers, the editor is one of the most important tools. Today, I&amp;rsquo;d like to share ways to use VS Code more efficiently.&lt;/p></description></item><item><title>React Functional Components and Hooks Guide</title><link>https://kigo1031.github.io/en/blog/react-hooks-guide/</link><pubDate>Fri, 01 Aug 2025 16:30:00 +0000</pubDate><guid>https://kigo1031.github.io/en/blog/react-hooks-guide/</guid><description>&lt;p>React Hooks, introduced in React 16.8, enable state management and lifecycle features in functional components. Let&amp;rsquo;s explore the essential Hooks and their usage.&lt;/p></description></item><item><title>Git Branching Strategies and Collaboration Workflows</title><link>https://kigo1031.github.io/en/blog/git-branching-strategy/</link><pubDate>Thu, 31 Jul 2025 09:15:00 +0000</pubDate><guid>https://kigo1031.github.io/en/blog/git-branching-strategy/</guid><description>&lt;p>Using Git effectively in team development is crucial for project success. Let&amp;rsquo;s explore popular Git branching strategies and collaboration workflows.&lt;/p></description></item><item><title>Building Development Environment with Docker</title><link>https://kigo1031.github.io/en/blog/docker-development-environment/</link><pubDate>Wed, 30 Jul 2025 11:20:00 +0000</pubDate><guid>https://kigo1031.github.io/en/blog/docker-development-environment/</guid><description>&lt;p>During development, you often hear &amp;ldquo;It worked on my machine!&amp;rdquo; Docker can solve this problem and help build consistent development environments.&lt;/p></description></item><item><title>Essential JavaScript ES6+ Features</title><link>https://kigo1031.github.io/en/blog/javascript-es6-features/</link><pubDate>Tue, 29 Jul 2025 15:45:00 +0000</pubDate><guid>https://kigo1031.github.io/en/blog/javascript-es6-features/</guid><description>&lt;p>JavaScript ES6 (ECMAScript 2015) introduced many new features. Let&amp;rsquo;s explore the essential features commonly used in real-world development.&lt;/p></description></item><item><title>REST API Design Best Practices</title><link>https://kigo1031.github.io/en/blog/rest-api-design/</link><pubDate>Thu, 07 Apr 2022 05:00:00 +0000</pubDate><guid>https://kigo1031.github.io/en/blog/rest-api-design/</guid><description>&lt;p>Well-designed REST APIs improve developer experience and ensure system scalability. Let&amp;rsquo;s explore REST API design principles and best practices that can be applied in real projects, along with Spring Boot examples.&lt;/p></description></item><item><title>Microservices Architecture with Spring Boot</title><link>https://kigo1031.github.io/en/blog/microservices-architecture/</link><pubDate>Wed, 06 Apr 2022 05:00:00 +0000</pubDate><guid>https://kigo1031.github.io/en/blog/microservices-architecture/</guid><description>&lt;p>To overcome the limitations of monolithic applications and build scalable and flexible systems, microservices architecture is gaining attention. Let&amp;rsquo;s explore how to build microservices that can be used in actual production environments using the Spring Boot and Spring Cloud ecosystem.&lt;/p></description></item><item><title>Database Design Patterns for Java Applications</title><link>https://kigo1031.github.io/en/blog/database-design-patterns/</link><pubDate>Tue, 05 Apr 2022 05:00:00 +0000</pubDate><guid>https://kigo1031.github.io/en/blog/database-design-patterns/</guid><description>&lt;p>Solid database design is essential for efficient Java application development. Let&amp;rsquo;s explore database design patterns that satisfy both performance and maintainability using JPA and Spring Data.&lt;/p></description></item><item><title>Spring Boot Production Best Practices</title><link>https://kigo1031.github.io/en/blog/spring-boot-best-practices/</link><pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate><guid>https://kigo1031.github.io/en/blog/spring-boot-best-practices/</guid><description>&lt;p>To create stable Spring Boot applications in production, you need more than just basic functionality. Let&amp;rsquo;s explore essential practices for building robust, secure, and maintainable applications.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on Kigo&#39;s Blog - 백엔드 Java 개발자</title>
+    <link>http://localhost:1313/en/blog/</link>
+    <description>Recent content in Blog on Kigo&#39;s Blog - 백엔드 Java 개발자</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 03 Aug 2025 15:00:00 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/en/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Complete Hugo Blog Posting Guide - Tips from Real Experience</title>
+      <link>http://localhost:1313/en/blog/hugo-blog-posting-guide/</link>
+      <pubDate>Sun, 03 Aug 2025 15:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/en/blog/hugo-blog-posting-guide/</guid>
+      <description>&lt;p&gt;Based on the trial and error I experienced while running a Hugo blog, I&amp;rsquo;ll share efficient posting methods and useful tips. This will be especially helpful if you&amp;rsquo;re using it with GitHub Pages.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Getting Started with Cloud Native Java Development using Quarkus</title>
+      <link>http://localhost:1313/en/blog/quarkus-cloud-native-java/</link>
+      <pubDate>Sun, 03 Aug 2025 13:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/en/blog/quarkus-cloud-native-java/</guid>
+      <description>&lt;p&gt;Recently, there&amp;rsquo;s been a lot of discussion about the limitations of Java applications in cloud-native environments. Particularly, &lt;strong&gt;high memory usage&lt;/strong&gt; and &lt;strong&gt;slow startup times&lt;/strong&gt; have made Java somewhat disadvantageous in containerized environments. &lt;strong&gt;Quarkus&lt;/strong&gt; emerged to solve these exact problems.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Complete Quarkus JPA Guide - From Entity to Transaction</title>
+      <link>http://localhost:1313/en/blog/quarkus-jpa-guide/</link>
+      <pubDate>Sun, 03 Aug 2025 10:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/en/blog/quarkus-jpa-guide/</guid>
+      <description>&lt;p&gt;When transitioning from Spring Boot to Quarkus, one of the first questions that comes to mind is &amp;ldquo;How do I handle database integration?&amp;rdquo; Fortunately, Quarkus provides excellent JPA support, often with better performance and simpler configuration.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Optimizing VS Code Development Environment</title>
+      <link>http://localhost:1313/en/blog/vscode-optimization/</link>
+      <pubDate>Sat, 02 Aug 2025 14:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/blog/vscode-optimization/</guid>
+      <description>&lt;p&gt;For developers, the editor is one of the most important tools. Today, I&amp;rsquo;d like to share ways to use VS Code more efficiently.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>React Functional Components and Hooks Guide</title>
+      <link>http://localhost:1313/en/blog/react-hooks-guide/</link>
+      <pubDate>Fri, 01 Aug 2025 16:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/blog/react-hooks-guide/</guid>
+      <description>&lt;p&gt;React Hooks, introduced in React 16.8, enable state management and lifecycle features in functional components. Let&amp;rsquo;s explore the essential Hooks and their usage.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Git Branching Strategies and Collaboration Workflows</title>
+      <link>http://localhost:1313/en/blog/git-branching-strategy/</link>
+      <pubDate>Thu, 31 Jul 2025 09:15:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/blog/git-branching-strategy/</guid>
+      <description>&lt;p&gt;Using Git effectively in team development is crucial for project success. Let&amp;rsquo;s explore popular Git branching strategies and collaboration workflows.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Building Development Environment with Docker</title>
+      <link>http://localhost:1313/en/blog/docker-development-environment/</link>
+      <pubDate>Wed, 30 Jul 2025 11:20:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/blog/docker-development-environment/</guid>
+      <description>&lt;p&gt;During development, you often hear &amp;ldquo;It worked on my machine!&amp;rdquo; Docker can solve this problem and help build consistent development environments.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Essential JavaScript ES6&#43; Features</title>
+      <link>http://localhost:1313/en/blog/javascript-es6-features/</link>
+      <pubDate>Tue, 29 Jul 2025 15:45:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/blog/javascript-es6-features/</guid>
+      <description>&lt;p&gt;JavaScript ES6 (ECMAScript 2015) introduced many new features. Let&amp;rsquo;s explore the essential features commonly used in real-world development.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>REST API Design Best Practices</title>
+      <link>http://localhost:1313/en/blog/rest-api-design/</link>
+      <pubDate>Thu, 07 Apr 2022 05:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/blog/rest-api-design/</guid>
+      <description>&lt;p&gt;Well-designed REST APIs improve developer experience and ensure system scalability. Let&amp;rsquo;s explore REST API design principles and best practices that can be applied in real projects, along with Spring Boot examples.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Microservices Architecture with Spring Boot</title>
+      <link>http://localhost:1313/en/blog/microservices-architecture/</link>
+      <pubDate>Wed, 06 Apr 2022 05:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/blog/microservices-architecture/</guid>
+      <description>&lt;p&gt;To overcome the limitations of monolithic applications and build scalable and flexible systems, microservices architecture is gaining attention. Let&amp;rsquo;s explore how to build microservices that can be used in actual production environments using the Spring Boot and Spring Cloud ecosystem.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Database Design Patterns for Java Applications</title>
+      <link>http://localhost:1313/en/blog/database-design-patterns/</link>
+      <pubDate>Tue, 05 Apr 2022 05:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/blog/database-design-patterns/</guid>
+      <description>&lt;p&gt;Solid database design is essential for efficient Java application development. Let&amp;rsquo;s explore database design patterns that satisfy both performance and maintainability using JPA and Spring Data.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Spring Boot Production Best Practices</title>
+      <link>http://localhost:1313/en/blog/spring-boot-best-practices/</link>
+      <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/blog/spring-boot-best-practices/</guid>
+      <description>&lt;p&gt;To create stable Spring Boot applications in production, you need more than just basic functionality. Let&amp;rsquo;s explore essential practices for building robust, secure, and maintainable applications.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

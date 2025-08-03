@@ -21,7 +21,8 @@
           {{ with .Params.categories }}
           <li class="mr-4 inline-block">
             <i class="fa fa-list mr-2 text-primary"></i>
-            {{ range $i, $e := . }}{{ if $i }}, {{ end }}<a class="hover:text-primary" href="{{ `/categories/` | relLangURL }}{{ . | urlize }}">{{ . }}</a>{{ end }}
+            {{ range $i, $e := . }}{{ if $i }}, {{ end }}<a class="hover:text-primary"
+              href="{{ `/categories/` | relLangURL }}{{ . | urlize }}">{{ . }}</a>{{ end }}
           </li>
           {{ end }}
         </ul>
@@ -35,7 +36,8 @@
             <ul>
               {{ range $i, $e := . }}
               <li class="inline-block">
-                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="{{ `/tags/` | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark"
+                  href="{{ `/tags/` | relLangURL }}{{ . | urlize }}">{{ . }}</a>
               </li>
               {{ end }}
             </ul>
@@ -46,8 +48,8 @@
             {{ partial "social-share" (dict "Context" . "Class" "share-icons" "Title" .Title "Whatsapp" false "Telegram" false "Linkedin" false "Pinterest" false "Tumblr" false "Vk" false "Reddit" false) }}
           </div>
         </div>
-        
-                
+
+
         <!-- comments -->
         {{ if and .Site.Params.disqus.enable .Site.Params.disqus.shortname }}
         <div class="mt-20">
