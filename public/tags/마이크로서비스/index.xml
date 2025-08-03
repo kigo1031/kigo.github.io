@@ -1,1 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>마이크로서비스 on Kigo's Blog - 백엔드 Java 개발자</title><link>https://kigo1031.github.io/kigo.github.io/tags/%EB%A7%88%EC%9D%B4%ED%81%AC%EB%A1%9C%EC%84%9C%EB%B9%84%EC%8A%A4/</link><description>Recent content in 마이크로서비스 on Kigo's Blog - 백엔드 Java 개발자</description><generator>Hugo</generator><language>ko-kr</language><lastBuildDate>Wed, 06 Apr 2022 05:00:00 +0000</lastBuildDate><atom:link href="https://kigo1031.github.io/kigo.github.io/tags/%EB%A7%88%EC%9D%B4%ED%81%AC%EB%A1%9C%EC%84%9C%EB%B9%84%EC%8A%A4/index.xml" rel="self" type="application/rss+xml"/><item><title>Spring Boot를 활용한 마이크로서비스 아키텍처</title><link>https://kigo1031.github.io/kigo.github.io/blog/microservices-architecture/</link><pubDate>Wed, 06 Apr 2022 05:00:00 +0000</pubDate><guid>https://kigo1031.github.io/kigo.github.io/blog/microservices-architecture/</guid><description>&lt;p>모놀리식 애플리케이션의 한계를 넘어 확장 가능하고 유연한 시스템을 구축하기 위해 마이크로서비스 아키텍처가 주목받고 있습니다. Spring Boot와 Spring Cloud 생태계를 활용하여 실제 운영 환경에서 사용할 수 있는 마이크로서비스를 구축하는 방법을 알아보겠습니다.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>마이크로서비스 on Kigo&#39;s Blog - 백엔드 Java 개발자</title>
+    <link>http://localhost:1314/tags/%EB%A7%88%EC%9D%B4%ED%81%AC%EB%A1%9C%EC%84%9C%EB%B9%84%EC%8A%A4/</link>
+    <description>Recent content in 마이크로서비스 on Kigo&#39;s Blog - 백엔드 Java 개발자</description>
+    <generator>Hugo</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Wed, 06 Apr 2022 05:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1314/tags/%EB%A7%88%EC%9D%B4%ED%81%AC%EB%A1%9C%EC%84%9C%EB%B9%84%EC%8A%A4/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spring Boot를 활용한 마이크로서비스 아키텍처</title>
+      <link>http://localhost:1314/blog/microservices-architecture/</link>
+      <pubDate>Wed, 06 Apr 2022 05:00:00 +0000</pubDate>
+      <guid>http://localhost:1314/blog/microservices-architecture/</guid>
+      <description>&lt;p&gt;모놀리식 애플리케이션의 한계를 넘어 확장 가능하고 유연한 시스템을 구축하기 위해 마이크로서비스 아키텍처가 주목받고 있습니다. Spring Boot와 Spring Cloud 생태계를 활용하여 실제 운영 환경에서 사용할 수 있는 마이크로서비스를 구축하는 방법을 알아보겠습니다.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

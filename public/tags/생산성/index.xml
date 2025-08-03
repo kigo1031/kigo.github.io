@@ -1,1 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>생산성 on Kigo's Blog - 백엔드 Java 개발자</title><link>https://kigo1031.github.io/kigo.github.io/tags/%EC%83%9D%EC%82%B0%EC%84%B1/</link><description>Recent content in 생산성 on Kigo's Blog - 백엔드 Java 개발자</description><generator>Hugo</generator><language>ko-kr</language><lastBuildDate>Sat, 02 Aug 2025 14:00:00 +0000</lastBuildDate><atom:link href="https://kigo1031.github.io/kigo.github.io/tags/%EC%83%9D%EC%82%B0%EC%84%B1/index.xml" rel="self" type="application/rss+xml"/><item><title>VS Code 개발 환경 최적화하기</title><link>https://kigo1031.github.io/kigo.github.io/blog/vscode-optimization/</link><pubDate>Sat, 02 Aug 2025 14:00:00 +0000</pubDate><guid>https://kigo1031.github.io/kigo.github.io/blog/vscode-optimization/</guid><description>&lt;p>개발자에게 있어 에디터는 가장 중요한 도구 중 하나입니다. 오늘은 VS Code를 더욱 효율적으로 사용하는 방법들을 공유해보려고 합니다.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>생산성 on Kigo&#39;s Blog - 백엔드 Java 개발자</title>
+    <link>http://localhost:1314/tags/%EC%83%9D%EC%82%B0%EC%84%B1/</link>
+    <description>Recent content in 생산성 on Kigo&#39;s Blog - 백엔드 Java 개발자</description>
+    <generator>Hugo</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Sat, 02 Aug 2025 14:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1314/tags/%EC%83%9D%EC%82%B0%EC%84%B1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VS Code 개발 환경 최적화하기</title>
+      <link>http://localhost:1314/blog/vscode-optimization/</link>
+      <pubDate>Sat, 02 Aug 2025 14:00:00 +0000</pubDate>
+      <guid>http://localhost:1314/blog/vscode-optimization/</guid>
+      <description>&lt;p&gt;개발자에게 있어 에디터는 가장 중요한 도구 중 하나입니다. 오늘은 VS Code를 더욱 효율적으로 사용하는 방법들을 공유해보려고 합니다.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

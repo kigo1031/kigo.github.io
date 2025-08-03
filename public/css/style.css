@@ -1393,15 +1393,6 @@
       }
     }
   }
-  .dark\:hover\:text-dark {
-    &:where(.dark, .dark *) {
-      &:hover {
-        @media (hover: hover) {
-          color: var(--color-dark);
-        }
-      }
-    }
-  }
   .dark\:hover\:text-darkmode-primary {
     &:where(.dark, .dark *) {
       &:hover {
