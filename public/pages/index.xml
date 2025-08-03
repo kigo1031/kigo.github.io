@@ -1,18 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Pages on Kigo&#39;s Blog - 백엔드 Java 개발자</title>
-    <link>http://localhost:1314/pages/</link>
-    <description>Recent content in Pages on Kigo&#39;s Blog - 백엔드 Java 개발자</description>
-    <generator>Hugo</generator>
-    <language>ko-kr</language>
-    <atom:link href="http://localhost:1314/pages/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>개인정보처리방침</title>
-      <link>http://localhost:1314/privacy-policy/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1314/privacy-policy/</guid>
-      <description>&lt;p&gt;&lt;em&gt;최종 업데이트: 2025년 8월 3일&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Kigo의 블로그(&amp;ldquo;우리&amp;rdquo;, &amp;ldquo;저희&amp;rdquo; 또는 &amp;ldquo;당사&amp;rdquo;)를 방문해 주셔서 감사합니다. 본 개인정보처리방침은 귀하가 저희 웹사이트를 방문할 때 정보를 수집, 사용 및 보호하는 방법에 대해 설명합니다.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Pages on Kigo's Blog - 백엔드 Java 개발자</title><link>https://kigo1031.github.io/kigo.github.io/pages/</link><description>Recent content in Pages on Kigo's Blog - 백엔드 Java 개발자</description><generator>Hugo</generator><language>ko-kr</language><atom:link href="https://kigo1031.github.io/kigo.github.io/pages/index.xml" rel="self" type="application/rss+xml"/><item><title>개인정보처리방침</title><link>https://kigo1031.github.io/kigo.github.io/privacy-policy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kigo1031.github.io/kigo.github.io/privacy-policy/</guid><description>&lt;p>&lt;em>최종 업데이트: 2025년 8월 3일&lt;/em>&lt;/p>
+&lt;p>Kigo의 블로그(&amp;ldquo;우리&amp;rdquo;, &amp;ldquo;저희&amp;rdquo; 또는 &amp;ldquo;당사&amp;rdquo;)를 방문해 주셔서 감사합니다. 본 개인정보처리방침은 귀하가 저희 웹사이트를 방문할 때 정보를 수집, 사용 및 보호하는 방법에 대해 설명합니다.&lt;/p></description></item></channel></rss>
