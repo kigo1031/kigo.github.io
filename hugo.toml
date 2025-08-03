@@ -1,6 +1,6 @@
 ######################## default configuration ####################
 # The base URL of your site (required). This will be prepended to all relative URLs.
-baseURL = "https://kigo1031.github.io"
+baseURL = "https://kigo1031.github.io/kigo.github.io"
 # Title of your website (required).
 title = "Kigo's Blog - 백엔드 Java 개발자"
 # Your theme name
@@ -75,11 +75,11 @@ resampleFilter = "Lanczos"
 [caches]
 [caches.images]
 dir = ":resourceDir/_gen"
-maxAge = "720h"
+maxAge = "1h"
 
 [caches.assets]
 dir = ":resourceDir/_gen"
-maxAge = "720h"
+maxAge = "1h"
 
 
 ############################ Markup ##############################
