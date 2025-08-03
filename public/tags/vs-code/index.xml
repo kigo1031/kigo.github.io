@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>VS Code on Kigo&#39;s Blog</title>
+    <title>VS Code on Kigo&#39;s Blog - 백엔드 Java 개발자</title>
     <link>http://localhost:1313/tags/vs-code/</link>
-    <description>Recent content in VS Code on Kigo&#39;s Blog</description>
+    <description>Recent content in VS Code on Kigo&#39;s Blog - 백엔드 Java 개발자</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
     <lastBuildDate>Sat, 02 Aug 2025 14:00:00 +0000</lastBuildDate>

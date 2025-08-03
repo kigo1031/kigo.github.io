@@ -79,8 +79,11 @@
 
 
 
+  
+  
 
-<title>Kigo&#39;s Blog</title>
+
+<title>Posts by Tag</title>
 
 
 
@@ -105,14 +108,14 @@
 
   <meta
     name="keywords"
-    content="Blog, Development, Programming, Tech" />
+    content="Java, Spring, Backend, 개발, 프로그래밍, Quarkus, 데이터베이스, JPA, 백엔드개발자, Kigo" />
 
 
 
 
 <meta
   name="description"
-  content="Kigo&#39;s personal blog about development and technology" />
+  content="Check out blog posts organized by tags" />
 
 
 
@@ -123,6 +126,7 @@
 
 
 
+  
   
 
 
@@ -187,14 +191,14 @@
 
 
 
-<meta property="og:title" content="Kigo&#39;s Blog" />
-<meta property="og:description" content="Kigo&#39;s personal blog about development and technology" />
+<meta property="og:title" content="Posts by Tag" />
+<meta property="og:description" content="Check out blog posts organized by tags" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://localhost:1313/en/tags/" />
 
 
-<meta name="twitter:title" content="Kigo&#39;s Blog" />
-<meta name="twitter:description" content="Kigo&#39;s personal blog about development and technology" />
+<meta name="twitter:title" content="Posts by Tag" />
+<meta name="twitter:description" content="Check out blog posts organized by tags" />
 
 
 
@@ -466,21 +470,7 @@
               class="nav-link "
               
               href="/en/"
-              >홈</a
-            >
-          </li>
-        
-      
-        
-        
-        
-        
-          <li class="nav-item">
-            <a
-              class="nav-link "
-              
-              href="/en/about"
-              >소개</a
+              >Home</a
             >
           </li>
         
@@ -494,21 +484,7 @@
               class="nav-link "
               
               href="/en/blog"
-              >블로그</a
-            >
-          </li>
-        
-      
-        
-        
-        
-        
-          <li class="nav-item">
-            <a
-              class="nav-link "
-              
-              href="/en/contact"
-              >연락하기</a
+              >Blog</a
             >
           </li>
         
@@ -527,12 +503,8 @@
                 
                 
                 
-              
-                
-                
-                
                inline-flex items-center">
-              페이지
+              Pages
               <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20">
                 <path
                   d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
@@ -547,19 +519,8 @@
                   <a
                     class="nav-dropdown-link "
                     
-                    href="/en/authors">
-                    작성자
-                  </a>
-                </li>
-              
-                
-                
-                <li class="nav-dropdown-item">
-                  <a
-                    class="nav-dropdown-link "
-                    
                     href="/en/categories">
-                    카테고리
+                    Categories
                   </a>
                 </li>
               
@@ -570,7 +531,7 @@
                     class="nav-dropdown-link "
                     
                     href="/en/tags">
-                    태그
+                    Tags
                   </a>
                 </li>
               
@@ -578,14 +539,6 @@
           </li>
         
       
-      
-        <li class="mt-4 inline-block lg:hidden">
-          <a
-            class="btn btn-outline-primary btn-sm"
-            href="/en/contact">
-            get a quote
-          </a>
-        </li>
       
     </ul>
 
@@ -647,7 +600,7 @@
         selected
       
         >
-        En
+        English
       </option>
     
   
@@ -733,12 +686,6 @@
 
 
       
-      
-        <a
-          href="/en/contact"
-          class="btn btn-outline-primary btn-sm hidden lg:inline-block">
-          get a quote
-        </a>
       
     </div>
   </nav>
@@ -867,17 +814,31 @@
 
 
 
-
 <ul class="mt-6 inline-flex space-x-1 capitalize">
   <li>
     <a class="text-primary dark:text-darkmode-primary" href="http://localhost:1313/en/">
+      
       Home
+      
+    </a>
+    <span class="inlin-block mr-1">/</span>
+  </li>
+
+  
+  <li>
+    <a class="text-primary dark:text-darkmode-primary" href="/en/blog">
+      
+      Blog
+      
     </a>
     <span class="inlin-block mr-1">/</span>
   </li>
   
-    
+
   
+  
+  
+
   <li>
     <span class="text-primary dark:text-darkmode-primary">
       Tags
@@ -901,9 +862,20 @@
           
             <li class="m-3 inline-block">
               <a
-                href="http://localhost:1313/en/tags/tailwind/"
+                href="http://localhost:1313/en/tags/java/"
                 class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
-                Tailwind
+                Java
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  4
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/en/tags/backend/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                Backend
                 <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
                   3
                 </span>
@@ -912,9 +884,9 @@
           
             <li class="m-3 inline-block">
               <a
-                href="http://localhost:1313/en/tags/technology/"
+                href="http://localhost:1313/en/tags/database/"
                 class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
-                Technology
+                Database
                 <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
                   2
                 </span>
@@ -923,9 +895,75 @@
           
             <li class="m-3 inline-block">
               <a
-                href="http://localhost:1313/en/tags/nextjs/"
+                href="http://localhost:1313/en/tags/development-environment/"
                 class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
-                Nextjs
+                Development Environment
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  2
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/en/tags/frontend/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                Frontend
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  2
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/en/tags/javascript/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                JavaScript
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  2
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/en/tags/jpa/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                JPA
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  2
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/en/tags/quarkus/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                Quarkus
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  2
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/en/tags/spring-boot/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                Spring Boot
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  2
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/en/tags/api-design/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                API Design
                 <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
                   1
                 </span>
@@ -934,9 +972,9 @@
           
             <li class="m-3 inline-block">
               <a
-                href="http://localhost:1313/en/tags/silicon/"
+                href="http://localhost:1313/en/tags/architecture/"
                 class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
-                Silicon
+                Architecture
                 <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
                   1
                 </span>
@@ -945,9 +983,306 @@
           
             <li class="m-3 inline-block">
               <a
-                href="http://localhost:1313/en/tags/software/"
+                href="http://localhost:1313/en/tags/best-practices/"
                 class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
-                Software
+                Best Practices
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/en/tags/branching-strategy/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                Branching Strategy
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/en/tags/cloud-native/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                Cloud Native
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/en/tags/collaboration/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                Collaboration
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/en/tags/container/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                Container
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/en/tags/design-patterns/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                Design Patterns
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/en/tags/devops/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                DevOps
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/en/tags/distributed-systems/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                Distributed Systems
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/en/tags/docker/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                Docker
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/en/tags/es6/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                ES6
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/en/tags/extensions/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                Extensions
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/en/tags/git/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                Git
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/en/tags/graalvm/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                GraalVM
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/en/tags/hibernate/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                Hibernate
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/en/tags/hooks/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                Hooks
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/en/tags/http/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                HTTP
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/en/tags/kubernetes/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                Kubernetes
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/en/tags/microservices/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                Microservices
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/en/tags/modern-javascript/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                Modern JavaScript
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/en/tags/postgresql/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                PostgreSQL
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/en/tags/productivity/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                Productivity
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/en/tags/react/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                React
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/en/tags/rest-api/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                REST API
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/en/tags/spring-cloud/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                Spring Cloud
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/en/tags/sql/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                SQL
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/en/tags/version-control/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                Version Control
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/en/tags/vs-code/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                VS Code
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/en/tags/web-services/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                Web Services
                 <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
                   1
                 </span>
@@ -1026,19 +1361,9 @@
               <a
                 
                 href="
-                  /en/about
-                "
-                >소개</a
-              >
-            </li>
-          
-            <li class="m-3 inline-block">
-              <a
-                
-                href="
                   /en/blog
                 "
-                >블로그</a
+                >Blog</a
               >
             </li>
           
@@ -1046,9 +1371,9 @@
               <a
                 
                 href="
-                  /en/contact
+                  /en/privacy-policy
                 "
-                >연락하기</a
+                >Privacy Policy</a
               >
             </li>
           
@@ -1067,26 +1392,6 @@
               </a>
             </li>
           
-            <li>
-              <a
-                target="_blank"
-                aria-label="linkedin"
-                rel="nofollow noopener"
-                href="https://www.linkedin.com/">
-                <i class="fab fa-linkedin"></i>
-              </a>
-            </li>
-          
-            <li>
-              <a
-                target="_blank"
-                aria-label="twitter"
-                rel="nofollow noopener"
-                href="https://twitter.com/">
-                <i class="fab fa-twitter"></i>
-              </a>
-            </li>
-          
         </ul>
       </div>
     </div>
@@ -1095,16 +1400,7 @@
     <div
       class="text-text-light dark:text-darkmode-text-light container text-center">
       <p>
-        Designed &amp; Developed by <a href="https://zeon.studio"
-
-
-
-
- target="_blank"
- 
-
-
->Zeon Studio</a>
+        Creating tomorrow, one line at a time
       </p>
     </div>
   </div>

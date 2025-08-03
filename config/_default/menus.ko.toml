@@ -7,17 +7,12 @@ url = "/"
 weight = 1
 
 [[main]]
-name = "소개"
-url = "/about"
+name = "블로그"
+url = "/blog"
 weight = 2
 
 [[main]]
-name = "블로그"
-url = "/blog"
 weight = 3
-
-[[main]]
-weight = 4
 name = "페이지"
 
 [[main]]
@@ -32,16 +27,11 @@ url = "/tags"
 
 # 푸터 메뉴
 [[footer]]
-name = "소개"
-url = "/about"
-weight = 1
-
-[[footer]]
 name = "블로그"
 url = "/blog"
-weight = 2
+weight = 1
 
 [[footer]]
 name = "개인정보처리방침"
 url = "/privacy-policy"
-weight = 3
+weight = 2

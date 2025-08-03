@@ -1,40 +1,89 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Kigo&#39;s Blog</title>
+    <title>Kigo&#39;s Blog on Kigo&#39;s Blog - 백엔드 Java 개발자</title>
     <link>http://localhost:1313/en/</link>
-    <description>Recent content on Kigo&#39;s Blog</description>
+    <description>Recent content in Kigo&#39;s Blog on Kigo&#39;s Blog - 백엔드 Java 개발자</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 04 Apr 2022 05:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 03 Aug 2025 13:00:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/en/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>How to build an Application with modern Technology</title>
+      <title>Getting Started with Cloud Native Java Development using Quarkus</title>
+      <link>http://localhost:1313/en/blog/quarkus-cloud-native-java/</link>
+      <pubDate>Sun, 03 Aug 2025 13:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/en/blog/quarkus-cloud-native-java/</guid>
+      <description>&lt;p&gt;Recently, there&amp;rsquo;s been a lot of discussion about the limitations of Java applications in cloud-native environments. Particularly, &lt;strong&gt;high memory usage&lt;/strong&gt; and &lt;strong&gt;slow startup times&lt;/strong&gt; have made Java somewhat disadvantageous in containerized environments. &lt;strong&gt;Quarkus&lt;/strong&gt; emerged to solve these exact problems.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Complete Quarkus JPA Guide - From Entity to Transaction</title>
+      <link>http://localhost:1313/en/blog/quarkus-jpa-guide/</link>
+      <pubDate>Sun, 03 Aug 2025 10:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/en/blog/quarkus-jpa-guide/</guid>
+      <description>&lt;p&gt;When transitioning from Spring Boot to Quarkus, one of the first questions that comes to mind is &amp;ldquo;How do I handle database integration?&amp;rdquo; Fortunately, Quarkus provides excellent JPA support, often with better performance and simpler configuration.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Optimizing VS Code Development Environment</title>
+      <link>http://localhost:1313/en/blog/vscode-optimization/</link>
+      <pubDate>Sat, 02 Aug 2025 14:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/blog/vscode-optimization/</guid>
+      <description>&lt;p&gt;For developers, the editor is one of the most important tools. Today, I&amp;rsquo;d like to share ways to use VS Code more efficiently.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>React Functional Components and Hooks Guide</title>
+      <link>http://localhost:1313/en/blog/react-hooks-guide/</link>
+      <pubDate>Fri, 01 Aug 2025 16:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/blog/react-hooks-guide/</guid>
+      <description>&lt;p&gt;React Hooks, introduced in React 16.8, enable state management and lifecycle features in functional components. Let&amp;rsquo;s explore the essential Hooks and their usage.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Git Branching Strategies and Collaboration Workflows</title>
+      <link>http://localhost:1313/en/blog/git-branching-strategy/</link>
+      <pubDate>Thu, 31 Jul 2025 09:15:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/blog/git-branching-strategy/</guid>
+      <description>&lt;p&gt;Using Git effectively in team development is crucial for project success. Let&amp;rsquo;s explore popular Git branching strategies and collaboration workflows.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Building Development Environment with Docker</title>
+      <link>http://localhost:1313/en/blog/docker-development-environment/</link>
+      <pubDate>Wed, 30 Jul 2025 11:20:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/blog/docker-development-environment/</guid>
+      <description>&lt;p&gt;During development, you often hear &amp;ldquo;It worked on my machine!&amp;rdquo; Docker can solve this problem and help build consistent development environments.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Essential JavaScript ES6&#43; Features</title>
+      <link>http://localhost:1313/en/blog/javascript-es6-features/</link>
+      <pubDate>Tue, 29 Jul 2025 15:45:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/blog/javascript-es6-features/</guid>
+      <description>&lt;p&gt;JavaScript ES6 (ECMAScript 2015) introduced many new features. Let&amp;rsquo;s explore the essential features commonly used in real-world development.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>REST API Design Best Practices</title>
+      <link>http://localhost:1313/en/blog/post-4/</link>
+      <pubDate>Thu, 07 Apr 2022 05:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/blog/post-4/</guid>
+      <description>&lt;p&gt;Well-designed REST APIs are crucial for building maintainable and scalable applications. Let&amp;rsquo;s explore the essential principles and best practices for creating robust APIs.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Microservices Architecture with Spring Boot</title>
+      <link>http://localhost:1313/en/blog/post-3/</link>
+      <pubDate>Wed, 06 Apr 2022 05:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/blog/post-3/</guid>
+      <description>&lt;p&gt;Microservices architecture has become the preferred approach for building scalable, maintainable applications. Let&amp;rsquo;s explore how to implement microservices using Spring Boot and Spring Cloud.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Database Design Patterns for Java Applications</title>
+      <link>http://localhost:1313/en/blog/post-2/</link>
+      <pubDate>Tue, 05 Apr 2022 05:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/blog/post-2/</guid>
+      <description>&lt;p&gt;Effective database design is crucial for building scalable Java applications. Let&amp;rsquo;s explore essential patterns and techniques that every backend developer should know.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Spring Boot Best Practices for Production</title>
       <link>http://localhost:1313/en/blog/post-1/</link>
       <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
       <guid>http://localhost:1313/en/blog/post-1/</guid>
-      <description>&lt;p&gt;Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>How to build an Application with modern Technology</title>
-      <link>http://localhost:1313/en/blog/post-2/</link>
-      <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/blog/post-2/</guid>
-      <description>&lt;p&gt;Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>How to build an Application with modern Technology</title>
-      <link>http://localhost:1313/en/blog/post-3/</link>
-      <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/blog/post-3/</guid>
-      <description>&lt;p&gt;Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>How to build an Application with modern Technology</title>
-      <link>http://localhost:1313/en/blog/post-4/</link>
-      <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/blog/post-4/</guid>
-      <description>&lt;p&gt;Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Building production-ready Spring Boot applications requires more than just basic functionality. Let&amp;rsquo;s explore essential practices that ensure your applications are robust, secure, and maintainable.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Elements</title>
@@ -51,11 +100,11 @@
       <description>&lt;p&gt;lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostr navigation et dolore magna aliqua.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Privacy</title>
+      <title>Privacy Policy</title>
       <link>http://localhost:1313/en/privacy-policy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/en/privacy-policy/</guid>
-      <description>&lt;h4 id=&#34;responsibility-of-contributors&#34;&gt;Responsibility of Contributors&lt;/h4&gt;&#xA;&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat quisque aliquam sagittis. Sem turpis sed viverra massa gravida pharetra. Non dui dolor potenti eu dignissim fusce. Ultrices amet, in curabitur a arcu a lectus morbi id. Iaculis erat sagittis in tortor cursus. Molestie urna eu tortor, erat scelerisque eget. Nunc hendrerit sed interdum lacus. Lorem quis viverra sed&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;em&gt;Last updated: August 3, 2025&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Thank you for visiting Kigo&amp;rsquo;s Blog (&amp;ldquo;we,&amp;rdquo; &amp;ldquo;our,&amp;rdquo; or &amp;ldquo;us&amp;rdquo;). This Privacy Policy explains how we collect, use, and protect your information when you visit our website.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Ready to build your next project with Hugo?</title>

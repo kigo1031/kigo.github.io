@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>프론트엔드 on Kigo&#39;s Blog</title>
+    <title>프론트엔드 on Kigo&#39;s Blog - 백엔드 Java 개발자</title>
     <link>http://localhost:1313/categories/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C/</link>
-    <description>Recent content in 프론트엔드 on Kigo&#39;s Blog</description>
+    <description>Recent content in 프론트엔드 on Kigo&#39;s Blog - 백엔드 Java 개발자</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
     <lastBuildDate>Tue, 29 Jul 2025 15:45:00 +0000</lastBuildDate>

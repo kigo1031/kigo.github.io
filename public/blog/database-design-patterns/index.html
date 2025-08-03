@@ -1,0 +1,2043 @@
+<!doctype html>
+<html
+  itemscope
+  class=""
+  lang="ko-kr"
+  itemtype="http://schema.org/WebPage">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+    <meta charset="utf-8" />
+
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, maximum-scale=5" />
+
+
+<meta name="theme-name" content="hugoplate" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="shortcut icon" href="/images/favicon_hu_4384881fdc2d307e.png" type="image/x-icon">
+<link rel="icon" href="/images/favicon_hu_4384881fdc2d307e.png" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="48x48" href="/images/favicon_hu_79c3559174e61a5e.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/images/favicon_hu_4384881fdc2d307e.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/images/favicon_hu_cfffba76e19e8ff2.png">
+
+
+
+
+
+
+
+
+<link rel="manifest" href="/manifest.webmanifest" />
+<meta
+  name="msapplication-TileColor"
+  content="#ddd" />
+<meta
+  name="theme-color"
+  content="#ffffff" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<title>Java 애플리케이션을 위한 데이터베이스 설계 패턴</title>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <meta
+    name="keywords"
+    content="Java, Spring, Backend, 개발, 프로그래밍, Quarkus, 데이터베이스, JPA, 백엔드개발자, Kigo" />
+
+
+
+
+<meta
+  name="description"
+  content="JPA와 Spring Data를 활용한 효율적인 데이터베이스 설계 패턴과 최적화 기법들을 알아봅니다." />
+
+
+
+  <meta name="author" content="Kigo" />
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+
+
+  
+  
+    
+    
+      
+    
+
+    
+
+
+    
+    
+
+
+    
+    
+      
+      
+      
+        <meta property="og:image" content="http://localhost:1313/images/service-2.png" />
+        <meta name="twitter:image" content="http://localhost:1313/images/service-2.png" />
+        <meta
+          name="twitter:card"
+          content="summary_large_image" />
+      
+      
+      <meta property="og:image:width" content="548" />
+      <meta property="og:image:height" content="526" />
+    
+
+
+    
+    <meta
+      property="og:image:type"
+      content="image/.png" />
+  
+
+
+  
+
+
+
+
+
+<meta property="og:title" content="Java 애플리케이션을 위한 데이터베이스 설계 패턴" />
+<meta property="og:description" content="JPA와 Spring Data를 활용한 효율적인 데이터베이스 설계 패턴과 최적화 기법들을 알아봅니다." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/database-design-patterns/" />
+
+
+<meta name="twitter:title" content="Java 애플리케이션을 위한 데이터베이스 설계 패턴" />
+<meta name="twitter:description" content="JPA와 Spring Data를 활용한 효율적인 데이터베이스 설계 패턴과 최적화 기법들을 알아봅니다." />
+
+
+
+  <meta name="twitter:creator" content="@Kigo" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  let indexURL = "http://localhost:1313/searchindex.json";
+  let includeSectionsInSearch = ["blog"];
+  let search_no_results = "0 results for";
+  let search_initial_message = "";
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="preconnect" href="https://use.fontawesome.com" crossorigin />
+<link rel="preconnect" href="//cdnjs.cloudflare.com" />
+<link rel="preconnect" href="//www.googletagmanager.com" />
+<link rel="preconnect" href="//www.google-analytics.com" />
+<link rel="dns-prefetch" href="https://use.fontawesome.com" />
+<link rel="dns-prefetch" href="//ajax.googleapis.com" />
+<link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
+<link rel="dns-prefetch" href="//www.googletagmanager.com" />
+<link rel="dns-prefetch" href="//www.google-analytics.com" />
+<link rel="dns-prefetch" href="//fonts.googleapis.com" />
+<link rel="dns-prefetch" href="//connect.facebook.net" />
+<link rel="dns-prefetch" href="//platform.linkedin.com" />
+<link rel="dns-prefetch" href="//platform.twitter.com" />
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script>
+  (function () {
+    const googleFont = document.createElement("link");
+    googleFont.href = "https://fonts.googleapis.com/css2?family=Heebo:wght@400;600&family=Signika:wght@500;700&display=swap";
+    googleFont.type = "text/css";
+    googleFont.rel = "stylesheet";
+    document.head.appendChild(googleFont);
+  })();
+</script>
+
+
+
+
+
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link
+  href="/css/style.css"
+  integrity=""
+  rel="stylesheet" />
+
+
+<link
+  defer
+  async
+  rel="stylesheet"
+  href="/css/style-lazy.css"
+  integrity=""
+  media="print"
+  onload="this.media='all'; this.onload=null;" />
+
+
+  </head>
+
+  <body>
+    
+    
+      
+
+
+
+
+
+      
+      <div
+  class="fixed left-0 top-0 z-50 flex w-[30px] items-center justify-center bg-gray-200 py-[2.5px] text-[12px] uppercase text-black sm:bg-red-200 md:bg-yellow-200 lg:bg-green-200 xl:bg-blue-200 2xl:bg-pink-200">
+  <span class="block sm:hidden">all</span>
+  <span class="hidden sm:block md:hidden">sm</span>
+  <span class="hidden md:block lg:hidden">md</span>
+  <span class="hidden lg:block xl:hidden">lg</span>
+  <span class="hidden xl:block 2xl:hidden">xl</span>
+  <span class="hidden 2xl:block">2xl</span>
+</div>
+
+    
+
+
+    
+    
+
+
+
+
+
+    
+    <header
+  class="header sticky top-0 z-30">
+  <nav class="navbar container">
+    
+    <div class="order-0">
+      
+      <a class="navbar-brand block" href="/">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+    <img
+      fetchpriority="high"
+      decoding="async"
+      src="http://localhost:1313/images/logo-kigo.svg"
+      alt="Kigo&#39;s Blog"
+      class="img img-light"
+      height="32"
+      width="160" />
+    <img
+      fetchpriority="high"
+      decoding="async"
+      src="http://localhost:1313/images/logo-kigo-darkmode.svg"
+      alt="Kigo&#39;s Blog"
+      class="img img-dark"
+      height="32"
+      width="160" />
+  
+
+
+
+      </a>
+    </div>
+    
+    <input id="nav-toggle" type="checkbox" class="hidden" />
+    <label
+      for="nav-toggle"
+      class="order-3 cursor-pointer flex items-center lg:hidden text-text-dark dark:text-white lg:order-1">
+      <svg id="show-button" class="h-6 fill-current block" viewBox="0 0 20 20">
+        <title>Menu Open</title>
+        <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
+      </svg>
+      <svg id="hide-button" class="h-6 fill-current hidden" viewBox="0 0 20 20">
+        <title>Menu Close</title>
+        <polygon
+          points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
+          transform="rotate(45 10 10)"></polygon>
+      </svg>
+    </label>
+    
+
+    
+    <ul
+      id="nav-menu"
+      class="navbar-nav order-3 hidden lg:flex w-full pb-6 lg:order-1 lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8">
+      
+      
+        
+        
+        
+        
+          <li class="nav-item">
+            <a
+              class="nav-link "
+              
+              href="/"
+              >홈</a
+            >
+          </li>
+        
+      
+        
+        
+        
+        
+          <li class="nav-item">
+            <a
+              class="nav-link "
+              
+              href="/blog"
+              >블로그</a
+            >
+          </li>
+        
+      
+        
+        
+        
+        
+          <li class="nav-item nav-dropdown group relative">
+            <span
+              class="nav-link 
+                
+                
+                
+              
+                
+                
+                
+               inline-flex items-center">
+              페이지
+              <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20">
+                <path
+                  d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+              </svg>
+            </span>
+            <ul
+              class="nav-dropdown-list lg:group-hover:visible lg:group-hover:opacity-100">
+              
+                
+                
+                <li class="nav-dropdown-item">
+                  <a
+                    class="nav-dropdown-link "
+                    
+                    href="/categories">
+                    카테고리
+                  </a>
+                </li>
+              
+                
+                
+                <li class="nav-dropdown-item">
+                  <a
+                    class="nav-dropdown-link "
+                    
+                    href="/tags">
+                    태그
+                  </a>
+                </li>
+              
+            </ul>
+          </li>
+        
+      
+      
+    </ul>
+
+    <div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
+      
+        
+          <button
+            aria-label="search"
+            class="border-border text-text-dark hover:text-primary
+            dark:border-darkmode-border mr-5 inline-block border-r pr-5
+            text-xl dark:text-white cursor-pointer dark:hover:text-darkmode-primary
+            "
+            data-target="search-modal">
+            <i class="fa-solid fa-search"></i>
+          </button>
+        
+      
+
+      
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+
+
+<select class="mr-5 pl-2 py-1 dark:bg-darkmode-light rounded" onchange="location = this.value">
+  
+    
+    
+    
+      <option
+        id="ko"
+        value="http://localhost:1313/blog/database-design-patterns/"
+      
+        selected
+      
+        >
+        한국어
+      </option>
+    
+  
+    
+    
+    
+      <option
+        id="en"
+        value="http://localhost:1313/en/"
+      
+        >
+        English
+      </option>
+    
+  
+</select>
+
+      
+
+
+  <div class="theme-switcher mr-5 invisible">
+    <input id="theme-switcher" data-theme-switcher type="checkbox" />
+    <label for="theme-switcher">
+      <span class="sr-only">theme switcher</span>
+      <span>
+        
+        <svg
+          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 opacity-100 dark:opacity-0"
+          viewBox="0 0 56 56"
+          fill="#fff"
+          height="16"
+          width="16">
+          <path
+            d="M30 4.6c0-1-.9-2-2-2a2 2 0 0 0-2 2v5c0 1 .9 2 2 2s2-1 2-2Zm9.6 9a2 2 0 0 0 0 2.8c.8.8 2 .8 2.9 0L46 13a2 2 0 0 0 0-2.9 2 2 0 0 0-3 0Zm-26 2.8c.7.8 2 .8 2.8 0 .8-.7.8-2 0-2.9L13 10c-.7-.7-2-.8-2.9 0-.7.8-.7 2.1 0 3ZM28 16a12 12 0 0 0-12 12 12 12 0 0 0 12 12 12 12 0 0 0 12-12 12 12 0 0 0-12-12Zm23.3 14c1.1 0 2-.9 2-2s-.9-2-2-2h-4.9a2 2 0 0 0-2 2c0 1.1 1 2 2 2ZM4.7 26a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4.9c1 0 2-.9 2-2s-1-2-2-2Zm37.8 13.6a2 2 0 0 0-3 0 2 2 0 0 0 0 2.9l3.6 3.5a2 2 0 0 0 2.9 0c.8-.8.8-2.1 0-3ZM10 43.1a2 2 0 0 0 0 2.9c.8.7 2.1.8 3 0l3.4-3.5c.8-.8.8-2.1 0-2.9-.8-.8-2-.8-2.9 0Zm20 3.4c0-1.1-.9-2-2-2a2 2 0 0 0-2 2v4.9c0 1 .9 2 2 2s2-1 2-2Z" />
+        </svg>
+        
+        <svg
+          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 opacity-0 dark:opacity-100"
+          viewBox="0 0 24 24"
+          fill="none"
+          height="16"
+          width="16">
+          <path
+            fill="#000"
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M8.2 2.2c1-.4 2 .6 1.6 1.5-1 3-.4 6.4 1.8 8.7a8.4 8.4 0 0 0 8.7 1.8c1-.3 2 .5 1.5 1.5v.1a10.3 10.3 0 0 1-9.4 6.2A10.3 10.3 0 0 1 3.2 6.7c1-2 2.9-3.5 4.9-4.4Z" />
+        </svg>
+      </span>
+    </label>
+  </div>
+
+  
+  <script>
+    var darkMode = localStorage.getItem("theme") === "dark";
+
+    if (localStorage.getItem("theme") === null) {
+      darkMode = false;
+
+      
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        darkMode = true;
+      }
+      
+    }
+
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+
+    
+    document.addEventListener("DOMContentLoaded", () => {
+      var themeSwitch = document.querySelectorAll("[data-theme-switcher]");
+      var themeSwitcherContainer = document.querySelector('.theme-switcher');
+
+      [].forEach.call(themeSwitch, function (ts) {
+        ts.checked = darkMode;
+        ts.addEventListener("click", () => {
+          document.documentElement.classList.toggle("dark");
+          localStorage.setItem(
+            "theme",
+            document.documentElement.classList.contains("dark") ? "dark" : "light"
+          );
+        });
+      });
+
+      
+      themeSwitcherContainer.classList.remove("invisible");
+    });
+  </script>
+
+
+
+
+      
+      
+    </div>
+  </nav>
+</header>
+
+    
+
+
+
+
+  
+    <div
+      class="search-modal "
+      aria-hidden="true"
+      style="--color-primary: #121212">
+      <div data-target="close-search-modal" class="search-modal-overlay"></div>
+      <div
+        class="search-wrapper"
+        data-image="true"
+        data-description="true"
+        data-tags="true"
+        data-categories="true">
+        <div class="search-wrapper-header">
+          <label for="search-modal-input" style="margin-top:-1px">
+            <span class="sr-only">search icon</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+              height="18"
+              width="18"
+              class="search-icon"
+              data-type="search">
+              <path
+                fill="currentColor"
+                d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+              height="18"
+              width="18"
+              class="search-reset"
+              data-type="reset">
+              <path
+                fill="currentColor"
+                d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z" />
+            </svg>
+          </label>
+          <input
+            id="search-modal-input"
+            type="text"
+            data-search-input
+            autocomplete="off"
+            aria-label="Search"
+            placeholder="" />
+        </div>
+        <div class="search-wrapper-body">
+          <div class="search-result" data-search-result></div>
+          <span class="search-result-empty">
+            
+          </span>
+        </div>
+        <div class="search-wrapper-footer">
+          <span>
+            <kbd>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                fill="currentColor"
+                viewBox="0 0 16 16">
+                <path
+                  d="M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z" />
+              </svg>
+            </kbd>
+            <kbd>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                fill="currentColor"
+                style="margin-top:1px;"
+                viewBox="0 0 16 16">
+                <path
+                  d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z" />
+              </svg>
+            </kbd>
+            to navigate
+          </span>
+          <span>
+            <kbd>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="12"
+                height="12"
+                fill="currentColor"
+                style="display:inline-block;"
+                viewBox="0 0 16 16">
+                <path
+                  fill-rule="evenodd"
+                  d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z" />
+              </svg>
+            </kbd>
+            to select
+          </span>
+          <span class="search-result-info"></span>
+          <span data-target="close-search-modal">
+            <kbd>ESC</kbd> to close
+          </span>
+        </div>
+      </div>
+    </div>
+  
+
+
+
+
+    <main>
+      
+  <section class="section pt-7">
+    <div class="container">
+      <div class="row justify-center">
+        <article class="lg:col-10">
+          
+          
+            <div class="mb-10">
+              
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  
+    
+      
+    
+
+
+    
+    
+
+
+    
+    
+      
+      
+    
+    
+    
+
+
+    
+    
+      
+      
+        
+
+        
+        
+        
+        
+        
+        
+        
+
+
+        
+        
+
+
+        <picture>
+          <source
+            
+              srcset="/images/service-2_hu_ef404af6d6285ca6.webp"
+            
+            media="(max-width: 575px)" />
+          <source
+            
+              srcset="/images/service-2_hu_e7837a9049f27340.webp"
+            
+            media="(max-width: 767px)" />
+          <source
+            
+              srcset="/images/service-2_hu_1a4d5db26e1ebe3b.webp"
+            
+            media="(max-width: 991px)" />
+          <source
+            
+              srcset="/images/service-2_hu_b61044daa34eb1fa.webp"
+             />
+          <img
+            
+              loading="lazy" decoding="async"
+              src="/images/service-2_hu_b8c16cba52ad70d0.png"
+            class=" w-full rounded img"
+            alt="Java 애플리케이션을 위한 데이터베이스 설계 패턴"
+            width="548"
+            height="526" />
+        </picture>
+      
+      
+    
+    
+  
+
+
+  
+
+
+            </div>
+          
+          <h1 class="h2 mb-4">
+            Java 애플리케이션을 위한 데이터베이스 설계 패턴
+          </h1>
+          <ul class="mb-4">
+            <li class="mr-4 inline-block">
+              <a
+                href="/authors/kigo/">
+                <i class="fa-regular fa-circle-user mr-2"></i
+                >Kigo
+              </a>
+            </li>
+            
+            
+              <li class="mr-4 inline-block">
+                <i class="fa-regular fa-folder mr-2"></i>
+                
+                  <a
+                    href="/categories/%eb%b0%b1%ec%97%94%eb%93%9c/"
+                    class=""
+                    >백엔드
+                      ,
+                    
+                  </a>
+                
+                  <a
+                    href="/categories/%eb%8d%b0%ec%9d%b4%ed%84%b0%eb%b2%a0%ec%9d%b4%ec%8a%a4/"
+                    class=""
+                    >데이터베이스
+                  </a>
+                
+              </li>
+            
+            <li class="mr-4 inline-block">
+              <i class="fa-regular fa-clock mr-2"></i>
+              2022년 4월 5일
+            </li>
+          </ul>
+          <div class="content mb-10">
+            
+
+ 
+  
+
+<details open class="table-of-content blog">
+  <summary>
+    
+      Table Of Contents
+    
+  </summary>
+  <nav id="TableOfContents">
+  <ol>
+    <li><a href="#엔티티-설계-원칙">엔티티 설계 원칙</a>
+      <ol>
+        <li><a href="#기본-엔티티-구조">기본 엔티티 구조</a></li>
+        <li><a href="#상속-매핑-전략">상속 매핑 전략</a></li>
+      </ol>
+    </li>
+    <li><a href="#연관관계-매핑-패턴">연관관계 매핑 패턴</a>
+      <ol>
+        <li><a href="#일대다-연관관계-최적화">일대다 연관관계 최적화</a></li>
+        <li><a href="#다대다-연관관계-with-추가-속성">다대다 연관관계 with 추가 속성</a></li>
+      </ol>
+    </li>
+    <li><a href="#repository-패턴">Repository 패턴</a>
+      <ol>
+        <li><a href="#커스텀-repository-구현">커스텀 Repository 구현</a></li>
+      </ol>
+    </li>
+    <li><a href="#성능-최적화-패턴">성능 최적화 패턴</a>
+      <ol>
+        <li><a href="#페이징과-정렬">페이징과 정렬</a></li>
+        <li><a href="#배치-처리-최적화">배치 처리 최적화</a></li>
+        <li><a href="#캐싱-전략">캐싱 전략</a></li>
+      </ol>
+    </li>
+    <li><a href="#트랜잭션-관리">트랜잭션 관리</a>
+      <ol>
+        <li><a href="#선언적-트랜잭션">선언적 트랜잭션</a></li>
+        <li><a href="#프로그래밍적-트랜잭션">프로그래밍적 트랜잭션</a></li>
+      </ol>
+    </li>
+    <li><a href="#감사auditing-기능">감사(Auditing) 기능</a></li>
+  </ol>
+</nav>
+</details>
+
+            <p>효율적인 Java 애플리케이션 개발을 위해서는 견고한 데이터베이스 설계가 필수입니다. JPA와 Spring Data를 활용하여 성능과 유지보수성을 모두 만족하는 데이터베이스 설계 패턴들을 알아보겠습니다.</p>
+<h2 id="엔티티-설계-원칙">엔티티 설계 원칙</h2>
+<h3 id="기본-엔티티-구조">기본 엔티티 구조</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Entity</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Table</span>(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;users&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@EntityListeners</span>(AuditingEntityListener.<span style="color:#a6e22e">class</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Data</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@NoArgsConstructor</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@AllArgsConstructor</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Builder</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Id</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@GeneratedValue</span>(strategy <span style="color:#f92672">=</span> GenerationType.<span style="color:#a6e22e">IDENTITY</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Long id;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Column</span>(nullable <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>, unique <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>, length <span style="color:#f92672">=</span> 100)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String email;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Column</span>(nullable <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>, length <span style="color:#f92672">=</span> 50)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String name;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Enumerated</span>(EnumType.<span style="color:#a6e22e">STRING</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Column</span>(nullable <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> UserStatus status;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@CreatedDate</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Column</span>(nullable <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>, updatable <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> LocalDateTime createdAt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@LastModifiedDate</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Column</span>(nullable <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> LocalDateTime updatedAt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Version</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Long version;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="상속-매핑-전략">상속 매핑 전략</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// 조인 테이블 전략 (JOINED)</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Entity</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Table</span>(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;accounts&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Inheritance</span>(strategy <span style="color:#f92672">=</span> InheritanceType.<span style="color:#a6e22e">JOINED</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@DiscriminatorColumn</span>(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;account_type&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Account</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Id</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@GeneratedValue</span>(strategy <span style="color:#f92672">=</span> GenerationType.<span style="color:#a6e22e">IDENTITY</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Long id;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Column</span>(nullable <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String accountNumber;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Column</span>(nullable <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>, precision <span style="color:#f92672">=</span> 15, scale <span style="color:#f92672">=</span> 2)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> BigDecimal balance;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 공통 필드들</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Entity</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Table</span>(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;savings_accounts&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@DiscriminatorValue</span>(<span style="color:#e6db74">&#34;SAVINGS&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SavingsAccount</span> <span style="color:#66d9ef">extends</span> Account {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Column</span>(nullable <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>, precision <span style="color:#f92672">=</span> 5, scale <span style="color:#f92672">=</span> 4)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> BigDecimal interestRate;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Integer minBalance;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Entity</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Table</span>(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;checking_accounts&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@DiscriminatorValue</span>(<span style="color:#e6db74">&#34;CHECKING&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CheckingAccount</span> <span style="color:#66d9ef">extends</span> Account {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Column</span>(nullable <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>, precision <span style="color:#f92672">=</span> 10, scale <span style="color:#f92672">=</span> 2)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> BigDecimal overdraftLimit;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Integer freeTransactions;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="연관관계-매핑-패턴">연관관계 매핑 패턴</h2>
+<h3 id="일대다-연관관계-최적화">일대다 연관관계 최적화</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Entity</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Table</span>(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;categories&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Category</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Id</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@GeneratedValue</span>(strategy <span style="color:#f92672">=</span> GenerationType.<span style="color:#a6e22e">IDENTITY</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Long id;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Column</span>(nullable <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>, length <span style="color:#f92672">=</span> 100)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String name;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 양방향 연관관계 - 성능을 위해 LAZY 로딩</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@OneToMany</span>(mappedBy <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;category&#34;</span>, fetch <span style="color:#f92672">=</span> FetchType.<span style="color:#a6e22e">LAZY</span>, cascade <span style="color:#f92672">=</span> CascadeType.<span style="color:#a6e22e">ALL</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@BatchSize</span>(size <span style="color:#f92672">=</span> 20) <span style="color:#75715e">// N+1 문제 해결</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> List<span style="color:#f92672">&lt;</span>Product<span style="color:#f92672">&gt;</span> products <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 연관관계 편의 메서드</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">addProduct</span>(Product product) {
+</span></span><span style="display:flex;"><span>        products.<span style="color:#a6e22e">add</span>(product);
+</span></span><span style="display:flex;"><span>        product.<span style="color:#a6e22e">setCategory</span>(<span style="color:#66d9ef">this</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">removeProduct</span>(Product product) {
+</span></span><span style="display:flex;"><span>        products.<span style="color:#a6e22e">remove</span>(product);
+</span></span><span style="display:flex;"><span>        product.<span style="color:#a6e22e">setCategory</span>(<span style="color:#66d9ef">null</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Entity</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Table</span>(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;products&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Product</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Id</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@GeneratedValue</span>(strategy <span style="color:#f92672">=</span> GenerationType.<span style="color:#a6e22e">IDENTITY</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Long id;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Column</span>(nullable <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>, length <span style="color:#f92672">=</span> 200)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String name;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Column</span>(nullable <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>, precision <span style="color:#f92672">=</span> 10, scale <span style="color:#f92672">=</span> 2)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> BigDecimal price;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 다대일 연관관계</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@ManyToOne</span>(fetch <span style="color:#f92672">=</span> FetchType.<span style="color:#a6e22e">LAZY</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@JoinColumn</span>(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;category_id&#34;</span>, nullable <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Category category;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="다대다-연관관계-with-추가-속성">다대다 연관관계 with 추가 속성</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Entity</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Table</span>(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;students&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Student</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Id</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@GeneratedValue</span>(strategy <span style="color:#f92672">=</span> GenerationType.<span style="color:#a6e22e">IDENTITY</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Long id;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Column</span>(nullable <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>, length <span style="color:#f92672">=</span> 100)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String name;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@OneToMany</span>(mappedBy <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;student&#34;</span>, cascade <span style="color:#f92672">=</span> CascadeType.<span style="color:#a6e22e">ALL</span>, orphanRemoval <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> List<span style="color:#f92672">&lt;</span>Enrollment<span style="color:#f92672">&gt;</span> enrollments <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">enrollInCourse</span>(Course course, LocalDateTime enrollmentDate) {
+</span></span><span style="display:flex;"><span>        Enrollment enrollment <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Enrollment(<span style="color:#66d9ef">this</span>, course, enrollmentDate);
+</span></span><span style="display:flex;"><span>        enrollments.<span style="color:#a6e22e">add</span>(enrollment);
+</span></span><span style="display:flex;"><span>        course.<span style="color:#a6e22e">getEnrollments</span>().<span style="color:#a6e22e">add</span>(enrollment);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Entity</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Table</span>(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;courses&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Course</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Id</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@GeneratedValue</span>(strategy <span style="color:#f92672">=</span> GenerationType.<span style="color:#a6e22e">IDENTITY</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Long id;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Column</span>(nullable <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>, length <span style="color:#f92672">=</span> 200)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String title;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@OneToMany</span>(mappedBy <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;course&#34;</span>, cascade <span style="color:#f92672">=</span> CascadeType.<span style="color:#a6e22e">ALL</span>, orphanRemoval <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> List<span style="color:#f92672">&lt;</span>Enrollment<span style="color:#f92672">&gt;</span> enrollments <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Entity</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Table</span>(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;enrollments&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Enrollment</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Id</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@GeneratedValue</span>(strategy <span style="color:#f92672">=</span> GenerationType.<span style="color:#a6e22e">IDENTITY</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Long id;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@ManyToOne</span>(fetch <span style="color:#f92672">=</span> FetchType.<span style="color:#a6e22e">LAZY</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@JoinColumn</span>(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;student_id&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Student student;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@ManyToOne</span>(fetch <span style="color:#f92672">=</span> FetchType.<span style="color:#a6e22e">LAZY</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@JoinColumn</span>(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;course_id&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Course course;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Column</span>(nullable <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> LocalDateTime enrollmentDate;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> BigDecimal grade;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Enrollment</span>(Student student, Course course, LocalDateTime enrollmentDate) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">student</span> <span style="color:#f92672">=</span> student;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">course</span> <span style="color:#f92672">=</span> course;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">enrollmentDate</span> <span style="color:#f92672">=</span> enrollmentDate;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="repository-패턴">Repository 패턴</h2>
+<h3 id="커스텀-repository-구현">커스텀 Repository 구현</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">UserRepositoryCustom</span> {
+</span></span><span style="display:flex;"><span>    List<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findUsersWithComplexCriteria</span>(UserSearchCriteria criteria);
+</span></span><span style="display:flex;"><span>    Page<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findActiveUsersWithPosts</span>(Pageable pageable);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Repository</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserRepositoryImpl</span> <span style="color:#66d9ef">implements</span> UserRepositoryCustom {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@PersistenceContext</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> EntityManager entityManager;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findUsersWithComplexCriteria</span>(UserSearchCriteria criteria) {
+</span></span><span style="display:flex;"><span>        CriteriaBuilder cb <span style="color:#f92672">=</span> entityManager.<span style="color:#a6e22e">getCriteriaBuilder</span>();
+</span></span><span style="display:flex;"><span>        CriteriaQuery<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> query <span style="color:#f92672">=</span> cb.<span style="color:#a6e22e">createQuery</span>(User.<span style="color:#a6e22e">class</span>);
+</span></span><span style="display:flex;"><span>        Root<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> root <span style="color:#f92672">=</span> query.<span style="color:#a6e22e">from</span>(User.<span style="color:#a6e22e">class</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        List<span style="color:#f92672">&lt;</span>Predicate<span style="color:#f92672">&gt;</span> predicates <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (criteria.<span style="color:#a6e22e">getName</span>() <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>            predicates.<span style="color:#a6e22e">add</span>(cb.<span style="color:#a6e22e">like</span>(cb.<span style="color:#a6e22e">lower</span>(root.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;name&#34;</span>)),
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;%&#34;</span> <span style="color:#f92672">+</span> criteria.<span style="color:#a6e22e">getName</span>().<span style="color:#a6e22e">toLowerCase</span>() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;%&#34;</span>));
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (criteria.<span style="color:#a6e22e">getStatus</span>() <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>            predicates.<span style="color:#a6e22e">add</span>(cb.<span style="color:#a6e22e">equal</span>(root.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;status&#34;</span>), criteria.<span style="color:#a6e22e">getStatus</span>()));
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (criteria.<span style="color:#a6e22e">getCreatedAfter</span>() <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>            predicates.<span style="color:#a6e22e">add</span>(cb.<span style="color:#a6e22e">greaterThanOrEqualTo</span>(root.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;createdAt&#34;</span>),
+</span></span><span style="display:flex;"><span>                criteria.<span style="color:#a6e22e">getCreatedAfter</span>()));
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        query.<span style="color:#a6e22e">where</span>(predicates.<span style="color:#a6e22e">toArray</span>(<span style="color:#66d9ef">new</span> Predicate<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span>));
+</span></span><span style="display:flex;"><span>        query.<span style="color:#a6e22e">orderBy</span>(cb.<span style="color:#a6e22e">desc</span>(root.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;createdAt&#34;</span>)));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> entityManager.<span style="color:#a6e22e">createQuery</span>(query)
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">setMaxResults</span>(100)
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">getResultList</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Page<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findActiveUsersWithPosts</span>(Pageable pageable) {
+</span></span><span style="display:flex;"><span>        String jpql <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            SELECT DISTINCT u FROM User u
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            LEFT JOIN FETCH u.posts p
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            WHERE u.status = :status
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            ORDER BY u.createdAt DESC
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            &#34;&#34;&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        TypedQuery<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> query <span style="color:#f92672">=</span> entityManager.<span style="color:#a6e22e">createQuery</span>(jpql, User.<span style="color:#a6e22e">class</span>)
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">setParameter</span>(<span style="color:#e6db74">&#34;status&#34;</span>, UserStatus.<span style="color:#a6e22e">ACTIVE</span>)
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">setFirstResult</span>((<span style="color:#66d9ef">int</span>) pageable.<span style="color:#a6e22e">getOffset</span>())
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">setMaxResults</span>(pageable.<span style="color:#a6e22e">getPageSize</span>());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        List<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> users <span style="color:#f92672">=</span> query.<span style="color:#a6e22e">getResultList</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 전체 개수 조회</span>
+</span></span><span style="display:flex;"><span>        Long total <span style="color:#f92672">=</span> entityManager.<span style="color:#a6e22e">createQuery</span>(
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;SELECT COUNT(DISTINCT u) FROM User u WHERE u.status = :status&#34;</span>, Long.<span style="color:#a6e22e">class</span>)
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">setParameter</span>(<span style="color:#e6db74">&#34;status&#34;</span>, UserStatus.<span style="color:#a6e22e">ACTIVE</span>)
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">getSingleResult</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> PageImpl<span style="color:#f92672">&lt;&gt;</span>(users, pageable, total);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">UserRepository</span> <span style="color:#66d9ef">extends</span> JpaRepository<span style="color:#f92672">&lt;</span>User, Long<span style="color:#f92672">&gt;</span>, UserRepositoryCustom {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Query</span>(<span style="color:#e6db74">&#34;SELECT u FROM User u WHERE u.email = :email&#34;</span>)
+</span></span><span style="display:flex;"><span>    Optional<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findByEmail</span>(<span style="color:#a6e22e">@Param</span>(<span style="color:#e6db74">&#34;email&#34;</span>) String email);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Query</span>(value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        SELECT u.* FROM users u
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        WHERE u.status = :status
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        AND u.created_at &gt;= :since
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        ORDER BY u.created_at DESC
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>, nativeQuery <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>)
+</span></span><span style="display:flex;"><span>    List<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findRecentActiveUsers</span>(<span style="color:#a6e22e">@Param</span>(<span style="color:#e6db74">&#34;status&#34;</span>) String status,
+</span></span><span style="display:flex;"><span>                                   <span style="color:#a6e22e">@Param</span>(<span style="color:#e6db74">&#34;since&#34;</span>) LocalDateTime since);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Modifying</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Query</span>(<span style="color:#e6db74">&#34;UPDATE User u SET u.status = :status WHERE u.id IN :ids&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">updateUserStatus</span>(<span style="color:#a6e22e">@Param</span>(<span style="color:#e6db74">&#34;ids&#34;</span>) List<span style="color:#f92672">&lt;</span>Long<span style="color:#f92672">&gt;</span> ids, <span style="color:#a6e22e">@Param</span>(<span style="color:#e6db74">&#34;status&#34;</span>) UserStatus status);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="성능-최적화-패턴">성능 최적화 패턴</h2>
+<h3 id="페이징과-정렬">페이징과 정렬</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Service</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Transactional</span>(readOnly <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ProductService</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> ProductRepository productRepository;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Page<span style="color:#f92672">&lt;</span>ProductDto<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getProducts</span>(ProductSearchRequest request) {
+</span></span><span style="display:flex;"><span>        Pageable pageable <span style="color:#f92672">=</span> PageRequest.<span style="color:#a6e22e">of</span>(
+</span></span><span style="display:flex;"><span>            request.<span style="color:#a6e22e">getPage</span>(),
+</span></span><span style="display:flex;"><span>            request.<span style="color:#a6e22e">getSize</span>(),
+</span></span><span style="display:flex;"><span>            Sort.<span style="color:#a6e22e">by</span>(Sort.<span style="color:#a6e22e">Direction</span>.<span style="color:#a6e22e">DESC</span>, <span style="color:#e6db74">&#34;createdAt&#34;</span>)
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        Page<span style="color:#f92672">&lt;</span>Product<span style="color:#f92672">&gt;</span> products <span style="color:#f92672">=</span> productRepository.<span style="color:#a6e22e">findByCategoryAndPriceRange</span>(
+</span></span><span style="display:flex;"><span>            request.<span style="color:#a6e22e">getCategoryId</span>(),
+</span></span><span style="display:flex;"><span>            request.<span style="color:#a6e22e">getMinPrice</span>(),
+</span></span><span style="display:flex;"><span>            request.<span style="color:#a6e22e">getMaxPrice</span>(),
+</span></span><span style="display:flex;"><span>            pageable
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> products.<span style="color:#a6e22e">map</span>(<span style="color:#66d9ef">this</span>::convertToDto);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> ProductDto <span style="color:#a6e22e">convertToDto</span>(Product product) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> ProductDto.<span style="color:#a6e22e">builder</span>()
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">id</span>(product.<span style="color:#a6e22e">getId</span>())
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">name</span>(product.<span style="color:#a6e22e">getName</span>())
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">price</span>(product.<span style="color:#a6e22e">getPrice</span>())
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">categoryName</span>(product.<span style="color:#a6e22e">getCategory</span>().<span style="color:#a6e22e">getName</span>())
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">build</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="배치-처리-최적화">배치 처리 최적화</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Service</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BatchUserService</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@PersistenceContext</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> EntityManager entityManager;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Transactional</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">batchUpdateUserStatus</span>(List<span style="color:#f92672">&lt;</span>Long<span style="color:#f92672">&gt;</span> userIds, UserStatus newStatus) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> batchSize <span style="color:#f92672">=</span> 100;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0; i <span style="color:#f92672">&lt;</span> userIds.<span style="color:#a6e22e">size</span>(); i <span style="color:#f92672">+=</span> batchSize) {
+</span></span><span style="display:flex;"><span>            List<span style="color:#f92672">&lt;</span>Long<span style="color:#f92672">&gt;</span> batch <span style="color:#f92672">=</span> userIds.<span style="color:#a6e22e">subList</span>(i,
+</span></span><span style="display:flex;"><span>                Math.<span style="color:#a6e22e">min</span>(i <span style="color:#f92672">+</span> batchSize, userIds.<span style="color:#a6e22e">size</span>()));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            entityManager.<span style="color:#a6e22e">createQuery</span>(
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;UPDATE User u SET u.status = :status WHERE u.id IN :ids&#34;</span>)
+</span></span><span style="display:flex;"><span>                .<span style="color:#a6e22e">setParameter</span>(<span style="color:#e6db74">&#34;status&#34;</span>, newStatus)
+</span></span><span style="display:flex;"><span>                .<span style="color:#a6e22e">setParameter</span>(<span style="color:#e6db74">&#34;ids&#34;</span>, batch)
+</span></span><span style="display:flex;"><span>                .<span style="color:#a6e22e">executeUpdate</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            entityManager.<span style="color:#a6e22e">flush</span>();
+</span></span><span style="display:flex;"><span>            entityManager.<span style="color:#a6e22e">clear</span>();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Transactional</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">batchInsertUsers</span>(List<span style="color:#f92672">&lt;</span>CreateUserRequest<span style="color:#f92672">&gt;</span> requests) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> batchSize <span style="color:#f92672">=</span> 50;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0; i <span style="color:#f92672">&lt;</span> requests.<span style="color:#a6e22e">size</span>(); i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            User user <span style="color:#f92672">=</span> User.<span style="color:#a6e22e">builder</span>()
+</span></span><span style="display:flex;"><span>                .<span style="color:#a6e22e">email</span>(requests.<span style="color:#a6e22e">get</span>(i).<span style="color:#a6e22e">getEmail</span>())
+</span></span><span style="display:flex;"><span>                .<span style="color:#a6e22e">name</span>(requests.<span style="color:#a6e22e">get</span>(i).<span style="color:#a6e22e">getName</span>())
+</span></span><span style="display:flex;"><span>                .<span style="color:#a6e22e">status</span>(UserStatus.<span style="color:#a6e22e">ACTIVE</span>)
+</span></span><span style="display:flex;"><span>                .<span style="color:#a6e22e">build</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            entityManager.<span style="color:#a6e22e">persist</span>(user);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (i <span style="color:#f92672">%</span> batchSize <span style="color:#f92672">==</span> 0 <span style="color:#f92672">&amp;&amp;</span> i <span style="color:#f92672">&gt;</span> 0) {
+</span></span><span style="display:flex;"><span>                entityManager.<span style="color:#a6e22e">flush</span>();
+</span></span><span style="display:flex;"><span>                entityManager.<span style="color:#a6e22e">clear</span>();
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="캐싱-전략">캐싱 전략</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Entity</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Cacheable</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@org.hibernate.annotations.Cache</span>(usage <span style="color:#f92672">=</span> CacheConcurrencyStrategy.<span style="color:#a6e22e">READ_WRITE</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Category</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 엔티티 정의</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Service</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CategoryService</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Cacheable</span>(value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;categories&#34;</span>, key <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;#id&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Category <span style="color:#a6e22e">findById</span>(Long id) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> categoryRepository.<span style="color:#a6e22e">findById</span>(id)
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">orElseThrow</span>(() <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">new</span> EntityNotFoundException(<span style="color:#e6db74">&#34;카테고리를 찾을 수 없습니다&#34;</span>));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Cacheable</span>(value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;categories&#34;</span>, key <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#39;all&#39;&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span>Category<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findAll</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> categoryRepository.<span style="color:#a6e22e">findAll</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@CacheEvict</span>(value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;categories&#34;</span>, allEntries <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Category <span style="color:#a6e22e">save</span>(Category category) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> categoryRepository.<span style="color:#a6e22e">save</span>(category);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="트랜잭션-관리">트랜잭션 관리</h2>
+<h3 id="선언적-트랜잭션">선언적 트랜잭션</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Service</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Transactional</span>(readOnly <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OrderService</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> OrderRepository orderRepository;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> ProductRepository productRepository;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> InventoryService inventoryService;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Transactional</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Order <span style="color:#a6e22e">createOrder</span>(CreateOrderRequest request) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 상품 재고 확인</span>
+</span></span><span style="display:flex;"><span>        Product product <span style="color:#f92672">=</span> productRepository.<span style="color:#a6e22e">findById</span>(request.<span style="color:#a6e22e">getProductId</span>())
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">orElseThrow</span>(() <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">new</span> EntityNotFoundException(<span style="color:#e6db74">&#34;상품을 찾을 수 없습니다&#34;</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>inventoryService.<span style="color:#a6e22e">hasStock</span>(product.<span style="color:#a6e22e">getId</span>(), request.<span style="color:#a6e22e">getQuantity</span>())) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> InsufficientStockException(<span style="color:#e6db74">&#34;재고가 부족합니다&#34;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 주문 생성</span>
+</span></span><span style="display:flex;"><span>        Order order <span style="color:#f92672">=</span> Order.<span style="color:#a6e22e">builder</span>()
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">product</span>(product)
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">quantity</span>(request.<span style="color:#a6e22e">getQuantity</span>())
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">totalPrice</span>(product.<span style="color:#a6e22e">getPrice</span>().<span style="color:#a6e22e">multiply</span>(BigDecimal.<span style="color:#a6e22e">valueOf</span>(request.<span style="color:#a6e22e">getQuantity</span>())))
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">status</span>(OrderStatus.<span style="color:#a6e22e">PENDING</span>)
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">build</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        Order savedOrder <span style="color:#f92672">=</span> orderRepository.<span style="color:#a6e22e">save</span>(order);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 재고 차감</span>
+</span></span><span style="display:flex;"><span>        inventoryService.<span style="color:#a6e22e">decreaseStock</span>(product.<span style="color:#a6e22e">getId</span>(), request.<span style="color:#a6e22e">getQuantity</span>());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> savedOrder;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Transactional</span>(propagation <span style="color:#f92672">=</span> Propagation.<span style="color:#a6e22e">REQUIRES_NEW</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">processPayment</span>(Long orderId, PaymentInfo paymentInfo) {
+</span></span><span style="display:flex;"><span>        Order order <span style="color:#f92672">=</span> orderRepository.<span style="color:#a6e22e">findById</span>(orderId)
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">orElseThrow</span>(() <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">new</span> EntityNotFoundException(<span style="color:#e6db74">&#34;주문을 찾을 수 없습니다&#34;</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// 결제 처리 로직</span>
+</span></span><span style="display:flex;"><span>            paymentService.<span style="color:#a6e22e">processPayment</span>(paymentInfo);
+</span></span><span style="display:flex;"><span>            order.<span style="color:#a6e22e">setStatus</span>(OrderStatus.<span style="color:#a6e22e">PAID</span>);
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (PaymentException e) {
+</span></span><span style="display:flex;"><span>            order.<span style="color:#a6e22e">setStatus</span>(OrderStatus.<span style="color:#a6e22e">PAYMENT_FAILED</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">throw</span> e;
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">finally</span> {
+</span></span><span style="display:flex;"><span>            orderRepository.<span style="color:#a6e22e">save</span>(order);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="프로그래밍적-트랜잭션">프로그래밍적 트랜잭션</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Service</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DataMigrationService</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> PlatformTransactionManager transactionManager;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">migrateUserData</span>(List<span style="color:#f92672">&lt;</span>UserData<span style="color:#f92672">&gt;</span> userData) {
+</span></span><span style="display:flex;"><span>        TransactionTemplate transactionTemplate <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> TransactionTemplate(transactionManager);
+</span></span><span style="display:flex;"><span>        transactionTemplate.<span style="color:#a6e22e">setIsolationLevel</span>(TransactionDefinition.<span style="color:#a6e22e">ISOLATION_READ_COMMITTED</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (UserData data : userData) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>                transactionTemplate.<span style="color:#a6e22e">execute</span>(status <span style="color:#f92672">-&gt;</span> {
+</span></span><span style="display:flex;"><span>                    User user <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> User(data.<span style="color:#a6e22e">getEmail</span>(), data.<span style="color:#a6e22e">getName</span>());
+</span></span><span style="display:flex;"><span>                    userRepository.<span style="color:#a6e22e">save</span>(user);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#75715e">// 프로필 데이터 마이그레이션</span>
+</span></span><span style="display:flex;"><span>                    Profile profile <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Profile(user, data.<span style="color:#a6e22e">getProfileData</span>());
+</span></span><span style="display:flex;"><span>                    profileRepository.<span style="color:#a6e22e">save</span>(profile);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>                });
+</span></span><span style="display:flex;"><span>                log.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#34;사용자 마이그레이션 완료: {}&#34;</span>, data.<span style="color:#a6e22e">getEmail</span>());
+</span></span><span style="display:flex;"><span>            } <span style="color:#66d9ef">catch</span> (Exception e) {
+</span></span><span style="display:flex;"><span>                log.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#34;사용자 마이그레이션 실패: {}&#34;</span>, data.<span style="color:#a6e22e">getEmail</span>(), e);
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// 개별 실패는 전체 마이그레이션을 중단하지 않음</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="감사auditing-기능">감사(Auditing) 기능</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@EntityListeners</span>(AuditingEntityListener.<span style="color:#a6e22e">class</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@MappedSuperclass</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BaseEntity</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@CreatedDate</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Column</span>(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;created_at&#34;</span>, nullable <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>, updatable <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> LocalDateTime createdAt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@LastModifiedDate</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Column</span>(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;updated_at&#34;</span>, nullable <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> LocalDateTime updatedAt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@CreatedBy</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Column</span>(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;created_by&#34;</span>, updatable <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String createdBy;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@LastModifiedBy</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Column</span>(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;updated_by&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String updatedBy;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Configuration</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@EnableJpaAuditing</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">JpaAuditingConfig</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Bean</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> AuditorAware<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">auditorProvider</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> () <span style="color:#f92672">-&gt;</span> {
+</span></span><span style="display:flex;"><span>            Authentication auth <span style="color:#f92672">=</span> SecurityContextHolder.<span style="color:#a6e22e">getContext</span>().<span style="color:#a6e22e">getAuthentication</span>();
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (auth <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;&amp;</span> auth.<span style="color:#a6e22e">isAuthenticated</span>() <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span>auth.<span style="color:#a6e22e">getPrincipal</span>().<span style="color:#a6e22e">equals</span>(<span style="color:#e6db74">&#34;anonymousUser&#34;</span>)) {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> Optional.<span style="color:#a6e22e">of</span>(auth.<span style="color:#a6e22e">getName</span>());
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> Optional.<span style="color:#a6e22e">of</span>(<span style="color:#e6db74">&#34;system&#34;</span>);
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>이러한 패턴들을 통해 견고하고 성능이 우수한 데이터베이스 계층을 구축할 수 있습니다. 각 패턴은 특정 상황에 맞게 선택적으로 적용하여 최적의 결과를 얻으시기 바랍니다.</p>
+
+          </div>
+          <div class="row items-start justify-between">
+            
+            
+              <div class="lg:col-6 mb-10 flex items-center lg:mb-0">
+                <h5 class="mr-3">태그 :</h5>
+                <ul>
+                  
+                    <li class="inline-block">
+                      <a
+                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
+                        href="/tags/jpa/">
+                        Jpa
+                      </a>
+                    </li>
+                  
+                    <li class="inline-block">
+                      <a
+                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
+                        href="/tags/spring-data/">
+                        Spring data
+                      </a>
+                    </li>
+                  
+                    <li class="inline-block">
+                      <a
+                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
+                        href="/tags/%eb%8d%b0%ec%9d%b4%ed%84%b0%eb%b2%a0%ec%9d%b4%ec%8a%a4/">
+                        데이터베이스
+                      </a>
+                    </li>
+                  
+                    <li class="inline-block">
+                      <a
+                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
+                        href="/tags/%ec%84%a4%ea%b3%84-%ed%8c%a8%ed%84%b4/">
+                        설계 패턴
+                      </a>
+                    </li>
+                  
+                </ul>
+              </div>
+            
+            <div class="lg:col-6 flex items-center lg:justify-end">
+              <h5>공유하기 :</h5>
+              
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="share-icons">
+  
+  
+    <a
+      class="share-link share-facebook"
+      href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fblog%2fdatabase-design-patterns%2f"
+      target="_blank"
+      rel="noopener"
+      aria-label="share facebook">
+      <span class="share-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z" />
+        </svg>
+      </span>
+    </a>
+  
+
+
+  
+  
+    <a
+      class="share-link share-x"
+      href="https://x.com/intent/tweet/?text=Java%20%ec%95%a0%ed%94%8c%eb%a6%ac%ec%bc%80%ec%9d%b4%ec%85%98%ec%9d%84%20%ec%9c%84%ed%95%9c%20%eb%8d%b0%ec%9d%b4%ed%84%b0%eb%b2%a0%ec%9d%b4%ec%8a%a4%20%ec%84%a4%ea%b3%84%20%ed%8c%a8%ed%84%b4&amp;url=http%3a%2f%2flocalhost%3a1313%2fblog%2fdatabase-design-patterns%2f"
+      target="_blank"
+      rel="noopener"
+      aria-label="share x">
+      <span aria-hidden="true" class="share-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M8 2H1l8.26 11.015L1.45 22H4.1l6.388-7.349L16 22h7l-8.608-11.478L21.8 2h-2.65l-5.986 6.886zm9 18L5 4h2l12 16z" />
+        </svg>
+      </span>
+    </a>
+  
+
+
+  
+  
+    <a
+      class="share-link share-email"
+      href="mailto:?subject=Java%20%ec%95%a0%ed%94%8c%eb%a6%ac%ec%bc%80%ec%9d%b4%ec%85%98%ec%9d%84%20%ec%9c%84%ed%95%9c%20%eb%8d%b0%ec%9d%b4%ed%84%b0%eb%b2%a0%ec%9d%b4%ec%8a%a4%20%ec%84%a4%ea%b3%84%20%ed%8c%a8%ed%84%b4&amp;body=http%3a%2f%2flocalhost%3a1313%2fblog%2fdatabase-design-patterns%2f"
+      target="_self"
+      rel="noopener"
+      aria-label="share email">
+      <span aria-hidden="true" class="share-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M22 4H2C.9 4 0 4.9 0 6v12c0 1.1.9 2 2 2h20c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM7.25 14.43l-3.5 2c-.08.05-.17.07-.25.07-.17 0-.34-.1-.43-.25-.14-.24-.06-.55.18-.68l3.5-2c.24-.14.55-.06.68.18.14.24.06.55-.18.68zm4.75.07c-.1 0-.2-.03-.27-.08l-8.5-5.5c-.23-.15-.3-.46-.15-.7.15-.22.46-.3.7-.14L12 13.4l8.23-5.32c.23-.15.54-.08.7.15.14.23.07.54-.16.7l-8.5 5.5c-.08.04-.17.07-.27.07zm8.93 1.75c-.1.16-.26.25-.43.25-.08 0-.17-.02-.25-.07l-3.5-2c-.24-.13-.32-.44-.18-.68s.44-.32.68-.18l3.5 2c.24.13.32.44.18.68z" />
+        </svg>
+      </span>
+    </a>
+  
+
+
+  
+  
+
+
+  
+  
+
+
+  
+  
+
+
+  
+  
+
+
+  
+  
+
+
+  
+  
+
+
+  
+  
+
+
+  
+  
+    <span class="fediverse-share">
+      <a
+        class="share-link share-fediverse"
+        href="javascript:void(0);"
+        onclick="toggleFediverseInput(this)"
+        aria-label="share fediverse">
+        <span aria-hidden="true" class="share-icon">
+          <svg
+            viewBox="-10 -5 1034 1034"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            version="1.1">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M539 176q-32 0 -55 22t-25 55t20.5 58t56 27t58.5 -20.5t27 -56t-20.5 -59t-56.5 -26.5h-5zM452 271l-232 118q20 20 25 48l231 -118q-19 -20 -24 -48zM619 298q-13 25 -38 38l183 184q13 -25 39 -38zM477 320l-135 265l40 40l143 -280q-28 -5 -48 -25zM581 336 q-22 11 -46 10l-8 -1l21 132l56 9zM155 370q-32 0 -55 22.5t-25 55t20.5 58t56.5 27t59 -21t26.5 -56t-21 -58.5t-55.5 -27h-6zM245 438q1 9 1 18q-1 19 -10 35l132 21l26 -50zM470 474l-26 51l311 49q-1 -8 -1 -17q1 -19 10 -36zM842 480q-32 1 -55 23t-24.5 55t21 58 t56 27t58.5 -20.5t27 -56.5t-20.5 -59t-56.5 -27h-6zM236 493q-13 25 -39 38l210 210l51 -25zM196 531q-21 11 -44 10l-9 -1l40 256q21 -10 45 -9l8 1zM560 553l48 311q21 -10 44 -9l10 1l-46 -294zM755 576l-118 60l8 56l135 -68q-20 -20 -25 -48zM781 625l-119 231 q28 5 48 25l119 -231q-28 -5 -48 -25zM306 654l-68 134q28 5 48 25l60 -119zM568 671l-281 143q19 20 24 48l265 -135zM513 771l-51 25l106 107q13 -25 39 -38zM222 795q-32 0 -55.5 22.5t-25 55t21 57.5t56 27t58.5 -20.5t27 -56t-20.5 -58.5t-56.5 -27h-5zM311 863 q2 9 1 18q-1 19 -9 35l256 41q-1 -9 -1 -18q1 -18 10 -35zM646 863q-32 0 -55 22.5t-24.5 55t20.5 58t56 27t59 -21t27 -56t-20.5 -58.5t-56.5 -27h-6z"></path>
+            </g>
+          </svg>
+        </span>
+      </a>
+      <span class="fediverse-input-wrapper" style="display: none;">
+        <input
+          type="text"
+          placeholder="Enter Fediverse Instance URL"
+          class="fediverse-input"
+          onkeypress="handleFediverseShare(event, 'http:\/\/localhost:1313\/blog\/database-design-patterns\/', 'Java 애플리케이션을 위한 데이터베이스 설계 패턴')" />
+        <button
+          class="fediverse-check-button"
+          onclick="handleFediverseShareButton(this, 'http:\/\/localhost:1313\/blog\/database-design-patterns\/', 'Java 애플리케이션을 위한 데이터베이스 설계 패턴')">
+          Share
+        </button>
+      </span>
+    </span>
+  
+
+
+  
+  
+    <button
+      class="share-link share-copy"
+      onclick="copyToClipboard(this, 'http:\/\/localhost:1313\/blog\/database-design-patterns\/')">
+      <span class="share-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7-1c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm7 17H5V5h14v14z" />
+        </svg>
+      </span>
+    </button>
+  
+
+</div>
+
+<script>
+  
+  function toggleFediverseInput(element) {
+    const container = element.closest(".fediverse-share");
+    const inputContainer = container.querySelector(".fediverse-input-wrapper");
+    inputContainer.style.display =
+      inputContainer.style.display === "none" ? "block" : "none";
+  }
+
+  
+  function handleFediverseShare(event, url, title) {
+    if (event.key === "Enter") {
+      const input = event.target;
+      let instanceUrl = input.value.trim();
+      if (instanceUrl) {
+        if (!instanceUrl.startsWith("https://")) {
+          instanceUrl = `https://${instanceUrl}`;
+        }
+        const shareUrl = `${instanceUrl}/share?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`;
+        window.open(shareUrl, "_blank", "noopener");
+      }
+    }
+  }
+
+  
+  function handleFediverseShareButton(button, url, title) {
+    const input = button.previousElementSibling;
+    let instanceUrl = input.value.trim();
+    if (instanceUrl) {
+      if (!instanceUrl.startsWith("https://")) {
+        instanceUrl = `https://${instanceUrl}`;
+      }
+      const shareUrl = `${instanceUrl}/share?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`;
+      window.open(shareUrl, "_blank", "noopener");
+    }
+  }
+
+  
+  function copyToClipboard(button, text) {
+    navigator.clipboard.writeText(text).then(() => {
+      const icon = button.querySelector("svg path");
+      const originalIconPath =
+        "M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7-1c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm7 17H5V5h14v14z";
+      const checkIconPath =
+        "M9 16.2l-3.5-3.5-1.4 1.4L9 19 20 8l-1.4-1.4L9 16.2z";
+
+      
+      icon.setAttribute("d", checkIconPath);
+
+      
+      setTimeout(() => {
+        icon.setAttribute("d", originalIconPath);
+      }, 1000);
+    });
+  }
+</script>
+
+            </div>
+          </div>
+          
+          
+            <div class="mt-20">
+              <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "kigo-blog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div>
+          
+        </article>
+      </div>
+
+      
+      
+      
+      
+    </div>
+  </section>
+
+    </main>
+
+    
+    <footer class="bg-light dark:bg-darkmode-light">
+  <div class="container">
+    <div class="row items-center py-10">
+      <div class="lg:col-3 mb-8 text-center lg:mb-0 lg:text-left">
+        
+        <a
+          class="navbar-brand inline-block"
+          href="/">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+    <img
+      fetchpriority="high"
+      decoding="async"
+      src="http://localhost:1313/images/logo-kigo.svg"
+      alt="Kigo&#39;s Blog"
+      class="img img-light"
+      height="32"
+      width="160" />
+    <img
+      fetchpriority="high"
+      decoding="async"
+      src="http://localhost:1313/images/logo-kigo-darkmode.svg"
+      alt="Kigo&#39;s Blog"
+      class="img img-dark"
+      height="32"
+      width="160" />
+  
+
+
+
+        </a>
+      </div>
+      <div class="lg:col-6 mb-8 text-center lg:mb-0">
+        <ul>
+          
+            <li class="m-3 inline-block">
+              <a
+                
+                href="
+                  /blog
+                "
+                >블로그</a
+              >
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                
+                href="
+                  /privacy-policy
+                "
+                >개인정보처리방침</a
+              >
+            </li>
+          
+        </ul>
+      </div>
+      <div class="lg:col-3 mb-8 text-center lg:mb-0 lg:mt-0 lg:text-right">
+        <ul class="social-icons">
+          
+            <li>
+              <a
+                target="_blank"
+                aria-label="github"
+                rel="nofollow noopener"
+                href="https://github.com/kigo1031">
+                <i class="fab fa-github"></i>
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="border-border dark:border-darkmode-border border-t py-7">
+    <div
+      class="text-text-light dark:text-darkmode-text-light container text-center">
+      <p>
+        Creating tomorrow, one line at a time
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+
+    
+    
+
+
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<script
+  crossorigin="anonymous"
+  integrity=""
+  src="/js/script.js"></script>
+
+
+<script
+  defer
+  async
+  crossorigin="anonymous"
+  integrity=""
+  src="/js/script-lazy.js"></script>
+
+
+
+<script>
+  if ('serviceWorker' in navigator){navigator.serviceWorker.register("/service-worker.js");}
+</script>
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  </body>
+</html>

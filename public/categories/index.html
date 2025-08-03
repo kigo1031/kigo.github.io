@@ -108,7 +108,7 @@
 
   <meta
     name="keywords"
-    content="Blog, Development, Programming, Tech" />
+    content="Java, Spring, Backend, 개발, 프로그래밍, Quarkus, 데이터베이스, JPA, 백엔드개발자, Kigo" />
 
 
 
@@ -483,20 +483,6 @@
             <a
               class="nav-link "
               
-              href="/about"
-              >소개</a
-            >
-          </li>
-        
-      
-        
-        
-        
-        
-          <li class="nav-item">
-            <a
-              class="nav-link "
-              
               href="/blog"
               >블로그</a
             >
@@ -553,14 +539,6 @@
           </li>
         
       
-      
-        <li class="mt-4 inline-block lg:hidden">
-          <a
-            class="btn btn-outline-primary btn-sm"
-            href="/contact">
-            get a quote
-          </a>
-        </li>
       
     </ul>
 
@@ -622,7 +600,7 @@
         value="http://localhost:1313/en/categories/"
       
         >
-        En
+        English
       </option>
     
   
@@ -708,12 +686,6 @@
 
 
       
-      
-        <a
-          href="/contact"
-          class="btn btn-outline-primary btn-sm hidden lg:inline-block">
-          get a quote
-        </a>
       
     </div>
   </nav>
@@ -842,17 +814,31 @@
 
 
 
-
 <ul class="mt-6 inline-flex space-x-1 capitalize">
   <li>
     <a class="text-primary dark:text-darkmode-primary" href="http://localhost:1313/">
-      Home
+      
+      홈
+      
+    </a>
+    <span class="inlin-block mr-1">/</span>
+  </li>
+
+  
+  <li>
+    <a class="text-primary dark:text-darkmode-primary" href="/en/blog">
+      
+      블로그
+      
     </a>
     <span class="inlin-block mr-1">/</span>
   </li>
   
-    
+
   
+  
+  
+
   <li>
     <span class="text-primary dark:text-darkmode-primary">
       카테고리
@@ -874,11 +860,44 @@
           
             <li class="m-3 inline-block">
               <a
+                href="http://localhost:1313/categories/%EB%B0%B1%EC%97%94%EB%93%9C/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                백엔드
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  4
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/categories/%EC%9B%B9%EA%B0%9C%EB%B0%9C/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                웹개발
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  4
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
                 href="http://localhost:1313/categories/%EA%B0%9C%EB%B0%9C%EB%8F%84%EA%B5%AC/"
                 class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
                 개발도구
                 <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
-                  2
+                  3
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/categories/api/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                API
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
                 </span>
               </a>
             </li>
@@ -888,6 +907,17 @@
                 href="http://localhost:1313/categories/devops/"
                 class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
                 DevOps
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/categories/java/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                Java
                 <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
                   1
                 </span>
@@ -907,9 +937,42 @@
           
             <li class="m-3 inline-block">
               <a
-                href="http://localhost:1313/categories/%EC%9B%B9%EA%B0%9C%EB%B0%9C/"
+                href="http://localhost:1313/categories/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/"
                 class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
-                웹개발
+                데이터베이스
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/categories/%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                아키텍처
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/categories/%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC1/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                카테고리1
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/categories/%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC2/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                카테고리2
                 <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
                   1
                 </span>
@@ -1012,16 +1075,6 @@
               <a
                 
                 href="
-                  /about
-                "
-                >소개</a
-              >
-            </li>
-          
-            <li class="m-3 inline-block">
-              <a
-                
-                href="
                   /blog
                 "
                 >블로그</a
@@ -1053,26 +1106,6 @@
               </a>
             </li>
           
-            <li>
-              <a
-                target="_blank"
-                aria-label="linkedin"
-                rel="nofollow noopener"
-                href="https://www.linkedin.com/">
-                <i class="fab fa-linkedin"></i>
-              </a>
-            </li>
-          
-            <li>
-              <a
-                target="_blank"
-                aria-label="twitter"
-                rel="nofollow noopener"
-                href="https://twitter.com/">
-                <i class="fab fa-twitter"></i>
-              </a>
-            </li>
-          
         </ul>
       </div>
     </div>
@@ -1081,16 +1114,7 @@
     <div
       class="text-text-light dark:text-darkmode-text-light container text-center">
       <p>
-        Designed &amp; Developed by <a href="https://zeon.studio"
-
-
-
-
- target="_blank"
- 
-
-
->Zeon Studio</a>
+        Creating tomorrow, one line at a time
       </p>
     </div>
   </div>

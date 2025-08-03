@@ -1,19 +1,66 @@
 ---
-title: "안녕하세요, Kigo입니다!"
+title: "Hello, I'm Kigo!"
 meta_title: "About"
-description: "개발자 Kigo의 소개 페이지입니다"
+description: "Backend Java Developer Kigo's introduction page"
 image: "/images/avatar.png"
 draft: false
 ---
 
-안녕하세요! 저는 개발에 관심이 많은 Kigo입니다.
+Hello! I'm Kigo, a **Backend Java Developer**.
 
-이 블로그에서는 제가 개발하면서 배운 것들, 경험한 것들, 그리고 흥미로운 기술들에 대해 공유하려고 합니다.
+I specialize in **Spring Framework** and **database-centric** server-side development. Through this blog, I share my backend development experiences and technical insights.
 
-현재 관심있는 분야:
-- 웹 개발 (Frontend & Backend)
-- 클라우드 기술
-- 개발 도구 및 효율성
-- 새로운 프로그래밍 언어와 프레임워크
+## Core Expertise
 
-함께 성장하는 개발자가 되고 싶습니다. 블로그를 통해 많은 분들과 소통하며 배워나가고 싶어요!
+- **Backend Development (Java/Spring Ecosystem)**
+  - Java, Spring Framework, Spring Boot
+  - Spring MVC, Spring Security, Spring Data JPA
+  - RESTful API design and implementation
+  - Microservices architecture
+
+- **Database & Data Processing**
+  - MySQL, PostgreSQL, Oracle
+  - JPA/Hibernate, MyBatis
+  - Database design and optimization
+  - Transaction management and performance tuning
+
+- **Server Infrastructure & Operations**
+  - AWS, Docker, Kubernetes
+  - CI/CD pipeline construction
+  - Server monitoring and log management
+  - Load testing and performance optimization
+
+- **Additional Tech Stack**
+  - Frontend: HTML5, CSS3, JavaScript
+  - Build tools: Maven, Gradle
+  - Version control: Git, GitHub
+  - Development tools: IntelliJ IDEA, VS Code
+
+## Blog Goals
+
+What I want to share through this blog:
+
+1. **Spring Ecosystem Deep Dive**: Sharing practical experience with Spring Boot, Spring Security, JPA
+2. **Database Design**: Efficient DB schema design and query optimization techniques
+3. **Backend Architecture**: Scalable and maintainable server design patterns
+4. **Performance Optimization**: Real-world performance improvement cases in production
+5. **Problem Solving**: Practical backend development challenges and solutions
+
+## Currently Learning
+
+- **Spring Cloud**: Inter-microservice communication and management
+- **Redis**: Caching strategies and session management
+- **Kafka**: Event-driven architecture
+- **Kubernetes**: Container orchestration
+- **React**: Frontend UI library
+- **Quarkus**: Cloud-native Java framework
+- **Flutter**: Cross-platform mobile app development
+
+## Contact
+
+If you'd like to discuss backend development or Java/Spring topics, feel free to reach out!
+
+- **GitHub**: [github.com/kigo1031](https://github.com/kigo1031)
+- **Email**: Contact me through the [contact page](/en/contact)
+
+Let's build robust backends together! ☕🚀

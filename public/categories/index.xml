@@ -1,25 +1,39 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>카테고리 on Kigo&#39;s Blog</title>
+    <title>카테고리 on Kigo&#39;s Blog - 백엔드 Java 개발자</title>
     <link>http://localhost:1313/categories/</link>
-    <description>Recent content in 카테고리 on Kigo&#39;s Blog</description>
+    <description>Recent content in 카테고리 on Kigo&#39;s Blog - 백엔드 Java 개발자</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 02 Aug 2025 14:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 03 Aug 2025 15:00:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>개발도구</title>
       <link>http://localhost:1313/categories/%EA%B0%9C%EB%B0%9C%EB%8F%84%EA%B5%AC/</link>
-      <pubDate>Sat, 02 Aug 2025 14:00:00 +0000</pubDate>
+      <pubDate>Sun, 03 Aug 2025 15:00:00 +0900</pubDate>
       <guid>http://localhost:1313/categories/%EA%B0%9C%EB%B0%9C%EB%8F%84%EA%B5%AC/</guid>
       <description></description>
     </item>
     <item>
       <title>웹개발</title>
       <link>http://localhost:1313/categories/%EC%9B%B9%EA%B0%9C%EB%B0%9C/</link>
-      <pubDate>Fri, 01 Aug 2025 16:30:00 +0000</pubDate>
+      <pubDate>Sun, 03 Aug 2025 15:00:00 +0900</pubDate>
       <guid>http://localhost:1313/categories/%EC%9B%B9%EA%B0%9C%EB%B0%9C/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>카테고리1</title>
+      <link>http://localhost:1313/categories/%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC1/</link>
+      <pubDate>Sun, 03 Aug 2025 15:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/categories/%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC1/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>카테고리2</title>
+      <link>http://localhost:1313/categories/%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC2/</link>
+      <pubDate>Sun, 03 Aug 2025 15:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/categories/%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC2/</guid>
       <description></description>
     </item>
     <item>
@@ -48,6 +62,41 @@
       <link>http://localhost:1313/categories/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C/</link>
       <pubDate>Tue, 29 Jul 2025 15:45:00 +0000</pubDate>
       <guid>http://localhost:1313/categories/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>API</title>
+      <link>http://localhost:1313/categories/api/</link>
+      <pubDate>Thu, 07 Apr 2022 05:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/api/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>백엔드</title>
+      <link>http://localhost:1313/categories/%EB%B0%B1%EC%97%94%EB%93%9C/</link>
+      <pubDate>Thu, 07 Apr 2022 05:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/%EB%B0%B1%EC%97%94%EB%93%9C/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>아키텍처</title>
+      <link>http://localhost:1313/categories/%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/</link>
+      <pubDate>Wed, 06 Apr 2022 05:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>데이터베이스</title>
+      <link>http://localhost:1313/categories/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/</link>
+      <pubDate>Tue, 05 Apr 2022 05:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Java</title>
+      <link>http://localhost:1313/categories/java/</link>
+      <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/java/</guid>
       <description></description>
     </item>
   </channel>

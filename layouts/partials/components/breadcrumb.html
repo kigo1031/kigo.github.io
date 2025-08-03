@@ -1,0 +1,47 @@
+{{ $context := .Context }}
+{{ $class := .Class }}
+{{ $base := site.Home.Permalink }}
+
+<ul class="{{ $class }} inline-flex space-x-1 capitalize">
+  <li>
+    <a class="text-primary dark:text-darkmode-primary" href="{{ $base }}">
+      {{ if eq site.Language.Lang "ko" }}
+      홈
+      {{ else }}
+      Home
+      {{ end }}
+    </a>
+    <span class="inlin-block mr-1">/</span>
+  </li>
+
+  {{ if or (eq $context.Type "categories") (eq $context.Type "tags") (and (eq $context.Section "blog") (ne $context.Kind "section")) }}
+  <li>
+    <a class="text-primary dark:text-darkmode-primary" href="{{ if eq site.Language.Lang " ko" }}/blog{{ else
+      }}/en/blog{{ end }}">
+      {{ if eq site.Language.Lang "ko" }}
+      블로그
+      {{ else }}
+      Blog
+      {{ end }}
+    </a>
+    <span class="inlin-block mr-1">/</span>
+  </li>
+  {{ end }}
+
+  {{ range $i, $e:= $context.Ancestors.Reverse }}
+  {{ if and (not .IsHome) (ne .Title "Pages") }}
+  <li>
+    <a class="text-primary dark:text-darkmode-primary" href="{{ .RelPermalink }}">
+      {{ T (printf "%s" (lower .Title)) | default .Title }}
+    </a>
+    <span class="inlin-block mr-1">/</span>
+  </li>
+  {{ end }}
+  {{ end }}
+
+  <li>
+    <span class="text-primary dark:text-darkmode-primary">
+      {{ T (printf "%s" (lower $context.Title)) | default $context.Title }}
+    </span>
+  </li>
+</ul>

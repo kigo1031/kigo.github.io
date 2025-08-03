@@ -1,0 +1,49 @@
+{{ define "main" }}
+<!-- Blog Posts Section -->
+<section class="section pt-14">
+  <div class="container">
+    <div class="row justify-center">
+      <div class="lg:col-10 text-center mb-12">
+        <h1 class="mb-4 text-h3 lg:text-h1">
+          {{ if eq site.Language.Lang "ko" }}
+          Kigo의 블로그
+          {{ else }}
+          Kigo's Blog
+          {{ end }}
+        </h1>
+        <p class="mb-8 text-lg">
+          {{ if eq site.Language.Lang "ko" }}
+          기술, 일상, 생각들을 자유롭게 공유하는 공간입니다.
+          {{ else }}
+          A space to freely share thoughts, experiences, and various topics.
+          {{ end }}
+        </p>
+      </div>
+    </div>
+
+    <!-- Blog Posts Grid -->
+    <div class="row">
+      {{ $posts := where site.RegularPages "Section" "in" site.Params.mainSections }}
+      {{ range first 12 $posts }}
+      <div class="mb-14 md:col-6 lg:col-4">
+        {{ partial "components/blog-card" . }}
+      </div>
+      {{ end }}
+    </div>
+
+    <!-- View All Posts Button -->
+    <div class="row">
+      <div class="col-12 text-center">
+        <a class="btn btn-primary" href="{{ if eq site.Language.Lang " ko" }}/blog{{ else }}/en/blog{{ end }}">
+          {{ if eq site.Language.Lang "ko" }}
+          모든 포스트 보기
+          {{ else }}
+          View All Posts
+          {{ end }}
+          <i class="fa fa-arrow-right pl-2"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

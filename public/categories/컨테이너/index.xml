@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>컨테이너 on Kigo&#39;s Blog</title>
+    <title>컨테이너 on Kigo&#39;s Blog - 백엔드 Java 개발자</title>
     <link>http://localhost:1313/categories/%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88/</link>
-    <description>Recent content in 컨테이너 on Kigo&#39;s Blog</description>
+    <description>Recent content in 컨테이너 on Kigo&#39;s Blog - 백엔드 Java 개발자</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
     <lastBuildDate>Wed, 30 Jul 2025 11:20:00 +0000</lastBuildDate>

@@ -2,57 +2,36 @@
 
 # main menu
 [[main]]
-name = "홈"
-url = "/"
+name = "Home"
+url = "/en/"
 weight = 1
 
 [[main]]
-name = "소개"
-url = "/about"
+name = "Blog"
+url = "/en/blog"
 weight = 2
 
 [[main]]
-name = "블로그"
-url = "/blog"
 weight = 3
+name = "Pages"
 
 [[main]]
-name = "연락하기"
-url = "/contact"
-weight = 4
+parent = "Pages"
+name = "Categories"
+url = "/en/categories"
 
 [[main]]
-weight = 5
-name = "페이지"
-
-[[main]]
-parent = "페이지"
-name = "카테고리"
-url = "/categories"
-
-[[main]]
-parent = "페이지"
-name = "태그"
-url = "/tags"
-
-[[main]]
-parent = "페이지"
-name = "작성자"
-url = "/authors"
-
+parent = "Pages"
+name = "Tags"
+url = "/en/tags"
 
 # footer menu
 [[footer]]
-name = "소개"
-url = "/about"
+name = "Blog"
+url = "/en/blog"
 weight = 1
 
 [[footer]]
-name = "블로그"
-url = "/blog"
+name = "Privacy Policy"
+url = "/en/privacy-policy"
 weight = 2
-
-[[footer]]
-name = "연락하기"
-url = "/contact"
-weight = 3

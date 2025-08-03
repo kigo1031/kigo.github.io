@@ -1,33 +1,71 @@
 ---
-title: "Privacy"
-# meta title
-meta_title: ""
-# meta description
-description: "This is meta description"
-# save as draft
+title: "Privacy Policy"
+meta_title: "Privacy Policy"
+description: "Privacy policy for Kigo's Blog"
 draft: false
 ---
 
-#### Responsibility of Contributors
+*Last updated: August 3, 2025*
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat quisque aliquam sagittis. Sem turpis sed viverra massa gravida pharetra. Non dui dolor potenti eu dignissim fusce. Ultrices amet, in curabitur a arcu a lectus morbi id. Iaculis erat sagittis in tortor cursus. Molestie urna eu tortor, erat scelerisque eget. Nunc hendrerit sed interdum lacus. Lorem quis viverra sed
+Thank you for visiting Kigo's Blog ("we," "our," or "us"). This Privacy Policy explains how we collect, use, and protect your information when you visit our website.
 
-pretium, aliquam sit. Praesent elementum magna amet, tincidunt eros, nibh in leo. Malesuada purus, lacus, at aliquam suspendisse tempus. Quis tempus amet, velit nascetur sollicitudin. At sollicitudin eget amet in. Eu velit nascetur sollicitudin erhdfvssfvrgss eget viverra nec elementum. Lacus, facilisis tristique lectus in.
+## Information We Collect
 
-#### Gathering of Personal Information
+### Automatically Collected Information
+When you visit our blog, our hosting service may automatically collect certain information, including:
+- Your IP address
+- Browser type and version
+- Operating system
+- Pages you visit and time spent on pages
+- Referring website
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat quisque aliquam sagittis. Sem turpis sed viverra massa gravida pharetra. Non dui dolor potenti eu dignissim fusce. Ultrices amet, in curabitur a arcu a lectus morbi id. Iaculis erat sagittis in tortor cursus. Molestie urna eu tortor, erat scelerisque eget. Nunc hendrerit sed interdum lacus. Lorem quis viverra sed
+### Information You Provide
+We may collect information that you voluntarily provide when you:
+- Leave comments on blog posts (if commenting is enabled)
+- Contact us through email
+- Subscribe to our newsletter (if applicable)
 
-#### Protection of Personal- Information
+## How We Use Your Information
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat quisque aliquam sagittis. Sem turpis sed viverra massa gravida pharetra. Non dui dolor potenti eu dignissim fusce. Ultrices amet, in curabitur a arcu a lectus morbi id. Iaculis erat sagittis in tortor cursus.
+We use the collected information to:
+- Provide and maintain our blog service
+- Improve user experience
+- Respond to your inquiries
+- Analyze website traffic and usage patterns
 
-Molestie urna eu tortor, erat scelerisque eget. Nunc hendrerit sed interdum lacus. Lorem quis viverra sed
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat
+## Data Storage and Security
 
-#### Privacy Policy Changes
+- Our website is hosted on GitHub Pages
+- We implement reasonable security measures to protect your information
+- We do not store sensitive personal information on our servers
 
-1. Sll the Themefisher items are designed to be with the latest , We check all
-2. comments that threaten or harm the reputation of any person or organization
-3. personal information including, but limited to, email addresses, telephone numbers
-4. Any Update come in The technology Customer will get automatic Notification.
+## Third-Party Services
+
+Our blog may use third-party services that have their own privacy policies:
+- **GitHub Pages**: For website hosting
+- **Google Analytics**: For website analytics (if enabled)
+
+## Cookies
+
+Our website may use cookies to enhance your browsing experience. You can control cookie settings through your browser preferences.
+
+## Your Rights
+
+You have the right to:
+- Request information about the data we collect
+- Request correction or deletion of your personal information
+- Opt-out of any data collection (where applicable)
+
+## Contact Us
+
+If you have any questions about this Privacy Policy, please contact us at:
+- **Email**: [Contact form](/en/contact)
+- **GitHub**: [github.com/kigo1031](https://github.com/kigo1031)
+
+## Changes to This Policy
+
+We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated revision date.
+
+---
+
+*This is a personal blog focused on sharing development knowledge and experiences.*

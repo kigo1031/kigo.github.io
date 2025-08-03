@@ -16,8 +16,6 @@ draft: false
 ## 💬 소셜 미디어
 
 - **GitHub**: [github.com/kigo1031](https://github.com/kigo1031)
-- **LinkedIn**: LinkedIn 프로필 (준비 중)
-- **Twitter**: Twitter 계정 (준비 중)
 
 ## 📝 연락하기 전에
 
