@@ -794,14 +794,13 @@
 
     <main>
       
-  <section class="section pt-7">
-    <div class="container">
-      <div class="row justify-center">
-        <article class="lg:col-10">
+<section class="section">
+  <div class="container">
+    <div class="row justify-center">
+      <article class="lg:col-10">
+        
+        <div class="mb-10">
           
-          
-            <div class="mb-10">
-              
 
 
 
@@ -899,7 +898,7 @@
              />
           <img
             
-              loading="lazy" decoding="async"
+              loading="eager" decoding="async"
               src="/images/service-3_hu_929c06d4b6feba56.png"
             class=" w-full rounded img"
             alt="Complete Quarkus JPA Guide - From Entity to Transaction"
@@ -916,86 +915,27 @@
   
 
 
-            </div>
+        </div>
+        
+        <h1 class="h2 mb-4">Complete Quarkus JPA Guide - From Entity to Transaction</h1>
+        <ul class="mb-4">
+          <li class="mr-4 inline-block">
+            <i class="fa fa-user mr-2 text-primary"></i>
+            Kigo
+          </li>
+          <li class="mr-4 inline-block">
+            <i class="fa fa-calendar-days mr-2 text-primary"></i>
+            August 3, 2025
+          </li>
           
-          <h1 class="h2 mb-4">
-            Complete Quarkus JPA Guide - From Entity to Transaction
-          </h1>
-          <ul class="mb-4">
-            <li class="mr-4 inline-block">
-              <a
-                href="/en/authors/kigo/">
-                <i class="fa-regular fa-circle-user mr-2"></i
-                >Kigo
-              </a>
-            </li>
-            
-            
-              <li class="mr-4 inline-block">
-                <i class="fa-regular fa-folder mr-2"></i>
-                
-                  <a
-                    href="/en/categories/backend/"
-                    class=""
-                    >Backend
-                  </a>
-                
-              </li>
-            
-            <li class="mr-4 inline-block">
-              <i class="fa-regular fa-clock mr-2"></i>
-              August 3, 2025
-            </li>
-          </ul>
-          <div class="content mb-10">
-            
-
- 
-  
-
-<details open class="table-of-content blog">
-  <summary>
-    
-      Table of Contents
-    
-  </summary>
-  <nav id="TableOfContents">
-  <ol>
-    <li><a href="#project-setup">Project Setup</a>
-      <ol>
-        <li><a href="#adding-dependencies">Adding Dependencies</a></li>
-        <li><a href="#database-configuration">Database Configuration</a></li>
-      </ol>
-    </li>
-    <li><a href="#entity-definition">Entity Definition</a></li>
-    <li><a href="#repository-pattern-vs-panache-pattern">Repository Pattern vs Panache Pattern</a>
-      <ol>
-        <li><a href="#1-traditional-repository-pattern">1. Traditional Repository Pattern</a></li>
-        <li><a href="#2-panache-pattern-recommended">2. Panache Pattern (Recommended)</a></li>
-      </ol>
-    </li>
-    <li><a href="#service-layer-implementation">Service Layer Implementation</a></li>
-    <li><a href="#rest-api-implementation">REST API Implementation</a></li>
-    <li><a href="#advanced-features">Advanced Features</a>
-      <ol>
-        <li><a href="#1-custom-queries">1. Custom Queries</a></li>
-        <li><a href="#2-transaction-management">2. Transaction Management</a></li>
-        <li><a href="#3-pagination-and-sorting">3. Pagination and Sorting</a></li>
-      </ol>
-    </li>
-    <li><a href="#development-environment-tips">Development Environment Tips</a>
-      <ol>
-        <li><a href="#using-devservices">Using DevServices</a></li>
-        <li><a href="#data-initialization">Data Initialization</a></li>
-      </ol>
-    </li>
-    <li><a href="#key-differences-from-spring-boot">Key Differences from Spring Boot</a></li>
-    <li><a href="#conclusion">Conclusion</a></li>
-  </ol>
-</nav>
-</details>
-
-            <p>When transitioning from Spring Boot to Quarkus, one of the first questions that comes to mind is &ldquo;How do I handle database integration?&rdquo; Fortunately, Quarkus provides excellent JPA support, often with better performance and simpler configuration.</p>
+          <li class="mr-4 inline-block">
+            <i class="fa fa-list mr-2 text-primary"></i>
+            <a class="hover:text-primary" href="/en/categories/backend">backend</a>
+          </li>
+          
+        </ul>
+        <div class="content mb-10">
+          <p>When transitioning from Spring Boot to Quarkus, one of the first questions that comes to mind is &ldquo;How do I handle database integration?&rdquo; Fortunately, Quarkus provides excellent JPA support, often with better performance and simpler configuration.</p>
 <h2 id="project-setup">Project Setup</h2>
 <h3 id="adding-dependencies">Adding Dependencies</h3>
 <p>Add the necessary dependencies to your <code>pom.xml</code>:</p>
@@ -1448,76 +1388,47 @@
 <p>If fast startup times and low memory usage are important for your cloud-native environment, I highly recommend Quarkus JPA. With existing JPA knowledge, the learning curve is minimal and adaptation is straightforward.</p>
 <p>In the next post, we&rsquo;ll explore Redis caching and messaging system integration in Quarkus.</p>
 
-          </div>
-          <div class="row items-start justify-between">
-            
-            
-              <div class="lg:col-6 mb-10 flex items-center lg:mb-0">
-                <h5 class="mr-3">Tags :</h5>
-                <ul>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/en/tags/quarkus/">
-                        Quarkus
-                      </a>
-                    </li>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/en/tags/jpa/">
-                        Jpa
-                      </a>
-                    </li>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/en/tags/database/">
-                        Database
-                      </a>
-                    </li>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/en/tags/java/">
-                        Java
-                      </a>
-                    </li>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/en/tags/backend/">
-                        Backend
-                      </a>
-                    </li>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/en/tags/hibernate/">
-                        Hibernate
-                      </a>
-                    </li>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/en/tags/postgresql/">
-                        Postgre SQL
-                      </a>
-                    </li>
-                  
-                </ul>
-              </div>
-            
-            <div class="lg:col-6 flex items-center lg:justify-end">
-              <h5>Share :</h5>
+        </div>
+        <div class="row items-start justify-between">
+          
+          <div class="lg:col-6 mb-10 flex items-center lg:mb-0">
+            <h5 class="mr-3">Tags :</h5>
+            <ul>
               
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/en/tags/quarkus">Quarkus</a>
+              </li>
+              
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/en/tags/jpa">JPA</a>
+              </li>
+              
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/en/tags/database">Database</a>
+              </li>
+              
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/en/tags/java">Java</a>
+              </li>
+              
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/en/tags/backend">Backend</a>
+              </li>
+              
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/en/tags/hibernate">Hibernate</a>
+              </li>
+              
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/en/tags/postgresql">PostgreSQL</a>
+              </li>
+              
+            </ul>
+          </div>
+          
+          <div class="lg:col-6 flex items-center lg:justify-end">
+            <h5>Share :</h5>
+            
 
 
 
@@ -1734,12 +1645,14 @@
   }
 </script>
 
-            </div>
           </div>
-          
-          
-            <div class="mt-20">
-              <div id="disqus_thread"></div>
+        </div>
+        
+        
+        
+        <div class="mt-20">
+          <h3 class="mb-8">Comments</h3>
+          <div id="disqus_thread"></div>
 <script>
     window.disqus_config = function () {
     
@@ -1759,21 +1672,21 @@
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-            </div>
-          
-        </article>
-      </div>
+        </div>
+        
+      </article>
+    </div>
 
-      
-      
-      
-      
-        <div class="section pb-0">
-          <h2 class="h3 mb-12">Related Posts</h2>
-          <div class="row">
-            
-              <div class="lg:col-4 md:col-6 mb-14">
-                <div class="bg-body dark:bg-darkmode-body">
+    
+    
+    
+    
+    <div class="section pb-0">
+      <h2 class="h3 mb-12">Related Posts</h2>
+      <div class="row">
+        
+        <div class="lg:col-4 md:col-6 mb-14">
+          <div class="bg-body dark:bg-darkmode-body">
   
   
     
@@ -1932,172 +1845,10 @@
   </a>
 </div>
 
-              </div>
-            
-              <div class="lg:col-4 md:col-6 mb-14">
-                <div class="bg-body dark:bg-darkmode-body">
-  
-  
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-  
-    
-      
-    
-
-
-    
-    
-
-
-    
-    
-      
-      
-    
-    
-    
-
-
-    
-    
-      
-      
+        </div>
         
-
-        
-        
-        
-        
-        
-        
-        
-
-
-        
-        
-
-
-        <picture>
-          <source
-            
-              srcset="/images/service-1_hu_929e1a7812c6d1fe.webp"
-            
-            media="(max-width: 575px)" />
-          <source
-            
-              srcset="/images/service-1_hu_b1075cc11ad28fb0.webp"
-            
-            media="(max-width: 767px)" />
-          <source
-            
-              srcset="/images/service-1_hu_3527cad0cb0b4cd5.webp"
-            
-            media="(max-width: 991px)" />
-          <source
-            
-              srcset="/images/service-1_hu_359afd51d4fd2457.webp"
-             />
-          <img
-            
-              loading="lazy" decoding="async"
-              src="/images/service-1_hu_734bba9c014561a1.png"
-            class=" mb-6 w-full rounded img"
-            alt="REST API Design Best Practices"
-            width="559"
-            height="518" />
-        </picture>
-      
-      
-    
-    
-  
-
-
-  
-
-
-  
-  <h4 class="mb-3">
-    <a href="/en/blog/rest-api-design/">
-      REST API Design Best Practices
-    </a>
-  </h4>
-  
-  
-    <ul class="mb-4">
-      <li class="mr-4 inline-block">
-        <a href="/en/authors/kigo/">
-          <i class="fa-regular fa-circle-user mr-2"></i>Kigo
-        </a>
-      </li>
-      <li class="mr-4 inline-block">
-        <i class="fa-regular fa-folder mr-1"></i>
-        
-          <a
-            href="/en/categories/backend/"
-            class="ms-1"
-            >Backend
-              ,
-            
-          </a>
-        
-          <a
-            href="/en/categories/api/"
-            class="ms-1"
-            >API
-          </a>
-        
-      </li>
-    </ul>
-  
-  <p class="mb-6">Well-designed REST APIs improve developer experience and ensure system scalability. Let&rsquo;s explore REST API design principles and best practices that can be applied in real projects, along with Spring Boot examples.
-</p>
-  <a class="btn btn-outline-primary btn-sm" href="/en/blog/rest-api-design/">
-    Read More
-  </a>
-</div>
-
-              </div>
-            
-              <div class="lg:col-4 md:col-6 mb-14">
-                <div class="bg-body dark:bg-darkmode-body">
+        <div class="lg:col-4 md:col-6 mb-14">
+          <div class="bg-body dark:bg-darkmode-body">
   
   
     
@@ -2256,13 +2007,175 @@
   </a>
 </div>
 
-              </div>
-            
-          </div>
         </div>
+        
+        <div class="lg:col-4 md:col-6 mb-14">
+          <div class="bg-body dark:bg-darkmode-body">
+  
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  
+    
       
+    
+
+
+    
+    
+
+
+    
+    
+      
+      
+    
+    
+    
+
+
+    
+    
+      
+      
+        
+
+        
+        
+        
+        
+        
+        
+        
+
+
+        
+        
+
+
+        <picture>
+          <source
+            
+              srcset="/images/service-1_hu_929e1a7812c6d1fe.webp"
+            
+            media="(max-width: 575px)" />
+          <source
+            
+              srcset="/images/service-1_hu_b1075cc11ad28fb0.webp"
+            
+            media="(max-width: 767px)" />
+          <source
+            
+              srcset="/images/service-1_hu_3527cad0cb0b4cd5.webp"
+            
+            media="(max-width: 991px)" />
+          <source
+            
+              srcset="/images/service-1_hu_359afd51d4fd2457.webp"
+             />
+          <img
+            
+              loading="lazy" decoding="async"
+              src="/images/service-1_hu_734bba9c014561a1.png"
+            class=" mb-6 w-full rounded img"
+            alt="REST API Design Best Practices"
+            width="559"
+            height="518" />
+        </picture>
+      
+      
+    
+    
+  
+
+
+  
+
+
+  
+  <h4 class="mb-3">
+    <a href="/en/blog/rest-api-design/">
+      REST API Design Best Practices
+    </a>
+  </h4>
+  
+  
+    <ul class="mb-4">
+      <li class="mr-4 inline-block">
+        <a href="/en/authors/kigo/">
+          <i class="fa-regular fa-circle-user mr-2"></i>Kigo
+        </a>
+      </li>
+      <li class="mr-4 inline-block">
+        <i class="fa-regular fa-folder mr-1"></i>
+        
+          <a
+            href="/en/categories/backend/"
+            class="ms-1"
+            >Backend
+              ,
+            
+          </a>
+        
+          <a
+            href="/en/categories/api/"
+            class="ms-1"
+            >API
+          </a>
+        
+      </li>
+    </ul>
+  
+  <p class="mb-6">Well-designed REST APIs improve developer experience and ensure system scalability. Let&rsquo;s explore REST API design principles and best practices that can be applied in real projects, along with Spring Boot examples.
+</p>
+  <a class="btn btn-outline-primary btn-sm" href="/en/blog/rest-api-design/">
+    Read More
+  </a>
+</div>
+
+        </div>
+        
+      </div>
     </div>
-  </section>
+    
+  </div>
+</section>
 
     </main>
 

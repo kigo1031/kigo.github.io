@@ -1,0 +1,88 @@
+{{ define "main" }}
+<section class="section">
+  <div class="container">
+    <div class="row justify-center">
+      <article class="lg:col-10">
+        {{ if .Params.image }}
+        <div class="mb-10">
+          {{ partial "image" (dict "Src" .Params.image "Alt" .Title "Loading" "eager" "Class" "w-full rounded") }}
+        </div>
+        {{ end }}
+        <h1 class="h2 mb-4">{{ .Title }}</h1>
+        <ul class="mb-4">
+          <li class="mr-4 inline-block">
+            <i class="fa fa-user mr-2 text-primary"></i>
+            {{ .Params.author }}
+          </li>
+          <li class="mr-4 inline-block">
+            <i class="fa fa-calendar-days mr-2 text-primary"></i>
+            {{ time.Format ":date_long" .PublishDate }}
+          </li>
+          {{ with .Params.categories }}
+          <li class="mr-4 inline-block">
+            <i class="fa fa-list mr-2 text-primary"></i>
+            {{ range $i, $e := . }}{{ if $i }}, {{ end }}<a class="hover:text-primary" href="{{ `/categories/` | relLangURL }}{{ . | urlize }}">{{ . }}</a>{{ end }}
+          </li>
+          {{ end }}
+        </ul>
+        <div class="content mb-10">
+          {{ .Content }}
+        </div>
+        <div class="row items-start justify-between">
+          {{ with .Params.tags }}
+          <div class="lg:col-6 mb-10 flex items-center lg:mb-0">
+            <h5 class="mr-3">{{ T "tags" }} :</h5>
+            <ul>
+              {{ range $i, $e := . }}
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="{{ `/tags/` | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+              </li>
+              {{ end }}
+            </ul>
+          </div>
+          {{ end }}
+          <div class="lg:col-6 flex items-center lg:justify-end">
+            <h5>{{ T "share" }} :</h5>
+            {{ partial "social-share" (dict "Context" . "Class" "share-icons" "Title" .Title "Whatsapp" false "Telegram" false "Linkedin" false "Pinterest" false "Tumblr" false "Vk" false "Reddit" false) }}
+          </div>
+        </div>
+        
+        <!-- comments -->
+        {{ if .Site.Config.Services.Disqus.Shortname }}
+        <div class="mt-20">
+          <h3 class="mb-8">Comments</h3>
+          {{ template "_internal/disqus.html" . }}
+        </div>
+        {{ else if .Site.Params.disqus.shortname }}
+        <div class="mt-20">
+          <h3 class="mb-8">Comments</h3>
+          {{ template "_internal/disqus.html" . }}
+        </div>
+        {{ else }}
+        <div class="mt-20">
+          <p>Debug: Disqus not configured</p>
+          <p>Config.Services.Disqus.Shortname: {{ .Site.Config.Services.Disqus.Shortname }}</p>
+          <p>Params.disqus.shortname: {{ .Site.Params.disqus.shortname }}</p>
+        </div>
+        {{ end }}
+      </article>
+    </div>
+
+    <!-- Related posts -->
+    {{ $related := .Site.RegularPages.Related . | first 10 }}
+    {{ $related = $related | shuffle | first 3 }}
+    {{ with $related }}
+    <div class="section pb-0">
+      <h2 class="h3 mb-12">{{ T "related_posts" }}</h2>
+      <div class="row">
+        {{ range . }}
+        <div class="lg:col-4 md:col-6 mb-14">
+          {{ partial "components/blog-card" . }}
+        </div>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

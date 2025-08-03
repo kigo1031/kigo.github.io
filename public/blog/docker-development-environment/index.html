@@ -793,14 +793,13 @@
 
     <main>
       
-  <section class="section pt-7">
-    <div class="container">
-      <div class="row justify-center">
-        <article class="lg:col-10">
+<section class="section">
+  <div class="container">
+    <div class="row justify-center">
+      <article class="lg:col-10">
+        
+        <div class="mb-10">
           
-          
-            <div class="mb-10">
-              
 
 
 
@@ -898,7 +897,7 @@
              />
           <img
             
-              loading="lazy" decoding="async"
+              loading="eager" decoding="async"
               src="/images/service-1_hu_734bba9c014561a1.png"
             class=" w-full rounded img"
             alt="Docker로 개발 환경 구축하기"
@@ -915,95 +914,27 @@
   
 
 
-            </div>
+        </div>
+        
+        <h1 class="h2 mb-4">Docker로 개발 환경 구축하기</h1>
+        <ul class="mb-4">
+          <li class="mr-4 inline-block">
+            <i class="fa fa-user mr-2 text-primary"></i>
+            Kigo
+          </li>
+          <li class="mr-4 inline-block">
+            <i class="fa fa-calendar-days mr-2 text-primary"></i>
+            2025년 7월 30일
+          </li>
           
-          <h1 class="h2 mb-4">
-            Docker로 개발 환경 구축하기
-          </h1>
-          <ul class="mb-4">
-            <li class="mr-4 inline-block">
-              <a
-                href="/authors/kigo/">
-                <i class="fa-regular fa-circle-user mr-2"></i
-                >Kigo
-              </a>
-            </li>
-            
-            
-              <li class="mr-4 inline-block">
-                <i class="fa-regular fa-folder mr-2"></i>
-                
-                  <a
-                    href="/categories/devops/"
-                    class=""
-                    >Dev ops
-                      ,
-                    
-                  </a>
-                
-                  <a
-                    href="/categories/%ec%bb%a8%ed%85%8c%ec%9d%b4%eb%84%88/"
-                    class=""
-                    >컨테이너
-                  </a>
-                
-              </li>
-            
-            <li class="mr-4 inline-block">
-              <i class="fa-regular fa-clock mr-2"></i>
-              2025년 7월 30일
-            </li>
-          </ul>
-          <div class="content mb-10">
-            
-
- 
-  
-
-<details open class="table-of-content blog">
-  <summary>
-    
-      Table Of Contents
-    
-  </summary>
-  <nav id="TableOfContents">
-  <ol>
-    <li><a href="#docker란">Docker란?</a>
-      <ol>
-        <li><a href="#docker의-장점">Docker의 장점</a></li>
-      </ol>
-    </li>
-    <li><a href="#기본-docker-명령어">기본 Docker 명령어</a>
-      <ol>
-        <li><a href="#이미지-관리">이미지 관리</a></li>
-        <li><a href="#컨테이너-관리">컨테이너 관리</a></li>
-      </ol>
-    </li>
-    <li><a href="#dockerfile-작성">Dockerfile 작성</a></li>
-    <li><a href="#docker-compose로-멀티-컨테이너-관리">Docker Compose로 멀티 컨테이너 관리</a>
-      <ol>
-        <li><a href="#docker-compose-명령어">Docker Compose 명령어</a></li>
-      </ol>
-    </li>
-    <li><a href="#개발-환경-구축-예시">개발 환경 구축 예시</a>
-      <ol>
-        <li><a href="#1-개발용-dockerfile">1. 개발용 Dockerfile</a></li>
-        <li><a href="#2-dockerignore-파일">2. .dockerignore 파일</a></li>
-      </ol>
-    </li>
-    <li><a href="#유용한-docker-팁">유용한 Docker 팁</a>
-      <ol>
-        <li><a href="#볼륨-마운트">볼륨 마운트</a></li>
-        <li><a href="#환경-변수-설정">환경 변수 설정</a></li>
-        <li><a href="#네트워크-설정">네트워크 설정</a></li>
-      </ol>
-    </li>
-    <li><a href="#마무리">마무리</a></li>
-  </ol>
-</nav>
-</details>
-
-            <p>개발을 하다 보면 &ldquo;내 컴퓨터에서는 잘 됐는데?&ldquo;라는 말을 자주 듣게 됩니다. Docker를 사용하면 이런 문제를 해결하고 일관된 개발 환경을 구축할 수 있습니다.</p>
+          <li class="mr-4 inline-block">
+            <i class="fa fa-list mr-2 text-primary"></i>
+            <a class="hover:text-primary" href="/categories/devops">DevOps</a>, <a class="hover:text-primary" href="/categories/%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88">컨테이너</a>
+          </li>
+          
+        </ul>
+        <div class="content mb-10">
+          <p>개발을 하다 보면 &ldquo;내 컴퓨터에서는 잘 됐는데?&ldquo;라는 말을 자주 듣게 됩니다. Docker를 사용하면 이런 문제를 해결하고 일관된 개발 환경을 구축할 수 있습니다.</p>
 <h2 id="docker란">Docker란?</h2>
 <p>Docker는 컨테이너 기반의 가상화 플랫폼입니다. 애플리케이션과 그 실행에 필요한 모든 것을 하나의 컨테이너로 패키징할 수 있습니다.</p>
 <h3 id="docker의-장점">Docker의 장점</h3>
@@ -1158,52 +1089,35 @@ Dockerfile
 <p>Docker는 현대 개발에서 필수적인 도구가 되었습니다. 처음에는 복잡해 보일 수 있지만, 익숙해지면 개발 효율성을 크게 향상시킬 수 있습니다.</p>
 <p>컨테이너 기반 개발에 관심이 있으시다면 Docker부터 시작해보세요! 🐳</p>
 
-          </div>
-          <div class="row items-start justify-between">
-            
-            
-              <div class="lg:col-6 mb-10 flex items-center lg:mb-0">
-                <h5 class="mr-3">태그 :</h5>
-                <ul>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/docker/">
-                        Docker
-                      </a>
-                    </li>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/devops/">
-                        Dev ops
-                      </a>
-                    </li>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/%ec%bb%a8%ed%85%8c%ec%9d%b4%eb%84%88/">
-                        컨테이너
-                      </a>
-                    </li>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/%ea%b0%9c%eb%b0%9c%ed%99%98%ea%b2%bd/">
-                        개발환경
-                      </a>
-                    </li>
-                  
-                </ul>
-              </div>
-            
-            <div class="lg:col-6 flex items-center lg:justify-end">
-              <h5>공유하기 :</h5>
+        </div>
+        <div class="row items-start justify-between">
+          
+          <div class="lg:col-6 mb-10 flex items-center lg:mb-0">
+            <h5 class="mr-3">태그 :</h5>
+            <ul>
               
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/tags/docker">Docker</a>
+              </li>
+              
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/tags/devops">DevOps</a>
+              </li>
+              
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/tags/%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88">컨테이너</a>
+              </li>
+              
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/tags/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD">개발환경</a>
+              </li>
+              
+            </ul>
+          </div>
+          
+          <div class="lg:col-6 flex items-center lg:justify-end">
+            <h5>공유하기 :</h5>
+            
 
 
 
@@ -1420,12 +1334,14 @@ Dockerfile
   }
 </script>
 
-            </div>
           </div>
-          
-          
-            <div class="mt-20">
-              <div id="disqus_thread"></div>
+        </div>
+        
+        
+        
+        <div class="mt-20">
+          <h3 class="mb-8">Comments</h3>
+          <div id="disqus_thread"></div>
 <script>
     window.disqus_config = function () {
     
@@ -1445,17 +1361,17 @@ Dockerfile
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-            </div>
-          
-        </article>
-      </div>
-
-      
-      
-      
-      
+        </div>
+        
+      </article>
     </div>
-  </section>
+
+    
+    
+    
+    
+  </div>
+</section>
 
     </main>
 

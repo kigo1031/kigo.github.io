@@ -44,27 +44,6 @@
       <description></description>
     </item>
     <item>
-      <title>태그1</title>
-      <link>http://localhost:1313/tags/%ED%83%9C%EA%B7%B81/</link>
-      <pubDate>Sun, 03 Aug 2025 15:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/tags/%ED%83%9C%EA%B7%B81/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>태그2</title>
-      <link>http://localhost:1313/tags/%ED%83%9C%EA%B7%B82/</link>
-      <pubDate>Sun, 03 Aug 2025 15:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/tags/%ED%83%9C%EA%B7%B82/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>태그3</title>
-      <link>http://localhost:1313/tags/%ED%83%9C%EA%B7%B83/</link>
-      <pubDate>Sun, 03 Aug 2025 15:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/tags/%ED%83%9C%EA%B7%B83/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Cloud Native</title>
       <link>http://localhost:1313/tags/cloud-native/</link>
       <pubDate>Sun, 03 Aug 2025 13:00:00 +0900</pubDate>

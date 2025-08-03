@@ -23,20 +23,6 @@
       <description></description>
     </item>
     <item>
-      <title>카테고리1</title>
-      <link>http://localhost:1313/categories/%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC1/</link>
-      <pubDate>Sun, 03 Aug 2025 15:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/categories/%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC1/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>카테고리2</title>
-      <link>http://localhost:1313/categories/%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC2/</link>
-      <pubDate>Sun, 03 Aug 2025 15:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/categories/%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC2/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>DevOps</title>
       <link>http://localhost:1313/categories/devops/</link>
       <pubDate>Wed, 30 Jul 2025 11:20:00 +0000</pubDate>

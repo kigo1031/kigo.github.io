@@ -793,14 +793,13 @@
 
     <main>
       
-  <section class="section pt-7">
-    <div class="container">
-      <div class="row justify-center">
-        <article class="lg:col-10">
+<section class="section">
+  <div class="container">
+    <div class="row justify-center">
+      <article class="lg:col-10">
+        
+        <div class="mb-10">
           
-          
-            <div class="mb-10">
-              
 
 
 
@@ -898,7 +897,7 @@
              />
           <img
             
-              loading="lazy" decoding="async"
+              loading="eager" decoding="async"
               src="/images/service-2_hu_b8c16cba52ad70d0.png"
             class=" w-full rounded img"
             alt="Hugo 블로그 포스팅 완벽 가이드 - 실제 운영 경험으로 배우는 팁들"
@@ -915,133 +914,27 @@
   
 
 
-            </div>
+        </div>
+        
+        <h1 class="h2 mb-4">Hugo 블로그 포스팅 완벽 가이드 - 실제 운영 경험으로 배우는 팁들</h1>
+        <ul class="mb-4">
+          <li class="mr-4 inline-block">
+            <i class="fa fa-user mr-2 text-primary"></i>
+            Kigo
+          </li>
+          <li class="mr-4 inline-block">
+            <i class="fa fa-calendar-days mr-2 text-primary"></i>
+            2025년 8월 3일
+          </li>
           
-          <h1 class="h2 mb-4">
-            Hugo 블로그 포스팅 완벽 가이드 - 실제 운영 경험으로 배우는 팁들
-          </h1>
-          <ul class="mb-4">
-            <li class="mr-4 inline-block">
-              <a
-                href="/authors/kigo/">
-                <i class="fa-regular fa-circle-user mr-2"></i
-                >Kigo
-              </a>
-            </li>
-            
-            
-              <li class="mr-4 inline-block">
-                <i class="fa-regular fa-folder mr-2"></i>
-                
-                  <a
-                    href="/categories/%ea%b0%9c%eb%b0%9c%eb%8f%84%ea%b5%ac/"
-                    class=""
-                    >개발도구
-                      ,
-                    
-                  </a>
-                
-                  <a
-                    href="/categories/%ec%9b%b9%ea%b0%9c%eb%b0%9c/"
-                    class=""
-                    >웹개발
-                  </a>
-                
-              </li>
-            
-            <li class="mr-4 inline-block">
-              <i class="fa-regular fa-clock mr-2"></i>
-              2025년 8월 3일
-            </li>
-          </ul>
-          <div class="content mb-10">
-            
-
- 
-  
-
-<details open class="table-of-content blog">
-  <summary>
-    
-      Table Of Contents
-    
-  </summary>
-  <nav id="TableOfContents">
-  <ol>
-    <li><a href="#왜-hugo인가">왜 Hugo인가?</a></li>
-    <li><a href="#블로그-구조-이해하기">블로그 구조 이해하기</a>
-      <ol>
-        <li><a href="#기본-디렉토리-구조">기본 디렉토리 구조</a></li>
-        <li><a href="#중요한-설정-파일들">중요한 설정 파일들</a></li>
-      </ol>
-    </li>
-    <li><a href="#새-포스트-작성하기">새 포스트 작성하기</a>
-      <ol>
-        <li><a href="#1-hugo-명령어로-생성-추천">1. Hugo 명령어로 생성 (추천)</a></li>
-        <li><a href="#2-수동으로-생성">2. 수동으로 생성</a></li>
-      </ol>
-    </li>
-    <li><a href="#front-matter-최적화-팁">Front Matter 최적화 팁</a>
-      <ol>
-        <li><a href="#필수-필드들">필수 필드들</a></li>
-        <li><a href="#날짜-형식-주의사항">날짜 형식 주의사항</a></li>
-        <li><a href="#카테고리-일관성-유지">카테고리 일관성 유지</a></li>
-      </ol>
-    </li>
-    <li><a href="#마크다운-작성-실전-팁">마크다운 작성 실전 팁</a>
-      <ol>
-        <li><a href="#1-제목-구조-최적화">1. 제목 구조 최적화</a></li>
-        <li><a href="#2-코드-블록-활용">2. 코드 블록 활용</a></li>
-        <li><a href="#3-이미지-최적화">3. 이미지 최적화</a></li>
-        <li><a href="#4-링크-작성법">4. 링크 작성법</a></li>
-      </ol>
-    </li>
-    <li><a href="#이미지-관리-전략">이미지 관리 전략</a>
-      <ol>
-        <li><a href="#파일-구조">파일 구조</a></li>
-        <li><a href="#이미지-최적화">이미지 최적화</a></li>
-      </ol>
-    </li>
-    <li><a href="#개발-워크플로우">개발 워크플로우</a>
-      <ol>
-        <li><a href="#1-개발-서버-실행">1. 개발 서버 실행</a></li>
-        <li><a href="#2-실시간-미리보기">2. 실시간 미리보기</a></li>
-        <li><a href="#3-빌드-및-배포">3. 빌드 및 배포</a></li>
-      </ol>
-    </li>
-    <li><a href="#자주-하는-실수들">자주 하는 실수들</a>
-      <ol>
-        <li><a href="#1-front-matter-문법-오류">1. Front Matter 문법 오류</a></li>
-        <li><a href="#2-이미지-경로-오류">2. 이미지 경로 오류</a></li>
-        <li><a href="#3-날짜-순서-문제">3. 날짜 순서 문제</a></li>
-      </ol>
-    </li>
-    <li><a href="#성능-최적화-팁">성능 최적화 팁</a>
-      <ol>
-        <li><a href="#1-이미지-지연-로딩">1. 이미지 지연 로딩</a></li>
-        <li><a href="#2-빌드-최적화">2. 빌드 최적화</a></li>
-        <li><a href="#3-검색-최적화">3. 검색 최적화</a></li>
-      </ol>
-    </li>
-    <li><a href="#유용한-hugo-명령어들">유용한 Hugo 명령어들</a></li>
-    <li><a href="#백업-전략">백업 전략</a>
-      <ol>
-        <li><a href="#1-git-활용">1. Git 활용</a></li>
-        <li><a href="#2-자동-백업-스크립트">2. 자동 백업 스크립트</a></li>
-      </ol>
-    </li>
-    <li><a href="#트러블슈팅">트러블슈팅</a>
-      <ol>
-        <li><a href="#빌드-에러-해결">빌드 에러 해결</a></li>
-        <li><a href="#템플릿-문제">템플릿 문제</a></li>
-      </ol>
-    </li>
-    <li><a href="#마무리">마무리</a></li>
-  </ol>
-</nav>
-</details>
-
-            <p>Hugo 블로그를 운영하면서 겪었던 시행착오들을 바탕으로, 효율적인 포스팅 방법과 유용한 팁들을 공유해드립니다. 특히 GitHub Pages와 함께 사용하는 경우에 도움이 될 거예요.</p>
+          <li class="mr-4 inline-block">
+            <i class="fa fa-list mr-2 text-primary"></i>
+            <a class="hover:text-primary" href="/categories/%EA%B0%9C%EB%B0%9C%EB%8F%84%EA%B5%AC">개발도구</a>, <a class="hover:text-primary" href="/categories/%EC%9B%B9%EA%B0%9C%EB%B0%9C">웹개발</a>
+          </li>
+          
+        </ul>
+        <div class="content mb-10">
+          <p>Hugo 블로그를 운영하면서 겪었던 시행착오들을 바탕으로, 효율적인 포스팅 방법과 유용한 팁들을 공유해드립니다. 특히 GitHub Pages와 함께 사용하는 경우에 도움이 될 거예요.</p>
 <h2 id="왜-hugo인가">왜 Hugo인가?</h2>
 <p>처음 블로그를 시작할 때 여러 선택지가 있었습니다:</p>
 <ul>
@@ -1285,60 +1178,39 @@
 >마크다운 문법 가이드</a></li>
 </ul>
 
-          </div>
-          <div class="row items-start justify-between">
-            
-            
-              <div class="lg:col-6 mb-10 flex items-center lg:mb-0">
-                <h5 class="mr-3">태그 :</h5>
-                <ul>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/hugo/">
-                        Hugo
-                      </a>
-                    </li>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/github-pages/">
-                        Git hub pages
-                      </a>
-                    </li>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/%eb%b8%94%eb%a1%9c%ea%b7%b8/">
-                        블로그
-                      </a>
-                    </li>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/%eb%a7%88%ed%81%ac%eb%8b%a4%ec%9a%b4/">
-                        마크다운
-                      </a>
-                    </li>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/%ec%a0%95%ec%a0%81%ec%82%ac%ec%9d%b4%ed%8a%b8/">
-                        정적사이트
-                      </a>
-                    </li>
-                  
-                </ul>
-              </div>
-            
-            <div class="lg:col-6 flex items-center lg:justify-end">
-              <h5>공유하기 :</h5>
+        </div>
+        <div class="row items-start justify-between">
+          
+          <div class="lg:col-6 mb-10 flex items-center lg:mb-0">
+            <h5 class="mr-3">태그 :</h5>
+            <ul>
               
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/tags/hugo">Hugo</a>
+              </li>
+              
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/tags/github-pages">GitHub Pages</a>
+              </li>
+              
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8">블로그</a>
+              </li>
+              
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/tags/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4">마크다운</a>
+              </li>
+              
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/tags/%EC%A0%95%EC%A0%81%EC%82%AC%EC%9D%B4%ED%8A%B8">정적사이트</a>
+              </li>
+              
+            </ul>
+          </div>
+          
+          <div class="lg:col-6 flex items-center lg:justify-end">
+            <h5>공유하기 :</h5>
+            
 
 
 
@@ -1555,12 +1427,14 @@
   }
 </script>
 
-            </div>
           </div>
-          
-          
-            <div class="mt-20">
-              <div id="disqus_thread"></div>
+        </div>
+        
+        
+        
+        <div class="mt-20">
+          <h3 class="mb-8">Comments</h3>
+          <div id="disqus_thread"></div>
 <script>
     window.disqus_config = function () {
     
@@ -1580,17 +1454,17 @@
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-            </div>
-          
-        </article>
-      </div>
-
-      
-      
-      
-      
+        </div>
+        
+      </article>
     </div>
-  </section>
+
+    
+    
+    
+    
+  </div>
+</section>
 
     </main>
 

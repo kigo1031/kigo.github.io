@@ -6,8 +6,43 @@
     <description>Recent content in Tags on Kigo&#39;s Blog - 백엔드 Java 개발자</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 03 Aug 2025 13:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 03 Aug 2025 15:00:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/en/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blog</title>
+      <link>http://localhost:1313/en/tags/blog/</link>
+      <pubDate>Sun, 03 Aug 2025 15:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/en/tags/blog/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>GitHub Pages</title>
+      <link>http://localhost:1313/en/tags/github-pages/</link>
+      <pubDate>Sun, 03 Aug 2025 15:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/en/tags/github-pages/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hugo</title>
+      <link>http://localhost:1313/en/tags/hugo/</link>
+      <pubDate>Sun, 03 Aug 2025 15:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/en/tags/hugo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Markdown</title>
+      <link>http://localhost:1313/en/tags/markdown/</link>
+      <pubDate>Sun, 03 Aug 2025 15:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/en/tags/markdown/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Static Site</title>
+      <link>http://localhost:1313/en/tags/static-site/</link>
+      <pubDate>Sun, 03 Aug 2025 15:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/en/tags/static-site/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Cloud Native</title>
       <link>http://localhost:1313/en/tags/cloud-native/</link>
@@ -205,13 +240,6 @@
       <description></description>
     </item>
     <item>
-      <title>HTTP</title>
-      <link>http://localhost:1313/en/tags/http/</link>
-      <pubDate>Thu, 07 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/tags/http/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>REST API</title>
       <link>http://localhost:1313/en/tags/rest-api/</link>
       <pubDate>Thu, 07 Apr 2022 05:00:00 +0000</pubDate>
@@ -219,10 +247,10 @@
       <description></description>
     </item>
     <item>
-      <title>Web Services</title>
-      <link>http://localhost:1313/en/tags/web-services/</link>
+      <title>Web Development</title>
+      <link>http://localhost:1313/en/tags/web-development/</link>
       <pubDate>Thu, 07 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/tags/web-services/</guid>
+      <guid>http://localhost:1313/en/tags/web-development/</guid>
       <description></description>
     </item>
     <item>
@@ -230,13 +258,6 @@
       <link>http://localhost:1313/en/tags/architecture/</link>
       <pubDate>Wed, 06 Apr 2022 05:00:00 +0000</pubDate>
       <guid>http://localhost:1313/en/tags/architecture/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Distributed Systems</title>
-      <link>http://localhost:1313/en/tags/distributed-systems/</link>
-      <pubDate>Wed, 06 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/tags/distributed-systems/</guid>
       <description></description>
     </item>
     <item>
@@ -268,10 +289,10 @@
       <description></description>
     </item>
     <item>
-      <title>SQL</title>
-      <link>http://localhost:1313/en/tags/sql/</link>
+      <title>Spring Data</title>
+      <link>http://localhost:1313/en/tags/spring-data/</link>
       <pubDate>Tue, 05 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/tags/sql/</guid>
+      <guid>http://localhost:1313/en/tags/spring-data/</guid>
       <description></description>
     </item>
     <item>

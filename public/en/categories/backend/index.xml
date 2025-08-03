@@ -24,31 +24,31 @@
     </item>
     <item>
       <title>REST API Design Best Practices</title>
-      <link>http://localhost:1313/en/blog/post-4/</link>
+      <link>http://localhost:1313/en/blog/rest-api-design/</link>
       <pubDate>Thu, 07 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/blog/post-4/</guid>
-      <description>&lt;p&gt;Well-designed REST APIs are crucial for building maintainable and scalable applications. Let&amp;rsquo;s explore the essential principles and best practices for creating robust APIs.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/en/blog/rest-api-design/</guid>
+      <description>&lt;p&gt;Well-designed REST APIs improve developer experience and ensure system scalability. Let&amp;rsquo;s explore REST API design principles and best practices that can be applied in real projects, along with Spring Boot examples.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Microservices Architecture with Spring Boot</title>
-      <link>http://localhost:1313/en/blog/post-3/</link>
+      <link>http://localhost:1313/en/blog/microservices-architecture/</link>
       <pubDate>Wed, 06 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/blog/post-3/</guid>
-      <description>&lt;p&gt;Microservices architecture has become the preferred approach for building scalable, maintainable applications. Let&amp;rsquo;s explore how to implement microservices using Spring Boot and Spring Cloud.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/en/blog/microservices-architecture/</guid>
+      <description>&lt;p&gt;To overcome the limitations of monolithic applications and build scalable and flexible systems, microservices architecture is gaining attention. Let&amp;rsquo;s explore how to build microservices that can be used in actual production environments using the Spring Boot and Spring Cloud ecosystem.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Database Design Patterns for Java Applications</title>
-      <link>http://localhost:1313/en/blog/post-2/</link>
+      <link>http://localhost:1313/en/blog/database-design-patterns/</link>
       <pubDate>Tue, 05 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/blog/post-2/</guid>
-      <description>&lt;p&gt;Effective database design is crucial for building scalable Java applications. Let&amp;rsquo;s explore essential patterns and techniques that every backend developer should know.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/en/blog/database-design-patterns/</guid>
+      <description>&lt;p&gt;Solid database design is essential for efficient Java application development. Let&amp;rsquo;s explore database design patterns that satisfy both performance and maintainability using JPA and Spring Data.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Spring Boot Best Practices for Production</title>
-      <link>http://localhost:1313/en/blog/post-1/</link>
+      <title>Spring Boot Production Best Practices</title>
+      <link>http://localhost:1313/en/blog/spring-boot-best-practices/</link>
       <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/blog/post-1/</guid>
-      <description>&lt;p&gt;Building production-ready Spring Boot applications requires more than just basic functionality. Let&amp;rsquo;s explore essential practices that ensure your applications are robust, secure, and maintainable.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/en/blog/spring-boot-best-practices/</guid>
+      <description>&lt;p&gt;To create stable Spring Boot applications in production, you need more than just basic functionality. Let&amp;rsquo;s explore essential practices for building robust, secure, and maintainable applications.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

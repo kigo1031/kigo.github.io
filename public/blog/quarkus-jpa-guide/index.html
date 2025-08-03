@@ -794,14 +794,13 @@
 
     <main>
       
-  <section class="section pt-7">
-    <div class="container">
-      <div class="row justify-center">
-        <article class="lg:col-10">
+<section class="section">
+  <div class="container">
+    <div class="row justify-center">
+      <article class="lg:col-10">
+        
+        <div class="mb-10">
           
-          
-            <div class="mb-10">
-              
 
 
 
@@ -899,7 +898,7 @@
              />
           <img
             
-              loading="lazy" decoding="async"
+              loading="eager" decoding="async"
               src="/images/service-3_hu_929c06d4b6feba56.png"
             class=" w-full rounded img"
             alt="Quarkus JPA 완전 정복 - 엔티티부터 트랜잭션까지"
@@ -916,86 +915,27 @@
   
 
 
-            </div>
+        </div>
+        
+        <h1 class="h2 mb-4">Quarkus JPA 완전 정복 - 엔티티부터 트랜잭션까지</h1>
+        <ul class="mb-4">
+          <li class="mr-4 inline-block">
+            <i class="fa fa-user mr-2 text-primary"></i>
+            Kigo
+          </li>
+          <li class="mr-4 inline-block">
+            <i class="fa fa-calendar-days mr-2 text-primary"></i>
+            2025년 8월 3일
+          </li>
           
-          <h1 class="h2 mb-4">
-            Quarkus JPA 완전 정복 - 엔티티부터 트랜잭션까지
-          </h1>
-          <ul class="mb-4">
-            <li class="mr-4 inline-block">
-              <a
-                href="/authors/kigo/">
-                <i class="fa-regular fa-circle-user mr-2"></i
-                >Kigo
-              </a>
-            </li>
-            
-            
-              <li class="mr-4 inline-block">
-                <i class="fa-regular fa-folder mr-2"></i>
-                
-                  <a
-                    href="/categories/%ec%9b%b9%ea%b0%9c%eb%b0%9c/"
-                    class=""
-                    >웹개발
-                  </a>
-                
-              </li>
-            
-            <li class="mr-4 inline-block">
-              <i class="fa-regular fa-clock mr-2"></i>
-              2025년 8월 3일
-            </li>
-          </ul>
-          <div class="content mb-10">
-            
-
- 
-  
-
-<details open class="table-of-content blog">
-  <summary>
-    
-      Table Of Contents
-    
-  </summary>
-  <nav id="TableOfContents">
-  <ol>
-    <li><a href="#프로젝트-설정">프로젝트 설정</a>
-      <ol>
-        <li><a href="#의존성-추가">의존성 추가</a></li>
-        <li><a href="#데이터베이스-설정">데이터베이스 설정</a></li>
-      </ol>
-    </li>
-    <li><a href="#엔티티-정의">엔티티 정의</a></li>
-    <li><a href="#repository-패턴-vs-panache-패턴">Repository 패턴 vs Panache 패턴</a>
-      <ol>
-        <li><a href="#1-전통적인-repository-패턴">1. 전통적인 Repository 패턴</a></li>
-        <li><a href="#2-panache-패턴-권장">2. Panache 패턴 (권장)</a></li>
-      </ol>
-    </li>
-    <li><a href="#서비스-계층-구현">서비스 계층 구현</a></li>
-    <li><a href="#rest-api-구현">REST API 구현</a></li>
-    <li><a href="#고급-기능">고급 기능</a>
-      <ol>
-        <li><a href="#1-커스텀-쿼리">1. 커스텀 쿼리</a></li>
-        <li><a href="#2-트랜잭션-관리">2. 트랜잭션 관리</a></li>
-        <li><a href="#3-페이징과-정렬">3. 페이징과 정렬</a></li>
-      </ol>
-    </li>
-    <li><a href="#개발-환경-팁">개발 환경 팁</a>
-      <ol>
-        <li><a href="#devservices-활용">DevServices 활용</a></li>
-        <li><a href="#데이터-초기화">데이터 초기화</a></li>
-      </ol>
-    </li>
-    <li><a href="#spring-boot와의-주요-차이점">Spring Boot와의 주요 차이점</a></li>
-    <li><a href="#마무리">마무리</a></li>
-  </ol>
-</nav>
-</details>
-
-            <p>Spring Boot에서 JPA를 사용하다 Quarkus로 넘어오면서 가장 궁금했던 것이 &ldquo;데이터베이스 연동은 어떻게 하지?&ldquo;였습니다. 다행히 Quarkus도 JPA를 완벽 지원하며, 오히려 더 간단하고 성능이 좋은 경우가 많습니다.</p>
+          <li class="mr-4 inline-block">
+            <i class="fa fa-list mr-2 text-primary"></i>
+            <a class="hover:text-primary" href="/categories/%EC%9B%B9%EA%B0%9C%EB%B0%9C">웹개발</a>
+          </li>
+          
+        </ul>
+        <div class="content mb-10">
+          <p>Spring Boot에서 JPA를 사용하다 Quarkus로 넘어오면서 가장 궁금했던 것이 &ldquo;데이터베이스 연동은 어떻게 하지?&ldquo;였습니다. 다행히 Quarkus도 JPA를 완벽 지원하며, 오히려 더 간단하고 성능이 좋은 경우가 많습니다.</p>
 <h2 id="프로젝트-설정">프로젝트 설정</h2>
 <h3 id="의존성-추가">의존성 추가</h3>
 <p><code>pom.xml</code>에 필요한 의존성을 추가합니다:</p>
@@ -1449,76 +1389,47 @@
 <p>클라우드 네이티브 환경에서 빠른 시작 시간과 적은 메모리 사용량이 중요하다면 Quarkus JPA를 적극 추천합니다. 기존 JPA 지식이 있다면 러닝 커브도 거의 없어서 쉽게 적응할 수 있을 것입니다.</p>
 <p>다음 포스트에서는 Quarkus에서 Redis 캐싱과 메시징 시스템 연동에 대해 다뤄보겠습니다.</p>
 
-          </div>
-          <div class="row items-start justify-between">
-            
-            
-              <div class="lg:col-6 mb-10 flex items-center lg:mb-0">
-                <h5 class="mr-3">태그 :</h5>
-                <ul>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/quarkus/">
-                        Quarkus
-                      </a>
-                    </li>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/jpa/">
-                        Jpa
-                      </a>
-                    </li>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/database/">
-                        Database
-                      </a>
-                    </li>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/java/">
-                        Java
-                      </a>
-                    </li>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/backend/">
-                        Backend
-                      </a>
-                    </li>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/hibernate/">
-                        Hibernate
-                      </a>
-                    </li>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/postgresql/">
-                        Postgre SQL
-                      </a>
-                    </li>
-                  
-                </ul>
-              </div>
-            
-            <div class="lg:col-6 flex items-center lg:justify-end">
-              <h5>공유하기 :</h5>
+        </div>
+        <div class="row items-start justify-between">
+          
+          <div class="lg:col-6 mb-10 flex items-center lg:mb-0">
+            <h5 class="mr-3">태그 :</h5>
+            <ul>
               
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/tags/quarkus">Quarkus</a>
+              </li>
+              
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/tags/jpa">JPA</a>
+              </li>
+              
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/tags/database">Database</a>
+              </li>
+              
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/tags/java">Java</a>
+              </li>
+              
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/tags/backend">Backend</a>
+              </li>
+              
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/tags/hibernate">Hibernate</a>
+              </li>
+              
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/tags/postgresql">PostgreSQL</a>
+              </li>
+              
+            </ul>
+          </div>
+          
+          <div class="lg:col-6 flex items-center lg:justify-end">
+            <h5>공유하기 :</h5>
+            
 
 
 
@@ -1735,12 +1646,14 @@
   }
 </script>
 
-            </div>
           </div>
-          
-          
-            <div class="mt-20">
-              <div id="disqus_thread"></div>
+        </div>
+        
+        
+        
+        <div class="mt-20">
+          <h3 class="mb-8">Comments</h3>
+          <div id="disqus_thread"></div>
 <script>
     window.disqus_config = function () {
     
@@ -1760,21 +1673,21 @@
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-            </div>
-          
-        </article>
-      </div>
+        </div>
+        
+      </article>
+    </div>
 
-      
-      
-      
-      
-        <div class="section pb-0">
-          <h2 class="h3 mb-12">관련 글</h2>
-          <div class="row">
-            
-              <div class="lg:col-4 md:col-6 mb-14">
-                <div class="bg-body dark:bg-darkmode-body">
+    
+    
+    
+    
+    <div class="section pb-0">
+      <h2 class="h3 mb-12">관련 글</h2>
+      <div class="row">
+        
+        <div class="lg:col-4 md:col-6 mb-14">
+          <div class="bg-body dark:bg-darkmode-body">
   
   
     
@@ -1933,10 +1846,10 @@
   </a>
 </div>
 
-              </div>
-            
-              <div class="lg:col-4 md:col-6 mb-14">
-                <div class="bg-body dark:bg-darkmode-body">
+        </div>
+        
+        <div class="lg:col-4 md:col-6 mb-14">
+          <div class="bg-body dark:bg-darkmode-body">
   
   
     
@@ -2095,13 +2008,13 @@
   </a>
 </div>
 
-              </div>
-            
-          </div>
         </div>
-      
+        
+      </div>
     </div>
-  </section>
+    
+  </div>
+</section>
 
     </main>
 

@@ -793,14 +793,13 @@
 
     <main>
       
-  <section class="section pt-7">
-    <div class="container">
-      <div class="row justify-center">
-        <article class="lg:col-10">
+<section class="section">
+  <div class="container">
+    <div class="row justify-center">
+      <article class="lg:col-10">
+        
+        <div class="mb-10">
           
-          
-            <div class="mb-10">
-              
 
 
 
@@ -898,7 +897,7 @@
              />
           <img
             
-              loading="lazy" decoding="async"
+              loading="eager" decoding="async"
               src="/images/service-1_hu_734bba9c014561a1.png"
             class=" w-full rounded img"
             alt="REST API 설계 베스트 프랙티스"
@@ -915,104 +914,27 @@
   
 
 
-            </div>
+        </div>
+        
+        <h1 class="h2 mb-4">REST API 설계 베스트 프랙티스</h1>
+        <ul class="mb-4">
+          <li class="mr-4 inline-block">
+            <i class="fa fa-user mr-2 text-primary"></i>
+            Kigo
+          </li>
+          <li class="mr-4 inline-block">
+            <i class="fa fa-calendar-days mr-2 text-primary"></i>
+            2022년 4월 7일
+          </li>
           
-          <h1 class="h2 mb-4">
-            REST API 설계 베스트 프랙티스
-          </h1>
-          <ul class="mb-4">
-            <li class="mr-4 inline-block">
-              <a
-                href="/authors/kigo/">
-                <i class="fa-regular fa-circle-user mr-2"></i
-                >Kigo
-              </a>
-            </li>
-            
-            
-              <li class="mr-4 inline-block">
-                <i class="fa-regular fa-folder mr-2"></i>
-                
-                  <a
-                    href="/categories/%eb%b0%b1%ec%97%94%eb%93%9c/"
-                    class=""
-                    >백엔드
-                      ,
-                    
-                  </a>
-                
-                  <a
-                    href="/categories/api/"
-                    class=""
-                    >API
-                  </a>
-                
-              </li>
-            
-            <li class="mr-4 inline-block">
-              <i class="fa-regular fa-clock mr-2"></i>
-              2022년 4월 7일
-            </li>
-          </ul>
-          <div class="content mb-10">
-            
-
- 
-  
-
-<details open class="table-of-content blog">
-  <summary>
-    
-      Table Of Contents
-    
-  </summary>
-  <nav id="TableOfContents">
-  <ol>
-    <li><a href="#rest-api-설계-원칙">REST API 설계 원칙</a>
-      <ol>
-        <li><a href="#1-리소스-중심-url-설계">1. 리소스 중심 URL 설계</a></li>
-        <li><a href="#2-중첩-리소스-설계">2. 중첩 리소스 설계</a></li>
-      </ol>
-    </li>
-    <li><a href="#요청응답-dto-설계">요청/응답 DTO 설계</a>
-      <ol>
-        <li><a href="#요청-dto">요청 DTO</a></li>
-        <li><a href="#응답-dto">응답 DTO</a></li>
-        <li><a href="#페이징-응답">페이징 응답</a></li>
-      </ol>
-    </li>
-    <li><a href="#에러-핸들링">에러 핸들링</a>
-      <ol>
-        <li><a href="#표준-에러-응답">표준 에러 응답</a></li>
-      </ol>
-    </li>
-    <li><a href="#api-버전-관리">API 버전 관리</a>
-      <ol>
-        <li><a href="#url-기반-버전-관리">URL 기반 버전 관리</a></li>
-        <li><a href="#헤더-기반-버전-관리">헤더 기반 버전 관리</a></li>
-      </ol>
-    </li>
-    <li><a href="#api-문서화">API 문서화</a>
-      <ol>
-        <li><a href="#openapi-30-설정">OpenAPI 3.0 설정</a></li>
-      </ol>
-    </li>
-    <li><a href="#성능-최적화">성능 최적화</a>
-      <ol>
-        <li><a href="#캐싱-전략">캐싱 전략</a></li>
-        <li><a href="#압축-설정">압축 설정</a></li>
-      </ol>
-    </li>
-    <li><a href="#보안-설정">보안 설정</a>
-      <ol>
-        <li><a href="#cors-설정">CORS 설정</a></li>
-      </ol>
-    </li>
-  </ol>
-</nav>
-</details>
-
-            <p>잘 설계된 REST API는 개발자 경험을 향상시키고 시스템의 확장성을 보장합니다. 실제 프로젝트에서 적용할 수 있는 REST API 설계 원칙과 베스트 프랙티스를 Spring Boot 예제와 함께 알아보겠습니다.</p>
+          <li class="mr-4 inline-block">
+            <i class="fa fa-list mr-2 text-primary"></i>
+            <a class="hover:text-primary" href="/categories/%EB%B0%B1%EC%97%94%EB%93%9C">백엔드</a>, <a class="hover:text-primary" href="/categories/api">API</a>
+          </li>
+          
+        </ul>
+        <div class="content mb-10">
+          <p>잘 설계된 REST API는 개발자 경험을 향상시키고 시스템의 확장성을 보장합니다. 실제 프로젝트에서 적용할 수 있는 REST API 설계 원칙과 베스트 프랙티스를 Spring Boot 예제와 함께 알아보겠습니다.</p>
 <h2 id="rest-api-설계-원칙">REST API 설계 원칙</h2>
 <h3 id="1-리소스-중심-url-설계">1. 리소스 중심 URL 설계</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// ❌ 잘못된 예시 - 동사 사용</span>
@@ -1597,52 +1519,35 @@
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>이러한 베스트 프랙티스를 통해 개발자 친화적이고 확장 가능한 REST API를 구축할 수 있습니다. 일관된 설계 원칙을 적용하고 적절한 문서화를 통해 API의 품질과 사용성을 향상시키시기 바랍니다.</p>
 
-          </div>
-          <div class="row items-start justify-between">
-            
-            
-              <div class="lg:col-6 mb-10 flex items-center lg:mb-0">
-                <h5 class="mr-3">태그 :</h5>
-                <ul>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/rest-api/">
-                        Rest API
-                      </a>
-                    </li>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/api-%ec%84%a4%ea%b3%84/">
-                        API 설계
-                      </a>
-                    </li>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/%eb%b0%b1%ec%97%94%eb%93%9c/">
-                        백엔드
-                      </a>
-                    </li>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/%ec%9b%b9-%ea%b0%9c%eb%b0%9c/">
-                        웹 개발
-                      </a>
-                    </li>
-                  
-                </ul>
-              </div>
-            
-            <div class="lg:col-6 flex items-center lg:justify-end">
-              <h5>공유하기 :</h5>
+        </div>
+        <div class="row items-start justify-between">
+          
+          <div class="lg:col-6 mb-10 flex items-center lg:mb-0">
+            <h5 class="mr-3">태그 :</h5>
+            <ul>
               
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/tags/rest-api">REST API</a>
+              </li>
+              
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/tags/api-%EC%84%A4%EA%B3%84">API 설계</a>
+              </li>
+              
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/tags/%EB%B0%B1%EC%97%94%EB%93%9C">백엔드</a>
+              </li>
+              
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/tags/%EC%9B%B9-%EA%B0%9C%EB%B0%9C">웹 개발</a>
+              </li>
+              
+            </ul>
+          </div>
+          
+          <div class="lg:col-6 flex items-center lg:justify-end">
+            <h5>공유하기 :</h5>
+            
 
 
 
@@ -1859,12 +1764,14 @@
   }
 </script>
 
-            </div>
           </div>
-          
-          
-            <div class="mt-20">
-              <div id="disqus_thread"></div>
+        </div>
+        
+        
+        
+        <div class="mt-20">
+          <h3 class="mb-8">Comments</h3>
+          <div id="disqus_thread"></div>
 <script>
     window.disqus_config = function () {
     
@@ -1884,21 +1791,21 @@
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-            </div>
-          
-        </article>
-      </div>
+        </div>
+        
+      </article>
+    </div>
 
-      
-      
-      
-      
-        <div class="section pb-0">
-          <h2 class="h3 mb-12">관련 글</h2>
-          <div class="row">
-            
-              <div class="lg:col-4 md:col-6 mb-14">
-                <div class="bg-body dark:bg-darkmode-body">
+    
+    
+    
+    
+    <div class="section pb-0">
+      <h2 class="h3 mb-12">관련 글</h2>
+      <div class="row">
+        
+        <div class="lg:col-4 md:col-6 mb-14">
+          <div class="bg-body dark:bg-darkmode-body">
   
   
     
@@ -2057,13 +1964,13 @@
   </a>
 </div>
 
-              </div>
-            
-          </div>
         </div>
-      
+        
+      </div>
     </div>
-  </section>
+    
+  </div>
+</section>
 
     </main>
 

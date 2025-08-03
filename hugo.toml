@@ -26,6 +26,9 @@ ID = '' # Google Analytics 측정 ID를 여기에 입력하세요 (예: G-XXXXXX
 [services.disqus]
 shortname = 'kigo-blog' # Disqus 댓글 시스템용
 
+# Disqus 댓글 시스템 (추가 설정)
+disqusShortname = 'kigo-blog'
+
 ########################## Permalinks ############################
 [permalinks.page]
 "pages" = "/:slugorcontentbasename/"

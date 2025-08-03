@@ -30,12 +30,42 @@
   </url><url>
     <loc>http://localhost:1313/tags/github-pages/</loc>
     <lastmod>2025-08-03T15:00:00+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/tags/github-pages/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko-kr"
+                href="http://localhost:1313/tags/github-pages/"
+                />
   </url><url>
     <loc>http://localhost:1313/tags/hugo/</loc>
     <lastmod>2025-08-03T15:00:00+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/tags/hugo/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko-kr"
+                href="http://localhost:1313/tags/hugo/"
+                />
   </url><url>
     <loc>http://localhost:1313/blog/hugo-blog-posting-guide/</loc>
     <lastmod>2025-08-03T15:00:00+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/blog/hugo-blog-posting-guide/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko-kr"
+                href="http://localhost:1313/blog/hugo-blog-posting-guide/"
+                />
   </url><url>
     <loc>http://localhost:1313/categories/%EA%B0%9C%EB%B0%9C%EB%8F%84%EA%B5%AC/</loc>
     <lastmod>2025-08-03T15:00:00+09:00</lastmod>
@@ -65,12 +95,6 @@
                 href="http://localhost:1313/categories/"
                 />
   </url><url>
-    <loc>http://localhost:1313/categories/%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC1/</loc>
-    <lastmod>2025-08-03T15:00:00+09:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC2/</loc>
-    <lastmod>2025-08-03T15:00:00+09:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tags/</loc>
     <lastmod>2025-08-03T15:00:00+09:00</lastmod>
     <xhtml:link
@@ -83,18 +107,6 @@
                 hreflang="ko-kr"
                 href="http://localhost:1313/tags/"
                 />
-  </url><url>
-    <loc>http://localhost:1313/tags/%ED%83%9C%EA%B7%B81/</loc>
-    <lastmod>2025-08-03T15:00:00+09:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/%ED%83%9C%EA%B7%B82/</loc>
-    <lastmod>2025-08-03T15:00:00+09:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/%ED%83%9C%EA%B7%B83/</loc>
-    <lastmod>2025-08-03T15:00:00+09:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/blog/%EC%98%88%EC%8B%9C%ED%8F%AC%EC%8A%A4%ED%8A%B8/</loc>
-    <lastmod>2025-08-03T15:00:00+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/cloud-native/</loc>
     <lastmod>2025-08-03T13:00:00+09:00</lastmod>
@@ -482,6 +494,16 @@
   </url><url>
     <loc>http://localhost:1313/categories/api/</loc>
     <lastmod>2022-04-07T05:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/categories/api/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko-kr"
+                href="http://localhost:1313/categories/api/"
+                />
   </url><url>
     <loc>http://localhost:1313/tags/api-%EC%84%A4%EA%B3%84/</loc>
     <lastmod>2022-04-07T05:00:00+00:00</lastmod>
@@ -501,6 +523,16 @@
   </url><url>
     <loc>http://localhost:1313/blog/rest-api-design/</loc>
     <lastmod>2022-04-07T05:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/blog/rest-api-design/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko-kr"
+                href="http://localhost:1313/blog/rest-api-design/"
+                />
   </url><url>
     <loc>http://localhost:1313/categories/%EB%B0%B1%EC%97%94%EB%93%9C/</loc>
     <lastmod>2022-04-07T05:00:00+00:00</lastmod>
@@ -526,6 +558,16 @@
   </url><url>
     <loc>http://localhost:1313/blog/microservices-architecture/</loc>
     <lastmod>2022-04-06T05:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/blog/microservices-architecture/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko-kr"
+                href="http://localhost:1313/blog/microservices-architecture/"
+                />
   </url><url>
     <loc>http://localhost:1313/tags/spring-cloud/</loc>
     <lastmod>2022-04-06T05:00:00+00:00</lastmod>
@@ -551,9 +593,29 @@
   </url><url>
     <loc>http://localhost:1313/blog/database-design-patterns/</loc>
     <lastmod>2022-04-05T05:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/blog/database-design-patterns/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko-kr"
+                href="http://localhost:1313/blog/database-design-patterns/"
+                />
   </url><url>
     <loc>http://localhost:1313/tags/spring-data/</loc>
     <lastmod>2022-04-05T05:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/tags/spring-data/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko-kr"
+                href="http://localhost:1313/tags/spring-data/"
+                />
   </url><url>
     <loc>http://localhost:1313/categories/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/</loc>
     <lastmod>2022-04-05T05:00:00+00:00</lastmod>
@@ -579,6 +641,16 @@
   </url><url>
     <loc>http://localhost:1313/blog/spring-boot-best-practices/</loc>
     <lastmod>2022-04-04T05:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/blog/spring-boot-best-practices/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko-kr"
+                href="http://localhost:1313/blog/spring-boot-best-practices/"
+                />
   </url><url>
     <loc>http://localhost:1313/tags/%EB%B2%A0%EC%8A%A4%ED%8A%B8-%ED%94%84%EB%9E%99%ED%8B%B0%EC%8A%A4/</loc>
     <lastmod>2022-04-04T05:00:00+00:00</lastmod>

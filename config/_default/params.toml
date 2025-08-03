@@ -104,6 +104,11 @@ map_longitude = "-0.1622023"
 map_marker = "images/marker.png"
 
 
+# Comment System - Disqus
+[disqus]
+enable = true
+shortname = "kigo-blog"
+
 # Subscription
 [subscription]
 enable = false

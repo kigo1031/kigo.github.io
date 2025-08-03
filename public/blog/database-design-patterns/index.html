@@ -793,14 +793,13 @@
 
     <main>
       
-  <section class="section pt-7">
-    <div class="container">
-      <div class="row justify-center">
-        <article class="lg:col-10">
+<section class="section">
+  <div class="container">
+    <div class="row justify-center">
+      <article class="lg:col-10">
+        
+        <div class="mb-10">
           
-          
-            <div class="mb-10">
-              
 
 
 
@@ -898,7 +897,7 @@
              />
           <img
             
-              loading="lazy" decoding="async"
+              loading="eager" decoding="async"
               src="/images/service-2_hu_b8c16cba52ad70d0.png"
             class=" w-full rounded img"
             alt="Java 애플리케이션을 위한 데이터베이스 설계 패턴"
@@ -915,95 +914,27 @@
   
 
 
-            </div>
+        </div>
+        
+        <h1 class="h2 mb-4">Java 애플리케이션을 위한 데이터베이스 설계 패턴</h1>
+        <ul class="mb-4">
+          <li class="mr-4 inline-block">
+            <i class="fa fa-user mr-2 text-primary"></i>
+            Kigo
+          </li>
+          <li class="mr-4 inline-block">
+            <i class="fa fa-calendar-days mr-2 text-primary"></i>
+            2022년 4월 5일
+          </li>
           
-          <h1 class="h2 mb-4">
-            Java 애플리케이션을 위한 데이터베이스 설계 패턴
-          </h1>
-          <ul class="mb-4">
-            <li class="mr-4 inline-block">
-              <a
-                href="/authors/kigo/">
-                <i class="fa-regular fa-circle-user mr-2"></i
-                >Kigo
-              </a>
-            </li>
-            
-            
-              <li class="mr-4 inline-block">
-                <i class="fa-regular fa-folder mr-2"></i>
-                
-                  <a
-                    href="/categories/%eb%b0%b1%ec%97%94%eb%93%9c/"
-                    class=""
-                    >백엔드
-                      ,
-                    
-                  </a>
-                
-                  <a
-                    href="/categories/%eb%8d%b0%ec%9d%b4%ed%84%b0%eb%b2%a0%ec%9d%b4%ec%8a%a4/"
-                    class=""
-                    >데이터베이스
-                  </a>
-                
-              </li>
-            
-            <li class="mr-4 inline-block">
-              <i class="fa-regular fa-clock mr-2"></i>
-              2022년 4월 5일
-            </li>
-          </ul>
-          <div class="content mb-10">
-            
-
- 
-  
-
-<details open class="table-of-content blog">
-  <summary>
-    
-      Table Of Contents
-    
-  </summary>
-  <nav id="TableOfContents">
-  <ol>
-    <li><a href="#엔티티-설계-원칙">엔티티 설계 원칙</a>
-      <ol>
-        <li><a href="#기본-엔티티-구조">기본 엔티티 구조</a></li>
-        <li><a href="#상속-매핑-전략">상속 매핑 전략</a></li>
-      </ol>
-    </li>
-    <li><a href="#연관관계-매핑-패턴">연관관계 매핑 패턴</a>
-      <ol>
-        <li><a href="#일대다-연관관계-최적화">일대다 연관관계 최적화</a></li>
-        <li><a href="#다대다-연관관계-with-추가-속성">다대다 연관관계 with 추가 속성</a></li>
-      </ol>
-    </li>
-    <li><a href="#repository-패턴">Repository 패턴</a>
-      <ol>
-        <li><a href="#커스텀-repository-구현">커스텀 Repository 구현</a></li>
-      </ol>
-    </li>
-    <li><a href="#성능-최적화-패턴">성능 최적화 패턴</a>
-      <ol>
-        <li><a href="#페이징과-정렬">페이징과 정렬</a></li>
-        <li><a href="#배치-처리-최적화">배치 처리 최적화</a></li>
-        <li><a href="#캐싱-전략">캐싱 전략</a></li>
-      </ol>
-    </li>
-    <li><a href="#트랜잭션-관리">트랜잭션 관리</a>
-      <ol>
-        <li><a href="#선언적-트랜잭션">선언적 트랜잭션</a></li>
-        <li><a href="#프로그래밍적-트랜잭션">프로그래밍적 트랜잭션</a></li>
-      </ol>
-    </li>
-    <li><a href="#감사auditing-기능">감사(Auditing) 기능</a></li>
-  </ol>
-</nav>
-</details>
-
-            <p>효율적인 Java 애플리케이션 개발을 위해서는 견고한 데이터베이스 설계가 필수입니다. JPA와 Spring Data를 활용하여 성능과 유지보수성을 모두 만족하는 데이터베이스 설계 패턴들을 알아보겠습니다.</p>
+          <li class="mr-4 inline-block">
+            <i class="fa fa-list mr-2 text-primary"></i>
+            <a class="hover:text-primary" href="/categories/%EB%B0%B1%EC%97%94%EB%93%9C">백엔드</a>, <a class="hover:text-primary" href="/categories/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4">데이터베이스</a>
+          </li>
+          
+        </ul>
+        <div class="content mb-10">
+          <p>효율적인 Java 애플리케이션 개발을 위해서는 견고한 데이터베이스 설계가 필수입니다. JPA와 Spring Data를 활용하여 성능과 유지보수성을 모두 만족하는 데이터베이스 설계 패턴들을 알아보겠습니다.</p>
 <h2 id="엔티티-설계-원칙">엔티티 설계 원칙</h2>
 <h3 id="기본-엔티티-구조">기본 엔티티 구조</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Entity</span>
@@ -1511,52 +1442,35 @@
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>이러한 패턴들을 통해 견고하고 성능이 우수한 데이터베이스 계층을 구축할 수 있습니다. 각 패턴은 특정 상황에 맞게 선택적으로 적용하여 최적의 결과를 얻으시기 바랍니다.</p>
 
-          </div>
-          <div class="row items-start justify-between">
-            
-            
-              <div class="lg:col-6 mb-10 flex items-center lg:mb-0">
-                <h5 class="mr-3">태그 :</h5>
-                <ul>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/jpa/">
-                        Jpa
-                      </a>
-                    </li>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/spring-data/">
-                        Spring data
-                      </a>
-                    </li>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/%eb%8d%b0%ec%9d%b4%ed%84%b0%eb%b2%a0%ec%9d%b4%ec%8a%a4/">
-                        데이터베이스
-                      </a>
-                    </li>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/%ec%84%a4%ea%b3%84-%ed%8c%a8%ed%84%b4/">
-                        설계 패턴
-                      </a>
-                    </li>
-                  
-                </ul>
-              </div>
-            
-            <div class="lg:col-6 flex items-center lg:justify-end">
-              <h5>공유하기 :</h5>
+        </div>
+        <div class="row items-start justify-between">
+          
+          <div class="lg:col-6 mb-10 flex items-center lg:mb-0">
+            <h5 class="mr-3">태그 :</h5>
+            <ul>
               
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/tags/jpa">JPA</a>
+              </li>
+              
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/tags/spring-data">Spring Data</a>
+              </li>
+              
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/tags/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4">데이터베이스</a>
+              </li>
+              
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/tags/%EC%84%A4%EA%B3%84-%ED%8C%A8%ED%84%B4">설계 패턴</a>
+              </li>
+              
+            </ul>
+          </div>
+          
+          <div class="lg:col-6 flex items-center lg:justify-end">
+            <h5>공유하기 :</h5>
+            
 
 
 
@@ -1773,12 +1687,14 @@
   }
 </script>
 
-            </div>
           </div>
-          
-          
-            <div class="mt-20">
-              <div id="disqus_thread"></div>
+        </div>
+        
+        
+        
+        <div class="mt-20">
+          <h3 class="mb-8">Comments</h3>
+          <div id="disqus_thread"></div>
 <script>
     window.disqus_config = function () {
     
@@ -1798,17 +1714,17 @@
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-            </div>
-          
-        </article>
-      </div>
-
-      
-      
-      
-      
+        </div>
+        
+      </article>
     </div>
-  </section>
+
+    
+    
+    
+    
+  </div>
+</section>
 
     </main>
 

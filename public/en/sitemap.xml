@@ -28,11 +28,11 @@
                 href="http://localhost:1313/en/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/categories/backend/</loc>
-    <lastmod>2025-08-03T13:00:00+09:00</lastmod>
+    <loc>http://localhost:1313/en/tags/blog/</loc>
+    <lastmod>2025-08-03T15:00:00+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/en/categories/</loc>
-    <lastmod>2025-08-03T13:00:00+09:00</lastmod>
+    <lastmod>2025-08-03T15:00:00+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ko-kr"
@@ -43,6 +43,73 @@
                 hreflang="en-us"
                 href="http://localhost:1313/en/categories/"
                 />
+  </url><url>
+    <loc>http://localhost:1313/en/blog/hugo-blog-posting-guide/</loc>
+    <lastmod>2025-08-03T15:00:00+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko-kr"
+                href="http://localhost:1313/blog/hugo-blog-posting-guide/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/blog/hugo-blog-posting-guide/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/en/categories/development-tools/</loc>
+    <lastmod>2025-08-03T15:00:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/en/tags/github-pages/</loc>
+    <lastmod>2025-08-03T15:00:00+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko-kr"
+                href="http://localhost:1313/tags/github-pages/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/tags/github-pages/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/en/tags/hugo/</loc>
+    <lastmod>2025-08-03T15:00:00+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko-kr"
+                href="http://localhost:1313/tags/hugo/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/tags/hugo/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/en/tags/markdown/</loc>
+    <lastmod>2025-08-03T15:00:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/en/tags/static-site/</loc>
+    <lastmod>2025-08-03T15:00:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/en/tags/</loc>
+    <lastmod>2025-08-03T15:00:00+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko-kr"
+                href="http://localhost:1313/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/tags/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/en/categories/web-development/</loc>
+    <lastmod>2025-08-03T15:00:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/en/categories/backend/</loc>
+    <lastmod>2025-08-03T13:00:00+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/en/tags/cloud-native/</loc>
     <lastmod>2025-08-03T13:00:00+09:00</lastmod>
@@ -120,19 +187,6 @@
                 rel="alternate"
                 hreflang="en-us"
                 href="http://localhost:1313/en/tags/quarkus/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/en/tags/</loc>
-    <lastmod>2025-08-03T13:00:00+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko-kr"
-                href="http://localhost:1313/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="http://localhost:1313/en/tags/"
                 />
   </url><url>
     <loc>http://localhost:1313/en/tags/backend/</loc>
@@ -214,9 +268,6 @@
                 />
   </url><url>
     <loc>http://localhost:1313/en/tags/development-environment/</loc>
-    <lastmod>2025-08-02T14:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/en/categories/development-tools/</loc>
     <lastmod>2025-08-02T14:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/en/tags/extensions/</loc>
@@ -305,9 +356,6 @@
                 hreflang="en-us"
                 href="http://localhost:1313/en/blog/react-hooks-guide/"
                 />
-  </url><url>
-    <loc>http://localhost:1313/en/categories/web-development/</loc>
-    <lastmod>2025-08-01T16:30:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/en/tags/branching-strategy/</loc>
     <lastmod>2025-07-31T09:15:00+00:00</lastmod>
@@ -447,13 +495,20 @@
     <loc>http://localhost:1313/en/tags/modern-javascript/</loc>
     <lastmod>2025-07-29T15:45:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/en/categories/api-design/</loc>
+    <loc>http://localhost:1313/en/categories/api/</loc>
     <lastmod>2022-04-07T05:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko-kr"
+                href="http://localhost:1313/categories/api/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/categories/api/"
+                />
   </url><url>
     <loc>http://localhost:1313/en/tags/api-design/</loc>
-    <lastmod>2022-04-07T05:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/en/tags/http/</loc>
     <lastmod>2022-04-07T05:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/en/tags/rest-api/</loc>
@@ -469,10 +524,20 @@
                 href="http://localhost:1313/en/tags/rest-api/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/blog/post-4/</loc>
+    <loc>http://localhost:1313/en/blog/rest-api-design/</loc>
     <lastmod>2022-04-07T05:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko-kr"
+                href="http://localhost:1313/blog/rest-api-design/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/blog/rest-api-design/"
+                />
   </url><url>
-    <loc>http://localhost:1313/en/tags/web-services/</loc>
+    <loc>http://localhost:1313/en/tags/web-development/</loc>
     <lastmod>2022-04-07T05:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/en/categories/architecture/</loc>
@@ -481,14 +546,21 @@
     <loc>http://localhost:1313/en/tags/architecture/</loc>
     <lastmod>2022-04-06T05:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/en/tags/distributed-systems/</loc>
-    <lastmod>2022-04-06T05:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/en/tags/microservices/</loc>
     <lastmod>2022-04-06T05:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/en/blog/post-3/</loc>
+    <loc>http://localhost:1313/en/blog/microservices-architecture/</loc>
     <lastmod>2022-04-06T05:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko-kr"
+                href="http://localhost:1313/blog/microservices-architecture/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/blog/microservices-architecture/"
+                />
   </url><url>
     <loc>http://localhost:1313/en/tags/spring-boot/</loc>
     <lastmod>2022-04-06T05:00:00+00:00</lastmod>
@@ -519,14 +591,34 @@
     <loc>http://localhost:1313/en/categories/database/</loc>
     <lastmod>2022-04-05T05:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/en/blog/post-2/</loc>
+    <loc>http://localhost:1313/en/blog/database-design-patterns/</loc>
     <lastmod>2022-04-05T05:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko-kr"
+                href="http://localhost:1313/blog/database-design-patterns/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/blog/database-design-patterns/"
+                />
   </url><url>
     <loc>http://localhost:1313/en/tags/design-patterns/</loc>
     <lastmod>2022-04-05T05:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/en/tags/sql/</loc>
+    <loc>http://localhost:1313/en/tags/spring-data/</loc>
     <lastmod>2022-04-05T05:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko-kr"
+                href="http://localhost:1313/tags/spring-data/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/tags/spring-data/"
+                />
   </url><url>
     <loc>http://localhost:1313/en/tags/best-practices/</loc>
     <lastmod>2022-04-04T05:00:00+00:00</lastmod>
@@ -544,8 +636,18 @@
                 href="http://localhost:1313/en/categories/java/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/blog/post-1/</loc>
+    <loc>http://localhost:1313/en/blog/spring-boot-best-practices/</loc>
     <lastmod>2022-04-04T05:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko-kr"
+                href="http://localhost:1313/blog/spring-boot-best-practices/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/blog/spring-boot-best-practices/"
+                />
   </url><url>
     <loc>http://localhost:1313/en/authors/</loc>
   </url><url>

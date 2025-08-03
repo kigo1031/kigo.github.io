@@ -793,14 +793,13 @@
 
     <main>
       
-  <section class="section pt-7">
-    <div class="container">
-      <div class="row justify-center">
-        <article class="lg:col-10">
+<section class="section">
+  <div class="container">
+    <div class="row justify-center">
+      <article class="lg:col-10">
+        
+        <div class="mb-10">
           
-          
-            <div class="mb-10">
-              
 
 
 
@@ -898,7 +897,7 @@
              />
           <img
             
-              loading="lazy" decoding="async"
+              loading="eager" decoding="async"
               src="/images/service-2_hu_b8c16cba52ad70d0.png"
             class=" w-full rounded img"
             alt="React 함수형 컴포넌트와 Hooks 사용법"
@@ -915,62 +914,27 @@
   
 
 
-            </div>
+        </div>
+        
+        <h1 class="h2 mb-4">React 함수형 컴포넌트와 Hooks 사용법</h1>
+        <ul class="mb-4">
+          <li class="mr-4 inline-block">
+            <i class="fa fa-user mr-2 text-primary"></i>
+            Kigo
+          </li>
+          <li class="mr-4 inline-block">
+            <i class="fa fa-calendar-days mr-2 text-primary"></i>
+            2025년 8월 1일
+          </li>
           
-          <h1 class="h2 mb-4">
-            React 함수형 컴포넌트와 Hooks 사용법
-          </h1>
-          <ul class="mb-4">
-            <li class="mr-4 inline-block">
-              <a
-                href="/authors/kigo/">
-                <i class="fa-regular fa-circle-user mr-2"></i
-                >Kigo
-              </a>
-            </li>
-            
-            
-              <li class="mr-4 inline-block">
-                <i class="fa-regular fa-folder mr-2"></i>
-                
-                  <a
-                    href="/categories/%ec%9b%b9%ea%b0%9c%eb%b0%9c/"
-                    class=""
-                    >웹개발
-                  </a>
-                
-              </li>
-            
-            <li class="mr-4 inline-block">
-              <i class="fa-regular fa-clock mr-2"></i>
-              2025년 8월 1일
-            </li>
-          </ul>
-          <div class="content mb-10">
-            
-
- 
-  
-
-<details open class="table-of-content blog">
-  <summary>
-    
-      Table Of Contents
-    
-  </summary>
-  <nav id="TableOfContents">
-  <ol>
-    <li><a href="#usestate---상태-관리">useState - 상태 관리</a></li>
-    <li><a href="#useeffect---사이드-이펙트-처리">useEffect - 사이드 이펙트 처리</a></li>
-    <li><a href="#usecontext---전역-상태-관리">useContext - 전역 상태 관리</a></li>
-    <li><a href="#usememo---성능-최적화">useMemo - 성능 최적화</a></li>
-    <li><a href="#usecallback---함수-메모이제이션">useCallback - 함수 메모이제이션</a></li>
-    <li><a href="#마무리">마무리</a></li>
-  </ol>
-</nav>
-</details>
-
-            <p>React 16.8에서 도입된 Hooks는 함수형 컴포넌트에서도 상태 관리와 생명주기 기능을 사용할 수 있게 해주었습니다. 오늘은 주요 Hooks들의 사용법을 알아보겠습니다.</p>
+          <li class="mr-4 inline-block">
+            <i class="fa fa-list mr-2 text-primary"></i>
+            <a class="hover:text-primary" href="/categories/%EC%9B%B9%EA%B0%9C%EB%B0%9C">웹개발</a>
+          </li>
+          
+        </ul>
+        <div class="content mb-10">
+          <p>React 16.8에서 도입된 Hooks는 함수형 컴포넌트에서도 상태 관리와 생명주기 기능을 사용할 수 있게 해주었습니다. 오늘은 주요 Hooks들의 사용법을 알아보겠습니다.</p>
 <h2 id="usestate---상태-관리">useState - 상태 관리</h2>
 <p>가장 기본적인 Hook으로, 함수형 컴포넌트에서 상태를 관리할 수 있습니다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">useState</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
@@ -1146,52 +1110,35 @@
 <p>React Hooks는 함수형 컴포넌트의 가능성을 크게 확장시켜주었습니다. 각 Hook의 특성을 이해하고 적절히 사용하면 더 깔끔하고 효율적인 React 애플리케이션을 만들 수 있습니다.</p>
 <p>다음에는 Custom Hooks 만들기에 대해 다뤄보겠습니다! 🎣</p>
 
-          </div>
-          <div class="row items-start justify-between">
-            
-            
-              <div class="lg:col-6 mb-10 flex items-center lg:mb-0">
-                <h5 class="mr-3">태그 :</h5>
-                <ul>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/react/">
-                        React
-                      </a>
-                    </li>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/hooks/">
-                        Hooks
-                      </a>
-                    </li>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/javascript/">
-                        Java script
-                      </a>
-                    </li>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/%ed%94%84%eb%a1%a0%ed%8a%b8%ec%97%94%eb%93%9c/">
-                        프론트엔드
-                      </a>
-                    </li>
-                  
-                </ul>
-              </div>
-            
-            <div class="lg:col-6 flex items-center lg:justify-end">
-              <h5>공유하기 :</h5>
+        </div>
+        <div class="row items-start justify-between">
+          
+          <div class="lg:col-6 mb-10 flex items-center lg:mb-0">
+            <h5 class="mr-3">태그 :</h5>
+            <ul>
               
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/tags/react">React</a>
+              </li>
+              
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/tags/hooks">Hooks</a>
+              </li>
+              
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/tags/javascript">JavaScript</a>
+              </li>
+              
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/tags/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C">프론트엔드</a>
+              </li>
+              
+            </ul>
+          </div>
+          
+          <div class="lg:col-6 flex items-center lg:justify-end">
+            <h5>공유하기 :</h5>
+            
 
 
 
@@ -1408,12 +1355,14 @@
   }
 </script>
 
-            </div>
           </div>
-          
-          
-            <div class="mt-20">
-              <div id="disqus_thread"></div>
+        </div>
+        
+        
+        
+        <div class="mt-20">
+          <h3 class="mb-8">Comments</h3>
+          <div id="disqus_thread"></div>
 <script>
     window.disqus_config = function () {
     
@@ -1433,21 +1382,21 @@
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-            </div>
-          
-        </article>
-      </div>
+        </div>
+        
+      </article>
+    </div>
 
-      
-      
-      
-      
-        <div class="section pb-0">
-          <h2 class="h3 mb-12">관련 글</h2>
-          <div class="row">
-            
-              <div class="lg:col-4 md:col-6 mb-14">
-                <div class="bg-body dark:bg-darkmode-body">
+    
+    
+    
+    
+    <div class="section pb-0">
+      <h2 class="h3 mb-12">관련 글</h2>
+      <div class="row">
+        
+        <div class="lg:col-4 md:col-6 mb-14">
+          <div class="bg-body dark:bg-darkmode-body">
   
   
     
@@ -1606,13 +1555,13 @@
   </a>
 </div>
 
-              </div>
-            
-          </div>
         </div>
-      
+        
+      </div>
     </div>
-  </section>
+    
+  </div>
+</section>
 
     </main>
 

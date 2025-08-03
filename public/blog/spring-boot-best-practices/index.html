@@ -793,14 +793,13 @@
 
     <main>
       
-  <section class="section pt-7">
-    <div class="container">
-      <div class="row justify-center">
-        <article class="lg:col-10">
+<section class="section">
+  <div class="container">
+    <div class="row justify-center">
+      <article class="lg:col-10">
+        
+        <div class="mb-10">
           
-          
-            <div class="mb-10">
-              
 
 
 
@@ -898,7 +897,7 @@
              />
           <img
             
-              loading="lazy" decoding="async"
+              loading="eager" decoding="async"
               src="/images/service-1_hu_734bba9c014561a1.png"
             class=" w-full rounded img"
             alt="Spring Boot 프로덕션 베스트 프랙티스"
@@ -915,106 +914,27 @@
   
 
 
-            </div>
+        </div>
+        
+        <h1 class="h2 mb-4">Spring Boot 프로덕션 베스트 프랙티스</h1>
+        <ul class="mb-4">
+          <li class="mr-4 inline-block">
+            <i class="fa fa-user mr-2 text-primary"></i>
+            Kigo
+          </li>
+          <li class="mr-4 inline-block">
+            <i class="fa fa-calendar-days mr-2 text-primary"></i>
+            2022년 4월 4일
+          </li>
           
-          <h1 class="h2 mb-4">
-            Spring Boot 프로덕션 베스트 프랙티스
-          </h1>
-          <ul class="mb-4">
-            <li class="mr-4 inline-block">
-              <a
-                href="/authors/kigo/">
-                <i class="fa-regular fa-circle-user mr-2"></i
-                >Kigo
-              </a>
-            </li>
-            
-            
-              <li class="mr-4 inline-block">
-                <i class="fa-regular fa-folder mr-2"></i>
-                
-                  <a
-                    href="/categories/%eb%b0%b1%ec%97%94%eb%93%9c/"
-                    class=""
-                    >백엔드
-                      ,
-                    
-                  </a>
-                
-                  <a
-                    href="/categories/java/"
-                    class=""
-                    >Java
-                  </a>
-                
-              </li>
-            
-            <li class="mr-4 inline-block">
-              <i class="fa-regular fa-clock mr-2"></i>
-              2022년 4월 4일
-            </li>
-          </ul>
-          <div class="content mb-10">
-            
-
- 
-  
-
-<details open class="table-of-content blog">
-  <summary>
-    
-      Table Of Contents
-    
-  </summary>
-  <nav id="TableOfContents">
-  <ol>
-    <li><a href="#애플리케이션-설정">애플리케이션 설정</a>
-      <ol>
-        <li><a href="#프로파일-기반-설정">프로파일 기반 설정</a></li>
-        <li><a href="#외부화된-설정">외부화된 설정</a></li>
-      </ol>
-    </li>
-    <li><a href="#보안-구현">보안 구현</a>
-      <ol>
-        <li><a href="#jwt-인증">JWT 인증</a></li>
-        <li><a href="#보안-설정">보안 설정</a></li>
-      </ol>
-    </li>
-    <li><a href="#에러-핸들링">에러 핸들링</a>
-      <ol>
-        <li><a href="#글로벌-예외-처리기">글로벌 예외 처리기</a></li>
-      </ol>
-    </li>
-    <li><a href="#데이터베이스-최적화">데이터베이스 최적화</a>
-      <ol>
-        <li><a href="#커넥션-풀-설정">커넥션 풀 설정</a></li>
-        <li><a href="#jpa-성능-튜닝">JPA 성능 튜닝</a></li>
-      </ol>
-    </li>
-    <li><a href="#모니터링과-관찰-가능성">모니터링과 관찰 가능성</a>
-      <ol>
-        <li><a href="#actuator-설정">Actuator 설정</a></li>
-        <li><a href="#커스텀-헬스-인디케이터">커스텀 헬스 인디케이터</a></li>
-        <li><a href="#애플리케이션-메트릭">애플리케이션 메트릭</a></li>
-      </ol>
-    </li>
-    <li><a href="#테스트-베스트-프랙티스">테스트 베스트 프랙티스</a>
-      <ol>
-        <li><a href="#통합-테스트">통합 테스트</a></li>
-        <li><a href="#목킹을-활용한-단위-테스트">목킹을 활용한 단위 테스트</a></li>
-      </ol>
-    </li>
-    <li><a href="#성능-최적화">성능 최적화</a>
-      <ol>
-        <li><a href="#캐싱-전략">캐싱 전략</a></li>
-        <li><a href="#비동기-처리">비동기 처리</a></li>
-      </ol>
-    </li>
-  </ol>
-</nav>
-</details>
-
-            <p>프로덕션에서 안정적인 Spring Boot 애플리케이션을 만들기 위해서는 기본 기능 구현 이상의 것들이 필요합니다. 견고하고 안전하며 유지보수가 가능한 애플리케이션을 만들기 위한 필수 관례들을 알아보겠습니다.</p>
+          <li class="mr-4 inline-block">
+            <i class="fa fa-list mr-2 text-primary"></i>
+            <a class="hover:text-primary" href="/categories/%EB%B0%B1%EC%97%94%EB%93%9C">백엔드</a>, <a class="hover:text-primary" href="/categories/java">Java</a>
+          </li>
+          
+        </ul>
+        <div class="content mb-10">
+          <p>프로덕션에서 안정적인 Spring Boot 애플리케이션을 만들기 위해서는 기본 기능 구현 이상의 것들이 필요합니다. 견고하고 안전하며 유지보수가 가능한 애플리케이션을 만들기 위한 필수 관례들을 알아보겠습니다.</p>
 <h2 id="애플리케이션-설정">애플리케이션 설정</h2>
 <h3 id="프로파일-기반-설정">프로파일 기반 설정</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># application.yml</span>
@@ -1420,52 +1340,35 @@
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>이러한 관례들을 통해 Spring Boot 애플리케이션이 프로덕션에서 안전하고 유지보수 가능하도록 보장할 수 있습니다. 점진적으로 구현하면서 특정 요구사항에 맞게 조정하시기 바랍니다.</p>
 
-          </div>
-          <div class="row items-start justify-between">
-            
-            
-              <div class="lg:col-6 mb-10 flex items-center lg:mb-0">
-                <h5 class="mr-3">태그 :</h5>
-                <ul>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/spring-boot/">
-                        Spring boot
-                      </a>
-                    </li>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/java/">
-                        Java
-                      </a>
-                    </li>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/%eb%b0%b1%ec%97%94%eb%93%9c/">
-                        백엔드
-                      </a>
-                    </li>
-                  
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/%eb%b2%a0%ec%8a%a4%ed%8a%b8-%ed%94%84%eb%9e%99%ed%8b%b0%ec%8a%a4/">
-                        베스트 프랙티스
-                      </a>
-                    </li>
-                  
-                </ul>
-              </div>
-            
-            <div class="lg:col-6 flex items-center lg:justify-end">
-              <h5>공유하기 :</h5>
+        </div>
+        <div class="row items-start justify-between">
+          
+          <div class="lg:col-6 mb-10 flex items-center lg:mb-0">
+            <h5 class="mr-3">태그 :</h5>
+            <ul>
               
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/tags/spring-boot">Spring Boot</a>
+              </li>
+              
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/tags/java">Java</a>
+              </li>
+              
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/tags/%EB%B0%B1%EC%97%94%EB%93%9C">백엔드</a>
+              </li>
+              
+              <li class="inline-block">
+                <a class="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark" href="/tags/%EB%B2%A0%EC%8A%A4%ED%8A%B8-%ED%94%84%EB%9E%99%ED%8B%B0%EC%8A%A4">베스트 프랙티스</a>
+              </li>
+              
+            </ul>
+          </div>
+          
+          <div class="lg:col-6 flex items-center lg:justify-end">
+            <h5>공유하기 :</h5>
+            
 
 
 
@@ -1682,12 +1585,14 @@
   }
 </script>
 
-            </div>
           </div>
-          
-          
-            <div class="mt-20">
-              <div id="disqus_thread"></div>
+        </div>
+        
+        
+        
+        <div class="mt-20">
+          <h3 class="mb-8">Comments</h3>
+          <div id="disqus_thread"></div>
 <script>
     window.disqus_config = function () {
     
@@ -1707,17 +1612,17 @@
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-            </div>
-          
-        </article>
-      </div>
-
-      
-      
-      
-      
+        </div>
+        
+      </article>
     </div>
-  </section>
+
+    
+    
+    
+    
+  </div>
+</section>
 
     </main>
 
