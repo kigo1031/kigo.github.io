@@ -51,7 +51,7 @@
 
 
         <!-- comments -->
-        {{ if and .Site.Params.disqus.enable .Site.Params.disqus.shortname }}
+        {{ if .Site.Params.disqus.shortname }}
         <div class="mt-20">
           <h3 class="mb-8">{{ T "comments" | default "Comments" }}</h3>
           {{ template "_internal/disqus.html" . }}
