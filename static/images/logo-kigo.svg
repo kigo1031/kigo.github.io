@@ -1,0 +1,36 @@
+<svg width="160" height="32" viewBox="0 0 160 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- 배경 -->
+  <rect width="160" height="32" rx="6" fill="#1f2937"/>
+
+  <!-- K -->
+  <g fill="#60a5fa">
+    <rect x="12" y="8" width="2.5" height="16"/>
+    <rect x="14.5" y="8" width="8" height="2.5" transform="rotate(26.57 18.5 9.25)"/>
+    <rect x="14.5" y="21.5" width="8" height="2.5" transform="rotate(-26.57 18.5 22.75)"/>
+  </g>
+
+  <!-- I -->
+  <g fill="#60a5fa">
+    <rect x="28" y="8" width="2.5" height="16"/>
+    <rect x="26" y="8" width="6.5" height="2.5"/>
+    <rect x="26" y="21.5" width="6.5" height="2.5"/>
+  </g>
+
+  <!-- G -->
+  <g fill="#60a5fa">
+    <path d="M38 16 C38 11.58 41.58 8 46 8 C50.42 8 54 11.58 54 16 C54 20.42 50.42 24 46 24 C41.58 24 38 20.42 38 16 Z M40.5 16 C40.5 19.04 42.96 21.5 46 21.5 C49.04 21.5 51.5 19.04 51.5 16 C51.5 12.96 49.04 10.5 46 10.5 C42.96 10.5 40.5 12.96 40.5 16 Z"/>
+    <rect x="46" y="14" width="8" height="2.5"/>
+    <rect x="51.5" y="16.5" width="2.5" height="5"/>
+  </g>
+
+  <!-- O -->
+  <g fill="#60a5fa">
+    <path d="M62 16 C62 11.58 65.58 8 70 8 C74.42 8 78 11.58 78 16 C78 20.42 74.42 24 70 24 C65.58 24 62 20.42 62 16 Z M64.5 16 C64.5 19.04 66.96 21.5 70 21.5 C73.04 21.5 75.5 19.04 75.5 16 C75.5 12.96 73.04 10.5 70 10.5 C66.96 10.5 64.5 12.96 64.5 16 Z"/>
+  </g>
+
+  <!-- 포인트 도트 -->
+  <circle cx="84" cy="20" r="2" fill="#f59e0b"/>
+
+  <!-- DEV 텍스트 -->
+  <text x="92" y="20" font-family="monospace" font-size="12" fill="#9ca3af" font-weight="bold">DEV</text>
+</svg>

@@ -2,9 +2,9 @@
 <html
   itemscope
   class=""
-  lang="en-us"
+  lang="ko-kr"
   itemtype="http://schema.org/WebPage">
-  <head><script src="/kigo.github.io/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=kigo.github.io/livereload" data-no-instant defer></script>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     
     <meta charset="utf-8" />
 
@@ -30,11 +30,11 @@
 
 
 
-<link rel="shortcut icon" href="/kigo.github.io/images/favicon_hu_4384881fdc2d307e.png" type="image/x-icon">
-<link rel="icon" href="/kigo.github.io/images/favicon_hu_4384881fdc2d307e.png" type="image/x-icon">
-<link rel="icon" type="image/png" sizes="48x48" href="/kigo.github.io/images/favicon_hu_79c3559174e61a5e.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/kigo.github.io/images/favicon_hu_4384881fdc2d307e.png">
-<link rel="apple-touch-icon" sizes="144x144" href="/kigo.github.io/images/favicon_hu_cfffba76e19e8ff2.png">
+<link rel="shortcut icon" href="/images/favicon_hu_4384881fdc2d307e.png" type="image/x-icon">
+<link rel="icon" href="/images/favicon_hu_4384881fdc2d307e.png" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="48x48" href="/images/favicon_hu_79c3559174e61a5e.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/images/favicon_hu_4384881fdc2d307e.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/images/favicon_hu_cfffba76e19e8ff2.png">
 
 
 
@@ -43,7 +43,7 @@
 
 
 
-<link rel="manifest" href="/kigo.github.io/manifest.webmanifest" />
+<link rel="manifest" href="/manifest.webmanifest" />
 <meta
   name="msapplication-TileColor"
   content="#ddd" />
@@ -72,7 +72,18 @@
 
 
 
-  <base href="http://localhost:1313/kigo.github.io/tags/" />
+
+
+
+
+
+
+
+  
+  
+
+
+<title>태그별 포스트 모음</title>
 
 
 
@@ -81,17 +92,15 @@
 
 
 
-<title>kigo</title>
 
 
 
-
-
-
-
-
-
-
+  
+    <link rel="alternate" hreflang="ko" href="http://localhost:1313/tags/" />
+  
+    <link rel="alternate" hreflang="en" href="http://localhost:1313/en/tags/" />
+  
+  <link rel="alternate" hreflang="x-default" href="http://localhost:1313/tags/" />
 
 
 
@@ -99,24 +108,25 @@
 
   <meta
     name="keywords"
-    content="Boilerplate, Hugo" />
+    content="Blog, Development, Programming, Tech" />
 
 
 
 
 <meta
   name="description"
-  content="Hugo &amp; Tailwindcss Starter" />
+  content="태그별로 분류된 블로그 포스트들을 확인하세요" />
 
 
 
-  <meta name="author" content="zeon.studio" />
+  <meta name="author" content="Kigo" />
 
 
 
 
 
 
+  
   
 
 
@@ -156,8 +166,8 @@
       
       
       
-        <meta property="og:image" content="http://localhost:1313/kigo.github.io/images/og-image.png" />
-        <meta name="twitter:image" content="http://localhost:1313/kigo.github.io/images/og-image.png" />
+        <meta property="og:image" content="http://localhost:1313/images/og-image.png" />
+        <meta name="twitter:image" content="http://localhost:1313/images/og-image.png" />
         <meta
           name="twitter:card"
           content="summary_large_image" />
@@ -181,20 +191,18 @@
 
 
 
-<meta property="og:title" content="kigo" />
-<meta property="og:description" content="Hugo &amp; Tailwindcss Starter" />
+<meta property="og:title" content="태그별 포스트 모음" />
+<meta property="og:description" content="태그별로 분류된 블로그 포스트들을 확인하세요" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="http://localhost:1313/kigo.github.io/tags/" />
+<meta property="og:url" content="http://localhost:1313/tags/" />
 
 
-<meta name="twitter:title" content="kigo" />
-<meta name="twitter:description" content="Hugo &amp; Tailwindcss Starter" />
+<meta name="twitter:title" content="태그별 포스트 모음" />
+<meta name="twitter:description" content="태그별로 분류된 블로그 포스트들을 확인하세요" />
 
 
-  <meta name="twitter:site" content="@zeon_studio" />
 
-
-  <meta name="twitter:creator" content="@zeon.studio" />
+  <meta name="twitter:creator" content="@Kigo" />
 
 
 
@@ -215,10 +223,10 @@
 
 
 <script>
-  let indexURL = "http://localhost:1313/kigo.github.io/searchindex.json";
+  let indexURL = "http://localhost:1313/searchindex.json";
   let includeSectionsInSearch = ["blog"];
-  let search_no_results = "No results for";
-  let search_initial_message = "Type something to search..";
+  let search_no_results = "0 results for";
+  let search_initial_message = "";
 </script>
 
 
@@ -325,7 +333,7 @@
 
 
 <link
-  href="/kigo.github.io/css/style.css"
+  href="/css/style.css"
   integrity=""
   rel="stylesheet" />
 
@@ -334,7 +342,7 @@
   defer
   async
   rel="stylesheet"
-  href="/kigo.github.io/css/style-lazy.css"
+  href="/css/style-lazy.css"
   integrity=""
   media="print"
   onload="this.media='all'; this.onload=null;" />
@@ -379,7 +387,7 @@
     
     <div class="order-0">
       
-      <a class="navbar-brand block" href="/kigo.github.io/">
+      <a class="navbar-brand block" href="/">
         
 
 
@@ -396,87 +404,35 @@
 
 
 
-  
-
-
-
-
-
 
 
 
 
   
-  
-  
+
+
 
 
   
-  
-    
-    
-  
-
-
-  
-  
-      
-      
-    
-    
-    
-    
-    
-    
-  
-  
-
-  
-  
-    
-    
-      
-      
-
-
-      
-      
-        
-        
-        
-        
-
-        
-        
-        
-      
-      
-    
-  
-  
-
   
     <img
       fetchpriority="high"
       decoding="async"
+      src="http://localhost:1313/images/logo-kigo.svg"
+      alt="Kigo&#39;s Blog"
       class="img img-light"
-      width="160"
       height="32"
-      src="/kigo.github.io/images/logo_hu_75df6f187f7b785d.webp"
-      alt="Hugoplate"
-      onerror="this.onerror=null;this.src='\/kigo.github.io\/images\/logo_hu_613f51f483beed3c.png';" />
-
+      width="160" />
     <img
       fetchpriority="high"
       decoding="async"
+      src="http://localhost:1313/images/logo-kigo-darkmode.svg"
+      alt="Kigo&#39;s Blog"
       class="img img-dark"
-      width="160"
       height="32"
-      src="/kigo.github.io/images/logo-darkmode_hu_a274d2b570d85754.webp"
-      alt="Hugoplate"
-      onerror="this.onerror=null;this.src='\/kigo.github.io\/images\/logo-darkmode_hu_11d6a0e948ad5f4.png';" />
+      width="160" />
   
-  
+
 
 
       </a>
@@ -513,8 +469,8 @@
             <a
               class="nav-link "
               
-              href="/kigo.github.io/"
-              >Home</a
+              href="/"
+              >홈</a
             >
           </li>
         
@@ -527,8 +483,8 @@
             <a
               class="nav-link "
               
-              href="/kigo.github.io/about"
-              >About</a
+              href="/about"
+              >소개</a
             >
           </li>
         
@@ -541,8 +497,8 @@
             <a
               class="nav-link "
               
-              href="/kigo.github.io/elements"
-              >Elements</a
+              href="/blog"
+              >블로그</a
             >
           </li>
         
@@ -561,20 +517,8 @@
                 
                 
                 
-              
-                
-                
-                
-              
-                
-                
-                
-              
-                
-                
-                
                inline-flex items-center">
-              Pages
+              페이지
               <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20">
                 <path
                   d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
@@ -589,8 +533,8 @@
                   <a
                     class="nav-dropdown-link "
                     
-                    href="/kigo.github.io/404">
-                    404 Page
+                    href="/categories">
+                    카테고리
                   </a>
                 </li>
               
@@ -600,41 +544,8 @@
                   <a
                     class="nav-dropdown-link "
                     
-                    href="/kigo.github.io/authors">
-                    Authors
-                  </a>
-                </li>
-              
-                
-                
-                <li class="nav-dropdown-item">
-                  <a
-                    class="nav-dropdown-link "
-                    
-                    href="/kigo.github.io/blog">
-                    Blog
-                  </a>
-                </li>
-              
-                
-                
-                <li class="nav-dropdown-item">
-                  <a
-                    class="nav-dropdown-link "
-                    
-                    href="/kigo.github.io/categories">
-                    Categories
-                  </a>
-                </li>
-              
-                
-                
-                <li class="nav-dropdown-item">
-                  <a
-                    class="nav-dropdown-link "
-                    
-                    href="/kigo.github.io/contact">
-                    Contact
+                    href="/tags">
+                    태그
                   </a>
                 </li>
               
@@ -646,7 +557,7 @@
         <li class="mt-4 inline-block lg:hidden">
           <a
             class="btn btn-outline-primary btn-sm"
-            href="/kigo.github.io/contact">
+            href="/contact">
             get a quote
           </a>
         </li>
@@ -669,6 +580,53 @@
       
 
       
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+
+  
+
+
+<select class="mr-5 pl-2 py-1 dark:bg-darkmode-light rounded" onchange="location = this.value">
+  
+    
+    
+    
+      <option
+        id="ko"
+        value="http://localhost:1313/tags/"
+      
+        selected
+      
+        >
+        한국어
+      </option>
+    
+  
+    
+    
+    
+      <option
+        id="en"
+        value="http://localhost:1313/en/tags/"
+      
+        >
+        En
+      </option>
+    
+  
+</select>
 
       
 
@@ -752,7 +710,7 @@
       
       
         <a
-          href="/kigo.github.io/contact"
+          href="/contact"
           class="btn btn-outline-primary btn-sm hidden lg:inline-block">
           get a quote
         </a>
@@ -810,12 +768,12 @@
             data-search-input
             autocomplete="off"
             aria-label="Search"
-            placeholder="Search Post..." />
+            placeholder="" />
         </div>
         <div class="search-wrapper-body">
           <div class="search-result" data-search-result></div>
           <span class="search-result-empty">
-            Type something to search..
+            
           </span>
         </div>
         <div class="search-wrapper-footer">
@@ -879,7 +837,7 @@
   <div class="container text-center">
     <div
       class="from-body to-light dark:from-darkmode-body dark:to-darkmode-light rounded-2xl bg-gradient-to-b px-8 py-14">
-      <h1>Tags</h1>
+      <h1>태그</h1>
       
 
 
@@ -887,7 +845,7 @@
 
 <ul class="mt-6 inline-flex space-x-1 capitalize">
   <li>
-    <a class="text-primary dark:text-darkmode-primary" href="http://localhost:1313/kigo.github.io/">
+    <a class="text-primary dark:text-darkmode-primary" href="http://localhost:1313/">
       Home
     </a>
     <span class="inlin-block mr-1">/</span>
@@ -897,7 +855,7 @@
   
   <li>
     <span class="text-primary dark:text-darkmode-primary">
-      Tags
+      태그
     </span>
   </li>
 </ul>
@@ -918,20 +876,9 @@
           
             <li class="m-3 inline-block">
               <a
-                href="http://localhost:1313/kigo.github.io/tags/tailwind/"
+                href="http://localhost:1313/tags/javascript/"
                 class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
-                Tailwind
-                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
-                  3
-                </span>
-              </a>
-            </li>
-          
-            <li class="m-3 inline-block">
-              <a
-                href="http://localhost:1313/kigo.github.io/tags/technology/"
-                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
-                Technology
+                JavaScript
                 <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
                   2
                 </span>
@@ -940,9 +887,31 @@
           
             <li class="m-3 inline-block">
               <a
-                href="http://localhost:1313/kigo.github.io/tags/nextjs/"
+                href="http://localhost:1313/tags/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD/"
                 class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
-                Nextjs
+                개발환경
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  2
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/tags/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                프론트엔드
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  2
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/tags/devops/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                DevOps
                 <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
                   1
                 </span>
@@ -951,9 +920,9 @@
           
             <li class="m-3 inline-block">
               <a
-                href="http://localhost:1313/kigo.github.io/tags/silicon/"
+                href="http://localhost:1313/tags/docker/"
                 class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
-                Silicon
+                Docker
                 <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
                   1
                 </span>
@@ -962,9 +931,130 @@
           
             <li class="m-3 inline-block">
               <a
-                href="http://localhost:1313/kigo.github.io/tags/software/"
+                href="http://localhost:1313/tags/es6/"
                 class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
-                Software
+                ES6
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/tags/git/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                Git
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/tags/hooks/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                Hooks
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/tags/react/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                React
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/tags/vs-code/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                VS Code
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/tags/%EB%AA%A8%EB%8D%98%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                모던자바스크립트
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/tags/%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                버전관리
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/tags/%EB%B8%8C%EB%9E%9C%EC%B9%98%EC%A0%84%EB%9E%B5/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                브랜치전략
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/tags/%EC%83%9D%EC%82%B0%EC%84%B1/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                생산성
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/tags/%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                컨테이너
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/tags/%ED%98%91%EC%97%85/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                협업
+                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+                  1
+                </span>
+              </a>
+            </li>
+          
+            <li class="m-3 inline-block">
+              <a
+                href="http://localhost:1313/tags/%ED%99%95%EC%9E%A5%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8/"
+                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
+                확장프로그램
                 <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
                   1
                 </span>
@@ -986,7 +1076,7 @@
         
         <a
           class="navbar-brand inline-block"
-          href="/kigo.github.io/">
+          href="/">
           
 
 
@@ -1003,87 +1093,35 @@
 
 
 
-  
-
-
-
-
-
 
 
 
 
   
-  
-  
+
+
 
 
   
-  
-    
-    
-  
-
-
-  
-  
-      
-      
-    
-    
-    
-    
-    
-    
-  
-  
-
-  
-  
-    
-    
-      
-      
-
-
-      
-      
-        
-        
-        
-        
-
-        
-        
-        
-      
-      
-    
-  
-  
-
   
     <img
       fetchpriority="high"
       decoding="async"
+      src="http://localhost:1313/images/logo-kigo.svg"
+      alt="Kigo&#39;s Blog"
       class="img img-light"
-      width="160"
       height="32"
-      src="/kigo.github.io/images/logo_hu_75df6f187f7b785d.webp"
-      alt="Hugoplate"
-      onerror="this.onerror=null;this.src='\/kigo.github.io\/images\/logo_hu_613f51f483beed3c.png';" />
-
+      width="160" />
     <img
       fetchpriority="high"
       decoding="async"
+      src="http://localhost:1313/images/logo-kigo-darkmode.svg"
+      alt="Kigo&#39;s Blog"
       class="img img-dark"
-      width="160"
       height="32"
-      src="/kigo.github.io/images/logo-darkmode_hu_a274d2b570d85754.webp"
-      alt="Hugoplate"
-      onerror="this.onerror=null;this.src='\/kigo.github.io\/images\/logo-darkmode_hu_11d6a0e948ad5f4.png';" />
+      width="160" />
   
-  
+
 
 
         </a>
@@ -1095,9 +1133,9 @@
               <a
                 
                 href="
-                  /kigo.github.io/about
+                  /about
                 "
-                >About</a
+                >소개</a
               >
             </li>
           
@@ -1105,9 +1143,9 @@
               <a
                 
                 href="
-                  /kigo.github.io/elements
+                  /blog
                 "
-                >Elements</a
+                >블로그</a
               >
             </li>
           
@@ -1115,9 +1153,9 @@
               <a
                 
                 href="
-                  /kigo.github.io/privacy-policy
+                  /privacy-policy
                 "
-                >Privacy Policy</a
+                >개인정보처리방침</a
               >
             </li>
           
@@ -1129,29 +1167,9 @@
             <li>
               <a
                 target="_blank"
-                aria-label="facebook"
-                rel="nofollow noopener"
-                href="https://www.facebook.com/">
-                <i class="fab fa-facebook"></i>
-              </a>
-            </li>
-          
-            <li>
-              <a
-                target="_blank"
-                aria-label="twitter"
-                rel="nofollow noopener"
-                href="https://twitter.com/">
-                <i class="fab fa-twitter"></i>
-              </a>
-            </li>
-          
-            <li>
-              <a
-                target="_blank"
                 aria-label="github"
                 rel="nofollow noopener"
-                href="https://www.github.com/">
+                href="https://github.com/kigo1031">
                 <i class="fab fa-github"></i>
               </a>
             </li>
@@ -1163,6 +1181,16 @@
                 rel="nofollow noopener"
                 href="https://www.linkedin.com/">
                 <i class="fab fa-linkedin"></i>
+              </a>
+            </li>
+          
+            <li>
+              <a
+                target="_blank"
+                aria-label="twitter"
+                rel="nofollow noopener"
+                href="https://twitter.com/">
+                <i class="fab fa-twitter"></i>
               </a>
             </li>
           
@@ -1264,7 +1292,7 @@
 <script
   crossorigin="anonymous"
   integrity=""
-  src="/kigo.github.io/js/script.js"></script>
+  src="/js/script.js"></script>
 
 
 <script
@@ -1272,12 +1300,12 @@
   async
   crossorigin="anonymous"
   integrity=""
-  src="/kigo.github.io/js/script-lazy.js"></script>
+  src="/js/script-lazy.js"></script>
 
 
 
 <script>
-  if ('serviceWorker' in navigator){navigator.serviceWorker.register("/kigo.github.io/service-worker.js");}
+  if ('serviceWorker' in navigator){navigator.serviceWorker.register("/service-worker.js");}
 </script>
 
 

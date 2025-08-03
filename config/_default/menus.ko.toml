@@ -1,0 +1,47 @@
+############# 한국어 네비게이션 ##############
+
+# 메인 메뉴
+[[main]]
+name = "홈"
+url = "/"
+weight = 1
+
+[[main]]
+name = "소개"
+url = "/about"
+weight = 2
+
+[[main]]
+name = "블로그"
+url = "/blog"
+weight = 3
+
+[[main]]
+weight = 4
+name = "페이지"
+
+[[main]]
+parent = "페이지"
+name = "카테고리"
+url = "/categories"
+
+[[main]]
+parent = "페이지"
+name = "태그"
+url = "/tags"
+
+# 푸터 메뉴
+[[footer]]
+name = "소개"
+url = "/about"
+weight = 1
+
+[[footer]]
+name = "블로그"
+url = "/blog"
+weight = 2
+
+[[footer]]
+name = "개인정보처리방침"
+url = "/privacy-policy"
+weight = 3

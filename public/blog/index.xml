@@ -1,40 +1,47 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blog Posts on kigo</title>
-    <link>http://localhost:1313/kigo.github.io/blog/</link>
-    <description>Recent content in Blog Posts on kigo</description>
+    <title>블로그 on Kigo&#39;s Blog</title>
+    <link>http://localhost:1313/blog/</link>
+    <description>Recent content in 블로그 on Kigo&#39;s Blog</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 04 Apr 2022 05:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/kigo.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <language>ko-kr</language>
+    <lastBuildDate>Sat, 02 Aug 2025 14:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>How to build an Application with modern Technology</title>
-      <link>http://localhost:1313/kigo.github.io/blog/post-1/</link>
-      <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/kigo.github.io/blog/post-1/</guid>
-      <description>&lt;p&gt;Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.&lt;/p&gt;</description>
+      <title>VS Code 개발 환경 최적화하기</title>
+      <link>http://localhost:1313/blog/vscode-optimization/</link>
+      <pubDate>Sat, 02 Aug 2025 14:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/vscode-optimization/</guid>
+      <description>&lt;p&gt;개발자에게 있어 에디터는 가장 중요한 도구 중 하나입니다. 오늘은 VS Code를 더욱 효율적으로 사용하는 방법들을 공유해보려고 합니다.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>How to build an Application with modern Technology</title>
-      <link>http://localhost:1313/kigo.github.io/blog/post-2/</link>
-      <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/kigo.github.io/blog/post-2/</guid>
-      <description>&lt;p&gt;Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.&lt;/p&gt;</description>
+      <title>React 함수형 컴포넌트와 Hooks 사용법</title>
+      <link>http://localhost:1313/blog/react-hooks-guide/</link>
+      <pubDate>Fri, 01 Aug 2025 16:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/react-hooks-guide/</guid>
+      <description>&lt;p&gt;React 16.8에서 도입된 Hooks는 함수형 컴포넌트에서도 상태 관리와 생명주기 기능을 사용할 수 있게 해주었습니다. 오늘은 주요 Hooks들의 사용법을 알아보겠습니다.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>How to build an Application with modern Technology</title>
-      <link>http://localhost:1313/kigo.github.io/blog/post-3/</link>
-      <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/kigo.github.io/blog/post-3/</guid>
-      <description>&lt;p&gt;Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.&lt;/p&gt;</description>
+      <title>Git 브랜치 전략과 협업 워크플로우</title>
+      <link>http://localhost:1313/blog/git-branching-strategy/</link>
+      <pubDate>Thu, 31 Jul 2025 09:15:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/git-branching-strategy/</guid>
+      <description>&lt;p&gt;팀 개발에서 Git을 효과적으로 사용하는 것은 매우 중요합니다. 오늘은 대표적인 Git 브랜치 전략들과 협업 워크플로우에 대해 알아보겠습니다.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>How to build an Application with modern Technology</title>
-      <link>http://localhost:1313/kigo.github.io/blog/post-4/</link>
-      <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/kigo.github.io/blog/post-4/</guid>
-      <description>&lt;p&gt;Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.&lt;/p&gt;</description>
+      <title>Docker로 개발 환경 구축하기</title>
+      <link>http://localhost:1313/blog/docker-development-environment/</link>
+      <pubDate>Wed, 30 Jul 2025 11:20:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/docker-development-environment/</guid>
+      <description>&lt;p&gt;개발을 하다 보면 &amp;ldquo;내 컴퓨터에서는 잘 됐는데?&amp;ldquo;라는 말을 자주 듣게 됩니다. Docker를 사용하면 이런 문제를 해결하고 일관된 개발 환경을 구축할 수 있습니다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>JavaScript ES6&#43; 핵심 기능들</title>
+      <link>http://localhost:1313/blog/javascript-es6-features/</link>
+      <pubDate>Tue, 29 Jul 2025 15:45:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/javascript-es6-features/</guid>
+      <description>&lt;p&gt;JavaScript ES6(ECMAScript 2015)부터 많은 새로운 기능들이 추가되었습니다. 오늘은 실무에서 자주 사용되는 핵심 기능들을 알아보겠습니다.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

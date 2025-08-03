@@ -1,0 +1,53 @@
+# 사이트 정보
+- id: read_more
+  translation: "더 읽기"
+- id: contact_form_title
+  translation: "연락처"
+- id: contact_form_name
+  translation: "이름"
+- id: contact_form_email
+  translation: "이메일"
+- id: contact_form_subject
+  translation: "제목"
+- id: contact_form_message
+  translation: "메시지"
+- id: contact_form_submit
+  translation: "보내기"
+- id: no_search_found
+  translation: "검색 결과가 없습니다"
+- id: get_info
+  translation: "정보 받기"
+- id: latest_articles
+  translation: "최신 글"
+- id: related_posts
+  translation: "관련 글"
+- id: categories
+  translation: "카테고리"
+- id: tags
+  translation: "태그"
+- id: share
+  translation: "공유하기"
+- id: search_placeholder
+  translation: "검색어를 입력하세요..."
+- id: search
+  translation: "검색"
+- id: author
+  translation: "작성자"
+- id: date
+  translation: "날짜"
+- id: page_not_found
+  translation: "페이지를 찾을 수 없습니다"
+- id: page_not_found_des
+  translation: "죄송합니다. 요청하신 페이지를 찾을 수 없습니다."
+- id: back_to_home
+  translation: "홈으로 돌아가기"
+- id: email
+  translation: "이메일"
+- id: address
+  translation: "주소"
+- id: office_hours
+  translation: "운영 시간"
+- id: cookie_text
+  translation: "이 사이트는 쿠키를 사용합니다. 계속 사용하시면 쿠키 사용에 동의하는 것으로 간주됩니다."
+- id: cookie_button
+  translation: "동의합니다"

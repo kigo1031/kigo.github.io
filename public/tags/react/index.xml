@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>React on Kigo&#39;s Blog</title>
+    <link>http://localhost:1313/tags/react/</link>
+    <description>Recent content in React on Kigo&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Fri, 01 Aug 2025 16:30:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/react/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>React 함수형 컴포넌트와 Hooks 사용법</title>
+      <link>http://localhost:1313/blog/react-hooks-guide/</link>
+      <pubDate>Fri, 01 Aug 2025 16:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/react-hooks-guide/</guid>
+      <description>&lt;p&gt;React 16.8에서 도입된 Hooks는 함수형 컴포넌트에서도 상태 관리와 생명주기 기능을 사용할 수 있게 해주었습니다. 오늘은 주요 Hooks들의 사용법을 알아보겠습니다.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

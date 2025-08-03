@@ -1,46 +1,53 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on kigo</title>
-    <link>http://localhost:1313/kigo.github.io/categories/</link>
-    <description>Recent content in Categories on kigo</description>
+    <title>카테고리 on Kigo&#39;s Blog</title>
+    <link>http://localhost:1313/categories/</link>
+    <description>Recent content in 카테고리 on Kigo&#39;s Blog</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 04 Apr 2022 05:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/kigo.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>ko-kr</language>
+    <lastBuildDate>Sat, 02 Aug 2025 14:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Application</title>
-      <link>http://localhost:1313/kigo.github.io/categories/application/</link>
-      <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/kigo.github.io/categories/application/</guid>
+      <title>개발도구</title>
+      <link>http://localhost:1313/categories/%EA%B0%9C%EB%B0%9C%EB%8F%84%EA%B5%AC/</link>
+      <pubDate>Sat, 02 Aug 2025 14:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/%EA%B0%9C%EB%B0%9C%EB%8F%84%EA%B5%AC/</guid>
       <description></description>
     </item>
     <item>
-      <title>Architecture</title>
-      <link>http://localhost:1313/kigo.github.io/categories/architecture/</link>
-      <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/kigo.github.io/categories/architecture/</guid>
+      <title>웹개발</title>
+      <link>http://localhost:1313/categories/%EC%9B%B9%EA%B0%9C%EB%B0%9C/</link>
+      <pubDate>Fri, 01 Aug 2025 16:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/%EC%9B%B9%EA%B0%9C%EB%B0%9C/</guid>
       <description></description>
     </item>
     <item>
-      <title>Data</title>
-      <link>http://localhost:1313/kigo.github.io/categories/data/</link>
-      <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/kigo.github.io/categories/data/</guid>
+      <title>DevOps</title>
+      <link>http://localhost:1313/categories/devops/</link>
+      <pubDate>Wed, 30 Jul 2025 11:20:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/devops/</guid>
       <description></description>
     </item>
     <item>
-      <title>Software</title>
-      <link>http://localhost:1313/kigo.github.io/categories/software/</link>
-      <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/kigo.github.io/categories/software/</guid>
+      <title>컨테이너</title>
+      <link>http://localhost:1313/categories/%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88/</link>
+      <pubDate>Wed, 30 Jul 2025 11:20:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88/</guid>
       <description></description>
     </item>
     <item>
-      <title>Technology</title>
-      <link>http://localhost:1313/kigo.github.io/categories/technology/</link>
-      <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/kigo.github.io/categories/technology/</guid>
+      <title>JavaScript</title>
+      <link>http://localhost:1313/categories/javascript/</link>
+      <pubDate>Tue, 29 Jul 2025 15:45:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/javascript/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>프론트엔드</title>
+      <link>http://localhost:1313/categories/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C/</link>
+      <pubDate>Tue, 29 Jul 2025 15:45:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C/</guid>
       <description></description>
     </item>
   </channel>

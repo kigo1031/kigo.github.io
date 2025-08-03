@@ -1,9 +1,19 @@
 ---
-title: "Hey, I am John Doe!"
+title: "안녕하세요, Kigo입니다!"
 meta_title: "About"
-description: "this is meta description"
+description: "개발자 Kigo의 소개 페이지입니다"
 image: "/images/avatar.png"
 draft: false
 ---
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis illum nesciunt commodi vel nisi ut alias excepturi ipsum, totam, labore tempora, odit ex iste tempore sed. Fugit voluptatibus perspiciatis assumenda nulla ad nihil, omnis vel, doloremque sit quam autem optio maiores, illum eius facilis et quo consectetur provident dolor similique! Enim voluptatem dicta expedita veritatis repellat dolorum impedit, provident quasi at.
+안녕하세요! 저는 개발에 관심이 많은 Kigo입니다.
+
+이 블로그에서는 제가 개발하면서 배운 것들, 경험한 것들, 그리고 흥미로운 기술들에 대해 공유하려고 합니다.
+
+현재 관심있는 분야:
+- 웹 개발 (Frontend & Backend)
+- 클라우드 기술
+- 개발 도구 및 효율성
+- 새로운 프로그래밍 언어와 프레임워크
+
+함께 성장하는 개발자가 되고 싶습니다. 블로그를 통해 많은 분들과 소통하며 배워나가고 싶어요!

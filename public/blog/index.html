@@ -2,9 +2,9 @@
 <html
   itemscope
   class=""
-  lang="en-us"
+  lang="ko-kr"
   itemtype="http://schema.org/WebPage">
-  <head><script src="/kigo.github.io/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=kigo.github.io/livereload" data-no-instant defer></script>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     
     <meta charset="utf-8" />
 
@@ -30,11 +30,11 @@
 
 
 
-<link rel="shortcut icon" href="/kigo.github.io/images/favicon_hu_4384881fdc2d307e.png" type="image/x-icon">
-<link rel="icon" href="/kigo.github.io/images/favicon_hu_4384881fdc2d307e.png" type="image/x-icon">
-<link rel="icon" type="image/png" sizes="48x48" href="/kigo.github.io/images/favicon_hu_79c3559174e61a5e.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/kigo.github.io/images/favicon_hu_4384881fdc2d307e.png">
-<link rel="apple-touch-icon" sizes="144x144" href="/kigo.github.io/images/favicon_hu_cfffba76e19e8ff2.png">
+<link rel="shortcut icon" href="/images/favicon_hu_4384881fdc2d307e.png" type="image/x-icon">
+<link rel="icon" href="/images/favicon_hu_4384881fdc2d307e.png" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="48x48" href="/images/favicon_hu_79c3559174e61a5e.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/images/favicon_hu_4384881fdc2d307e.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/images/favicon_hu_cfffba76e19e8ff2.png">
 
 
 
@@ -43,7 +43,7 @@
 
 
 
-<link rel="manifest" href="/kigo.github.io/manifest.webmanifest" />
+<link rel="manifest" href="/manifest.webmanifest" />
 <meta
   name="msapplication-TileColor"
   content="#ddd" />
@@ -72,7 +72,6 @@
 
 
 
-  <base href="http://localhost:1313/kigo.github.io/blog/" />
 
 
 
@@ -81,19 +80,27 @@
 
 
   
+  
 
 
-<title>Blog Posts</title>
-
-
-
-
+<title>블로그 포스트 목록</title>
 
 
 
 
 
 
+
+
+
+
+
+  
+    <link rel="alternate" hreflang="ko" href="http://localhost:1313/blog/" />
+  
+    <link rel="alternate" hreflang="en" href="http://localhost:1313/en/blog/" />
+  
+  <link rel="alternate" hreflang="x-default" href="http://localhost:1313/blog/" />
 
 
 
@@ -101,18 +108,18 @@
 
   <meta
     name="keywords"
-    content="Boilerplate, Hugo" />
+    content="Blog, Development, Programming, Tech" />
 
 
 
 
 <meta
   name="description"
-  content="this is meta description" />
+  content="개발 관련 블로그 포스트들을 확인하세요" />
 
 
 
-  <meta name="author" content="zeon.studio" />
+  <meta name="author" content="Kigo" />
 
 
 
@@ -159,8 +166,8 @@
       
       
       
-        <meta property="og:image" content="http://localhost:1313/kigo.github.io/images/og-image.png" />
-        <meta name="twitter:image" content="http://localhost:1313/kigo.github.io/images/og-image.png" />
+        <meta property="og:image" content="http://localhost:1313/images/og-image.png" />
+        <meta name="twitter:image" content="http://localhost:1313/images/og-image.png" />
         <meta
           name="twitter:card"
           content="summary_large_image" />
@@ -184,20 +191,18 @@
 
 
 
-<meta property="og:title" content="Blog Posts" />
-<meta property="og:description" content="this is meta description" />
+<meta property="og:title" content="블로그 포스트 목록" />
+<meta property="og:description" content="개발 관련 블로그 포스트들을 확인하세요" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="http://localhost:1313/kigo.github.io/blog/" />
+<meta property="og:url" content="http://localhost:1313/blog/" />
 
 
-<meta name="twitter:title" content="Blog Posts" />
-<meta name="twitter:description" content="this is meta description" />
+<meta name="twitter:title" content="블로그 포스트 목록" />
+<meta name="twitter:description" content="개발 관련 블로그 포스트들을 확인하세요" />
 
 
-  <meta name="twitter:site" content="@zeon_studio" />
 
-
-  <meta name="twitter:creator" content="@zeon.studio" />
+  <meta name="twitter:creator" content="@Kigo" />
 
 
 
@@ -218,10 +223,10 @@
 
 
 <script>
-  let indexURL = "http://localhost:1313/kigo.github.io/searchindex.json";
+  let indexURL = "http://localhost:1313/searchindex.json";
   let includeSectionsInSearch = ["blog"];
-  let search_no_results = "No results for";
-  let search_initial_message = "Type something to search..";
+  let search_no_results = "0 results for";
+  let search_initial_message = "";
 </script>
 
 
@@ -328,7 +333,7 @@
 
 
 <link
-  href="/kigo.github.io/css/style.css"
+  href="/css/style.css"
   integrity=""
   rel="stylesheet" />
 
@@ -337,7 +342,7 @@
   defer
   async
   rel="stylesheet"
-  href="/kigo.github.io/css/style-lazy.css"
+  href="/css/style-lazy.css"
   integrity=""
   media="print"
   onload="this.media='all'; this.onload=null;" />
@@ -382,7 +387,7 @@
     
     <div class="order-0">
       
-      <a class="navbar-brand block" href="/kigo.github.io/">
+      <a class="navbar-brand block" href="/">
         
 
 
@@ -399,87 +404,35 @@
 
 
 
-  
-
-
-
-
-
 
 
 
 
   
-  
-  
+
+
 
 
   
-  
-    
-    
-  
-
-
-  
-  
-      
-      
-    
-    
-    
-    
-    
-    
-  
-  
-
-  
-  
-    
-    
-      
-      
-
-
-      
-      
-        
-        
-        
-        
-
-        
-        
-        
-      
-      
-    
-  
-  
-
   
     <img
       fetchpriority="high"
       decoding="async"
+      src="http://localhost:1313/images/logo-kigo.svg"
+      alt="Kigo&#39;s Blog"
       class="img img-light"
-      width="160"
       height="32"
-      src="/kigo.github.io/images/logo_hu_75df6f187f7b785d.webp"
-      alt="Hugoplate"
-      onerror="this.onerror=null;this.src='\/kigo.github.io\/images\/logo_hu_613f51f483beed3c.png';" />
-
+      width="160" />
     <img
       fetchpriority="high"
       decoding="async"
+      src="http://localhost:1313/images/logo-kigo-darkmode.svg"
+      alt="Kigo&#39;s Blog"
       class="img img-dark"
-      width="160"
       height="32"
-      src="/kigo.github.io/images/logo-darkmode_hu_a274d2b570d85754.webp"
-      alt="Hugoplate"
-      onerror="this.onerror=null;this.src='\/kigo.github.io\/images\/logo-darkmode_hu_11d6a0e948ad5f4.png';" />
+      width="160" />
   
-  
+
 
 
       </a>
@@ -516,8 +469,8 @@
             <a
               class="nav-link "
               
-              href="/kigo.github.io/"
-              >Home</a
+              href="/"
+              >홈</a
             >
           </li>
         
@@ -530,8 +483,8 @@
             <a
               class="nav-link "
               
-              href="/kigo.github.io/about"
-              >About</a
+              href="/about"
+              >소개</a
             >
           </li>
         
@@ -544,8 +497,8 @@
             <a
               class="nav-link "
               
-              href="/kigo.github.io/elements"
-              >Elements</a
+              href="/blog"
+              >블로그</a
             >
           </li>
         
@@ -564,20 +517,8 @@
                 
                 
                 
-              
-                
-                
-                
-              
-                
-                
-                
-              
-                
-                
-                
                inline-flex items-center">
-              Pages
+              페이지
               <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20">
                 <path
                   d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
@@ -592,8 +533,8 @@
                   <a
                     class="nav-dropdown-link "
                     
-                    href="/kigo.github.io/404">
-                    404 Page
+                    href="/categories">
+                    카테고리
                   </a>
                 </li>
               
@@ -603,41 +544,8 @@
                   <a
                     class="nav-dropdown-link "
                     
-                    href="/kigo.github.io/authors">
-                    Authors
-                  </a>
-                </li>
-              
-                
-                
-                <li class="nav-dropdown-item">
-                  <a
-                    class="nav-dropdown-link "
-                    
-                    href="/kigo.github.io/blog">
-                    Blog
-                  </a>
-                </li>
-              
-                
-                
-                <li class="nav-dropdown-item">
-                  <a
-                    class="nav-dropdown-link "
-                    
-                    href="/kigo.github.io/categories">
-                    Categories
-                  </a>
-                </li>
-              
-                
-                
-                <li class="nav-dropdown-item">
-                  <a
-                    class="nav-dropdown-link "
-                    
-                    href="/kigo.github.io/contact">
-                    Contact
+                    href="/tags">
+                    태그
                   </a>
                 </li>
               
@@ -649,7 +557,7 @@
         <li class="mt-4 inline-block lg:hidden">
           <a
             class="btn btn-outline-primary btn-sm"
-            href="/kigo.github.io/contact">
+            href="/contact">
             get a quote
           </a>
         </li>
@@ -672,6 +580,53 @@
       
 
       
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+
+  
+
+
+<select class="mr-5 pl-2 py-1 dark:bg-darkmode-light rounded" onchange="location = this.value">
+  
+    
+    
+    
+      <option
+        id="ko"
+        value="http://localhost:1313/blog/"
+      
+        selected
+      
+        >
+        한국어
+      </option>
+    
+  
+    
+    
+    
+      <option
+        id="en"
+        value="http://localhost:1313/en/blog/"
+      
+        >
+        En
+      </option>
+    
+  
+</select>
 
       
 
@@ -755,7 +710,7 @@
       
       
         <a
-          href="/kigo.github.io/contact"
+          href="/contact"
           class="btn btn-outline-primary btn-sm hidden lg:inline-block">
           get a quote
         </a>
@@ -813,12 +768,12 @@
             data-search-input
             autocomplete="off"
             aria-label="Search"
-            placeholder="Search Post..." />
+            placeholder="" />
         </div>
         <div class="search-wrapper-body">
           <div class="search-result" data-search-result></div>
           <span class="search-result-empty">
-            Type something to search..
+            
           </span>
         </div>
         <div class="search-wrapper-footer">
@@ -882,7 +837,7 @@
   <div class="container text-center">
     <div
       class="from-body to-light dark:from-darkmode-body dark:to-darkmode-light rounded-2xl bg-gradient-to-b px-8 py-14">
-      <h1>Blog Posts</h1>
+      <h1>블로그</h1>
       
 
 
@@ -890,7 +845,7 @@
 
 <ul class="mt-6 inline-flex space-x-1 capitalize">
   <li>
-    <a class="text-primary dark:text-darkmode-primary" href="http://localhost:1313/kigo.github.io/">
+    <a class="text-primary dark:text-darkmode-primary" href="http://localhost:1313/">
       Home
     </a>
     <span class="inlin-block mr-1">/</span>
@@ -900,7 +855,7 @@
   
   <li>
     <span class="text-primary dark:text-darkmode-primary">
-      Blog Posts
+      블로그
     </span>
   </li>
 </ul>
@@ -1002,31 +957,31 @@
         <picture>
           <source
             
-              srcset="/kigo.github.io/images/image-placeholder_hu_c8971dd714d7d967.webp"
+              srcset="/images/service-1_hu_929e1a7812c6d1fe.webp"
             
             media="(max-width: 575px)" />
           <source
             
-              srcset="/kigo.github.io/images/image-placeholder_hu_7feb4cff3f0f2f38.webp"
+              srcset="/images/service-1_hu_b1075cc11ad28fb0.webp"
             
             media="(max-width: 767px)" />
           <source
             
-              srcset="/kigo.github.io/images/image-placeholder_hu_aa8934e738977bd1.webp"
+              srcset="/images/service-1_hu_3527cad0cb0b4cd5.webp"
             
             media="(max-width: 991px)" />
           <source
             
-              srcset="/kigo.github.io/images/image-placeholder_hu_c6a26df46efa63e0.webp"
+              srcset="/images/service-1_hu_359afd51d4fd2457.webp"
              />
           <img
             
               loading="lazy" decoding="async"
-              src="/kigo.github.io/images/image-placeholder_hu_8da812934bbff7ba.png"
+              src="/images/service-1_hu_734bba9c014561a1.png"
             class=" mb-6 w-full rounded img"
-            alt="How to build an Application with modern Technology"
-            width="1096"
-            height="480" />
+            alt="VS Code 개발 환경 최적화하기"
+            width="559"
+            height="518" />
         </picture>
       
       
@@ -1040,42 +995,504 @@
 
   
   <h4 class="mb-3">
-    <a href="/kigo.github.io/blog/post-1/">
-      How to build an Application with modern Technology
+    <a href="/blog/vscode-optimization/">
+      VS Code 개발 환경 최적화하기
     </a>
   </h4>
   
   
     <ul class="mb-4">
       <li class="mr-4 inline-block">
-        <a href="/kigo.github.io/authors/john-doe/">
-          <i class="fa-regular fa-circle-user mr-2"></i>John Doe
+        <a href="/authors/kigo/">
+          <i class="fa-regular fa-circle-user mr-2"></i>Kigo
         </a>
       </li>
       <li class="mr-4 inline-block">
         <i class="fa-regular fa-folder mr-1"></i>
         
           <a
-            href="/kigo.github.io/categories/application/"
+            href="/categories/%ea%b0%9c%eb%b0%9c%eb%8f%84%ea%b5%ac/"
             class="ms-1"
-            >Application
+            >개발도구
+          </a>
+        
+      </li>
+    </ul>
+  
+  <p class="mb-6">개발자에게 있어 에디터는 가장 중요한 도구 중 하나입니다. 오늘은 VS Code를 더욱 효율적으로 사용하는 방법들을 공유해보려고 합니다.
+</p>
+  <a class="btn btn-outline-primary btn-sm" href="/blog/vscode-optimization/">
+    더 읽기
+  </a>
+</div>
+
+              </div>
+            
+              <div class="md:col-6 mb-14">
+                <div class="bg-body dark:bg-darkmode-body">
+  
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  
+    
+      
+    
+
+
+    
+    
+
+
+    
+    
+      
+      
+    
+    
+    
+
+
+    
+    
+      
+      
+        
+
+        
+        
+        
+        
+        
+        
+        
+
+
+        
+        
+
+
+        <picture>
+          <source
+            
+              srcset="/images/service-2_hu_ef404af6d6285ca6.webp"
+            
+            media="(max-width: 575px)" />
+          <source
+            
+              srcset="/images/service-2_hu_e7837a9049f27340.webp"
+            
+            media="(max-width: 767px)" />
+          <source
+            
+              srcset="/images/service-2_hu_1a4d5db26e1ebe3b.webp"
+            
+            media="(max-width: 991px)" />
+          <source
+            
+              srcset="/images/service-2_hu_b61044daa34eb1fa.webp"
+             />
+          <img
+            
+              loading="lazy" decoding="async"
+              src="/images/service-2_hu_b8c16cba52ad70d0.png"
+            class=" mb-6 w-full rounded img"
+            alt="React 함수형 컴포넌트와 Hooks 사용법"
+            width="548"
+            height="526" />
+        </picture>
+      
+      
+    
+    
+  
+
+
+  
+
+
+  
+  <h4 class="mb-3">
+    <a href="/blog/react-hooks-guide/">
+      React 함수형 컴포넌트와 Hooks 사용법
+    </a>
+  </h4>
+  
+  
+    <ul class="mb-4">
+      <li class="mr-4 inline-block">
+        <a href="/authors/kigo/">
+          <i class="fa-regular fa-circle-user mr-2"></i>Kigo
+        </a>
+      </li>
+      <li class="mr-4 inline-block">
+        <i class="fa-regular fa-folder mr-1"></i>
+        
+          <a
+            href="/categories/%ec%9b%b9%ea%b0%9c%eb%b0%9c/"
+            class="ms-1"
+            >웹개발
+          </a>
+        
+      </li>
+    </ul>
+  
+  <p class="mb-6">React 16.8에서 도입된 Hooks는 함수형 컴포넌트에서도 상태 관리와 생명주기 기능을 사용할 수 있게 해주었습니다. 오늘은 주요 Hooks들의 사용법을 알아보겠습니다.
+</p>
+  <a class="btn btn-outline-primary btn-sm" href="/blog/react-hooks-guide/">
+    더 읽기
+  </a>
+</div>
+
+              </div>
+            
+              <div class="md:col-6 mb-14">
+                <div class="bg-body dark:bg-darkmode-body">
+  
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  
+    
+      
+    
+
+
+    
+    
+
+
+    
+    
+      
+      
+    
+    
+    
+
+
+    
+    
+      
+      
+        
+
+        
+        
+        
+        
+        
+        
+        
+
+
+        
+        
+
+
+        <picture>
+          <source
+            
+              srcset="/images/service-3_hu_1454e73fb9cfabc3.webp"
+            
+            media="(max-width: 575px)" />
+          <source
+            
+              srcset="/images/service-3_hu_3d5b59fef3ea5ca1.webp"
+            
+            media="(max-width: 767px)" />
+          <source
+            
+              srcset="/images/service-3_hu_be05d096620b9265.webp"
+            
+            media="(max-width: 991px)" />
+          <source
+            
+              srcset="/images/service-3_hu_72e3a36a4d5532ad.webp"
+             />
+          <img
+            
+              loading="lazy" decoding="async"
+              src="/images/service-3_hu_929c06d4b6feba56.png"
+            class=" mb-6 w-full rounded img"
+            alt="Git 브랜치 전략과 협업 워크플로우"
+            width="532"
+            height="433" />
+        </picture>
+      
+      
+    
+    
+  
+
+
+  
+
+
+  
+  <h4 class="mb-3">
+    <a href="/blog/git-branching-strategy/">
+      Git 브랜치 전략과 협업 워크플로우
+    </a>
+  </h4>
+  
+  
+    <ul class="mb-4">
+      <li class="mr-4 inline-block">
+        <a href="/authors/kigo/">
+          <i class="fa-regular fa-circle-user mr-2"></i>Kigo
+        </a>
+      </li>
+      <li class="mr-4 inline-block">
+        <i class="fa-regular fa-folder mr-1"></i>
+        
+          <a
+            href="/categories/%ea%b0%9c%eb%b0%9c%eb%8f%84%ea%b5%ac/"
+            class="ms-1"
+            >개발도구
+          </a>
+        
+      </li>
+    </ul>
+  
+  <p class="mb-6">팀 개발에서 Git을 효과적으로 사용하는 것은 매우 중요합니다. 오늘은 대표적인 Git 브랜치 전략들과 협업 워크플로우에 대해 알아보겠습니다.
+</p>
+  <a class="btn btn-outline-primary btn-sm" href="/blog/git-branching-strategy/">
+    더 읽기
+  </a>
+</div>
+
+              </div>
+            
+              <div class="md:col-6 mb-14">
+                <div class="bg-body dark:bg-darkmode-body">
+  
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  
+    
+      
+    
+
+
+    
+    
+
+
+    
+    
+      
+      
+    
+    
+    
+
+
+    
+    
+      
+      
+        
+
+        
+        
+        
+        
+        
+        
+        
+
+
+        
+        
+
+
+        <picture>
+          <source
+            
+              srcset="/images/service-1_hu_929e1a7812c6d1fe.webp"
+            
+            media="(max-width: 575px)" />
+          <source
+            
+              srcset="/images/service-1_hu_b1075cc11ad28fb0.webp"
+            
+            media="(max-width: 767px)" />
+          <source
+            
+              srcset="/images/service-1_hu_3527cad0cb0b4cd5.webp"
+            
+            media="(max-width: 991px)" />
+          <source
+            
+              srcset="/images/service-1_hu_359afd51d4fd2457.webp"
+             />
+          <img
+            
+              loading="lazy" decoding="async"
+              src="/images/service-1_hu_734bba9c014561a1.png"
+            class=" mb-6 w-full rounded img"
+            alt="Docker로 개발 환경 구축하기"
+            width="559"
+            height="518" />
+        </picture>
+      
+      
+    
+    
+  
+
+
+  
+
+
+  
+  <h4 class="mb-3">
+    <a href="/blog/docker-development-environment/">
+      Docker로 개발 환경 구축하기
+    </a>
+  </h4>
+  
+  
+    <ul class="mb-4">
+      <li class="mr-4 inline-block">
+        <a href="/authors/kigo/">
+          <i class="fa-regular fa-circle-user mr-2"></i>Kigo
+        </a>
+      </li>
+      <li class="mr-4 inline-block">
+        <i class="fa-regular fa-folder mr-1"></i>
+        
+          <a
+            href="/categories/devops/"
+            class="ms-1"
+            >Dev ops
               ,
             
           </a>
         
           <a
-            href="/kigo.github.io/categories/data/"
+            href="/categories/%ec%bb%a8%ed%85%8c%ec%9d%b4%eb%84%88/"
             class="ms-1"
-            >Data
+            >컨테이너
           </a>
         
       </li>
     </ul>
   
-  <p class="mb-6">Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
+  <p class="mb-6">개발을 하다 보면 &ldquo;내 컴퓨터에서는 잘 됐는데?&ldquo;라는 말을 자주 듣게 됩니다. Docker를 사용하면 이런 문제를 해결하고 일관된 개발 환경을 구축할 수 있습니다.
 </p>
-  <a class="btn btn-outline-primary btn-sm" href="/kigo.github.io/blog/post-1/">
-    Read More
+  <a class="btn btn-outline-primary btn-sm" href="/blog/docker-development-environment/">
+    더 읽기
   </a>
 </div>
 
@@ -1164,31 +1581,31 @@
         <picture>
           <source
             
-              srcset="/kigo.github.io/images/image-placeholder_hu_c8971dd714d7d967.webp"
+              srcset="/images/service-2_hu_ef404af6d6285ca6.webp"
             
             media="(max-width: 575px)" />
           <source
             
-              srcset="/kigo.github.io/images/image-placeholder_hu_7feb4cff3f0f2f38.webp"
+              srcset="/images/service-2_hu_e7837a9049f27340.webp"
             
             media="(max-width: 767px)" />
           <source
             
-              srcset="/kigo.github.io/images/image-placeholder_hu_aa8934e738977bd1.webp"
+              srcset="/images/service-2_hu_1a4d5db26e1ebe3b.webp"
             
             media="(max-width: 991px)" />
           <source
             
-              srcset="/kigo.github.io/images/image-placeholder_hu_c6a26df46efa63e0.webp"
+              srcset="/images/service-2_hu_b61044daa34eb1fa.webp"
              />
           <img
             
               loading="lazy" decoding="async"
-              src="/kigo.github.io/images/image-placeholder_hu_8da812934bbff7ba.png"
+              src="/images/service-2_hu_b8c16cba52ad70d0.png"
             class=" mb-6 w-full rounded img"
-            alt="How to build an Application with modern Technology"
-            width="1096"
-            height="480" />
+            alt="JavaScript ES6&#43; 핵심 기능들"
+            width="548"
+            height="526" />
         </picture>
       
       
@@ -1202,350 +1619,42 @@
 
   
   <h4 class="mb-3">
-    <a href="/kigo.github.io/blog/post-2/">
-      How to build an Application with modern Technology
+    <a href="/blog/javascript-es6-features/">
+      JavaScript ES6&#43; 핵심 기능들
     </a>
   </h4>
   
   
     <ul class="mb-4">
       <li class="mr-4 inline-block">
-        <a href="/kigo.github.io/authors/sam-wilson/">
-          <i class="fa-regular fa-circle-user mr-2"></i>Sam Wilson
+        <a href="/authors/kigo/">
+          <i class="fa-regular fa-circle-user mr-2"></i>Kigo
         </a>
       </li>
       <li class="mr-4 inline-block">
         <i class="fa-regular fa-folder mr-1"></i>
         
           <a
-            href="/kigo.github.io/categories/technology/"
+            href="/categories/javascript/"
             class="ms-1"
-            >Technology
+            >Java script
               ,
             
           </a>
         
           <a
-            href="/kigo.github.io/categories/data/"
+            href="/categories/%ed%94%84%eb%a1%a0%ed%8a%b8%ec%97%94%eb%93%9c/"
             class="ms-1"
-            >Data
+            >프론트엔드
           </a>
         
       </li>
     </ul>
   
-  <p class="mb-6">Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
+  <p class="mb-6">JavaScript ES6(ECMAScript 2015)부터 많은 새로운 기능들이 추가되었습니다. 오늘은 실무에서 자주 사용되는 핵심 기능들을 알아보겠습니다.
 </p>
-  <a class="btn btn-outline-primary btn-sm" href="/kigo.github.io/blog/post-2/">
-    Read More
-  </a>
-</div>
-
-              </div>
-            
-              <div class="md:col-6 mb-14">
-                <div class="bg-body dark:bg-darkmode-body">
-  
-  
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-  
-    
-      
-    
-
-
-    
-    
-
-
-    
-    
-      
-      
-    
-    
-    
-
-
-    
-    
-      
-      
-        
-
-        
-        
-        
-        
-        
-        
-        
-
-
-        
-        
-
-
-        <picture>
-          <source
-            
-              srcset="/kigo.github.io/images/image-placeholder_hu_c8971dd714d7d967.webp"
-            
-            media="(max-width: 575px)" />
-          <source
-            
-              srcset="/kigo.github.io/images/image-placeholder_hu_7feb4cff3f0f2f38.webp"
-            
-            media="(max-width: 767px)" />
-          <source
-            
-              srcset="/kigo.github.io/images/image-placeholder_hu_aa8934e738977bd1.webp"
-            
-            media="(max-width: 991px)" />
-          <source
-            
-              srcset="/kigo.github.io/images/image-placeholder_hu_c6a26df46efa63e0.webp"
-             />
-          <img
-            
-              loading="lazy" decoding="async"
-              src="/kigo.github.io/images/image-placeholder_hu_8da812934bbff7ba.png"
-            class=" mb-6 w-full rounded img"
-            alt="How to build an Application with modern Technology"
-            width="1096"
-            height="480" />
-        </picture>
-      
-      
-    
-    
-  
-
-
-  
-
-
-  
-  <h4 class="mb-3">
-    <a href="/kigo.github.io/blog/post-3/">
-      How to build an Application with modern Technology
-    </a>
-  </h4>
-  
-  
-    <ul class="mb-4">
-      <li class="mr-4 inline-block">
-        <a href="/kigo.github.io/authors/john-doe/">
-          <i class="fa-regular fa-circle-user mr-2"></i>John Doe
-        </a>
-      </li>
-      <li class="mr-4 inline-block">
-        <i class="fa-regular fa-folder mr-1"></i>
-        
-          <a
-            href="/kigo.github.io/categories/software/"
-            class="ms-1"
-            >Software
-          </a>
-        
-      </li>
-    </ul>
-  
-  <p class="mb-6">Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-</p>
-  <a class="btn btn-outline-primary btn-sm" href="/kigo.github.io/blog/post-3/">
-    Read More
-  </a>
-</div>
-
-              </div>
-            
-              <div class="md:col-6 mb-14">
-                <div class="bg-body dark:bg-darkmode-body">
-  
-  
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-  
-    
-      
-    
-
-
-    
-    
-
-
-    
-    
-      
-      
-    
-    
-    
-
-
-    
-    
-      
-      
-        
-
-        
-        
-        
-        
-        
-        
-        
-
-
-        
-        
-
-
-        <picture>
-          <source
-            
-              srcset="/kigo.github.io/images/image-placeholder_hu_c8971dd714d7d967.webp"
-            
-            media="(max-width: 575px)" />
-          <source
-            
-              srcset="/kigo.github.io/images/image-placeholder_hu_7feb4cff3f0f2f38.webp"
-            
-            media="(max-width: 767px)" />
-          <source
-            
-              srcset="/kigo.github.io/images/image-placeholder_hu_aa8934e738977bd1.webp"
-            
-            media="(max-width: 991px)" />
-          <source
-            
-              srcset="/kigo.github.io/images/image-placeholder_hu_c6a26df46efa63e0.webp"
-             />
-          <img
-            
-              loading="lazy" decoding="async"
-              src="/kigo.github.io/images/image-placeholder_hu_8da812934bbff7ba.png"
-            class=" mb-6 w-full rounded img"
-            alt="How to build an Application with modern Technology"
-            width="1096"
-            height="480" />
-        </picture>
-      
-      
-    
-    
-  
-
-
-  
-
-
-  
-  <h4 class="mb-3">
-    <a href="/kigo.github.io/blog/post-4/">
-      How to build an Application with modern Technology
-    </a>
-  </h4>
-  
-  
-    <ul class="mb-4">
-      <li class="mr-4 inline-block">
-        <a href="/kigo.github.io/authors/john-doe/">
-          <i class="fa-regular fa-circle-user mr-2"></i>John Doe
-        </a>
-      </li>
-      <li class="mr-4 inline-block">
-        <i class="fa-regular fa-folder mr-1"></i>
-        
-          <a
-            href="/kigo.github.io/categories/architecture/"
-            class="ms-1"
-            >Architecture
-          </a>
-        
-      </li>
-    </ul>
-  
-  <p class="mb-6">Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-</p>
-  <a class="btn btn-outline-primary btn-sm" href="/kigo.github.io/blog/post-4/">
-    Read More
+  <a class="btn btn-outline-primary btn-sm" href="/blog/javascript-es6-features/">
+    더 읽기
   </a>
 </div>
 
@@ -1574,47 +1683,55 @@
 
   
     <div class="mb-8">
-      <h5 class="mb-6">Categories</h5>
+      <h5 class="mb-6">카테고리</h5>
       <div class="bg-light dark:bg-darkmode-light rounded p-8">
         <ul class="space-y-4">
           
             <li>
               <a
                 class="hover:text-primary dark:hover:text-darkmode-primary  flex justify-between"
-                href="/kigo.github.io/categories/application/">
-                Application <span>( 1 )</span>
+                href="/categories/devops/">
+                DevOps <span>( 1 )</span>
               </a>
             </li>
           
             <li>
               <a
                 class="hover:text-primary dark:hover:text-darkmode-primary  flex justify-between"
-                href="/kigo.github.io/categories/architecture/">
-                Architecture <span>( 1 )</span>
+                href="/categories/javascript/">
+                JavaScript <span>( 1 )</span>
               </a>
             </li>
           
             <li>
               <a
                 class="hover:text-primary dark:hover:text-darkmode-primary  flex justify-between"
-                href="/kigo.github.io/categories/data/">
-                Data <span>( 2 )</span>
+                href="/categories/%EA%B0%9C%EB%B0%9C%EB%8F%84%EA%B5%AC/">
+                개발도구 <span>( 2 )</span>
               </a>
             </li>
           
             <li>
               <a
                 class="hover:text-primary dark:hover:text-darkmode-primary  flex justify-between"
-                href="/kigo.github.io/categories/software/">
-                Software <span>( 1 )</span>
+                href="/categories/%EC%9B%B9%EA%B0%9C%EB%B0%9C/">
+                웹개발 <span>( 1 )</span>
               </a>
             </li>
           
             <li>
               <a
                 class="hover:text-primary dark:hover:text-darkmode-primary  flex justify-between"
-                href="/kigo.github.io/categories/technology/">
-                Technology <span>( 1 )</span>
+                href="/categories/%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88/">
+                컨테이너 <span>( 1 )</span>
+              </a>
+            </li>
+          
+            <li>
+              <a
+                class="hover:text-primary dark:hover:text-darkmode-primary  flex justify-between"
+                href="/categories/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C/">
+                프론트엔드 <span>( 1 )</span>
               </a>
             </li>
           
@@ -1629,47 +1746,143 @@
 
   
     <div class="mb-8">
-      <h5 class="mb-6">Tags</h5>
+      <h5 class="mb-6">태그</h5>
       <div class="bg-light dark:bg-darkmode-light rounded p-6">
         <ul>
           
             <li class="inline-block">
               <a
                 class="hover:bg-primary dark:bg-darkmode-body dark:hover:bg-darkmode-primary dark:hover:text-text-dark  m-1 block rounded bg-white px-3 py-1 hover:text-white"
-                href="/kigo.github.io/tags/nextjs/">
-                Nextjs
+                href="/tags/devops/">
+                DevOps
               </a>
             </li>
           
             <li class="inline-block">
               <a
                 class="hover:bg-primary dark:bg-darkmode-body dark:hover:bg-darkmode-primary dark:hover:text-text-dark  m-1 block rounded bg-white px-3 py-1 hover:text-white"
-                href="/kigo.github.io/tags/silicon/">
-                Silicon
+                href="/tags/docker/">
+                Docker
               </a>
             </li>
           
             <li class="inline-block">
               <a
                 class="hover:bg-primary dark:bg-darkmode-body dark:hover:bg-darkmode-primary dark:hover:text-text-dark  m-1 block rounded bg-white px-3 py-1 hover:text-white"
-                href="/kigo.github.io/tags/software/">
-                Software
+                href="/tags/es6/">
+                ES6
               </a>
             </li>
           
             <li class="inline-block">
               <a
                 class="hover:bg-primary dark:bg-darkmode-body dark:hover:bg-darkmode-primary dark:hover:text-text-dark  m-1 block rounded bg-white px-3 py-1 hover:text-white"
-                href="/kigo.github.io/tags/tailwind/">
-                Tailwind
+                href="/tags/git/">
+                Git
               </a>
             </li>
           
             <li class="inline-block">
               <a
                 class="hover:bg-primary dark:bg-darkmode-body dark:hover:bg-darkmode-primary dark:hover:text-text-dark  m-1 block rounded bg-white px-3 py-1 hover:text-white"
-                href="/kigo.github.io/tags/technology/">
-                Technology
+                href="/tags/hooks/">
+                Hooks
+              </a>
+            </li>
+          
+            <li class="inline-block">
+              <a
+                class="hover:bg-primary dark:bg-darkmode-body dark:hover:bg-darkmode-primary dark:hover:text-text-dark  m-1 block rounded bg-white px-3 py-1 hover:text-white"
+                href="/tags/javascript/">
+                JavaScript
+              </a>
+            </li>
+          
+            <li class="inline-block">
+              <a
+                class="hover:bg-primary dark:bg-darkmode-body dark:hover:bg-darkmode-primary dark:hover:text-text-dark  m-1 block rounded bg-white px-3 py-1 hover:text-white"
+                href="/tags/react/">
+                React
+              </a>
+            </li>
+          
+            <li class="inline-block">
+              <a
+                class="hover:bg-primary dark:bg-darkmode-body dark:hover:bg-darkmode-primary dark:hover:text-text-dark  m-1 block rounded bg-white px-3 py-1 hover:text-white"
+                href="/tags/vs-code/">
+                VS Code
+              </a>
+            </li>
+          
+            <li class="inline-block">
+              <a
+                class="hover:bg-primary dark:bg-darkmode-body dark:hover:bg-darkmode-primary dark:hover:text-text-dark  m-1 block rounded bg-white px-3 py-1 hover:text-white"
+                href="/tags/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD/">
+                개발환경
+              </a>
+            </li>
+          
+            <li class="inline-block">
+              <a
+                class="hover:bg-primary dark:bg-darkmode-body dark:hover:bg-darkmode-primary dark:hover:text-text-dark  m-1 block rounded bg-white px-3 py-1 hover:text-white"
+                href="/tags/%EB%AA%A8%EB%8D%98%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/">
+                모던자바스크립트
+              </a>
+            </li>
+          
+            <li class="inline-block">
+              <a
+                class="hover:bg-primary dark:bg-darkmode-body dark:hover:bg-darkmode-primary dark:hover:text-text-dark  m-1 block rounded bg-white px-3 py-1 hover:text-white"
+                href="/tags/%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC/">
+                버전관리
+              </a>
+            </li>
+          
+            <li class="inline-block">
+              <a
+                class="hover:bg-primary dark:bg-darkmode-body dark:hover:bg-darkmode-primary dark:hover:text-text-dark  m-1 block rounded bg-white px-3 py-1 hover:text-white"
+                href="/tags/%EB%B8%8C%EB%9E%9C%EC%B9%98%EC%A0%84%EB%9E%B5/">
+                브랜치전략
+              </a>
+            </li>
+          
+            <li class="inline-block">
+              <a
+                class="hover:bg-primary dark:bg-darkmode-body dark:hover:bg-darkmode-primary dark:hover:text-text-dark  m-1 block rounded bg-white px-3 py-1 hover:text-white"
+                href="/tags/%EC%83%9D%EC%82%B0%EC%84%B1/">
+                생산성
+              </a>
+            </li>
+          
+            <li class="inline-block">
+              <a
+                class="hover:bg-primary dark:bg-darkmode-body dark:hover:bg-darkmode-primary dark:hover:text-text-dark  m-1 block rounded bg-white px-3 py-1 hover:text-white"
+                href="/tags/%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88/">
+                컨테이너
+              </a>
+            </li>
+          
+            <li class="inline-block">
+              <a
+                class="hover:bg-primary dark:bg-darkmode-body dark:hover:bg-darkmode-primary dark:hover:text-text-dark  m-1 block rounded bg-white px-3 py-1 hover:text-white"
+                href="/tags/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C/">
+                프론트엔드
+              </a>
+            </li>
+          
+            <li class="inline-block">
+              <a
+                class="hover:bg-primary dark:bg-darkmode-body dark:hover:bg-darkmode-primary dark:hover:text-text-dark  m-1 block rounded bg-white px-3 py-1 hover:text-white"
+                href="/tags/%ED%98%91%EC%97%85/">
+                협업
+              </a>
+            </li>
+          
+            <li class="inline-block">
+              <a
+                class="hover:bg-primary dark:bg-darkmode-body dark:hover:bg-darkmode-primary dark:hover:text-text-dark  m-1 block rounded bg-white px-3 py-1 hover:text-white"
+                href="/tags/%ED%99%95%EC%9E%A5%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8/">
+                확장프로그램
               </a>
             </li>
           
@@ -1696,7 +1909,7 @@
         
         <a
           class="navbar-brand inline-block"
-          href="/kigo.github.io/">
+          href="/">
           
 
 
@@ -1713,87 +1926,35 @@
 
 
 
-  
-
-
-
-
-
 
 
 
 
   
-  
-  
+
+
 
 
   
-  
-    
-    
-  
-
-
-  
-  
-      
-      
-    
-    
-    
-    
-    
-    
-  
-  
-
-  
-  
-    
-    
-      
-      
-
-
-      
-      
-        
-        
-        
-        
-
-        
-        
-        
-      
-      
-    
-  
-  
-
   
     <img
       fetchpriority="high"
       decoding="async"
+      src="http://localhost:1313/images/logo-kigo.svg"
+      alt="Kigo&#39;s Blog"
       class="img img-light"
-      width="160"
       height="32"
-      src="/kigo.github.io/images/logo_hu_75df6f187f7b785d.webp"
-      alt="Hugoplate"
-      onerror="this.onerror=null;this.src='\/kigo.github.io\/images\/logo_hu_613f51f483beed3c.png';" />
-
+      width="160" />
     <img
       fetchpriority="high"
       decoding="async"
+      src="http://localhost:1313/images/logo-kigo-darkmode.svg"
+      alt="Kigo&#39;s Blog"
       class="img img-dark"
-      width="160"
       height="32"
-      src="/kigo.github.io/images/logo-darkmode_hu_a274d2b570d85754.webp"
-      alt="Hugoplate"
-      onerror="this.onerror=null;this.src='\/kigo.github.io\/images\/logo-darkmode_hu_11d6a0e948ad5f4.png';" />
+      width="160" />
   
-  
+
 
 
         </a>
@@ -1805,9 +1966,9 @@
               <a
                 
                 href="
-                  /kigo.github.io/about
+                  /about
                 "
-                >About</a
+                >소개</a
               >
             </li>
           
@@ -1815,9 +1976,9 @@
               <a
                 
                 href="
-                  /kigo.github.io/elements
+                  /blog
                 "
-                >Elements</a
+                >블로그</a
               >
             </li>
           
@@ -1825,9 +1986,9 @@
               <a
                 
                 href="
-                  /kigo.github.io/privacy-policy
+                  /privacy-policy
                 "
-                >Privacy Policy</a
+                >개인정보처리방침</a
               >
             </li>
           
@@ -1839,29 +2000,9 @@
             <li>
               <a
                 target="_blank"
-                aria-label="facebook"
-                rel="nofollow noopener"
-                href="https://www.facebook.com/">
-                <i class="fab fa-facebook"></i>
-              </a>
-            </li>
-          
-            <li>
-              <a
-                target="_blank"
-                aria-label="twitter"
-                rel="nofollow noopener"
-                href="https://twitter.com/">
-                <i class="fab fa-twitter"></i>
-              </a>
-            </li>
-          
-            <li>
-              <a
-                target="_blank"
                 aria-label="github"
                 rel="nofollow noopener"
-                href="https://www.github.com/">
+                href="https://github.com/kigo1031">
                 <i class="fab fa-github"></i>
               </a>
             </li>
@@ -1873,6 +2014,16 @@
                 rel="nofollow noopener"
                 href="https://www.linkedin.com/">
                 <i class="fab fa-linkedin"></i>
+              </a>
+            </li>
+          
+            <li>
+              <a
+                target="_blank"
+                aria-label="twitter"
+                rel="nofollow noopener"
+                href="https://twitter.com/">
+                <i class="fab fa-twitter"></i>
               </a>
             </li>
           
@@ -1974,7 +2125,7 @@
 <script
   crossorigin="anonymous"
   integrity=""
-  src="/kigo.github.io/js/script.js"></script>
+  src="/js/script.js"></script>
 
 
 <script
@@ -1982,12 +2133,12 @@
   async
   crossorigin="anonymous"
   integrity=""
-  src="/kigo.github.io/js/script-lazy.js"></script>
+  src="/js/script-lazy.js"></script>
 
 
 
 <script>
-  if ('serviceWorker' in navigator){navigator.serviceWorker.register("/kigo.github.io/service-worker.js");}
+  if ('serviceWorker' in navigator){navigator.serviceWorker.register("/service-worker.js");}
 </script>
 
 

@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "bradlc.vscode-tailwindcss",
+    "budparr.language-hugo-vscode",
+    "tamasfe.even-better-toml",
+    "formulahendry.auto-rename-tag",
+    "ms-vscode.vscode-html-preview"
+  ]
+}
