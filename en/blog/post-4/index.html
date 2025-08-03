@@ -1,0 +1,632 @@
+<!doctype html><html itemscope lang=en-us itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=5"><meta name=theme-name content="hugoplate"><link rel="shortcut icon" href=/images/favicon_hu_4384881fdc2d307e.png type=image/x-icon><link rel=icon href=/images/favicon_hu_4384881fdc2d307e.png type=image/x-icon><link rel=icon type=image/png sizes=48x48 href=/images/favicon_hu_79c3559174e61a5e.png><link rel=icon type=image/png sizes=96x96 href=/images/favicon_hu_4384881fdc2d307e.png><link rel=apple-touch-icon sizes=144x144 href=/images/favicon_hu_cfffba76e19e8ff2.png><link rel=manifest href=/manifest.webmanifest><meta name=msapplication-TileColor content="#ddd"><meta name=theme-color content="#ffffff"><base href=https://kigo1031.github.io/en/blog/post-4/><title>REST API Design Best Practices</title><meta name=keywords content="Java,Spring,Backend,개발,프로그래밍,Quarkus,데이터베이스,JPA,백엔드개발자,Kigo"><meta name=description content="Learn essential REST API design principles and best practices for building maintainable and scalable web services."><meta name=author content="Kigo"><meta property="og:image" content="https://kigo1031.github.io/images/service-1.png"><meta name=twitter:image content="https://kigo1031.github.io/images/service-1.png"><meta name=twitter:card content="summary_large_image"><meta property="og:image:width" content="559"><meta property="og:image:height" content="518"><meta property="og:image:type" content="image/.png"><meta property="og:title" content="REST API Design Best Practices"><meta property="og:description" content="Learn essential REST API design principles and best practices for building maintainable and scalable web services."><meta property="og:type" content="website"><meta property="og:url" content="https://kigo1031.github.io/en/blog/post-4/"><meta name=twitter:title content="REST API Design Best Practices"><meta name=twitter:description content="Learn essential REST API design principles and best practices for building maintainable and scalable web services."><meta name=twitter:creator content="@Kigo"><script>let indexURL="https://kigo1031.github.io/en/searchindex.json",includeSectionsInSearch=["blog"],search_no_results="No results for",search_initial_message="Type something to search.."</script><meta http-equiv=x-dns-prefetch-control content="on"><link rel=preconnect href=https://use.fontawesome.com crossorigin><link rel=preconnect href=//cdnjs.cloudflare.com><link rel=preconnect href=//www.googletagmanager.com><link rel=preconnect href=//www.google-analytics.com><link rel=dns-prefetch href=https://use.fontawesome.com><link rel=dns-prefetch href=//ajax.googleapis.com><link rel=dns-prefetch href=//cdnjs.cloudflare.com><link rel=dns-prefetch href=//www.googletagmanager.com><link rel=dns-prefetch href=//www.google-analytics.com><link rel=dns-prefetch href=//fonts.googleapis.com><link rel=dns-prefetch href=//connect.facebook.net><link rel=dns-prefetch href=//platform.linkedin.com><link rel=dns-prefetch href=//platform.twitter.com><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600&family=Signika:wght@500;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script><link href=/css/style.min.10c49eeead042b8ee6b4ccbcfef0cbc8f6d8820cac3576100552b2f94e8cfd10.css integrity="sha256-EMSe7q0EK47mtMy8/vDLyPbYggysNXYQBVKy+U6M/RA=" rel=stylesheet><link defer async rel=stylesheet href=/css/style-lazy.min.85575460e013a8f1e96ccd0560c44120e7e785297933c62e65534d5652eebe78.css integrity="sha256-hVdUYOATqPHpbM0FYMRBIOfnhSl5M8YuZVNNVlLuvng=" media=print onload='this.media="all",this.onload=null'></head><body><header class="header sticky top-0 z-30"><nav class="navbar container"><div class=order-0><a class="navbar-brand block" href=/en/><img fetchpriority=high decoding=async src=https://kigo1031.github.io/images/logo-kigo.svg alt="Kigo's Blog" class="img img-light" height=32 width=160>
+<img fetchpriority=high decoding=async src=https://kigo1031.github.io/images/logo-kigo-darkmode.svg alt="Kigo's Blog" class="img img-dark" height=32 width=160></a></div><input id=nav-toggle type=checkbox class=hidden>
+<label for=nav-toggle class="order-3 cursor-pointer flex items-center lg:hidden text-text-dark dark:text-white lg:order-1"><svg id="show-button" class="h-6 fill-current block" viewBox="0 0 20 20"><title>Menu Open</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0V0z"/></svg>
+<svg id="hide-button" class="h-6 fill-current hidden" viewBox="0 0 20 20"><title>Menu Close</title><polygon points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2" transform="rotate(45 10 10)"/></svg></label><ul id=nav-menu class="navbar-nav order-3 hidden lg:flex w-full pb-6 lg:order-1 lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8"><li class=nav-item><a class=nav-link href=/en/>Home</a></li><li class=nav-item><a class=nav-link href=/en/blog>Blog</a></li><li class="nav-item nav-dropdown group relative"><span class="nav-link
+inline-flex items-center">Pages
+<svg class="h-4 w-4 fill-current" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg></span><ul class="nav-dropdown-list lg:group-hover:visible lg:group-hover:opacity-100"><li class=nav-dropdown-item><a class=nav-dropdown-link href=/en/categories>Categories</a></li><li class=nav-dropdown-item><a class=nav-dropdown-link href=/en/tags>Tags</a></li></ul></li></ul><div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0"><button aria-label=search class="border-border text-text-dark hover:text-primary
+dark:border-darkmode-border mr-5 inline-block border-r pr-5
+text-xl dark:text-white cursor-pointer dark:hover:text-darkmode-primary" data-target=search-modal>
+<i class="fa-solid fa-search"></i>
+</button>
+<select class="mr-5 pl-2 py-1 dark:bg-darkmode-light rounded" onchange="location=this.value"><option id=ko value=https://kigo1031.github.io/>한국어</option><option id=en value=https://kigo1031.github.io/en/blog/post-4/ selected>English</option></select><div class="theme-switcher mr-5 invisible"><input id=theme-switcher data-theme-switcher type=checkbox>
+<label for=theme-switcher><span class=sr-only>theme switcher</span>
+<span><svg class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 opacity-100 dark:opacity-0" viewBox="0 0 56 56" fill="#fff" height="16" width="16"><path d="M30 4.6c0-1-.9-2-2-2a2 2 0 00-2 2v5c0 1 .9 2 2 2s2-1 2-2zm9.6 9a2 2 0 000 2.8c.8.8 2 .8 2.9.0L46 13a2 2 0 000-2.9 2 2 0 00-3 0zm-26 2.8c.7.8 2 .8 2.8.0.8-.7.8-2 0-2.9L13 10c-.7-.7-2-.8-2.9.0-.7.8-.7 2.1.0 3zM28 16A12 12 0 0016 28a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0028 16zm23.3 14c1.1.0 2-.9 2-2s-.9-2-2-2h-4.9a2 2 0 00-2 2c0 1.1 1 2 2 2zM4.7 26a2 2 0 00-2 2c0 1.1.9 2 2 2h4.9c1 0 2-.9 2-2s-1-2-2-2zm37.8 13.6a2 2 0 00-3 0 2 2 0 000 2.9l3.6 3.5a2 2 0 002.9.0c.8-.8.8-2.1.0-3zM10 43.1a2 2 0 000 2.9c.8.7 2.1.8 3 0l3.4-3.5c.8-.8.8-2.1.0-2.9s-2-.8-2.9.0zm20 3.4c0-1.1-.9-2-2-2a2 2 0 00-2 2v4.9c0 1 .9 2 2 2s2-1 2-2z"/></svg>
+<svg class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 opacity-0 dark:opacity-100" viewBox="0 0 24 24" fill="none" height="16" width="16"><path fill="#000" fill-rule="evenodd" clip-rule="evenodd" d="M8.2 2.2c1-.4 2 .6 1.6 1.5-1 3-.4 6.4 1.8 8.7a8.4 8.4.0 008.7 1.8c1-.3 2 .5 1.5 1.5v.1A10.3 10.3.0 0112.4 22 10.3 10.3.0 013.2 6.7c1-2 2.9-3.5 4.9-4.4z"/></svg></span></label></div><script>var darkMode=localStorage.getItem("theme")==="dark";localStorage.getItem("theme")===null&&(darkMode=!1,window.matchMedia("(prefers-color-scheme: dark)").matches&&(darkMode=!0)),darkMode?document.documentElement.classList.add("dark"):document.documentElement.classList.remove("dark"),document.addEventListener("DOMContentLoaded",()=>{var e=document.querySelectorAll("[data-theme-switcher]"),t=document.querySelector(".theme-switcher");[].forEach.call(e,function(e){e.checked=darkMode,e.addEventListener("click",()=>{document.documentElement.classList.toggle("dark"),localStorage.setItem("theme",document.documentElement.classList.contains("dark")?"dark":"light")})}),t.classList.remove("invisible")})</script></div></nav></header><div class=search-modal aria-hidden=true style=--color-primary:#121212><div data-target=close-search-modal class=search-modal-overlay></div><div class=search-wrapper data-image=true data-description=true data-tags=true data-categories=true><div class=search-wrapper-header><label for=search-modal-input style=margin-top:-1px><span class=sr-only>search icon</span>
+<svg viewBox="0 0 512 512" height="18" width="18" class="search-icon" data-type="search"><path fill="currentColor" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8.0 45.3s-32.8 12.5-45.3.0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9.0 208S93.1.0 208 0 416 93.1 416 208zM208 352a144 144 0 100-288 144 144 0 100 288z"/></svg>
+<svg viewBox="0 0 512 512" height="18" width="18" class="search-reset" data-type="reset"><path fill="currentColor" d="M256 512A256 256 0 10256 0a256 256 0 100 512zM175 175c9.4-9.4 24.6-9.4 33.9.0l47 47 47-47c9.4-9.4 24.6-9.4 33.9.0s9.4 24.6.0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6.0 33.9s-24.6 9.4-33.9.0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9.0s-9.4-24.6.0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6.0-33.9z"/></svg>
+</label><input id=search-modal-input type=text data-search-input autocomplete=off aria-label=Search placeholder="Search Post..."></div><div class=search-wrapper-body><div class=search-result data-search-result></div><span class=search-result-empty>Type something to search..</span></div><div class=search-wrapper-footer><span><kbd><svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 011.506.0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 01-.753-1.659z"/></svg>
+</kbd><kbd><svg width="14" height="14" fill="currentColor" style="margin-top:1px" viewBox="0 0 16 16"><path d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 001.506.0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 00-.753 1.659z"/></svg>
+</kbd>to navigate
+</span><span><kbd><svg width="12" height="12" fill="currentColor" style="display:inline-block" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M14.5 1.5a.5.5.0 01.5.5v4.8a2.5 2.5.0 01-2.5 2.5H2.707l3.347 3.346a.5.5.0 01-.708.708l-4.2-4.2a.5.5.0 010-.708l4-4a.5.5.0 11.708.708L2.707 8.3H12.5A1.5 1.5.0 0014 6.8V2a.5.5.0 01.5-.5z"/></svg>
+</kbd>to select
+</span><span class=search-result-info></span>
+<span data-target=close-search-modal><kbd>ESC</kbd> to close</span></div></div></div><main><section class="section pt-7"><div class=container><div class="row justify-center"><article class=lg:col-10><div class=mb-10><picture><source srcset=/images/service-1_hu_929e1a7812c6d1fe.webp media="(max-width: 575px)"><source srcset=/images/service-1_hu_b1075cc11ad28fb0.webp media="(max-width: 767px)"><source srcset=/images/service-1_hu_3527cad0cb0b4cd5.webp media="(max-width: 991px)"><source srcset=/images/service-1_hu_359afd51d4fd2457.webp><img loading=lazy decoding=async src=/images/service-1_hu_734bba9c014561a1.png class="w-full rounded img" alt="REST API Design Best Practices" width=559 height=518></picture></div><h1 class="h2 mb-4">REST API Design Best Practices</h1><ul class=mb-4><li class="mr-4 inline-block"><a href=/en/authors/kigo/><i class="fa-regular fa-circle-user mr-2"></i>Kigo</a></li><li class="mr-4 inline-block"><i class="fa-regular fa-folder mr-2"></i>
+<a href=/en/categories/backend/>Backend
+,
+</a><a href=/en/categories/api-design/>API design</a></li><li class="mr-4 inline-block"><i class="fa-regular fa-clock mr-2"></i>
+April 7, 2022</li></ul><div class="content mb-10"><details open class="table-of-content blog"><summary>Table of Contents</summary><nav id=TableOfContents><ol><li><a href=#rest-principles>REST Principles</a><ol><li><a href=#1-resource-based-urls>1. Resource-Based URLs</a></li><li><a href=#2-http-methods>2. HTTP Methods</a></li></ol></li><li><a href=#url-design-patterns>URL Design Patterns</a><ol><li><a href=#hierarchical-resources>Hierarchical Resources</a></li><li><a href=#query-parameters-for-filtering-and-pagination>Query Parameters for Filtering and Pagination</a></li></ol></li><li><a href=#response-design>Response Design</a><ol><li><a href=#standard-response-structure>Standard Response Structure</a></li><li><a href=#http-status-codes>HTTP Status Codes</a></li></ol></li><li><a href=#error-handling>Error Handling</a><ol><li><a href=#global-exception-handler>Global Exception Handler</a></li></ol></li><li><a href=#input-validation>Input Validation</a><ol><li><a href=#request-dtos-with-validation>Request DTOs with Validation</a></li></ol></li><li><a href=#content-negotiation>Content Negotiation</a></li><li><a href=#security-best-practices>Security Best Practices</a><ol><li><a href=#authentication-and-authorization>Authentication and Authorization</a></li><li><a href=#rate-limiting>Rate Limiting</a></li></ol></li><li><a href=#api-documentation>API Documentation</a><ol><li><a href=#openapiswagger>OpenAPI/Swagger</a></li></ol></li><li><a href=#versioning-strategies>Versioning Strategies</a><ol><li><a href=#url-versioning>URL Versioning</a></li><li><a href=#header-versioning>Header Versioning</a></li></ol></li><li><a href=#testing-apis>Testing APIs</a><ol><li><a href=#integration-tests>Integration Tests</a></li><li><a href=#contract-testing-with-wiremock>Contract Testing with WireMock</a></li></ol></li><li><a href=#performance-optimization>Performance Optimization</a><ol><li><a href=#caching>Caching</a></li><li><a href=#pagination-and-filtering>Pagination and Filtering</a></li></ol></li></ol></nav></details><p>Well-designed REST APIs are crucial for building maintainable and scalable applications. Let&rsquo;s explore the essential principles and best practices for creating robust APIs.</p><h2 id=rest-principles>REST Principles</h2><h3 id=1-resource-based-urls>1. Resource-Based URLs</h3><p>Use nouns to represent resources, not verbs:</p><pre tabindex=0><code>✅ Good
+GET /api/users
+GET /api/users/123
+POST /api/users
+PUT /api/users/123
+DELETE /api/users/123
+
+❌ Bad
+GET /api/getUsers
+GET /api/getUserById/123
+POST /api/createUser
+PUT /api/updateUser/123
+DELETE /api/deleteUser/123
+</code></pre><h3 id=2-http-methods>2. HTTP Methods</h3><p>Use appropriate HTTP methods for different operations:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#a6e22e>@RestController</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@RequestMapping</span>(<span style=color:#e6db74>&#34;/api/users&#34;</span>)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>UserController</span> {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// GET - Retrieve resources</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@GetMapping</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> ResponseEntity<span style=color:#f92672>&lt;</span>Page<span style=color:#f92672>&lt;</span>UserDto<span style=color:#f92672>&gt;&gt;</span> <span style=color:#a6e22e>getUsers</span>(
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>@RequestParam</span>(defaultValue <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0&#34;</span>) <span style=color:#66d9ef>int</span> page,
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>@RequestParam</span>(defaultValue <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;10&#34;</span>) <span style=color:#66d9ef>int</span> size) {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// Implementation</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@GetMapping</span>(<span style=color:#e6db74>&#34;/{id}&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> ResponseEntity<span style=color:#f92672>&lt;</span>UserDto<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>getUser</span>(<span style=color:#a6e22e>@PathVariable</span> Long id) {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// Implementation</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// POST - Create new resource</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@PostMapping</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> ResponseEntity<span style=color:#f92672>&lt;</span>UserDto<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>createUser</span>(<span style=color:#a6e22e>@RequestBody</span> <span style=color:#a6e22e>@Valid</span> CreateUserRequest request) {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// Implementation</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// PUT - Update entire resource</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@PutMapping</span>(<span style=color:#e6db74>&#34;/{id}&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> ResponseEntity<span style=color:#f92672>&lt;</span>UserDto<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>updateUser</span>(
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>@PathVariable</span> Long id,
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>@RequestBody</span> <span style=color:#a6e22e>@Valid</span> UpdateUserRequest request) {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// Implementation</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// PATCH - Partial update</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@PatchMapping</span>(<span style=color:#e6db74>&#34;/{id}&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> ResponseEntity<span style=color:#f92672>&lt;</span>UserDto<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>patchUser</span>(
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>@PathVariable</span> Long id,
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>@RequestBody</span> Map<span style=color:#f92672>&lt;</span>String, Object<span style=color:#f92672>&gt;</span> updates) {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// Implementation</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// DELETE - Remove resource</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@DeleteMapping</span>(<span style=color:#e6db74>&#34;/{id}&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> ResponseEntity<span style=color:#f92672>&lt;</span>Void<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>deleteUser</span>(<span style=color:#a6e22e>@PathVariable</span> Long id) {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// Implementation</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=url-design-patterns>URL Design Patterns</h2><h3 id=hierarchical-resources>Hierarchical Resources</h3><pre tabindex=0><code>/api/users/{userId}/orders
+/api/users/{userId}/orders/{orderId}
+/api/orders/{orderId}/items
+/api/orders/{orderId}/items/{itemId}
+</code></pre><h3 id=query-parameters-for-filtering-and-pagination>Query Parameters for Filtering and Pagination</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#a6e22e>@GetMapping</span>(<span style=color:#e6db74>&#34;/api/products&#34;</span>)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> ResponseEntity<span style=color:#f92672>&lt;</span>PagedResponse<span style=color:#f92672>&lt;</span>ProductDto<span style=color:#f92672>&gt;&gt;</span> <span style=color:#a6e22e>getProducts</span>(
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>@RequestParam</span>(required <span style=color:#f92672>=</span> <span style=color:#66d9ef>false</span>) String category,
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>@RequestParam</span>(required <span style=color:#f92672>=</span> <span style=color:#66d9ef>false</span>) BigDecimal minPrice,
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>@RequestParam</span>(required <span style=color:#f92672>=</span> <span style=color:#66d9ef>false</span>) BigDecimal maxPrice,
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>@RequestParam</span>(defaultValue <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0&#34;</span>) <span style=color:#66d9ef>int</span> page,
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>@RequestParam</span>(defaultValue <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;10&#34;</span>) <span style=color:#66d9ef>int</span> size,
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>@RequestParam</span>(defaultValue <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;id&#34;</span>) String sortBy,
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>@RequestParam</span>(defaultValue <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;asc&#34;</span>) String sortDir) {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    ProductFilter filter <span style=color:#f92672>=</span> ProductFilter.<span style=color:#a6e22e>builder</span>()
+</span></span><span style=display:flex><span>        .<span style=color:#a6e22e>category</span>(category)
+</span></span><span style=display:flex><span>        .<span style=color:#a6e22e>minPrice</span>(minPrice)
+</span></span><span style=display:flex><span>        .<span style=color:#a6e22e>maxPrice</span>(maxPrice)
+</span></span><span style=display:flex><span>        .<span style=color:#a6e22e>build</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    Pageable pageable <span style=color:#f92672>=</span> PageRequest.<span style=color:#a6e22e>of</span>(page, size,
+</span></span><span style=display:flex><span>        Sort.<span style=color:#a6e22e>Direction</span>.<span style=color:#a6e22e>fromString</span>(sortDir), sortBy);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    Page<span style=color:#f92672>&lt;</span>Product<span style=color:#f92672>&gt;</span> products <span style=color:#f92672>=</span> productService.<span style=color:#a6e22e>findProducts</span>(filter, pageable);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> ResponseEntity.<span style=color:#a6e22e>ok</span>(PagedResponse.<span style=color:#a6e22e>of</span>(products));
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=response-design>Response Design</h2><h3 id=standard-response-structure>Standard Response Structure</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>ApiResponse</span><span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>boolean</span> success;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> String message;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> T data;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> String timestamp;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> List<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> errors;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span> ApiResponse<span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>success</span>(T data) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> ApiResponse.<span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span>builder()
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>success</span>(<span style=color:#66d9ef>true</span>)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>data</span>(data)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>timestamp</span>(Instant.<span style=color:#a6e22e>now</span>().<span style=color:#a6e22e>toString</span>())
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>build</span>();
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span> ApiResponse<span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>error</span>(String message, List<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> errors) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> ApiResponse.<span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span>builder()
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>success</span>(<span style=color:#66d9ef>false</span>)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>message</span>(message)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>errors</span>(errors)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>timestamp</span>(Instant.<span style=color:#a6e22e>now</span>().<span style=color:#a6e22e>toString</span>())
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>build</span>();
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Paginated response</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>PagedResponse</span><span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> List<span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span> content;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>int</span> page;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>int</span> size;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>long</span> totalElements;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>int</span> totalPages;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>boolean</span> first;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>boolean</span> last;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span> PagedResponse<span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>of</span>(Page<span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span> page) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> PagedResponse.<span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span>builder()
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>content</span>(page.<span style=color:#a6e22e>getContent</span>())
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>page</span>(page.<span style=color:#a6e22e>getNumber</span>())
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>size</span>(page.<span style=color:#a6e22e>getSize</span>())
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>totalElements</span>(page.<span style=color:#a6e22e>getTotalElements</span>())
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>totalPages</span>(page.<span style=color:#a6e22e>getTotalPages</span>())
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>first</span>(page.<span style=color:#a6e22e>isFirst</span>())
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>last</span>(page.<span style=color:#a6e22e>isLast</span>())
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>build</span>();
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=http-status-codes>HTTP Status Codes</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#a6e22e>@RestController</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>UserController</span> {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@PostMapping</span>(<span style=color:#e6db74>&#34;/users&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> ResponseEntity<span style=color:#f92672>&lt;</span>UserDto<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>createUser</span>(<span style=color:#a6e22e>@RequestBody</span> <span style=color:#a6e22e>@Valid</span> CreateUserRequest request) {
+</span></span><span style=display:flex><span>        UserDto user <span style=color:#f92672>=</span> userService.<span style=color:#a6e22e>createUser</span>(request);
+</span></span><span style=display:flex><span>        URI location <span style=color:#f92672>=</span> ServletUriComponentsBuilder
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>fromCurrentRequest</span>()
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>path</span>(<span style=color:#e6db74>&#34;/{id}&#34;</span>)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>buildAndExpand</span>(user.<span style=color:#a6e22e>getId</span>())
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>toUri</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> ResponseEntity
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>created</span>(location)  <span style=color:#75715e>// 201 Created</span>
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>body</span>(user);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@GetMapping</span>(<span style=color:#e6db74>&#34;/users/{id}&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> ResponseEntity<span style=color:#f92672>&lt;</span>UserDto<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>getUser</span>(<span style=color:#a6e22e>@PathVariable</span> Long id) {
+</span></span><span style=display:flex><span>        Optional<span style=color:#f92672>&lt;</span>UserDto<span style=color:#f92672>&gt;</span> user <span style=color:#f92672>=</span> userService.<span style=color:#a6e22e>findById</span>(id);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> user
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>map</span>(u <span style=color:#f92672>-&gt;</span> ResponseEntity.<span style=color:#a6e22e>ok</span>(u))  <span style=color:#75715e>// 200 OK</span>
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>orElse</span>(ResponseEntity.<span style=color:#a6e22e>notFound</span>().<span style=color:#a6e22e>build</span>());  <span style=color:#75715e>// 404 Not Found</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@PutMapping</span>(<span style=color:#e6db74>&#34;/users/{id}&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> ResponseEntity<span style=color:#f92672>&lt;</span>UserDto<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>updateUser</span>(<span style=color:#a6e22e>@PathVariable</span> Long id,
+</span></span><span style=display:flex><span>                                            <span style=color:#a6e22e>@RequestBody</span> <span style=color:#a6e22e>@Valid</span> UpdateUserRequest request) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span> {
+</span></span><span style=display:flex><span>            UserDto user <span style=color:#f92672>=</span> userService.<span style=color:#a6e22e>updateUser</span>(id, request);
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> ResponseEntity.<span style=color:#a6e22e>ok</span>(user);  <span style=color:#75715e>// 200 OK</span>
+</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>catch</span> (UserNotFoundException e) {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> ResponseEntity.<span style=color:#a6e22e>notFound</span>().<span style=color:#a6e22e>build</span>();  <span style=color:#75715e>// 404 Not Found</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@DeleteMapping</span>(<span style=color:#e6db74>&#34;/users/{id}&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> ResponseEntity<span style=color:#f92672>&lt;</span>Void<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>deleteUser</span>(<span style=color:#a6e22e>@PathVariable</span> Long id) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span> {
+</span></span><span style=display:flex><span>            userService.<span style=color:#a6e22e>deleteUser</span>(id);
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> ResponseEntity.<span style=color:#a6e22e>noContent</span>().<span style=color:#a6e22e>build</span>();  <span style=color:#75715e>// 204 No Content</span>
+</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>catch</span> (UserNotFoundException e) {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> ResponseEntity.<span style=color:#a6e22e>notFound</span>().<span style=color:#a6e22e>build</span>();  <span style=color:#75715e>// 404 Not Found</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=error-handling>Error Handling</h2><h3 id=global-exception-handler>Global Exception Handler</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#a6e22e>@RestControllerAdvice</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@Slf4j</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>GlobalExceptionHandler</span> {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@ExceptionHandler</span>(MethodArgumentNotValidException.<span style=color:#a6e22e>class</span>)
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@ResponseStatus</span>(HttpStatus.<span style=color:#a6e22e>BAD_REQUEST</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> ApiResponse<span style=color:#f92672>&lt;</span>Void<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>handleValidationExceptions</span>(MethodArgumentNotValidException ex) {
+</span></span><span style=display:flex><span>        List<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> errors <span style=color:#f92672>=</span> ex.<span style=color:#a6e22e>getBindingResult</span>()
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>getFieldErrors</span>()
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>stream</span>()
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>map</span>(error <span style=color:#f92672>-&gt;</span> error.<span style=color:#a6e22e>getField</span>() <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;: &#34;</span> <span style=color:#f92672>+</span> error.<span style=color:#a6e22e>getDefaultMessage</span>())
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>collect</span>(Collectors.<span style=color:#a6e22e>toList</span>());
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> ApiResponse.<span style=color:#a6e22e>error</span>(<span style=color:#e6db74>&#34;Validation failed&#34;</span>, errors);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@ExceptionHandler</span>(ResourceNotFoundException.<span style=color:#a6e22e>class</span>)
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@ResponseStatus</span>(HttpStatus.<span style=color:#a6e22e>NOT_FOUND</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> ApiResponse<span style=color:#f92672>&lt;</span>Void<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>handleResourceNotFoundException</span>(ResourceNotFoundException ex) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> ApiResponse.<span style=color:#a6e22e>error</span>(ex.<span style=color:#a6e22e>getMessage</span>(), List.<span style=color:#a6e22e>of</span>());
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@ExceptionHandler</span>(ConflictException.<span style=color:#a6e22e>class</span>)
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@ResponseStatus</span>(HttpStatus.<span style=color:#a6e22e>CONFLICT</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> ApiResponse<span style=color:#f92672>&lt;</span>Void<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>handleConflictException</span>(ConflictException ex) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> ApiResponse.<span style=color:#a6e22e>error</span>(ex.<span style=color:#a6e22e>getMessage</span>(), List.<span style=color:#a6e22e>of</span>());
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@ExceptionHandler</span>(Exception.<span style=color:#a6e22e>class</span>)
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@ResponseStatus</span>(HttpStatus.<span style=color:#a6e22e>INTERNAL_SERVER_ERROR</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> ApiResponse<span style=color:#f92672>&lt;</span>Void<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>handleGenericException</span>(Exception ex) {
+</span></span><span style=display:flex><span>        log.<span style=color:#a6e22e>error</span>(<span style=color:#e6db74>&#34;Unexpected error occurred&#34;</span>, ex);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> ApiResponse.<span style=color:#a6e22e>error</span>(<span style=color:#e6db74>&#34;Internal server error&#34;</span>, List.<span style=color:#a6e22e>of</span>());
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Custom exceptions</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>ResourceNotFoundException</span> <span style=color:#66d9ef>extends</span> RuntimeException {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>ResourceNotFoundException</span>(String message) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>super</span>(message);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>ConflictException</span> <span style=color:#66d9ef>extends</span> RuntimeException {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>ConflictException</span>(String message) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>super</span>(message);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=input-validation>Input Validation</h2><h3 id=request-dtos-with-validation>Request DTOs with Validation</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>CreateUserRequest</span> {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@NotBlank</span>(message <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Email is required&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Email</span>(message <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Email must be valid&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> String email;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@NotBlank</span>(message <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Name is required&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Size</span>(min <span style=color:#f92672>=</span> 2, max <span style=color:#f92672>=</span> 50, message <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Name must be between 2 and 50 characters&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> String name;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Past</span>(message <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Date of birth must be in the past&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> LocalDate dateOfBirth;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Valid</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@NotNull</span>(message <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Address is required&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> AddressDto address;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// getters, setters</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>AddressDto</span> {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@NotBlank</span>(message <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Street is required&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> String street;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@NotBlank</span>(message <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;City is required&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> String city;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Pattern</span>(regexp <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;\\d{5}&#34;</span>, message <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Postal code must be 5 digits&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> String postalCode;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// getters, setters</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Custom validator</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@Target</span>({ElementType.<span style=color:#a6e22e>FIELD</span>, ElementType.<span style=color:#a6e22e>PARAMETER</span>})
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@Retention</span>(RetentionPolicy.<span style=color:#a6e22e>RUNTIME</span>)
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@Constraint</span>(validatedBy <span style=color:#f92672>=</span> UniqueEmailValidator.<span style=color:#a6e22e>class</span>)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#a6e22e>@interface</span> UniqueEmail {
+</span></span><span style=display:flex><span>    String <span style=color:#a6e22e>message</span>() <span style=color:#66d9ef>default</span> <span style=color:#e6db74>&#34;Email already exists&#34;</span>;
+</span></span><span style=display:flex><span>    Class<span style=color:#f92672>&lt;?&gt;[]</span> groups() <span style=color:#66d9ef>default</span> {};
+</span></span><span style=display:flex><span>    Class<span style=color:#f92672>&lt;?</span> <span style=color:#66d9ef>extends</span> Payload<span style=color:#f92672>&gt;[]</span> <span style=color:#a6e22e>payload</span>() <span style=color:#66d9ef>default</span> {};
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@Component</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>UniqueEmailValidator</span> <span style=color:#66d9ef>implements</span> ConstraintValidator<span style=color:#f92672>&lt;</span>UniqueEmail, String<span style=color:#f92672>&gt;</span> {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Autowired</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> UserRepository userRepository;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>boolean</span> <span style=color:#a6e22e>isValid</span>(String email, ConstraintValidatorContext context) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> email <span style=color:#f92672>!=</span> <span style=color:#66d9ef>null</span> <span style=color:#f92672>&amp;&amp;</span> <span style=color:#f92672>!</span>userRepository.<span style=color:#a6e22e>existsByEmail</span>(email);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=content-negotiation>Content Negotiation</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#a6e22e>@RestController</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@RequestMapping</span>(<span style=color:#e6db74>&#34;/api/users&#34;</span>)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>UserController</span> {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@GetMapping</span>(produces <span style=color:#f92672>=</span> {MediaType.<span style=color:#a6e22e>APPLICATION_JSON_VALUE</span>, MediaType.<span style=color:#a6e22e>APPLICATION_XML_VALUE</span>})
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> ResponseEntity<span style=color:#f92672>&lt;</span>List<span style=color:#f92672>&lt;</span>UserDto<span style=color:#f92672>&gt;&gt;</span> <span style=color:#a6e22e>getUsers</span>() {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// Returns JSON or XML based on Accept header</span>
+</span></span><span style=display:flex><span>        List<span style=color:#f92672>&lt;</span>UserDto<span style=color:#f92672>&gt;</span> users <span style=color:#f92672>=</span> userService.<span style=color:#a6e22e>findAll</span>();
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> ResponseEntity.<span style=color:#a6e22e>ok</span>(users);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@PostMapping</span>(
+</span></span><span style=display:flex><span>        consumes <span style=color:#f92672>=</span> {MediaType.<span style=color:#a6e22e>APPLICATION_JSON_VALUE</span>, MediaType.<span style=color:#a6e22e>APPLICATION_XML_VALUE</span>},
+</span></span><span style=display:flex><span>        produces <span style=color:#f92672>=</span> {MediaType.<span style=color:#a6e22e>APPLICATION_JSON_VALUE</span>, MediaType.<span style=color:#a6e22e>APPLICATION_XML_VALUE</span>}
+</span></span><span style=display:flex><span>    )
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> ResponseEntity<span style=color:#f92672>&lt;</span>UserDto<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>createUser</span>(<span style=color:#a6e22e>@RequestBody</span> CreateUserRequest request) {
+</span></span><span style=display:flex><span>        UserDto user <span style=color:#f92672>=</span> userService.<span style=color:#a6e22e>createUser</span>(request);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> ResponseEntity.<span style=color:#a6e22e>ok</span>(user);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=security-best-practices>Security Best Practices</h2><h3 id=authentication-and-authorization>Authentication and Authorization</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#a6e22e>@Configuration</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@EnableWebSecurity</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@EnableGlobalMethodSecurity</span>(prePostEnabled <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>SecurityConfig</span> {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Bean</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> SecurityFilterChain <span style=color:#a6e22e>filterChain</span>(HttpSecurity http) <span style=color:#66d9ef>throws</span> Exception {
+</span></span><span style=display:flex><span>        http
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>csrf</span>(csrf <span style=color:#f92672>-&gt;</span> csrf.<span style=color:#a6e22e>disable</span>())
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>sessionManagement</span>(session <span style=color:#f92672>-&gt;</span>
+</span></span><span style=display:flex><span>                session.<span style=color:#a6e22e>sessionCreationPolicy</span>(SessionCreationPolicy.<span style=color:#a6e22e>STATELESS</span>))
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>authorizeHttpRequests</span>(authz <span style=color:#f92672>-&gt;</span> authz
+</span></span><span style=display:flex><span>                .<span style=color:#a6e22e>requestMatchers</span>(<span style=color:#e6db74>&#34;/api/auth/**&#34;</span>).<span style=color:#a6e22e>permitAll</span>()
+</span></span><span style=display:flex><span>                .<span style=color:#a6e22e>requestMatchers</span>(HttpMethod.<span style=color:#a6e22e>GET</span>, <span style=color:#e6db74>&#34;/api/public/**&#34;</span>).<span style=color:#a6e22e>permitAll</span>()
+</span></span><span style=display:flex><span>                .<span style=color:#a6e22e>requestMatchers</span>(<span style=color:#e6db74>&#34;/api/admin/**&#34;</span>).<span style=color:#a6e22e>hasRole</span>(<span style=color:#e6db74>&#34;ADMIN&#34;</span>)
+</span></span><span style=display:flex><span>                .<span style=color:#a6e22e>anyRequest</span>().<span style=color:#a6e22e>authenticated</span>()
+</span></span><span style=display:flex><span>            )
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>oauth2ResourceServer</span>(oauth2 <span style=color:#f92672>-&gt;</span> oauth2.<span style=color:#a6e22e>jwt</span>(Customizer.<span style=color:#a6e22e>withDefaults</span>()));
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> http.<span style=color:#a6e22e>build</span>();
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@RestController</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@RequestMapping</span>(<span style=color:#e6db74>&#34;/api/users&#34;</span>)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>UserController</span> {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@GetMapping</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@PreAuthorize</span>(<span style=color:#e6db74>&#34;hasRole(&#39;USER&#39;) or hasRole(&#39;ADMIN&#39;)&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> ResponseEntity<span style=color:#f92672>&lt;</span>List<span style=color:#f92672>&lt;</span>UserDto<span style=color:#f92672>&gt;&gt;</span> <span style=color:#a6e22e>getUsers</span>() {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// Implementation</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@PostMapping</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@PreAuthorize</span>(<span style=color:#e6db74>&#34;hasRole(&#39;ADMIN&#39;)&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> ResponseEntity<span style=color:#f92672>&lt;</span>UserDto<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>createUser</span>(<span style=color:#a6e22e>@RequestBody</span> CreateUserRequest request) {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// Implementation</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@GetMapping</span>(<span style=color:#e6db74>&#34;/me&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> ResponseEntity<span style=color:#f92672>&lt;</span>UserDto<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>getCurrentUser</span>(Authentication authentication) {
+</span></span><span style=display:flex><span>        String username <span style=color:#f92672>=</span> authentication.<span style=color:#a6e22e>getName</span>();
+</span></span><span style=display:flex><span>        UserDto user <span style=color:#f92672>=</span> userService.<span style=color:#a6e22e>findByUsername</span>(username);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> ResponseEntity.<span style=color:#a6e22e>ok</span>(user);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=rate-limiting>Rate Limiting</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#a6e22e>@Configuration</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>RateLimitConfig</span> {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Bean</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> RedisTemplate<span style=color:#f92672>&lt;</span>String, String<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>redisTemplate</span>(RedisConnectionFactory connectionFactory) {
+</span></span><span style=display:flex><span>        RedisTemplate<span style=color:#f92672>&lt;</span>String, String<span style=color:#f92672>&gt;</span> template <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> RedisTemplate<span style=color:#f92672>&lt;&gt;</span>();
+</span></span><span style=display:flex><span>        template.<span style=color:#a6e22e>setConnectionFactory</span>(connectionFactory);
+</span></span><span style=display:flex><span>        template.<span style=color:#a6e22e>setDefaultSerializer</span>(<span style=color:#66d9ef>new</span> StringRedisSerializer());
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> template;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@Component</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>RateLimitInterceptor</span> <span style=color:#66d9ef>implements</span> HandlerInterceptor {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>final</span> RedisTemplate<span style=color:#f92672>&lt;</span>String, String<span style=color:#f92672>&gt;</span> redisTemplate;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>boolean</span> <span style=color:#a6e22e>preHandle</span>(HttpServletRequest request,
+</span></span><span style=display:flex><span>                           HttpServletResponse response,
+</span></span><span style=display:flex><span>                           Object handler) <span style=color:#66d9ef>throws</span> Exception {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        String clientId <span style=color:#f92672>=</span> getClientId(request);
+</span></span><span style=display:flex><span>        String key <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;rate_limit:&#34;</span> <span style=color:#f92672>+</span> clientId;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        String requests <span style=color:#f92672>=</span> redisTemplate.<span style=color:#a6e22e>opsForValue</span>().<span style=color:#a6e22e>get</span>(key);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (requests <span style=color:#f92672>==</span> <span style=color:#66d9ef>null</span>) {
+</span></span><span style=display:flex><span>            redisTemplate.<span style=color:#a6e22e>opsForValue</span>().<span style=color:#a6e22e>set</span>(key, <span style=color:#e6db74>&#34;1&#34;</span>, Duration.<span style=color:#a6e22e>ofMinutes</span>(1));
+</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (Integer.<span style=color:#a6e22e>parseInt</span>(requests) <span style=color:#f92672>&lt;</span> 100) {
+</span></span><span style=display:flex><span>            redisTemplate.<span style=color:#a6e22e>opsForValue</span>().<span style=color:#a6e22e>increment</span>(key);
+</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>            response.<span style=color:#a6e22e>setStatus</span>(HttpStatus.<span style=color:#a6e22e>TOO_MANY_REQUESTS</span>.<span style=color:#a6e22e>value</span>());
+</span></span><span style=display:flex><span>            response.<span style=color:#a6e22e>getWriter</span>().<span style=color:#a6e22e>write</span>(<span style=color:#e6db74>&#34;Rate limit exceeded&#34;</span>);
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> String <span style=color:#a6e22e>getClientId</span>(HttpServletRequest request) {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// Extract client ID from JWT token or IP address</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> request.<span style=color:#a6e22e>getRemoteAddr</span>();
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=api-documentation>API Documentation</h2><h3 id=openapiswagger>OpenAPI/Swagger</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#a6e22e>@Configuration</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>OpenAPIConfig</span> {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Bean</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> OpenAPI <span style=color:#a6e22e>customOpenAPI</span>() {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>new</span> OpenAPI()
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>info</span>(<span style=color:#66d9ef>new</span> Info()
+</span></span><span style=display:flex><span>                .<span style=color:#a6e22e>title</span>(<span style=color:#e6db74>&#34;User Management API&#34;</span>)
+</span></span><span style=display:flex><span>                .<span style=color:#a6e22e>version</span>(<span style=color:#e6db74>&#34;1.0&#34;</span>)
+</span></span><span style=display:flex><span>                .<span style=color:#a6e22e>description</span>(<span style=color:#e6db74>&#34;API for managing users&#34;</span>)
+</span></span><span style=display:flex><span>                .<span style=color:#a6e22e>contact</span>(<span style=color:#66d9ef>new</span> Contact()
+</span></span><span style=display:flex><span>                    .<span style=color:#a6e22e>name</span>(<span style=color:#e6db74>&#34;API Team&#34;</span>)
+</span></span><span style=display:flex><span>                    .<span style=color:#a6e22e>email</span>(<span style=color:#e6db74>&#34;api-team@example.com&#34;</span>)))
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>servers</span>(List.<span style=color:#a6e22e>of</span>(
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>new</span> Server().<span style=color:#a6e22e>url</span>(<span style=color:#e6db74>&#34;http://localhost:8080&#34;</span>).<span style=color:#a6e22e>description</span>(<span style=color:#e6db74>&#34;Development server&#34;</span>),
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>new</span> Server().<span style=color:#a6e22e>url</span>(<span style=color:#e6db74>&#34;https://api.example.com&#34;</span>).<span style=color:#a6e22e>description</span>(<span style=color:#e6db74>&#34;Production server&#34;</span>)
+</span></span><span style=display:flex><span>            ))
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>components</span>(<span style=color:#66d9ef>new</span> Components()
+</span></span><span style=display:flex><span>                .<span style=color:#a6e22e>addSecuritySchemes</span>(<span style=color:#e6db74>&#34;bearerAuth&#34;</span>,
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>new</span> SecurityScheme()
+</span></span><span style=display:flex><span>                        .<span style=color:#a6e22e>type</span>(SecurityScheme.<span style=color:#a6e22e>Type</span>.<span style=color:#a6e22e>HTTP</span>)
+</span></span><span style=display:flex><span>                        .<span style=color:#a6e22e>scheme</span>(<span style=color:#e6db74>&#34;bearer&#34;</span>)
+</span></span><span style=display:flex><span>                        .<span style=color:#a6e22e>bearerFormat</span>(<span style=color:#e6db74>&#34;JWT&#34;</span>)));
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@RestController</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@RequestMapping</span>(<span style=color:#e6db74>&#34;/api/users&#34;</span>)
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@Tag</span>(name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;User Management&#34;</span>, description <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Operations for managing users&#34;</span>)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>UserController</span> {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Operation</span>(
+</span></span><span style=display:flex><span>        summary <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Get all users&#34;</span>,
+</span></span><span style=display:flex><span>        description <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Retrieve a paginated list of all users&#34;</span>,
+</span></span><span style=display:flex><span>        responses <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>@ApiResponse</span>(responseCode <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;200&#34;</span>, description <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Successfully retrieved users&#34;</span>),
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>@ApiResponse</span>(responseCode <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;401&#34;</span>, description <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Unauthorized&#34;</span>),
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>@ApiResponse</span>(responseCode <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;403&#34;</span>, description <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Forbidden&#34;</span>)
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    )
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@GetMapping</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> ResponseEntity<span style=color:#f92672>&lt;</span>PagedResponse<span style=color:#f92672>&lt;</span>UserDto<span style=color:#f92672>&gt;&gt;</span> <span style=color:#a6e22e>getUsers</span>(
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>@Parameter</span>(description <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Page number (0-based)&#34;</span>) <span style=color:#a6e22e>@RequestParam</span>(defaultValue <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0&#34;</span>) <span style=color:#66d9ef>int</span> page,
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>@Parameter</span>(description <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Page size&#34;</span>) <span style=color:#a6e22e>@RequestParam</span>(defaultValue <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;10&#34;</span>) <span style=color:#66d9ef>int</span> size) {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// Implementation</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Operation</span>(summary <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Create a new user&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@ApiResponses</span>(value <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>@ApiResponse</span>(responseCode <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;201&#34;</span>, description <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;User created successfully&#34;</span>),
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>@ApiResponse</span>(responseCode <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;400&#34;</span>, description <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Invalid input&#34;</span>),
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>@ApiResponse</span>(responseCode <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;409&#34;</span>, description <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;User already exists&#34;</span>)
+</span></span><span style=display:flex><span>    })
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@PostMapping</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@SecurityRequirement</span>(name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;bearerAuth&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> ResponseEntity<span style=color:#f92672>&lt;</span>UserDto<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>createUser</span>(
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>@Parameter</span>(description <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;User creation request&#34;</span>) <span style=color:#a6e22e>@RequestBody</span> <span style=color:#a6e22e>@Valid</span> CreateUserRequest request) {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// Implementation</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=versioning-strategies>Versioning Strategies</h2><h3 id=url-versioning>URL Versioning</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#a6e22e>@RestController</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@RequestMapping</span>(<span style=color:#e6db74>&#34;/api/v1/users&#34;</span>)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>UserV1Controller</span> {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Version 1 implementation</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@RestController</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@RequestMapping</span>(<span style=color:#e6db74>&#34;/api/v2/users&#34;</span>)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>UserV2Controller</span> {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Version 2 implementation</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=header-versioning>Header Versioning</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#a6e22e>@RestController</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@RequestMapping</span>(<span style=color:#e6db74>&#34;/api/users&#34;</span>)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>UserController</span> {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@GetMapping</span>(headers <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;API-Version=1&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> ResponseEntity<span style=color:#f92672>&lt;</span>List<span style=color:#f92672>&lt;</span>UserV1Dto<span style=color:#f92672>&gt;&gt;</span> <span style=color:#a6e22e>getUsersV1</span>() {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// Version 1 implementation</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@GetMapping</span>(headers <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;API-Version=2&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> ResponseEntity<span style=color:#f92672>&lt;</span>List<span style=color:#f92672>&lt;</span>UserV2Dto<span style=color:#f92672>&gt;&gt;</span> <span style=color:#a6e22e>getUsersV2</span>() {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// Version 2 implementation</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=testing-apis>Testing APIs</h2><h3 id=integration-tests>Integration Tests</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#a6e22e>@SpringBootTest</span>(webEnvironment <span style=color:#f92672>=</span> SpringBootTest.<span style=color:#a6e22e>WebEnvironment</span>.<span style=color:#a6e22e>RANDOM_PORT</span>)
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@AutoConfigureTestDatabase</span>(replace <span style=color:#f92672>=</span> AutoConfigureTestDatabase.<span style=color:#a6e22e>Replace</span>.<span style=color:#a6e22e>NONE</span>)
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@Testcontainers</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>UserControllerIntegrationTest</span> {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Autowired</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> TestRestTemplate restTemplate;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Autowired</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> UserRepository userRepository;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Container</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>static</span> PostgreSQLContainer<span style=color:#f92672>&lt;?&gt;</span> postgres <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> PostgreSQLContainer<span style=color:#f92672>&lt;&gt;</span>(<span style=color:#e6db74>&#34;postgres:14&#34;</span>)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>withDatabaseName</span>(<span style=color:#e6db74>&#34;testdb&#34;</span>)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>withUsername</span>(<span style=color:#e6db74>&#34;test&#34;</span>)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>withPassword</span>(<span style=color:#e6db74>&#34;test&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Test</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>shouldCreateUser</span>() {
+</span></span><span style=display:flex><span>        CreateUserRequest request <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> CreateUserRequest(<span style=color:#e6db74>&#34;test@example.com&#34;</span>, <span style=color:#e6db74>&#34;Test User&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        ResponseEntity<span style=color:#f92672>&lt;</span>UserDto<span style=color:#f92672>&gt;</span> response <span style=color:#f92672>=</span> restTemplate.<span style=color:#a6e22e>postForEntity</span>(
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;/api/users&#34;</span>, request, UserDto.<span style=color:#a6e22e>class</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        assertThat(response.<span style=color:#a6e22e>getStatusCode</span>()).<span style=color:#a6e22e>isEqualTo</span>(HttpStatus.<span style=color:#a6e22e>CREATED</span>);
+</span></span><span style=display:flex><span>        assertThat(response.<span style=color:#a6e22e>getBody</span>().<span style=color:#a6e22e>getEmail</span>()).<span style=color:#a6e22e>isEqualTo</span>(<span style=color:#e6db74>&#34;test@example.com&#34;</span>);
+</span></span><span style=display:flex><span>        assertThat(userRepository.<span style=color:#a6e22e>count</span>()).<span style=color:#a6e22e>isEqualTo</span>(1);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Test</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>shouldReturnValidationErrorForInvalidEmail</span>() {
+</span></span><span style=display:flex><span>        CreateUserRequest request <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> CreateUserRequest(<span style=color:#e6db74>&#34;invalid-email&#34;</span>, <span style=color:#e6db74>&#34;Test User&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        ResponseEntity<span style=color:#f92672>&lt;</span>ApiResponse<span style=color:#f92672>&gt;</span> response <span style=color:#f92672>=</span> restTemplate.<span style=color:#a6e22e>postForEntity</span>(
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;/api/users&#34;</span>, request, ApiResponse.<span style=color:#a6e22e>class</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        assertThat(response.<span style=color:#a6e22e>getStatusCode</span>()).<span style=color:#a6e22e>isEqualTo</span>(HttpStatus.<span style=color:#a6e22e>BAD_REQUEST</span>);
+</span></span><span style=display:flex><span>        assertThat(response.<span style=color:#a6e22e>getBody</span>().<span style=color:#a6e22e>isSuccess</span>()).<span style=color:#a6e22e>isFalse</span>();
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=contract-testing-with-wiremock>Contract Testing with WireMock</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#a6e22e>@SpringBootTest</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>UserServiceTest</span> {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@RegisterExtension</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>static</span> WireMockExtension wireMock <span style=color:#f92672>=</span> WireMockExtension.<span style=color:#a6e22e>newInstance</span>()
+</span></span><span style=display:flex><span>        .<span style=color:#a6e22e>options</span>(wireMockConfig().<span style=color:#a6e22e>port</span>(8089))
+</span></span><span style=display:flex><span>        .<span style=color:#a6e22e>build</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Autowired</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> UserService userService;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Test</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>shouldCallExternalAPISuccessfully</span>() {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// Given</span>
+</span></span><span style=display:flex><span>        wireMock.<span style=color:#a6e22e>stubFor</span>(get(urlEqualTo(<span style=color:#e6db74>&#34;/api/external/users/1&#34;</span>))
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>willReturn</span>(aResponse()
+</span></span><span style=display:flex><span>                .<span style=color:#a6e22e>withStatus</span>(200)
+</span></span><span style=display:flex><span>                .<span style=color:#a6e22e>withHeader</span>(<span style=color:#e6db74>&#34;Content-Type&#34;</span>, <span style=color:#e6db74>&#34;application/json&#34;</span>)
+</span></span><span style=display:flex><span>                .<span style=color:#a6e22e>withBody</span>(<span style=color:#e6db74>&#34;{\&#34;id\&#34;:1,\&#34;name\&#34;:\&#34;External User\&#34;}&#34;</span>)));
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// When</span>
+</span></span><span style=display:flex><span>        ExternalUser user <span style=color:#f92672>=</span> userService.<span style=color:#a6e22e>fetchExternalUser</span>(1L);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// Then</span>
+</span></span><span style=display:flex><span>        assertThat(user.<span style=color:#a6e22e>getName</span>()).<span style=color:#a6e22e>isEqualTo</span>(<span style=color:#e6db74>&#34;External User&#34;</span>);
+</span></span><span style=display:flex><span>        wireMock.<span style=color:#a6e22e>verify</span>(getRequestedFor(urlEqualTo(<span style=color:#e6db74>&#34;/api/external/users/1&#34;</span>)));
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=performance-optimization>Performance Optimization</h2><h3 id=caching>Caching</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#a6e22e>@Service</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@CacheConfig</span>(cacheNames <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;users&#34;</span>)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>UserService</span> {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Cacheable</span>(key <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;#id&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> UserDto <span style=color:#a6e22e>findById</span>(Long id) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> userRepository.<span style=color:#a6e22e>findById</span>(id)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>map</span>(<span style=color:#66d9ef>this</span>::toDto)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>orElseThrow</span>(() <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>new</span> UserNotFoundException(<span style=color:#e6db74>&#34;User not found&#34;</span>));
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@CacheEvict</span>(key <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;#userDto.id&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> UserDto <span style=color:#a6e22e>updateUser</span>(UserDto userDto) {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// Update logic</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> userDto;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@CacheEvict</span>(allEntries <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>clearCache</span>() {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// Cache will be cleared</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=pagination-and-filtering>Pagination and Filtering</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#a6e22e>@Service</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>ProductService</span> {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> Page<span style=color:#f92672>&lt;</span>ProductDto<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>findProducts</span>(ProductFilter filter, Pageable pageable) {
+</span></span><span style=display:flex><span>        Specification<span style=color:#f92672>&lt;</span>Product<span style=color:#f92672>&gt;</span> spec <span style=color:#f92672>=</span> Specification.<span style=color:#a6e22e>where</span>(<span style=color:#66d9ef>null</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (filter.<span style=color:#a6e22e>getCategory</span>() <span style=color:#f92672>!=</span> <span style=color:#66d9ef>null</span>) {
+</span></span><span style=display:flex><span>            spec <span style=color:#f92672>=</span> spec.<span style=color:#a6e22e>and</span>((root, query, cb) <span style=color:#f92672>-&gt;</span>
+</span></span><span style=display:flex><span>                cb.<span style=color:#a6e22e>equal</span>(root.<span style=color:#a6e22e>get</span>(<span style=color:#e6db74>&#34;category&#34;</span>), filter.<span style=color:#a6e22e>getCategory</span>()));
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (filter.<span style=color:#a6e22e>getMinPrice</span>() <span style=color:#f92672>!=</span> <span style=color:#66d9ef>null</span>) {
+</span></span><span style=display:flex><span>            spec <span style=color:#f92672>=</span> spec.<span style=color:#a6e22e>and</span>((root, query, cb) <span style=color:#f92672>-&gt;</span>
+</span></span><span style=display:flex><span>                cb.<span style=color:#a6e22e>greaterThanOrEqualTo</span>(root.<span style=color:#a6e22e>get</span>(<span style=color:#e6db74>&#34;price&#34;</span>), filter.<span style=color:#a6e22e>getMinPrice</span>()));
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (filter.<span style=color:#a6e22e>getMaxPrice</span>() <span style=color:#f92672>!=</span> <span style=color:#66d9ef>null</span>) {
+</span></span><span style=display:flex><span>            spec <span style=color:#f92672>=</span> spec.<span style=color:#a6e22e>and</span>((root, query, cb) <span style=color:#f92672>-&gt;</span>
+</span></span><span style=display:flex><span>                cb.<span style=color:#a6e22e>lessThanOrEqualTo</span>(root.<span style=color:#a6e22e>get</span>(<span style=color:#e6db74>&#34;price&#34;</span>), filter.<span style=color:#a6e22e>getMaxPrice</span>()));
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> productRepository.<span style=color:#a6e22e>findAll</span>(spec, pageable)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>map</span>(<span style=color:#66d9ef>this</span>::toDto);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Well-designed REST APIs are the foundation of maintainable microservices and web applications. Focus on consistency, clear documentation, and following HTTP standards to create APIs that developers love to use.</p></div><div class="row items-start justify-between"><div class="lg:col-6 mb-10 flex items-center lg:mb-0"><h5 class=mr-3>Tags :</h5><ul><li class=inline-block><a class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white" href=/en/tags/rest-api/>Rest API</a></li><li class=inline-block><a class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white" href=/en/tags/api-design/>API design</a></li><li class=inline-block><a class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white" href=/en/tags/web-services/>Web services</a></li><li class=inline-block><a class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white" href=/en/tags/backend/>Backend</a></li><li class=inline-block><a class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white" href=/en/tags/http/>HTTP</a></li></ul></div><div class="lg:col-6 flex items-center lg:justify-end"><h5>Share :</h5><div class=share-icons><a class="share-link share-facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fkigo1031.github.io%2fen%2fblog%2fpost-4%2f" target=_blank rel=noopener aria-label="share facebook"><span class=share-icon><svg viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg>
+</span></a><a class="share-link share-x" href="https://x.com/intent/tweet/?text=REST%20API%20Design%20Best%20Practices&amp;url=https%3a%2f%2fkigo1031.github.io%2fen%2fblog%2fpost-4%2f" target=_blank rel=noopener aria-label="share x"><span aria-hidden=true class=share-icon><svg viewBox="0 0 24 24"><path d="M8 2H1l8.26 11.015L1.45 22H4.1l6.388-7.349L16 22h7l-8.608-11.478L21.8 2h-2.65l-5.986 6.886zm9 18L5 4h2l12 16z"/></svg>
+</span></a><a class="share-link share-email" href="mailto:?subject=REST%20API%20Design%20Best%20Practices&amp;body=https%3a%2f%2fkigo1031.github.io%2fen%2fblog%2fpost-4%2f" target=_self rel=noopener aria-label="share email"><span aria-hidden=true class=share-icon><svg viewBox="0 0 24 24"><path d="M22 4H2C.9 4 0 4.9.0 6v12c0 1.1.9 2 2 2h20c1.1.0 2-.9 2-2V6c0-1.1-.9-2-2-2zM7.25 14.43l-3.5 2c-.08.05-.17.07-.25.07-.17.0-.34-.1-.43-.25-.14-.24-.06-.55.18-.68l3.5-2c.24-.14.55-.06.68.18.14.24.06.55-.18.68zm4.75.07c-.1.0-.2-.03-.27-.08l-8.5-5.5c-.23-.15-.3-.46-.15-.7.15-.22.46-.3.7-.14L12 13.4l8.23-5.32c.23-.15.54-.08.7.15.14.23.07.54-.16.7l-8.5 5.5c-.08.04-.17.07-.27.07zm8.93 1.75c-.1.16-.26.25-.43.25-.08.0-.17-.02-.25-.07l-3.5-2c-.24-.13-.32-.44-.18-.68s.44-.32.68-.18l3.5 2c.24.13.32.44.18.68z"/></svg>
+</span></a><span class=fediverse-share><a class="share-link share-fediverse" href=javascript:void(0); onclick=toggleFediverseInput(this) aria-label="share fediverse"><span aria-hidden=true class=share-icon><svg viewBox="-10 -5 1034 1034" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="SVGRepo_bgCarrier" stroke-width="0"/><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/><g id="SVGRepo_iconCarrier"><path d="M539 176q-32 0-55 22t-25 55 20.5 58 56 27 58.5-20.5 27-56-20.5-59T544 176h-5zm-87 95-232 118q20 20 25 48l231-118q-19-20-24-48zm167 27q-13 25-38 38l183 184q13-25 39-38zM477 320 342 585l40 40 143-280q-28-5-48-25zm104 16q-22 11-46 10l-8-1 21 132 56 9zM155 370q-32 0-55 22.5t-25 55 20.5 58 56.5 27 59-21 26.5-56-21-58.5-55.5-27h-6zm90 68q1 9 1 18-1 19-10 35l132 21 26-50zm225 36-26 51 311 49q-1-8-1-17 1-19 10-36zm372 6q-32 1-55 23t-24.5 55 21 58 56 27 58.5-20.5 27-56.5-20.5-59-56.5-27h-6zM236 493q-13 25-39 38l210 210 51-25zm-40 38q-21 11-44 10l-9-1 40 256q21-10 45-9l8 1zm364 22 48 311q21-10 44-9l10 1-46-294zm195 23-118 60 8 56 135-68q-20-20-25-48zm26 49-119 231q28 5 48 25l119-231q-28-5-48-25zM306 654l-68 134q28 5 48 25l60-119zm262 17-281 143q19 20 24 48l265-135zM513 771l-51 25 106 107q13-25 39-38zM222 795q-32 0-55.5 22.5t-25 55 21 57.5 56 27 58.5-20.5 27-56-20.5-58.5-56.5-27h-5zm89 68q2 9 1 18-1 19-9 35l256 41q-1-9-1-18 1-18 10-35zm335 0q-32 0-55 22.5t-24.5 55 20.5 58 56 27 59-21 27-56-20.5-58.5-56.5-27h-6z"/></g></svg>
+</span></a><span class=fediverse-input-wrapper style=display:none><input type=text placeholder="Enter Fediverse Instance URL" class=fediverse-input onkeypress='handleFediverseShare(event,"https://kigo1031.github.io/en/blog/post-4/","REST API Design Best Practices")'>
+<button class=fediverse-check-button onclick='handleFediverseShareButton(this,"https://kigo1031.github.io/en/blog/post-4/","REST API Design Best Practices")'>
+Share
+</button>
+</span></span><button class="share-link share-copy" onclick='copyToClipboard(this,"https://kigo1031.github.io/en/blog/post-4/")'>
+<span class=share-icon><svg viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1.0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1.0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7-1c.55.0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm7 17H5V5h14v14z"/></svg></span></button></div><script>function toggleFediverseInput(e){const n=e.closest(".fediverse-share"),t=n.querySelector(".fediverse-input-wrapper");t.style.display=t.style.display==="none"?"block":"none"}function handleFediverseShare(e,t,n){if(e.key==="Enter"){const o=e.target;let s=o.value.trim();if(s){s.startsWith("https://")||(s=`https://${s}`);const e=`${s}/share?text=${encodeURIComponent(n)}&url=${encodeURIComponent(t)}`;window.open(e,"_blank","noopener")}}}function handleFediverseShareButton(e,t,n){const o=e.previousElementSibling;let s=o.value.trim();if(s){s.startsWith("https://")||(s=`https://${s}`);const e=`${s}/share?text=${encodeURIComponent(n)}&url=${encodeURIComponent(t)}`;window.open(e,"_blank","noopener")}}function copyToClipboard(e,t){navigator.clipboard.writeText(t).then(()=>{const t=e.querySelector("svg path"),n="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7-1c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm7 17H5V5h14v14z",s="M9 16.2l-3.5-3.5-1.4 1.4L9 19 20 8l-1.4-1.4L9 16.2z";t.setAttribute("d",s),setTimeout(()=>{t.setAttribute("d",n)},1e3)})}</script></div></div><div class=mt-20><div id=disqus_thread></div><script>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.";return}var t=document,e=t.createElement("script");e.async=!0,e.src="//kigo-blog.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div></article></div><div class="section pb-0"><h2 class="h3 mb-12">Related Posts</h2><div class=row><div class="lg:col-4 md:col-6 mb-14"><div class="bg-body dark:bg-darkmode-body"><picture><source srcset=/images/service-1_hu_929e1a7812c6d1fe.webp media="(max-width: 575px)"><source srcset=/images/service-1_hu_b1075cc11ad28fb0.webp media="(max-width: 767px)"><source srcset=/images/service-1_hu_3527cad0cb0b4cd5.webp media="(max-width: 991px)"><source srcset=/images/service-1_hu_359afd51d4fd2457.webp><img loading=lazy decoding=async src=/images/service-1_hu_734bba9c014561a1.png class="mb-6 w-full rounded img" alt="Spring Boot Best Practices for Production" width=559 height=518></picture><h4 class=mb-3><a href=/en/blog/post-1/>Spring Boot Best Practices for Production</a></h4><ul class=mb-4><li class="mr-4 inline-block"><a href=/en/authors/kigo/><i class="fa-regular fa-circle-user mr-2"></i>Kigo</a></li><li class="mr-4 inline-block"><i class="fa-regular fa-folder mr-1"></i>
+<a href=/en/categories/backend/ class=ms-1>Backend
+,
+</a><a href=/en/categories/java/ class=ms-1>Java</a></li></ul><p class=mb-6>Building production-ready Spring Boot applications requires more than just basic functionality. Let&rsquo;s explore essential practices that ensure your applications are robust, secure, and maintainable.</p><a class="btn btn-outline-primary btn-sm" href=/en/blog/post-1/>Read More</a></div></div></div></div></div></section></main><footer class="bg-light dark:bg-darkmode-light"><div class=container><div class="row items-center py-10"><div class="lg:col-3 mb-8 text-center lg:mb-0 lg:text-left"><a class="navbar-brand inline-block" href=/en/><img fetchpriority=high decoding=async src=https://kigo1031.github.io/images/logo-kigo.svg alt="Kigo's Blog" class="img img-light" height=32 width=160>
+<img fetchpriority=high decoding=async src=https://kigo1031.github.io/images/logo-kigo-darkmode.svg alt="Kigo's Blog" class="img img-dark" height=32 width=160></a></div><div class="lg:col-6 mb-8 text-center lg:mb-0"><ul><li class="m-3 inline-block"><a href=/en/blog>Blog</a></li><li class="m-3 inline-block"><a href=/en/privacy-policy>Privacy Policy</a></li></ul></div><div class="lg:col-3 mb-8 text-center lg:mb-0 lg:mt-0 lg:text-right"><ul class=social-icons><li><a target=_blank aria-label=github rel="nofollow noopener" href=https://github.com/kigo1031><i class="fab fa-github"></i></a></li></ul></div></div></div><div class="border-border dark:border-darkmode-border border-t py-7"><div class="text-text-light dark:text-darkmode-text-light container text-center"><p>Creating tomorrow, one line at a time</p></div></div></footer><script crossorigin=anonymous integrity="sha256-NoqgJlugD+mB4Hf8AueiiPBQSb7ASin+oZS0fYEdtiA=" src=/js/script.min.368aa0265ba00fe981e077fc02e7a288f05049bec04a29fea194b47d811db620.js></script><script defer async crossorigin=anonymous integrity="sha256-8w9V5+VCnGhgTHXOsnVQjFqhE3cwvfCJD4096vUhMp0=" src=/js/script-lazy.min.f30f55e7e5429c68604c75ceb275508c5aa1137730bdf0890f8d3deaf521329d.js></script><script>"serviceWorker"in navigator&&navigator.serviceWorker.register("/service-worker.js")</script></body></html>
