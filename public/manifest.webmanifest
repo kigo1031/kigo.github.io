@@ -1,1 +1,15 @@
-{"name":"Kigo's Blog - 백엔드 Java 개발자","short_name":"Kigo's Blog - 백엔드 Java 개발자","lang":"ko-kr","display":"fullscreen","orientation":"portrait","start_url":"https://kigo1031.github.io/kigo.github.io/?utm_source=web_app_manifest","background_color":"#fff","theme_color":"#000"}
+{
+  "name": "Kigo's Blog - 백엔드 Java 개발자",
+  "short_name": "Kigo's Blog - 백엔드 Java 개발자",
+  "lang": "ko-kr",
+  "display": "fullscreen",
+  "orientation" : "portrait",
+  "start_url": "http://localhost:1313/?utm_source=web_app_manifest",
+  "background_color": "#fff",
+  "theme_color": "#000",
+
+  
+  
+  
+  
+}

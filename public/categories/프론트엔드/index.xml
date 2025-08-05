@@ -1,1 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>프론트엔드 on Kigo's Blog - 백엔드 Java 개발자</title><link>https://kigo1031.github.io/kigo.github.io/categories/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C/</link><description>Recent content in 프론트엔드 on Kigo's Blog - 백엔드 Java 개발자</description><generator>Hugo</generator><language>ko-kr</language><lastBuildDate>Tue, 29 Jul 2025 15:45:00 +0000</lastBuildDate><atom:link href="https://kigo1031.github.io/kigo.github.io/categories/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C/index.xml" rel="self" type="application/rss+xml"/><item><title>JavaScript ES6+ 핵심 기능들</title><link>https://kigo1031.github.io/kigo.github.io/blog/javascript-es6-features/</link><pubDate>Tue, 29 Jul 2025 15:45:00 +0000</pubDate><guid>https://kigo1031.github.io/kigo.github.io/blog/javascript-es6-features/</guid><description>&lt;p>JavaScript ES6(ECMAScript 2015)부터 많은 새로운 기능들이 추가되었습니다. 오늘은 실무에서 자주 사용되는 핵심 기능들을 알아보겠습니다.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>프론트엔드 on Kigo&#39;s Blog - 백엔드 Java 개발자</title>
+    <link>http://localhost:1313/categories/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C/</link>
+    <description>Recent content in 프론트엔드 on Kigo&#39;s Blog - 백엔드 Java 개발자</description>
+    <generator>Hugo</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Tue, 29 Jul 2025 15:45:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaScript ES6&#43; 핵심 기능들</title>
+      <link>http://localhost:1313/blog/javascript-es6-features/</link>
+      <pubDate>Tue, 29 Jul 2025 15:45:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/javascript-es6-features/</guid>
+      <description>&lt;p&gt;JavaScript ES6(ECMAScript 2015)부터 많은 새로운 기능들이 추가되었습니다. 오늘은 실무에서 자주 사용되는 핵심 기능들을 알아보겠습니다.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
