@@ -34,7 +34,7 @@
     <!-- View All Posts Button -->
     <div class="row">
       <div class="col-12 text-center">
-        <a class="btn btn-primary" href="{{ if eq site.Language.Lang " ko" }}/blog{{ else }}/en/blog{{ end }}">
+        <a class="btn btn-primary" href="{{ "blog" | relLangURL }}">
           {{ if eq site.Language.Lang "ko" }}
           모든 포스트 보기
           {{ else }}
