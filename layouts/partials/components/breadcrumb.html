@@ -16,7 +16,7 @@
 
   {{ if or (eq $context.Type "categories") (eq $context.Type "tags") (and (eq $context.Section "blog") (ne $context.Kind "section")) }}
   <li>
-    <a class="text-primary dark:text-darkmode-primary" href="{{ if eq site.Language.Lang " ko" }}/blog{{ else
+    <a class="text-primary dark:text-darkmode-primary" href="{{ if eq site.Language.Lang "ko" }}/blog{{ else
       }}/en/blog{{ end }}">
       {{ if eq site.Language.Lang "ko" }}
       블로그

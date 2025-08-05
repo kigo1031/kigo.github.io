@@ -1,1 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kubernetes on Kigo's Blog - 백엔드 Java 개발자</title><link>https://kigo1031.github.io/kigo.github.io/en/tags/kubernetes/</link><description>Recent content in Kubernetes on Kigo's Blog - 백엔드 Java 개발자</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 03 Aug 2025 13:00:00 +0900</lastBuildDate><atom:link href="https://kigo1031.github.io/kigo.github.io/en/tags/kubernetes/index.xml" rel="self" type="application/rss+xml"/><item><title>Getting Started with Cloud Native Java Development using Quarkus</title><link>https://kigo1031.github.io/kigo.github.io/en/blog/quarkus-cloud-native-java/</link><pubDate>Sun, 03 Aug 2025 13:00:00 +0900</pubDate><guid>https://kigo1031.github.io/kigo.github.io/en/blog/quarkus-cloud-native-java/</guid><description>&lt;p>Recently, there&amp;rsquo;s been a lot of discussion about the limitations of Java applications in cloud-native environments. Particularly, &lt;strong>high memory usage&lt;/strong> and &lt;strong>slow startup times&lt;/strong> have made Java somewhat disadvantageous in containerized environments. &lt;strong>Quarkus&lt;/strong> emerged to solve these exact problems.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kubernetes on Kigo&#39;s Blog - 백엔드 Java 개발자</title>
+    <link>http://localhost:1314/en/tags/kubernetes/</link>
+    <description>Recent content in Kubernetes on Kigo&#39;s Blog - 백엔드 Java 개발자</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 03 Aug 2025 13:00:00 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1314/en/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting Started with Cloud Native Java Development using Quarkus</title>
+      <link>http://localhost:1314/en/blog/quarkus-cloud-native-java/</link>
+      <pubDate>Sun, 03 Aug 2025 13:00:00 +0900</pubDate>
+      <guid>http://localhost:1314/en/blog/quarkus-cloud-native-java/</guid>
+      <description>&lt;p&gt;Recently, there&amp;rsquo;s been a lot of discussion about the limitations of Java applications in cloud-native environments. Particularly, &lt;strong&gt;high memory usage&lt;/strong&gt; and &lt;strong&gt;slow startup times&lt;/strong&gt; have made Java somewhat disadvantageous in containerized environments. &lt;strong&gt;Quarkus&lt;/strong&gt; emerged to solve these exact problems.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
