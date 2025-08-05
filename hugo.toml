@@ -21,7 +21,7 @@ defaultContentLanguageInSubdir = false
 ########################### Services #############################
 [services]
 [services.googleAnalytics]
-ID = 'G-QCJE70DR32' # Google Analytics 측정 ID를 여기에 입력하세요 (예: G-XXXXXXXXXX)
+ID = '' # Google Analytics 측정 ID를 여기에 입력하세요 (예: G-XXXXXXXXXX)
 
 [services.disqus]
 shortname = 'kigo-blog' # Disqus 댓글 시스템용
