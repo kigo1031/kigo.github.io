@@ -1,0 +1,649 @@
+<!doctype html><html itemscope lang=en-us itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=5"><meta name=theme-name content="hugoplate"><link rel=icon type=image/png href=https://kigo1031.github.io/kigo.github.io/images/favicon.png><link rel=apple-touch-icon sizes=180x180 href=https://kigo1031.github.io/kigo.github.io/images/favicon.png><link rel="shortcut icon" href=https://kigo1031.github.io/kigo.github.io/images/favicon.png><link rel=manifest href=/kigo.github.io/manifest.webmanifest><meta name=msapplication-TileColor content="#ddd"><meta name=theme-color content="#ffffff"><base href=https://kigo1031.github.io/kigo.github.io/en/blog/event-driven-architecture-cqrs/><title>Event-Driven Architecture CQRS Patterns</title><link rel=alternate hreflang=ko href=https://kigo1031.github.io/kigo.github.io/blog/event-driven-architecture-cqrs/><link rel=alternate hreflang=en href=https://kigo1031.github.io/kigo.github.io/en/blog/event-driven-architecture-cqrs/><link rel=alternate hreflang=x-default href=https://kigo1031.github.io/kigo.github.io/en/blog/event-driven-architecture-cqrs/><meta name=keywords content="Java,Spring,Backend,개발,프로그래밍,Quarkus,데이터베이스,JPA,백엔드개발자,Kigo"><meta name=description content="Learn how to build scalable and resilient backend systems using event sourcing, CQRS, and event streaming with practical implementation examples."><meta name=author content="Kigo"><meta property="og:image" content="https://kigo1031.github.io/kigo.github.io/images/service-1.png"><meta name=twitter:image content="https://kigo1031.github.io/kigo.github.io/images/service-1.png"><meta name=twitter:card content="summary_large_image"><meta property="og:image:width" content="559"><meta property="og:image:height" content="518"><meta property="og:image:type" content="image/.png"><meta property="og:title" content="Event-Driven Architecture CQRS Patterns"><meta property="og:description" content="Learn how to build scalable and resilient backend systems using event sourcing, CQRS, and event streaming with practical implementation examples."><meta property="og:type" content="website"><meta property="og:url" content="https://kigo1031.github.io/kigo.github.io/en/blog/event-driven-architecture-cqrs/"><meta name=twitter:title content="Event-Driven Architecture CQRS Patterns"><meta name=twitter:description content="Learn how to build scalable and resilient backend systems using event sourcing, CQRS, and event streaming with practical implementation examples."><meta name=twitter:creator content="@Kigo"><script async src="https://www.googletagmanager.com/gtag/js?id=G-QCJE70DR32"></script><script>var dnt,doNotTrack=!1;if(!1&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-QCJE70DR32")}</script><script>!function(){let e=0;document.addEventListener("mousemove",function(){1==++e&&gtmLoader()}),window.onscroll=function(){1==++e&&gtmLoader()},setTimeout(function(){0===e&&(e++,gtmLoader())},5e3)}();function gtmLoader(){(function(e,t,n,s,o){e[s]=e[s]||[],e[s].push({"gtm.start":(new Date).getTime(),event:"gtm.js"});var a=t.getElementsByTagName(n)[0],i=t.createElement(n),r=s!="dataLayer"?"&l="+s:"";i.async=!0,i.src="https://www.googletagmanager.com/gtm.js?id="+o+r,a.parentNode.insertBefore(i,a)})(window,document,"script","dataLayer","G-QCJE70DR32")}</script><script>let indexURL="https://kigo1031.github.io/kigo.github.io/en/searchindex.json",includeSectionsInSearch=["blog"],search_no_results="No results for",search_initial_message="Type something to search.."</script><meta http-equiv=x-dns-prefetch-control content="on"><link rel=preconnect href=https://use.fontawesome.com crossorigin><link rel=preconnect href=//cdnjs.cloudflare.com><link rel=preconnect href=//www.googletagmanager.com><link rel=preconnect href=//www.google-analytics.com><link rel=dns-prefetch href=https://use.fontawesome.com><link rel=dns-prefetch href=//ajax.googleapis.com><link rel=dns-prefetch href=//cdnjs.cloudflare.com><link rel=dns-prefetch href=//www.googletagmanager.com><link rel=dns-prefetch href=//www.google-analytics.com><link rel=dns-prefetch href=//fonts.googleapis.com><link rel=dns-prefetch href=//connect.facebook.net><link rel=dns-prefetch href=//platform.linkedin.com><link rel=dns-prefetch href=//platform.twitter.com><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600&family=Signika:wght@500;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script><link href=/kigo.github.io/css/style.min.a9e72d5480050951fe29e96a7414c5e29c8837d8e26ed2c1b135d3472c955271.css integrity="sha256-qectVIAFCVH+KelqdBTF4pyIN9jibtLBsTXTRyyVUnE=" rel=stylesheet><link defer async rel=stylesheet href=/kigo.github.io/css/style-lazy.min.85575460e013a8f1e96ccd0560c44120e7e785297933c62e65534d5652eebe78.css integrity="sha256-hVdUYOATqPHpbM0FYMRBIOfnhSl5M8YuZVNNVlLuvng=" media=print onload='this.media="all",this.onload=null'></head><body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=G-QCJE70DR32" height=0 width=0 style=display:none;visibility:hidden></iframe></noscript><header class="header sticky top-0 z-30"><nav class="navbar container"><div class=order-0><a class="navbar-brand block" href=/kigo.github.io/en/><img fetchpriority=high decoding=async src=https://kigo1031.github.io/kigo.github.io/images/logo-kigo.svg alt="Kigo's Blog" class="img img-light" height=32 width=160>
+<img fetchpriority=high decoding=async src=https://kigo1031.github.io/kigo.github.io/images/logo-kigo-darkmode.svg alt="Kigo's Blog" class="img img-dark" height=32 width=160></a></div><input id=nav-toggle type=checkbox class=hidden>
+<label for=nav-toggle class="order-3 cursor-pointer flex items-center lg:hidden text-text-dark dark:text-white lg:order-1"><svg id="show-button" class="h-6 fill-current block" viewBox="0 0 20 20"><title>Menu Open</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0V0z"/></svg>
+<svg id="hide-button" class="h-6 fill-current hidden" viewBox="0 0 20 20"><title>Menu Close</title><polygon points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2" transform="rotate(45 10 10)"/></svg></label><ul id=nav-menu class="navbar-nav order-3 hidden lg:flex w-full pb-6 lg:order-1 lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8"><li class=nav-item><a class=nav-link href=/en/kigo.github.io/en/>Home</a></li><li class=nav-item><a class=nav-link href=/en/kigo.github.io/en/blog>Blog</a></li><li class="nav-item nav-dropdown group relative"><span class="nav-link
+inline-flex items-center">Pages
+<svg class="h-4 w-4 fill-current" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg></span><ul class="nav-dropdown-list lg:group-hover:visible lg:group-hover:opacity-100"><li class=nav-dropdown-item><a class=nav-dropdown-link href=/en/kigo.github.io/en/categories>Categories</a></li><li class=nav-dropdown-item><a class=nav-dropdown-link href=/en/kigo.github.io/en/tags>Tags</a></li></ul></li></ul><div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0"><button aria-label=search class="border-border text-text-dark hover:text-primary
+dark:border-darkmode-border mr-5 inline-block border-r pr-5
+text-xl dark:text-white cursor-pointer dark:hover:text-darkmode-primary" data-target=search-modal>
+<i class="fa-solid fa-search"></i>
+</button>
+<select class="mr-5 pl-2 py-1 dark:bg-darkmode-light rounded" onchange="location=this.value"><option id=ko value=https://kigo1031.github.io/kigo.github.io/blog/event-driven-architecture-cqrs/>한국어</option><option id=en value=https://kigo1031.github.io/kigo.github.io/en/blog/event-driven-architecture-cqrs/ selected>English</option></select><div class="theme-switcher mr-5 invisible"><input id=theme-switcher data-theme-switcher type=checkbox>
+<label for=theme-switcher><span class=sr-only>theme switcher</span>
+<span><svg class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 opacity-100 dark:opacity-0" viewBox="0 0 56 56" fill="#fff" height="16" width="16"><path d="M30 4.6c0-1-.9-2-2-2a2 2 0 00-2 2v5c0 1 .9 2 2 2s2-1 2-2zm9.6 9a2 2 0 000 2.8c.8.8 2 .8 2.9.0L46 13a2 2 0 000-2.9 2 2 0 00-3 0zm-26 2.8c.7.8 2 .8 2.8.0.8-.7.8-2 0-2.9L13 10c-.7-.7-2-.8-2.9.0-.7.8-.7 2.1.0 3zM28 16A12 12 0 0016 28a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0028 16zm23.3 14c1.1.0 2-.9 2-2s-.9-2-2-2h-4.9a2 2 0 00-2 2c0 1.1 1 2 2 2zM4.7 26a2 2 0 00-2 2c0 1.1.9 2 2 2h4.9c1 0 2-.9 2-2s-1-2-2-2zm37.8 13.6a2 2 0 00-3 0 2 2 0 000 2.9l3.6 3.5a2 2 0 002.9.0c.8-.8.8-2.1.0-3zM10 43.1a2 2 0 000 2.9c.8.7 2.1.8 3 0l3.4-3.5c.8-.8.8-2.1.0-2.9s-2-.8-2.9.0zm20 3.4c0-1.1-.9-2-2-2a2 2 0 00-2 2v4.9c0 1 .9 2 2 2s2-1 2-2z"/></svg>
+<svg class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 opacity-0 dark:opacity-100" viewBox="0 0 24 24" fill="none" height="16" width="16"><path fill="#000" fill-rule="evenodd" clip-rule="evenodd" d="M8.2 2.2c1-.4 2 .6 1.6 1.5-1 3-.4 6.4 1.8 8.7a8.4 8.4.0 008.7 1.8c1-.3 2 .5 1.5 1.5v.1A10.3 10.3.0 0112.4 22 10.3 10.3.0 013.2 6.7c1-2 2.9-3.5 4.9-4.4z"/></svg></span></label></div><script>var darkMode=localStorage.getItem("theme")==="dark";localStorage.getItem("theme")===null&&(darkMode=!1,window.matchMedia("(prefers-color-scheme: dark)").matches&&(darkMode=!0)),darkMode?document.documentElement.classList.add("dark"):document.documentElement.classList.remove("dark"),document.addEventListener("DOMContentLoaded",()=>{var e=document.querySelectorAll("[data-theme-switcher]"),t=document.querySelector(".theme-switcher");[].forEach.call(e,function(e){e.checked=darkMode,e.addEventListener("click",()=>{document.documentElement.classList.toggle("dark"),localStorage.setItem("theme",document.documentElement.classList.contains("dark")?"dark":"light")})}),t.classList.remove("invisible")})</script></div></nav></header><div class=search-modal aria-hidden=true style=--color-primary:#121212><div data-target=close-search-modal class=search-modal-overlay></div><div class=search-wrapper data-image=true data-description=true data-tags=true data-categories=true><div class=search-wrapper-header><label for=search-modal-input style=margin-top:-1px><span class=sr-only>search icon</span>
+<svg viewBox="0 0 512 512" height="18" width="18" class="search-icon" data-type="search"><path fill="currentColor" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8.0 45.3s-32.8 12.5-45.3.0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9.0 208S93.1.0 208 0 416 93.1 416 208zM208 352a144 144 0 100-288 144 144 0 100 288z"/></svg>
+<svg viewBox="0 0 512 512" height="18" width="18" class="search-reset" data-type="reset"><path fill="currentColor" d="M256 512A256 256 0 10256 0a256 256 0 100 512zM175 175c9.4-9.4 24.6-9.4 33.9.0l47 47 47-47c9.4-9.4 24.6-9.4 33.9.0s9.4 24.6.0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6.0 33.9s-24.6 9.4-33.9.0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9.0s-9.4-24.6.0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6.0-33.9z"/></svg>
+</label><input id=search-modal-input type=text data-search-input autocomplete=off aria-label=Search placeholder="Search Post..."></div><div class=search-wrapper-body><div class=search-result data-search-result></div><span class=search-result-empty>Type something to search..</span></div><div class=search-wrapper-footer><span><kbd><svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 011.506.0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 01-.753-1.659z"/></svg>
+</kbd><kbd><svg width="14" height="14" fill="currentColor" style="margin-top:1px" viewBox="0 0 16 16"><path d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 001.506.0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 00-.753 1.659z"/></svg>
+</kbd>to navigate
+</span><span><kbd><svg width="12" height="12" fill="currentColor" style="display:inline-block" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M14.5 1.5a.5.5.0 01.5.5v4.8a2.5 2.5.0 01-2.5 2.5H2.707l3.347 3.346a.5.5.0 01-.708.708l-4.2-4.2a.5.5.0 010-.708l4-4a.5.5.0 11.708.708L2.707 8.3H12.5A1.5 1.5.0 0014 6.8V2a.5.5.0 01.5-.5z"/></svg>
+</kbd>to select
+</span><span class=search-result-info></span>
+<span data-target=close-search-modal><kbd>ESC</kbd> to close</span></div></div></div><main><section class="section pt-7"><div class=container><div class="row justify-center"><article class=lg:col-10><div class=mb-10><picture><source srcset=/kigo.github.io/images/service-1_hu_929e1a7812c6d1fe.webp media="(max-width: 575px)"><source srcset=/kigo.github.io/images/service-1_hu_b1075cc11ad28fb0.webp media="(max-width: 767px)"><source srcset=/kigo.github.io/images/service-1_hu_3527cad0cb0b4cd5.webp media="(max-width: 991px)"><source srcset=/kigo.github.io/images/service-1_hu_359afd51d4fd2457.webp><img loading=lazy decoding=async src=/kigo.github.io/images/service-1_hu_734bba9c014561a1.png class="w-full rounded img" alt="Event-Driven Architecture and CQRS: Scalable System Design" width=559 height=518></picture></div><h1 class="h2 mb-4">Event-Driven Architecture and CQRS: Scalable System Design</h1><ul class=mb-4><li class="mr-4 inline-block"><a href=/kigo.github.io/en/authors/kigo/><i class="fa-regular fa-circle-user mr-2"></i>Kigo</a></li><li class="mr-4 inline-block"><i class="fa-regular fa-folder mr-2"></i>
+<a href=/kigo.github.io/en/categories/backend/>Backend
+,
+</a><a href=/kigo.github.io/en/categories/architecture/>Architecture
+,
+</a><a href=/kigo.github.io/en/categories/devops/>Dev ops</a></li><li class="mr-4 inline-block"><i class="fa-regular fa-clock mr-2"></i>
+August 8, 2025</li></ul><div class="content mb-10"><details open class="table-of-content blog"><summary>Table of Contents</summary><nav id=TableOfContents><ol><li><a href=#core-concepts-of-event-driven-architecture>Core Concepts of Event-Driven Architecture</a><ol><li><a href=#1-event-store-implementation>1. Event Store Implementation</a></li><li><a href=#2-aggregates-and-event-sourcing>2. Aggregates and Event Sourcing</a></li></ol></li><li><a href=#cqrs-pattern-implementation>CQRS Pattern Implementation</a><ol><li><a href=#1-command-and-query-separation>1. Command and Query Separation</a></li><li><a href=#2-event-bus-and-message-broker>2. Event Bus and Message Broker</a></li></ol></li><li><a href=#real-time-event-processing>Real-time Event Processing</a><ol><li><a href=#1-event-stream-processing>1. Event Stream Processing</a></li><li><a href=#2-complex-event-processing-cep>2. Complex Event Processing (CEP)</a></li></ol></li><li><a href=#error-handling-and-resilience>Error Handling and Resilience</a><ol><li><a href=#1-compensating-transactions-saga-pattern>1. Compensating Transactions (Saga Pattern)</a></li><li><a href=#2-event-reprocessing-and-idempotency>2. Event Reprocessing and Idempotency</a></li></ol></li><li><a href=#conclusion>Conclusion</a></li></ol></nav></details><p>Event-driven architecture (EDA) and CQRS (Command Query Responsibility Segregation) have become core patterns for large-scale distributed systems in 2025 backend development. Let&rsquo;s explore these essential patterns for modern applications requiring real-time data processing and high scalability with practical code examples.</p><h2 id=core-concepts-of-event-driven-architecture>Core Concepts of Event-Driven Architecture</h2><h3 id=1-event-store-implementation>1. Event Store Implementation</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=display:flex><span><span style=color:#75715e>// Event definition
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>Event</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>id</span>: <span style=color:#66d9ef>string</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>streamId</span>: <span style=color:#66d9ef>string</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>eventType</span>: <span style=color:#66d9ef>string</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>eventVersion</span>: <span style=color:#66d9ef>number</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>data</span>: <span style=color:#66d9ef>any</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>metadata</span>: <span style=color:#66d9ef>any</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>timestamp</span>: <span style=color:#66d9ef>Date</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>EventStore</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>append</span>(<span style=color:#a6e22e>streamId</span>: <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>events</span>: <span style=color:#66d9ef>Event</span>[])<span style=color:#f92672>:</span> <span style=color:#a6e22e>Promise</span>&lt;<span style=color:#f92672>void</span>&gt;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>read</span>(<span style=color:#a6e22e>streamId</span>: <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>fromVersion?</span>: <span style=color:#66d9ef>number</span>)<span style=color:#f92672>:</span> <span style=color:#a6e22e>Promise</span>&lt;<span style=color:#f92672>Event</span><span style=color:#960050;background-color:#1e0010>[]</span>&gt;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>subscribe</span>(<span style=color:#a6e22e>eventType</span>: <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>handler</span>: <span style=color:#66d9ef>EventHandler</span>)<span style=color:#f92672>:</span> <span style=color:#66d9ef>void</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// PostgreSQL-based event store
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>PostgreSQLEventStore</span> <span style=color:#66d9ef>implements</span> <span style=color:#a6e22e>EventStore</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>constructor</span>(<span style=color:#66d9ef>private</span> <span style=color:#a6e22e>db</span>: <span style=color:#66d9ef>Pool</span>) {}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>async</span> <span style=color:#a6e22e>append</span>(<span style=color:#a6e22e>streamId</span>: <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>events</span>: <span style=color:#66d9ef>Event</span>[])<span style=color:#f92672>:</span> <span style=color:#a6e22e>Promise</span>&lt;<span style=color:#f92672>void</span>&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>client</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>connect</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>try</span> {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>client</span>.<span style=color:#a6e22e>query</span>(<span style=color:#e6db74>&#39;BEGIN&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>event</span> <span style=color:#66d9ef>of</span> <span style=color:#a6e22e>events</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>client</span>.<span style=color:#a6e22e>query</span>(<span style=color:#e6db74>`
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>          INSERT INTO events (
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>            id, stream_id, event_type, event_version,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>            data, metadata, timestamp
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>          ) VALUES ($1, $2, $3, $4, $5, $6, $7)
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        `</span>, [
+</span></span><span style=display:flex><span>          <span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>id</span>,
+</span></span><span style=display:flex><span>          <span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>streamId</span>,
+</span></span><span style=display:flex><span>          <span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>eventType</span>,
+</span></span><span style=display:flex><span>          <span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>eventVersion</span>,
+</span></span><span style=display:flex><span>          <span style=color:#a6e22e>JSON</span>.<span style=color:#a6e22e>stringify</span>(<span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>data</span>),
+</span></span><span style=display:flex><span>          <span style=color:#a6e22e>JSON</span>.<span style=color:#a6e22e>stringify</span>(<span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>metadata</span>),
+</span></span><span style=display:flex><span>          <span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>timestamp</span>
+</span></span><span style=display:flex><span>        ])
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>client</span>.<span style=color:#a6e22e>query</span>(<span style=color:#e6db74>&#39;COMMIT&#39;</span>)
+</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>catch</span> (<span style=color:#a6e22e>error</span>) {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>client</span>.<span style=color:#a6e22e>query</span>(<span style=color:#e6db74>&#39;ROLLBACK&#39;</span>)
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>throw</span> <span style=color:#a6e22e>error</span>
+</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>finally</span> {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>client</span>.<span style=color:#a6e22e>release</span>()
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>async</span> <span style=color:#a6e22e>read</span>(<span style=color:#a6e22e>streamId</span>: <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>fromVersion</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>)<span style=color:#f92672>:</span> <span style=color:#a6e22e>Promise</span>&lt;<span style=color:#f92672>Event</span><span style=color:#960050;background-color:#1e0010>[]</span>&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>result</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>query</span>(<span style=color:#e6db74>`
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>      SELECT * FROM events
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>      WHERE stream_id = $1 AND event_version &gt;= $2
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>      ORDER BY event_version ASC
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    `</span>, [<span style=color:#a6e22e>streamId</span>, <span style=color:#a6e22e>fromVersion</span>])
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>result</span>.<span style=color:#a6e22e>rows</span>.<span style=color:#a6e22e>map</span>(<span style=color:#a6e22e>row</span> <span style=color:#f92672>=&gt;</span> ({
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>id</span>: <span style=color:#66d9ef>row.id</span>,
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>streamId</span>: <span style=color:#66d9ef>row.stream_id</span>,
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>eventType</span>: <span style=color:#66d9ef>row.event_type</span>,
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>eventVersion</span>: <span style=color:#66d9ef>row.event_version</span>,
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>data</span>: <span style=color:#66d9ef>JSON.parse</span>(<span style=color:#a6e22e>row</span>.<span style=color:#a6e22e>data</span>),
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>metadata</span>: <span style=color:#66d9ef>JSON.parse</span>(<span style=color:#a6e22e>row</span>.<span style=color:#a6e22e>metadata</span>),
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>timestamp</span>: <span style=color:#66d9ef>row.timestamp</span>
+</span></span><span style=display:flex><span>    }))
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>subscribe</span>(<span style=color:#a6e22e>eventType</span>: <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>handler</span>: <span style=color:#66d9ef>EventHandler</span>)<span style=color:#f92672>:</span> <span style=color:#66d9ef>void</span> {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Using PostgreSQL LISTEN/NOTIFY
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>connect</span>().<span style=color:#a6e22e>then</span>(<span style=color:#a6e22e>client</span> <span style=color:#f92672>=&gt;</span> {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>client</span>.<span style=color:#a6e22e>query</span>(<span style=color:#e6db74>`LISTEN </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>eventType</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>)
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>client</span>.<span style=color:#a6e22e>on</span>(<span style=color:#e6db74>&#39;notification&#39;</span>, (<span style=color:#a6e22e>msg</span>) <span style=color:#f92672>=&gt;</span> {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>event</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>JSON</span>.<span style=color:#a6e22e>parse</span>(<span style=color:#a6e22e>msg</span>.<span style=color:#a6e22e>payload</span>)
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>handler</span>(<span style=color:#a6e22e>event</span>)
+</span></span><span style=display:flex><span>      })
+</span></span><span style=display:flex><span>    })
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=2-aggregates-and-event-sourcing>2. Aggregates and Event Sourcing</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=display:flex><span><span style=color:#75715e>// Domain event definition
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>abstract</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>DomainEvent</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>abstract</span> <span style=color:#a6e22e>eventType</span>: <span style=color:#66d9ef>string</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>constructor</span>(
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>aggregateId</span>: <span style=color:#66d9ef>string</span>,
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>timestamp</span>: <span style=color:#66d9ef>Date</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Date()
+</span></span><span style=display:flex><span>  ) {}
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>UserRegisteredEvent</span> <span style=color:#66d9ef>extends</span> <span style=color:#a6e22e>DomainEvent</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>eventType</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;UserRegistered&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>constructor</span>(
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>aggregateId</span>: <span style=color:#66d9ef>string</span>,
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>email</span>: <span style=color:#66d9ef>string</span>,
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>name</span>: <span style=color:#66d9ef>string</span>
+</span></span><span style=display:flex><span>  ) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>super</span>(<span style=color:#a6e22e>aggregateId</span>)
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>UserEmailChangedEvent</span> <span style=color:#66d9ef>extends</span> <span style=color:#a6e22e>DomainEvent</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>eventType</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;UserEmailChanged&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>constructor</span>(
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>aggregateId</span>: <span style=color:#66d9ef>string</span>,
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>newEmail</span>: <span style=color:#66d9ef>string</span>,
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>oldEmail</span>: <span style=color:#66d9ef>string</span>
+</span></span><span style=display:flex><span>  ) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>super</span>(<span style=color:#a6e22e>aggregateId</span>)
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Aggregate root
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>abstract</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>AggregateRoot</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>protected</span> <span style=color:#a6e22e>uncommittedEvents</span>: <span style=color:#66d9ef>DomainEvent</span>[] <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>protected</span> <span style=color:#a6e22e>version</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>protected</span> <span style=color:#a6e22e>addEvent</span>(<span style=color:#a6e22e>event</span>: <span style=color:#66d9ef>DomainEvent</span>)<span style=color:#f92672>:</span> <span style=color:#66d9ef>void</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>uncommittedEvents</span>.<span style=color:#a6e22e>push</span>(<span style=color:#a6e22e>event</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>apply</span>(<span style=color:#a6e22e>event</span>)
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>abstract</span> <span style=color:#a6e22e>apply</span>(<span style=color:#a6e22e>event</span>: <span style=color:#66d9ef>DomainEvent</span>)<span style=color:#f92672>:</span> <span style=color:#66d9ef>void</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>getUncommittedEvents</span>()<span style=color:#f92672>:</span> <span style=color:#a6e22e>DomainEvent</span>[] {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> [...<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>uncommittedEvents</span>]
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>markEventsAsCommitted</span>()<span style=color:#f92672>:</span> <span style=color:#66d9ef>void</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>uncommittedEvents</span> <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>loadFromHistory</span>(<span style=color:#a6e22e>events</span>: <span style=color:#66d9ef>DomainEvent</span>[])<span style=color:#f92672>:</span> <span style=color:#66d9ef>void</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>events</span>.<span style=color:#a6e22e>forEach</span>(<span style=color:#a6e22e>event</span> <span style=color:#f92672>=&gt;</span> {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>apply</span>(<span style=color:#a6e22e>event</span>)
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>version</span><span style=color:#f92672>++</span>
+</span></span><span style=display:flex><span>    })
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// User aggregate
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>User</span> <span style=color:#66d9ef>extends</span> <span style=color:#a6e22e>AggregateRoot</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>private</span> <span style=color:#a6e22e>id</span>: <span style=color:#66d9ef>string</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>private</span> <span style=color:#a6e22e>email</span>: <span style=color:#66d9ef>string</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>private</span> <span style=color:#a6e22e>name</span>: <span style=color:#66d9ef>string</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>private</span> <span style=color:#a6e22e>isActive</span>: <span style=color:#66d9ef>boolean</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>static</span> <span style=color:#a6e22e>create</span>(<span style=color:#a6e22e>id</span>: <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>email</span>: <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>name</span>: <span style=color:#66d9ef>string</span>)<span style=color:#f92672>:</span> <span style=color:#a6e22e>User</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>user</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>User</span>()
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>user</span>.<span style=color:#a6e22e>addEvent</span>(<span style=color:#66d9ef>new</span> <span style=color:#a6e22e>UserRegisteredEvent</span>(<span style=color:#a6e22e>id</span>, <span style=color:#a6e22e>email</span>, <span style=color:#a6e22e>name</span>))
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>user</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>changeEmail</span>(<span style=color:#a6e22e>newEmail</span>: <span style=color:#66d9ef>string</span>)<span style=color:#f92672>:</span> <span style=color:#66d9ef>void</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>email</span> <span style=color:#f92672>===</span> <span style=color:#a6e22e>newEmail</span>) <span style=color:#66d9ef>return</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>addEvent</span>(<span style=color:#66d9ef>new</span> <span style=color:#a6e22e>UserEmailChangedEvent</span>(
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>id</span>,
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>newEmail</span>,
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>email</span>
+</span></span><span style=display:flex><span>    ))
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>apply</span>(<span style=color:#a6e22e>event</span>: <span style=color:#66d9ef>DomainEvent</span>)<span style=color:#f92672>:</span> <span style=color:#66d9ef>void</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>switch</span> (<span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>eventType</span>) {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>case</span> <span style=color:#e6db74>&#39;UserRegistered&#39;</span><span style=color:#f92672>:</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>registered</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>event</span> <span style=color:#66d9ef>as</span> <span style=color:#a6e22e>UserRegisteredEvent</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>id</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>registered</span>.<span style=color:#a6e22e>aggregateId</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>email</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>registered</span>.<span style=color:#a6e22e>email</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>name</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>registered</span>.<span style=color:#a6e22e>name</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>isActive</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>break</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>case</span> <span style=color:#e6db74>&#39;UserEmailChanged&#39;</span><span style=color:#f92672>:</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>emailChanged</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>event</span> <span style=color:#66d9ef>as</span> <span style=color:#a6e22e>UserEmailChangedEvent</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>email</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>emailChanged</span>.<span style=color:#a6e22e>newEmail</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>break</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>getId</span>()<span style=color:#f92672>:</span> <span style=color:#66d9ef>string</span> { <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>id</span> }
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>getEmail</span>()<span style=color:#f92672>:</span> <span style=color:#66d9ef>string</span> { <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>email</span> }
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>getName</span>()<span style=color:#f92672>:</span> <span style=color:#66d9ef>string</span> { <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>name</span> }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=cqrs-pattern-implementation>CQRS Pattern Implementation</h2><h3 id=1-command-and-query-separation>1. Command and Query Separation</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=display:flex><span><span style=color:#75715e>// Command definition
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>Command</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>id</span>: <span style=color:#66d9ef>string</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>userId</span>: <span style=color:#66d9ef>string</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>timestamp</span>: <span style=color:#66d9ef>Date</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>RegisterUserCommand</span> <span style=color:#66d9ef>implements</span> <span style=color:#a6e22e>Command</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>constructor</span>(
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>id</span>: <span style=color:#66d9ef>string</span>,
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>userId</span>: <span style=color:#66d9ef>string</span>,
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>email</span>: <span style=color:#66d9ef>string</span>,
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>name</span>: <span style=color:#66d9ef>string</span>,
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>timestamp</span>: <span style=color:#66d9ef>Date</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Date()
+</span></span><span style=display:flex><span>  ) {}
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>ChangeUserEmailCommand</span> <span style=color:#66d9ef>implements</span> <span style=color:#a6e22e>Command</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>constructor</span>(
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>id</span>: <span style=color:#66d9ef>string</span>,
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>userId</span>: <span style=color:#66d9ef>string</span>,
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>newEmail</span>: <span style=color:#66d9ef>string</span>,
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>timestamp</span>: <span style=color:#66d9ef>Date</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Date()
+</span></span><span style=display:flex><span>  ) {}
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Command handler
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>CommandHandler</span>&lt;<span style=color:#f92672>T</span> <span style=color:#a6e22e>extends</span> <span style=color:#a6e22e>Command</span>&gt; {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>handle</span>(<span style=color:#a6e22e>command</span>: <span style=color:#66d9ef>T</span>)<span style=color:#f92672>:</span> <span style=color:#a6e22e>Promise</span>&lt;<span style=color:#f92672>void</span>&gt;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>RegisterUserCommandHandler</span> <span style=color:#66d9ef>implements</span> <span style=color:#a6e22e>CommandHandler</span>&lt;<span style=color:#f92672>RegisterUserCommand</span>&gt; {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>constructor</span>(
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#a6e22e>userRepository</span>: <span style=color:#66d9ef>UserRepository</span>,
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#a6e22e>eventStore</span>: <span style=color:#66d9ef>EventStore</span>
+</span></span><span style=display:flex><span>  ) {}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>async</span> <span style=color:#a6e22e>handle</span>(<span style=color:#a6e22e>command</span>: <span style=color:#66d9ef>RegisterUserCommand</span>)<span style=color:#f92672>:</span> <span style=color:#a6e22e>Promise</span>&lt;<span style=color:#f92672>void</span>&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Business rule validation
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>existingUser</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>userRepository</span>.<span style=color:#a6e22e>findByEmail</span>(<span style=color:#a6e22e>command</span>.<span style=color:#a6e22e>email</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>existingUser</span>) {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>throw</span> <span style=color:#66d9ef>new</span> Error(<span style=color:#e6db74>&#39;User with this email already exists&#39;</span>)
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Create aggregate
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>user</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>User</span>.<span style=color:#a6e22e>create</span>(<span style=color:#a6e22e>command</span>.<span style=color:#a6e22e>userId</span>, <span style=color:#a6e22e>command</span>.<span style=color:#a6e22e>email</span>, <span style=color:#a6e22e>command</span>.<span style=color:#a6e22e>name</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Store events
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>events</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>user</span>.<span style=color:#a6e22e>getUncommittedEvents</span>().<span style=color:#a6e22e>map</span>(<span style=color:#a6e22e>event</span> <span style=color:#f92672>=&gt;</span> ({
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>id</span>: <span style=color:#66d9ef>generateId</span>(),
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>streamId</span>: <span style=color:#66d9ef>user.getId</span>(),
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>eventType</span>: <span style=color:#66d9ef>event.eventType</span>,
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>eventVersion</span>: <span style=color:#66d9ef>1</span>,
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>data</span>: <span style=color:#66d9ef>event</span>,
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>metadata</span><span style=color:#f92672>:</span> { <span style=color:#a6e22e>commandId</span>: <span style=color:#66d9ef>command.id</span> },
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>timestamp</span>: <span style=color:#66d9ef>event.timestamp</span>
+</span></span><span style=display:flex><span>    }))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>await</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>eventStore</span>.<span style=color:#a6e22e>append</span>(<span style=color:#a6e22e>user</span>.<span style=color:#a6e22e>getId</span>(), <span style=color:#a6e22e>events</span>)
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>user</span>.<span style=color:#a6e22e>markEventsAsCommitted</span>()
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Query model
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>UserReadModel</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>id</span>: <span style=color:#66d9ef>string</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>email</span>: <span style=color:#66d9ef>string</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>name</span>: <span style=color:#66d9ef>string</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>registeredAt</span>: <span style=color:#66d9ef>Date</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>lastUpdated</span>: <span style=color:#66d9ef>Date</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>UserQueryRepository</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>findById</span>(<span style=color:#a6e22e>id</span>: <span style=color:#66d9ef>string</span>)<span style=color:#f92672>:</span> <span style=color:#a6e22e>Promise</span>&lt;<span style=color:#f92672>UserReadModel</span> <span style=color:#960050;background-color:#1e0010>|</span> <span style=color:#a6e22e>null</span>&gt;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>findByEmail</span>(<span style=color:#a6e22e>email</span>: <span style=color:#66d9ef>string</span>)<span style=color:#f92672>:</span> <span style=color:#a6e22e>Promise</span>&lt;<span style=color:#f92672>UserReadModel</span> <span style=color:#960050;background-color:#1e0010>|</span> <span style=color:#a6e22e>null</span>&gt;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>findAll</span>(<span style=color:#a6e22e>page</span>: <span style=color:#66d9ef>number</span>, <span style=color:#a6e22e>size</span>: <span style=color:#66d9ef>number</span>)<span style=color:#f92672>:</span> <span style=color:#a6e22e>Promise</span>&lt;<span style=color:#f92672>UserReadModel</span><span style=color:#960050;background-color:#1e0010>[]</span>&gt;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Read model projection
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>UserProjection</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>constructor</span>(
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#a6e22e>queryRepository</span>: <span style=color:#66d9ef>UserQueryRepository</span>,
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#a6e22e>eventStore</span>: <span style=color:#66d9ef>EventStore</span>
+</span></span><span style=display:flex><span>  ) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>subscribeToEvents</span>()
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>private</span> <span style=color:#a6e22e>subscribeToEvents</span>()<span style=color:#f92672>:</span> <span style=color:#66d9ef>void</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>eventStore</span>.<span style=color:#a6e22e>subscribe</span>(<span style=color:#e6db74>&#39;UserRegistered&#39;</span>, <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>handleUserRegistered</span>.<span style=color:#a6e22e>bind</span>(<span style=color:#66d9ef>this</span>))
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>eventStore</span>.<span style=color:#a6e22e>subscribe</span>(<span style=color:#e6db74>&#39;UserEmailChanged&#39;</span>, <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>handleUserEmailChanged</span>.<span style=color:#a6e22e>bind</span>(<span style=color:#66d9ef>this</span>))
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>async</span> <span style=color:#a6e22e>handleUserRegistered</span>(<span style=color:#a6e22e>event</span>: <span style=color:#66d9ef>UserRegisteredEvent</span>)<span style=color:#f92672>:</span> <span style=color:#a6e22e>Promise</span>&lt;<span style=color:#f92672>void</span>&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>readModel</span>: <span style=color:#66d9ef>UserReadModel</span> <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>id</span>: <span style=color:#66d9ef>event.aggregateId</span>,
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>email</span>: <span style=color:#66d9ef>event.email</span>,
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>name</span>: <span style=color:#66d9ef>event.name</span>,
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>registeredAt</span>: <span style=color:#66d9ef>event.timestamp</span>,
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>lastUpdated</span>: <span style=color:#66d9ef>event.timestamp</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>await</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>queryRepository</span>.<span style=color:#a6e22e>save</span>(<span style=color:#a6e22e>readModel</span>)
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>async</span> <span style=color:#a6e22e>handleUserEmailChanged</span>(<span style=color:#a6e22e>event</span>: <span style=color:#66d9ef>UserEmailChangedEvent</span>)<span style=color:#f92672>:</span> <span style=color:#a6e22e>Promise</span>&lt;<span style=color:#f92672>void</span>&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>user</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>queryRepository</span>.<span style=color:#a6e22e>findById</span>(<span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>aggregateId</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>user</span>) {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>user</span>.<span style=color:#a6e22e>email</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>newEmail</span>
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>user</span>.<span style=color:#a6e22e>lastUpdated</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>timestamp</span>
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>await</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>queryRepository</span>.<span style=color:#a6e22e>save</span>(<span style=color:#a6e22e>user</span>)
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=2-event-bus-and-message-broker>2. Event Bus and Message Broker</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=display:flex><span><span style=color:#75715e>// Apache Kafka event bus
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>Kafka</span>, <span style=color:#a6e22e>Producer</span>, <span style=color:#a6e22e>Consumer</span> } <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#39;kafkajs&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>KafkaEventBus</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>private</span> <span style=color:#a6e22e>kafka</span>: <span style=color:#66d9ef>Kafka</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>private</span> <span style=color:#a6e22e>producer</span>: <span style=color:#66d9ef>Producer</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>private</span> <span style=color:#a6e22e>consumers</span>: <span style=color:#66d9ef>Map</span>&lt;<span style=color:#f92672>string</span>, <span style=color:#a6e22e>Consumer</span>&gt; <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Map</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>constructor</span>(<span style=color:#a6e22e>brokers</span>: <span style=color:#66d9ef>string</span>[]) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>kafka</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Kafka</span>({
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>clientId</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;event-bus&#39;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>brokers</span>
+</span></span><span style=display:flex><span>    })
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>producer</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>kafka</span>.<span style=color:#a6e22e>producer</span>()
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>async</span> <span style=color:#a6e22e>initialize</span>()<span style=color:#f92672>:</span> <span style=color:#a6e22e>Promise</span>&lt;<span style=color:#f92672>void</span>&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>await</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>producer</span>.<span style=color:#a6e22e>connect</span>()
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>async</span> <span style=color:#a6e22e>publish</span>(<span style=color:#a6e22e>topic</span>: <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>events</span>: <span style=color:#66d9ef>DomainEvent</span>[])<span style=color:#f92672>:</span> <span style=color:#a6e22e>Promise</span>&lt;<span style=color:#f92672>void</span>&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>messages</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>events</span>.<span style=color:#a6e22e>map</span>(<span style=color:#a6e22e>event</span> <span style=color:#f92672>=&gt;</span> ({
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>key</span>: <span style=color:#66d9ef>event.aggregateId</span>,
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>value</span>: <span style=color:#66d9ef>JSON.stringify</span>(<span style=color:#a6e22e>event</span>),
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>headers</span><span style=color:#f92672>:</span> {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>eventType</span>: <span style=color:#66d9ef>event.eventType</span>,
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>timestamp</span>: <span style=color:#66d9ef>event.timestamp.toISOString</span>()
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    }))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>await</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>producer</span>.<span style=color:#a6e22e>send</span>({
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>topic</span>,
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>messages</span>
+</span></span><span style=display:flex><span>    })
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>async</span> <span style=color:#a6e22e>subscribe</span>(
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>topic</span>: <span style=color:#66d9ef>string</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>groupId</span>: <span style=color:#66d9ef>string</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>handler</span><span style=color:#f92672>:</span> (<span style=color:#a6e22e>event</span>: <span style=color:#66d9ef>DomainEvent</span>) <span style=color:#f92672>=&gt;</span> <span style=color:#a6e22e>Promise</span>&lt;<span style=color:#f92672>void</span>&gt;
+</span></span><span style=display:flex><span>  )<span style=color:#f92672>:</span> <span style=color:#a6e22e>Promise</span>&lt;<span style=color:#f92672>void</span>&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>consumer</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>kafka</span>.<span style=color:#a6e22e>consumer</span>({ <span style=color:#a6e22e>groupId</span> })
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>consumer</span>.<span style=color:#a6e22e>connect</span>()
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>consumer</span>.<span style=color:#a6e22e>subscribe</span>({ <span style=color:#a6e22e>topic</span> })
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>consumer</span>.<span style=color:#a6e22e>run</span>({
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>eachMessage</span>: <span style=color:#66d9ef>async</span> ({ <span style=color:#a6e22e>message</span> }) <span style=color:#f92672>=&gt;</span> {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span> {
+</span></span><span style=display:flex><span>          <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>event</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>JSON</span>.<span style=color:#a6e22e>parse</span>(<span style=color:#a6e22e>message</span>.<span style=color:#a6e22e>value</span><span style=color:#f92672>?</span>.<span style=color:#a6e22e>toString</span>() <span style=color:#f92672>||</span> <span style=color:#e6db74>&#39;{}&#39;</span>)
+</span></span><span style=display:flex><span>          <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>handler</span>(<span style=color:#a6e22e>event</span>)
+</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>catch</span> (<span style=color:#a6e22e>error</span>) {
+</span></span><span style=display:flex><span>          <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>error</span>(<span style=color:#e6db74>&#39;Event processing failed:&#39;</span>, <span style=color:#a6e22e>error</span>)
+</span></span><span style=display:flex><span>          <span style=color:#75715e>// Send to dead letter queue or retry logic
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        }
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    })
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>consumers</span>.<span style=color:#66d9ef>set</span>(<span style=color:#e6db74>`</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>topic</span><span style=color:#e6db74>}</span><span style=color:#e6db74>-</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>groupId</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>, <span style=color:#a6e22e>consumer</span>)
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>async</span> <span style=color:#a6e22e>shutdown</span>()<span style=color:#f92672>:</span> <span style=color:#a6e22e>Promise</span>&lt;<span style=color:#f92672>void</span>&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>await</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>producer</span>.<span style=color:#a6e22e>disconnect</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>consumer</span> <span style=color:#66d9ef>of</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>consumers</span>.<span style=color:#a6e22e>values</span>()) {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>consumer</span>.<span style=color:#a6e22e>disconnect</span>()
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=real-time-event-processing>Real-time Event Processing</h2><h3 id=1-event-stream-processing>1. Event Stream Processing</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=display:flex><span><span style=color:#75715e>// Event stream processor
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>EventStreamProcessor</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>private</span> <span style=color:#a6e22e>isRunning</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>private</span> <span style=color:#a6e22e>checkpointInterval</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>5000</span> <span style=color:#75715e>// 5 seconds
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>private</span> <span style=color:#a6e22e>lastCheckpoint</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>constructor</span>(
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#a6e22e>eventStore</span>: <span style=color:#66d9ef>EventStore</span>,
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#a6e22e>projections</span>: <span style=color:#66d9ef>EventProjection</span>[]
+</span></span><span style=display:flex><span>  ) {}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>async</span> <span style=color:#a6e22e>start</span>()<span style=color:#f92672>:</span> <span style=color:#a6e22e>Promise</span>&lt;<span style=color:#f92672>void</span>&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>isRunning</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>lastCheckpoint</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>loadCheckpoint</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>`Starting event stream processor from checkpoint: </span><span style=color:#e6db74>${</span><span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>lastCheckpoint</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>while</span> (<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>isRunning</span>) {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>try</span> {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>events</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>fetchEvents</span>(<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>lastCheckpoint</span>, <span style=color:#ae81ff>100</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>events</span>.<span style=color:#a6e22e>length</span> <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>0</span>) {
+</span></span><span style=display:flex><span>          <span style=color:#66d9ef>await</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>processEvents</span>(<span style=color:#a6e22e>events</span>)
+</span></span><span style=display:flex><span>          <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>lastCheckpoint</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>events</span>[<span style=color:#a6e22e>events</span>.<span style=color:#a6e22e>length</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>].<span style=color:#a6e22e>eventVersion</span>
+</span></span><span style=display:flex><span>          <span style=color:#66d9ef>await</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>saveCheckpoint</span>(<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>lastCheckpoint</span>)
+</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>          <span style=color:#66d9ef>await</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>sleep</span>(<span style=color:#ae81ff>1000</span>) <span style=color:#75715e>// Wait 1 second
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        }
+</span></span><span style=display:flex><span>      } <span style=color:#66d9ef>catch</span> (<span style=color:#a6e22e>error</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>error</span>(<span style=color:#e6db74>&#39;Event processing error:&#39;</span>, <span style=color:#a6e22e>error</span>)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>await</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>sleep</span>(<span style=color:#ae81ff>5000</span>) <span style=color:#75715e>// Wait 5 seconds on error
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>      }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>stop</span>()<span style=color:#f92672>:</span> <span style=color:#66d9ef>void</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>isRunning</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>async</span> <span style=color:#a6e22e>processEvents</span>(<span style=color:#a6e22e>events</span>: <span style=color:#66d9ef>Event</span>[])<span style=color:#f92672>:</span> <span style=color:#a6e22e>Promise</span>&lt;<span style=color:#f92672>void</span>&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>event</span> <span style=color:#66d9ef>of</span> <span style=color:#a6e22e>events</span>) {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>projection</span> <span style=color:#66d9ef>of</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>projections</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>projection</span>.<span style=color:#a6e22e>canHandle</span>(<span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>eventType</span>)) {
+</span></span><span style=display:flex><span>          <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>projection</span>.<span style=color:#a6e22e>handle</span>(<span style=color:#a6e22e>event</span>)
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>async</span> <span style=color:#a6e22e>fetchEvents</span>(<span style=color:#a6e22e>fromVersion</span>: <span style=color:#66d9ef>number</span>, <span style=color:#a6e22e>limit</span>: <span style=color:#66d9ef>number</span>)<span style=color:#f92672>:</span> <span style=color:#a6e22e>Promise</span>&lt;<span style=color:#f92672>Event</span><span style=color:#960050;background-color:#1e0010>[]</span>&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Fetch events from global event stream
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>eventStore</span>.<span style=color:#a6e22e>readGlobalStream</span>(<span style=color:#a6e22e>fromVersion</span>, <span style=color:#a6e22e>limit</span>)
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>async</span> <span style=color:#a6e22e>loadCheckpoint</span>()<span style=color:#f92672>:</span> <span style=color:#a6e22e>Promise</span>&lt;<span style=color:#f92672>number</span>&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Load last processed event version from checkpoint store
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span> <span style=color:#75715e>// Implementation needed
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>async</span> <span style=color:#a6e22e>saveCheckpoint</span>(<span style=color:#a6e22e>version</span>: <span style=color:#66d9ef>number</span>)<span style=color:#f92672>:</span> <span style=color:#a6e22e>Promise</span>&lt;<span style=color:#f92672>void</span>&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Save checkpoint
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>private</span> <span style=color:#a6e22e>sleep</span>(<span style=color:#a6e22e>ms</span>: <span style=color:#66d9ef>number</span>)<span style=color:#f92672>:</span> <span style=color:#a6e22e>Promise</span>&lt;<span style=color:#f92672>void</span>&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Promise</span>(<span style=color:#a6e22e>resolve</span> <span style=color:#f92672>=&gt;</span> <span style=color:#a6e22e>setTimeout</span>(<span style=color:#a6e22e>resolve</span>, <span style=color:#a6e22e>ms</span>))
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=2-complex-event-processing-cep>2. Complex Event Processing (CEP)</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=display:flex><span><span style=color:#75715e>// Complex event definition
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>EventPattern</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>name</span>: <span style=color:#66d9ef>string</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>events</span>: <span style=color:#66d9ef>string</span>[]
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>timeWindow</span>: <span style=color:#66d9ef>number</span> <span style=color:#75715e>// milliseconds
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>condition</span><span style=color:#f92672>:</span> (<span style=color:#a6e22e>events</span>: <span style=color:#66d9ef>DomainEvent</span>[]) <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>boolean</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>ComplexEventProcessor</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>private</span> <span style=color:#a6e22e>eventBuffer</span>: <span style=color:#66d9ef>Map</span>&lt;<span style=color:#f92672>string</span>, <span style=color:#a6e22e>DomainEvent</span><span style=color:#960050;background-color:#1e0010>[]</span>&gt; <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Map</span>()
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>private</span> <span style=color:#a6e22e>patterns</span>: <span style=color:#66d9ef>EventPattern</span>[] <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>addPattern</span>(<span style=color:#a6e22e>pattern</span>: <span style=color:#66d9ef>EventPattern</span>)<span style=color:#f92672>:</span> <span style=color:#66d9ef>void</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>patterns</span>.<span style=color:#a6e22e>push</span>(<span style=color:#a6e22e>pattern</span>)
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>processEvent</span>(<span style=color:#a6e22e>event</span>: <span style=color:#66d9ef>DomainEvent</span>)<span style=color:#f92672>:</span> <span style=color:#66d9ef>void</span> {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Add event to buffer
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>key</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>`</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>aggregateId</span><span style=color:#e6db74>}</span><span style=color:#e6db74>-</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>eventType</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>events</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>eventBuffer</span>.<span style=color:#66d9ef>get</span>(<span style=color:#a6e22e>key</span>) <span style=color:#f92672>||</span> []
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>events</span>.<span style=color:#a6e22e>push</span>(<span style=color:#a6e22e>event</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>eventBuffer</span>.<span style=color:#66d9ef>set</span>(<span style=color:#a6e22e>key</span>, <span style=color:#a6e22e>events</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Check pattern matching
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>checkPatterns</span>(<span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>aggregateId</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Clean up old events
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>cleanupOldEvents</span>()
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>private</span> <span style=color:#a6e22e>checkPatterns</span>(<span style=color:#a6e22e>aggregateId</span>: <span style=color:#66d9ef>string</span>)<span style=color:#f92672>:</span> <span style=color:#66d9ef>void</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>pattern</span> <span style=color:#66d9ef>of</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>patterns</span>) {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>relevantEvents</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>getEventsForPattern</span>(<span style=color:#a6e22e>aggregateId</span>, <span style=color:#a6e22e>pattern</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>relevantEvents</span>.<span style=color:#a6e22e>length</span> <span style=color:#f92672>&gt;=</span> <span style=color:#a6e22e>pattern</span>.<span style=color:#a6e22e>events</span>.<span style=color:#a6e22e>length</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>sortedEvents</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>relevantEvents</span>.<span style=color:#a6e22e>sort</span>((<span style=color:#a6e22e>a</span>, <span style=color:#a6e22e>b</span>) <span style=color:#f92672>=&gt;</span>
+</span></span><span style=display:flex><span>          <span style=color:#a6e22e>a</span>.<span style=color:#a6e22e>timestamp</span>.<span style=color:#a6e22e>getTime</span>() <span style=color:#f92672>-</span> <span style=color:#a6e22e>b</span>.<span style=color:#a6e22e>timestamp</span>.<span style=color:#a6e22e>getTime</span>()
+</span></span><span style=display:flex><span>        )
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// Check time window
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>firstEvent</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>sortedEvents</span>[<span style=color:#ae81ff>0</span>]
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>lastEvent</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>sortedEvents</span>[<span style=color:#a6e22e>sortedEvents</span>.<span style=color:#a6e22e>length</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>]
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>timeDiff</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>lastEvent</span>.<span style=color:#a6e22e>timestamp</span>.<span style=color:#a6e22e>getTime</span>() <span style=color:#f92672>-</span> <span style=color:#a6e22e>firstEvent</span>.<span style=color:#a6e22e>timestamp</span>.<span style=color:#a6e22e>getTime</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>timeDiff</span> <span style=color:#f92672>&lt;=</span> <span style=color:#a6e22e>pattern</span>.<span style=color:#a6e22e>timeWindow</span> <span style=color:#f92672>&amp;&amp;</span> <span style=color:#a6e22e>pattern</span>.<span style=color:#a6e22e>condition</span>(<span style=color:#a6e22e>sortedEvents</span>)) {
+</span></span><span style=display:flex><span>          <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>triggerPattern</span>(<span style=color:#a6e22e>pattern</span>, <span style=color:#a6e22e>sortedEvents</span>)
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>private</span> <span style=color:#a6e22e>getEventsForPattern</span>(<span style=color:#a6e22e>aggregateId</span>: <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>pattern</span>: <span style=color:#66d9ef>EventPattern</span>)<span style=color:#f92672>:</span> <span style=color:#a6e22e>DomainEvent</span>[] {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>events</span>: <span style=color:#66d9ef>DomainEvent</span>[] <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>eventType</span> <span style=color:#66d9ef>of</span> <span style=color:#a6e22e>pattern</span>.<span style=color:#a6e22e>events</span>) {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>key</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>`</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>aggregateId</span><span style=color:#e6db74>}</span><span style=color:#e6db74>-</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>eventType</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>bufferEvents</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>eventBuffer</span>.<span style=color:#66d9ef>get</span>(<span style=color:#a6e22e>key</span>) <span style=color:#f92672>||</span> []
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>events</span>.<span style=color:#a6e22e>push</span>(...<span style=color:#a6e22e>bufferEvents</span>)
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>events</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>private</span> <span style=color:#a6e22e>triggerPattern</span>(<span style=color:#a6e22e>pattern</span>: <span style=color:#66d9ef>EventPattern</span>, <span style=color:#a6e22e>events</span>: <span style=color:#66d9ef>DomainEvent</span>[])<span style=color:#f92672>:</span> <span style=color:#66d9ef>void</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>`Pattern triggered: </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>pattern</span>.<span style=color:#a6e22e>name</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>, <span style=color:#a6e22e>events</span>)
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Handle complex event occurrence
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>private</span> <span style=color:#a6e22e>cleanupOldEvents</span>()<span style=color:#f92672>:</span> <span style=color:#66d9ef>void</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>now</span> <span style=color:#f92672>=</span> Date.<span style=color:#a6e22e>now</span>()
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>maxAge</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>60000</span> <span style=color:#75715e>// 1 minute
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>const</span> [<span style=color:#a6e22e>key</span>, <span style=color:#a6e22e>events</span>] <span style=color:#66d9ef>of</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>eventBuffer</span>.<span style=color:#a6e22e>entries</span>()) {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>validEvents</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>events</span>.<span style=color:#a6e22e>filter</span>(<span style=color:#a6e22e>event</span> <span style=color:#f92672>=&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>now</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>timestamp</span>.<span style=color:#a6e22e>getTime</span>() <span style=color:#f92672>&lt;</span> <span style=color:#a6e22e>maxAge</span>
+</span></span><span style=display:flex><span>      )
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>validEvents</span>.<span style=color:#a6e22e>length</span> <span style=color:#f92672>===</span> <span style=color:#ae81ff>0</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>eventBuffer</span>.<span style=color:#66d9ef>delete</span>(<span style=color:#a6e22e>key</span>)
+</span></span><span style=display:flex><span>      } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>eventBuffer</span>.<span style=color:#66d9ef>set</span>(<span style=color:#a6e22e>key</span>, <span style=color:#a6e22e>validEvents</span>)
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Usage example
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>cep</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>ComplexEventProcessor</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>cep</span>.<span style=color:#a6e22e>addPattern</span>({
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>name</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;SuspiciousUserActivity&#39;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>events</span><span style=color:#f92672>:</span> [<span style=color:#e6db74>&#39;UserLoginFailed&#39;</span>, <span style=color:#e6db74>&#39;UserLoginFailed&#39;</span>, <span style=color:#e6db74>&#39;UserLoginFailed&#39;</span>],
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>timeWindow</span>: <span style=color:#66d9ef>300000</span>, <span style=color:#75715e>// 5 minutes
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>condition</span><span style=color:#f92672>:</span> (<span style=color:#a6e22e>events</span>) <span style=color:#f92672>=&gt;</span> <span style=color:#a6e22e>events</span>.<span style=color:#a6e22e>length</span> <span style=color:#f92672>&gt;=</span> <span style=color:#ae81ff>3</span>
+</span></span><span style=display:flex><span>})
+</span></span></code></pre></div><h2 id=error-handling-and-resilience>Error Handling and Resilience</h2><h3 id=1-compensating-transactions-saga-pattern>1. Compensating Transactions (Saga Pattern)</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=display:flex><span><span style=color:#75715e>// Saga status
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>enum</span> <span style=color:#a6e22e>SagaStatus</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>Started</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;started&#39;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>Completed</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;completed&#39;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>Failed</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;failed&#39;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>Compensating</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;compensating&#39;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>Compensated</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;compensated&#39;</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>SagaStep</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>name</span>: <span style=color:#66d9ef>string</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>execute</span><span style=color:#f92672>:</span> () <span style=color:#f92672>=&gt;</span> <span style=color:#a6e22e>Promise</span>&lt;<span style=color:#f92672>void</span>&gt;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>compensate</span><span style=color:#f92672>:</span> () <span style=color:#f92672>=&gt;</span> <span style=color:#a6e22e>Promise</span>&lt;<span style=color:#f92672>void</span>&gt;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Saga</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>private</span> <span style=color:#a6e22e>steps</span>: <span style=color:#66d9ef>SagaStep</span>[] <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>private</span> <span style=color:#a6e22e>executedSteps</span>: <span style=color:#66d9ef>SagaStep</span>[] <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>private</span> <span style=color:#a6e22e>status</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>SagaStatus</span>.<span style=color:#a6e22e>Started</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>addStep</span>(<span style=color:#a6e22e>step</span>: <span style=color:#66d9ef>SagaStep</span>)<span style=color:#f92672>:</span> <span style=color:#66d9ef>void</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>steps</span>.<span style=color:#a6e22e>push</span>(<span style=color:#a6e22e>step</span>)
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>async</span> <span style=color:#a6e22e>execute</span>()<span style=color:#f92672>:</span> <span style=color:#a6e22e>Promise</span>&lt;<span style=color:#f92672>void</span>&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>try</span> {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>step</span> <span style=color:#66d9ef>of</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>steps</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>step</span>.<span style=color:#a6e22e>execute</span>()
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>executedSteps</span>.<span style=color:#a6e22e>push</span>(<span style=color:#a6e22e>step</span>)
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>status</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>SagaStatus</span>.<span style=color:#a6e22e>Completed</span>
+</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>catch</span> (<span style=color:#a6e22e>error</span>) {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>status</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>SagaStatus</span>.<span style=color:#a6e22e>Failed</span>
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>await</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>compensate</span>()
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>throw</span> <span style=color:#a6e22e>error</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>async</span> <span style=color:#a6e22e>compensate</span>()<span style=color:#f92672>:</span> <span style=color:#a6e22e>Promise</span>&lt;<span style=color:#f92672>void</span>&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>status</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>SagaStatus</span>.<span style=color:#a6e22e>Compensating</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Compensate executed steps in reverse order
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>step</span> <span style=color:#66d9ef>of</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>executedSteps</span>.<span style=color:#a6e22e>reverse</span>()) {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>try</span> {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>step</span>.<span style=color:#a6e22e>compensate</span>()
+</span></span><span style=display:flex><span>      } <span style=color:#66d9ef>catch</span> (<span style=color:#a6e22e>error</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>error</span>(<span style=color:#e6db74>`Compensation failed for step: </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>step</span>.<span style=color:#a6e22e>name</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>, <span style=color:#a6e22e>error</span>)
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>status</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>SagaStatus</span>.<span style=color:#a6e22e>Compensated</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=2-event-reprocessing-and-idempotency>2. Event Reprocessing and Idempotency</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>IdempotentEventHandler</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>private</span> <span style=color:#a6e22e>processedEvents</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Set</span>&lt;<span style=color:#f92672>string</span>&gt;()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>async</span> <span style=color:#a6e22e>handle</span>(<span style=color:#a6e22e>event</span>: <span style=color:#66d9ef>DomainEvent</span>, <span style=color:#a6e22e>handler</span><span style=color:#f92672>:</span> () <span style=color:#f92672>=&gt;</span> <span style=color:#a6e22e>Promise</span>&lt;<span style=color:#f92672>void</span>&gt;)<span style=color:#f92672>:</span> <span style=color:#a6e22e>Promise</span>&lt;<span style=color:#f92672>void</span>&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>eventId</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>generateEventId</span>(<span style=color:#a6e22e>event</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>processedEvents</span>.<span style=color:#a6e22e>has</span>(<span style=color:#a6e22e>eventId</span>)) {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>`Event already processed: </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>eventId</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>)
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>return</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>try</span> {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>handler</span>()
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>processedEvents</span>.<span style=color:#a6e22e>add</span>(<span style=color:#a6e22e>eventId</span>)
+</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>catch</span> (<span style=color:#a6e22e>error</span>) {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>error</span>(<span style=color:#e6db74>`Event processing failed: </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>eventId</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>, <span style=color:#a6e22e>error</span>)
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>throw</span> <span style=color:#a6e22e>error</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>private</span> <span style=color:#a6e22e>generateEventId</span>(<span style=color:#a6e22e>event</span>: <span style=color:#66d9ef>DomainEvent</span>)<span style=color:#f92672>:</span> <span style=color:#66d9ef>string</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#e6db74>`</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>aggregateId</span><span style=color:#e6db74>}</span><span style=color:#e6db74>-</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>eventType</span><span style=color:#e6db74>}</span><span style=color:#e6db74>-</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>timestamp</span>.<span style=color:#a6e22e>getTime</span>()<span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=conclusion>Conclusion</h2><p>Key benefits of event-driven architecture and CQRS:</p><ul><li><strong>Scalability</strong>: Independent scaling through read/write separation</li><li><strong>Resilience</strong>: Fault isolation and recovery capabilities</li><li><strong>Flexibility</strong>: Easy addition of new features</li><li><strong>Auditability</strong>: Complete change history tracking</li><li><strong>Real-time Processing</strong>: Event stream-based reactive systems</li></ul><p>These patterns are essential for large-scale distributed systems in 2025, especially for services requiring real-time data processing and high availability.</p></div><div class="row items-start justify-between"><div class="lg:col-6 mb-10 flex items-center lg:mb-0"><h5 class=mr-3>Tags :</h5><ul><li class=inline-block><a class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white" href=/kigo.github.io/en/tags/event-driven-architecture/>Event driven architecture</a></li><li class=inline-block><a class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white" href=/kigo.github.io/en/tags/cqrs/>Cqrs</a></li><li class=inline-block><a class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white" href=/kigo.github.io/en/tags/event-sourcing/>Event sourcing</a></li><li class=inline-block><a class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white" href=/kigo.github.io/en/tags/apache-kafka/>Apache kafka</a></li><li class=inline-block><a class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white" href=/kigo.github.io/en/tags/microservices/>Microservices</a></li></ul></div><div class="lg:col-6 flex items-center lg:justify-end"><h5>Share :</h5><div class=share-icons><a class="share-link share-facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fkigo1031.github.io%2fkigo.github.io%2fen%2fblog%2fevent-driven-architecture-cqrs%2f" target=_blank rel=noopener aria-label="share facebook"><span class=share-icon><svg viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg>
+</span></a><a class="share-link share-x" href="https://x.com/intent/tweet/?text=Event-Driven%20Architecture%20and%20CQRS%3a%20Scalable%20System%20Design&amp;url=https%3a%2f%2fkigo1031.github.io%2fkigo.github.io%2fen%2fblog%2fevent-driven-architecture-cqrs%2f" target=_blank rel=noopener aria-label="share x"><span aria-hidden=true class=share-icon><svg viewBox="0 0 24 24"><path d="M8 2H1l8.26 11.015L1.45 22H4.1l6.388-7.349L16 22h7l-8.608-11.478L21.8 2h-2.65l-5.986 6.886zm9 18L5 4h2l12 16z"/></svg>
+</span></a><a class="share-link share-email" href="mailto:?subject=Event-Driven%20Architecture%20and%20CQRS%3a%20Scalable%20System%20Design&amp;body=https%3a%2f%2fkigo1031.github.io%2fkigo.github.io%2fen%2fblog%2fevent-driven-architecture-cqrs%2f" target=_self rel=noopener aria-label="share email"><span aria-hidden=true class=share-icon><svg viewBox="0 0 24 24"><path d="M22 4H2C.9 4 0 4.9.0 6v12c0 1.1.9 2 2 2h20c1.1.0 2-.9 2-2V6c0-1.1-.9-2-2-2zM7.25 14.43l-3.5 2c-.08.05-.17.07-.25.07-.17.0-.34-.1-.43-.25-.14-.24-.06-.55.18-.68l3.5-2c.24-.14.55-.06.68.18.14.24.06.55-.18.68zm4.75.07c-.1.0-.2-.03-.27-.08l-8.5-5.5c-.23-.15-.3-.46-.15-.7.15-.22.46-.3.7-.14L12 13.4l8.23-5.32c.23-.15.54-.08.7.15.14.23.07.54-.16.7l-8.5 5.5c-.08.04-.17.07-.27.07zm8.93 1.75c-.1.16-.26.25-.43.25-.08.0-.17-.02-.25-.07l-3.5-2c-.24-.13-.32-.44-.18-.68s.44-.32.68-.18l3.5 2c.24.13.32.44.18.68z"/></svg>
+</span></a><span class=fediverse-share><a class="share-link share-fediverse" href=javascript:void(0); onclick=toggleFediverseInput(this) aria-label="share fediverse"><span aria-hidden=true class=share-icon><svg viewBox="-10 -5 1034 1034" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="SVGRepo_bgCarrier" stroke-width="0"/><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/><g id="SVGRepo_iconCarrier"><path d="M539 176q-32 0-55 22t-25 55 20.5 58 56 27 58.5-20.5 27-56-20.5-59T544 176h-5zm-87 95-232 118q20 20 25 48l231-118q-19-20-24-48zm167 27q-13 25-38 38l183 184q13-25 39-38zM477 320 342 585l40 40 143-280q-28-5-48-25zm104 16q-22 11-46 10l-8-1 21 132 56 9zM155 370q-32 0-55 22.5t-25 55 20.5 58 56.5 27 59-21 26.5-56-21-58.5-55.5-27h-6zm90 68q1 9 1 18-1 19-10 35l132 21 26-50zm225 36-26 51 311 49q-1-8-1-17 1-19 10-36zm372 6q-32 1-55 23t-24.5 55 21 58 56 27 58.5-20.5 27-56.5-20.5-59-56.5-27h-6zM236 493q-13 25-39 38l210 210 51-25zm-40 38q-21 11-44 10l-9-1 40 256q21-10 45-9l8 1zm364 22 48 311q21-10 44-9l10 1-46-294zm195 23-118 60 8 56 135-68q-20-20-25-48zm26 49-119 231q28 5 48 25l119-231q-28-5-48-25zM306 654l-68 134q28 5 48 25l60-119zm262 17-281 143q19 20 24 48l265-135zM513 771l-51 25 106 107q13-25 39-38zM222 795q-32 0-55.5 22.5t-25 55 21 57.5 56 27 58.5-20.5 27-56-20.5-58.5-56.5-27h-5zm89 68q2 9 1 18-1 19-9 35l256 41q-1-9-1-18 1-18 10-35zm335 0q-32 0-55 22.5t-24.5 55 20.5 58 56 27 59-21 27-56-20.5-58.5-56.5-27h-6z"/></g></svg>
+</span></a><span class=fediverse-input-wrapper style=display:none><input type=text placeholder="Enter Fediverse Instance URL" class=fediverse-input onkeypress='handleFediverseShare(event,"https://kigo1031.github.io/kigo.github.io/en/blog/event-driven-architecture-cqrs/","Event-Driven Architecture and CQRS: Scalable System Design")'>
+<button class=fediverse-check-button onclick='handleFediverseShareButton(this,"https://kigo1031.github.io/kigo.github.io/en/blog/event-driven-architecture-cqrs/","Event-Driven Architecture and CQRS: Scalable System Design")'>
+Share
+</button>
+</span></span><button class="share-link share-copy" onclick='copyToClipboard(this,"https://kigo1031.github.io/kigo.github.io/en/blog/event-driven-architecture-cqrs/")'>
+<span class=share-icon><svg viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1.0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1.0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7-1c.55.0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm7 17H5V5h14v14z"/></svg></span></button></div><script>function toggleFediverseInput(e){const n=e.closest(".fediverse-share"),t=n.querySelector(".fediverse-input-wrapper");t.style.display=t.style.display==="none"?"block":"none"}function handleFediverseShare(e,t,n){if(e.key==="Enter"){const o=e.target;let s=o.value.trim();if(s){s.startsWith("https://")||(s=`https://${s}`);const e=`${s}/share?text=${encodeURIComponent(n)}&url=${encodeURIComponent(t)}`;window.open(e,"_blank","noopener")}}}function handleFediverseShareButton(e,t,n){const o=e.previousElementSibling;let s=o.value.trim();if(s){s.startsWith("https://")||(s=`https://${s}`);const e=`${s}/share?text=${encodeURIComponent(n)}&url=${encodeURIComponent(t)}`;window.open(e,"_blank","noopener")}}function copyToClipboard(e,t){navigator.clipboard.writeText(t).then(()=>{const t=e.querySelector("svg path"),n="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7-1c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm7 17H5V5h14v14z",s="M9 16.2l-3.5-3.5-1.4 1.4L9 19 20 8l-1.4-1.4L9 16.2z";t.setAttribute("d",s),setTimeout(()=>{t.setAttribute("d",n)},1e3)})}</script></div></div><div class=mt-20><div id=disqus_thread></div><script>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.";return}var t=document,e=t.createElement("script");e.async=!0,e.src="//kigo-blog.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div></article></div><div class="section pb-0"><h2 class="h3 mb-12">Related Posts</h2><div class=row><div class="lg:col-4 md:col-6 mb-14"><div class="bg-body dark:bg-darkmode-body"><picture><source srcset=/kigo.github.io/images/service-3_hu_1454e73fb9cfabc3.webp media="(max-width: 575px)"><source srcset=/kigo.github.io/images/service-3_hu_3d5b59fef3ea5ca1.webp media="(max-width: 767px)"><source srcset=/kigo.github.io/images/service-3_hu_be05d096620b9265.webp media="(max-width: 991px)"><source srcset=/kigo.github.io/images/service-3_hu_72e3a36a4d5532ad.webp><img loading=lazy decoding=async src=/kigo.github.io/images/service-3_hu_929c06d4b6feba56.png class="mb-6 w-full rounded img" alt="Microservices Architecture with Spring Boot" width=532 height=433></picture><h4 class=mb-3><a href=/kigo.github.io/en/blog/microservices-architecture/>Microservices Architecture with Spring Boot</a></h4><ul class=mb-4><li class="mr-4 inline-block"><a href=/kigo.github.io/en/authors/kigo/><i class="fa-regular fa-circle-user mr-2"></i>Kigo</a></li><li class="mr-4 inline-block"><i class="fa-regular fa-folder mr-1"></i>
+<a href=/kigo.github.io/en/categories/backend/ class=ms-1>Backend
+,
+</a><a href=/kigo.github.io/en/categories/architecture/ class=ms-1>Architecture</a></li></ul><p class=mb-6>To overcome the limitations of monolithic applications and build scalable and flexible systems, microservices architecture is gaining attention. Let&rsquo;s explore how to build microservices that can be used in actual production environments using the Spring Boot and Spring Cloud ecosystem.</p><a class="btn btn-outline-primary btn-sm" href=/kigo.github.io/en/blog/microservices-architecture/>Read More</a></div></div></div></div></div></section></main><footer class="bg-light dark:bg-darkmode-light"><div class=container><div class="row items-center py-10"><div class="lg:col-3 mb-8 text-center lg:mb-0 lg:text-left"><a class="navbar-brand inline-block" href=/kigo.github.io/en/><img fetchpriority=high decoding=async src=https://kigo1031.github.io/kigo.github.io/images/logo-kigo.svg alt="Kigo's Blog" class="img img-light" height=32 width=160>
+<img fetchpriority=high decoding=async src=https://kigo1031.github.io/kigo.github.io/images/logo-kigo-darkmode.svg alt="Kigo's Blog" class="img img-dark" height=32 width=160></a></div><div class="lg:col-6 mb-8 text-center lg:mb-0"><ul><li class="m-3 inline-block"><a href=/en/kigo.github.io/en/blog>Blog</a></li><li class="m-3 inline-block"><a href=/en/kigo.github.io/en/privacy-policy>Privacy Policy</a></li></ul></div><div class="lg:col-3 mb-8 text-center lg:mb-0 lg:mt-0 lg:text-right"><ul class=social-icons><li><a target=_blank aria-label=github rel="nofollow noopener" href=https://github.com/kigo1031><i class="fab fa-github"></i></a></li></ul></div></div></div><div class="border-border dark:border-darkmode-border border-t py-7"><div class="text-text-light dark:text-darkmode-text-light container text-center"><p>Creating tomorrow, one line at a time</p></div></div></footer><script crossorigin=anonymous integrity="sha256-NoqgJlugD+mB4Hf8AueiiPBQSb7ASin+oZS0fYEdtiA=" src=/kigo.github.io/js/script.min.368aa0265ba00fe981e077fc02e7a288f05049bec04a29fea194b47d811db620.js></script><script defer async crossorigin=anonymous integrity="sha256-8w9V5+VCnGhgTHXOsnVQjFqhE3cwvfCJD4096vUhMp0=" src=/kigo.github.io/js/script-lazy.min.f30f55e7e5429c68604c75ceb275508c5aa1137730bdf0890f8d3deaf521329d.js></script><script>"serviceWorker"in navigator&&navigator.serviceWorker.register("/kigo.github.io/service-worker.js")</script></body></html>

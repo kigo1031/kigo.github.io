@@ -1,0 +1,550 @@
+<!doctype html><html itemscope lang=en-us itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=5"><meta name=theme-name content="hugoplate"><link rel=icon type=image/png href=https://kigo1031.github.io/kigo.github.io/images/favicon.png><link rel=apple-touch-icon sizes=180x180 href=https://kigo1031.github.io/kigo.github.io/images/favicon.png><link rel="shortcut icon" href=https://kigo1031.github.io/kigo.github.io/images/favicon.png><link rel=manifest href=/kigo.github.io/manifest.webmanifest><meta name=msapplication-TileColor content="#ddd"><meta name=theme-color content="#ffffff"><base href=https://kigo1031.github.io/kigo.github.io/en/blog/microservices-architecture/><title>Microservices Architecture with Spring Boot</title><link rel=alternate hreflang=ko href=https://kigo1031.github.io/kigo.github.io/blog/microservices-architecture/><link rel=alternate hreflang=en href=https://kigo1031.github.io/kigo.github.io/en/blog/microservices-architecture/><link rel=alternate hreflang=x-default href=https://kigo1031.github.io/kigo.github.io/en/blog/microservices-architecture/><meta name=keywords content="Java,Spring,Backend,개발,프로그래밍,Quarkus,데이터베이스,JPA,백엔드개발자,Kigo"><meta name=description content="Learn how to build scalable microservices architecture using Spring Boot and Spring Cloud framework."><meta name=author content="Kigo"><meta property="og:image" content="https://kigo1031.github.io/kigo.github.io/images/service-3.png"><meta name=twitter:image content="https://kigo1031.github.io/kigo.github.io/images/service-3.png"><meta name=twitter:card content="summary_large_image"><meta property="og:image:width" content="532"><meta property="og:image:height" content="433"><meta property="og:image:type" content="image/.png"><meta property="og:title" content="Microservices Architecture with Spring Boot"><meta property="og:description" content="Learn how to build scalable microservices architecture using Spring Boot and Spring Cloud framework."><meta property="og:type" content="website"><meta property="og:url" content="https://kigo1031.github.io/kigo.github.io/en/blog/microservices-architecture/"><meta name=twitter:title content="Microservices Architecture with Spring Boot"><meta name=twitter:description content="Learn how to build scalable microservices architecture using Spring Boot and Spring Cloud framework."><meta name=twitter:creator content="@Kigo"><script async src="https://www.googletagmanager.com/gtag/js?id=G-QCJE70DR32"></script><script>var dnt,doNotTrack=!1;if(!1&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-QCJE70DR32")}</script><script>!function(){let e=0;document.addEventListener("mousemove",function(){1==++e&&gtmLoader()}),window.onscroll=function(){1==++e&&gtmLoader()},setTimeout(function(){0===e&&(e++,gtmLoader())},5e3)}();function gtmLoader(){(function(e,t,n,s,o){e[s]=e[s]||[],e[s].push({"gtm.start":(new Date).getTime(),event:"gtm.js"});var a=t.getElementsByTagName(n)[0],i=t.createElement(n),r=s!="dataLayer"?"&l="+s:"";i.async=!0,i.src="https://www.googletagmanager.com/gtm.js?id="+o+r,a.parentNode.insertBefore(i,a)})(window,document,"script","dataLayer","G-QCJE70DR32")}</script><script>let indexURL="https://kigo1031.github.io/kigo.github.io/en/searchindex.json",includeSectionsInSearch=["blog"],search_no_results="No results for",search_initial_message="Type something to search.."</script><meta http-equiv=x-dns-prefetch-control content="on"><link rel=preconnect href=https://use.fontawesome.com crossorigin><link rel=preconnect href=//cdnjs.cloudflare.com><link rel=preconnect href=//www.googletagmanager.com><link rel=preconnect href=//www.google-analytics.com><link rel=dns-prefetch href=https://use.fontawesome.com><link rel=dns-prefetch href=//ajax.googleapis.com><link rel=dns-prefetch href=//cdnjs.cloudflare.com><link rel=dns-prefetch href=//www.googletagmanager.com><link rel=dns-prefetch href=//www.google-analytics.com><link rel=dns-prefetch href=//fonts.googleapis.com><link rel=dns-prefetch href=//connect.facebook.net><link rel=dns-prefetch href=//platform.linkedin.com><link rel=dns-prefetch href=//platform.twitter.com><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600&family=Signika:wght@500;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script><link href=/kigo.github.io/css/style.min.a9e72d5480050951fe29e96a7414c5e29c8837d8e26ed2c1b135d3472c955271.css integrity="sha256-qectVIAFCVH+KelqdBTF4pyIN9jibtLBsTXTRyyVUnE=" rel=stylesheet><link defer async rel=stylesheet href=/kigo.github.io/css/style-lazy.min.85575460e013a8f1e96ccd0560c44120e7e785297933c62e65534d5652eebe78.css integrity="sha256-hVdUYOATqPHpbM0FYMRBIOfnhSl5M8YuZVNNVlLuvng=" media=print onload='this.media="all",this.onload=null'></head><body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=G-QCJE70DR32" height=0 width=0 style=display:none;visibility:hidden></iframe></noscript><header class="header sticky top-0 z-30"><nav class="navbar container"><div class=order-0><a class="navbar-brand block" href=/kigo.github.io/en/><img fetchpriority=high decoding=async src=https://kigo1031.github.io/kigo.github.io/images/logo-kigo.svg alt="Kigo's Blog" class="img img-light" height=32 width=160>
+<img fetchpriority=high decoding=async src=https://kigo1031.github.io/kigo.github.io/images/logo-kigo-darkmode.svg alt="Kigo's Blog" class="img img-dark" height=32 width=160></a></div><input id=nav-toggle type=checkbox class=hidden>
+<label for=nav-toggle class="order-3 cursor-pointer flex items-center lg:hidden text-text-dark dark:text-white lg:order-1"><svg id="show-button" class="h-6 fill-current block" viewBox="0 0 20 20"><title>Menu Open</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0V0z"/></svg>
+<svg id="hide-button" class="h-6 fill-current hidden" viewBox="0 0 20 20"><title>Menu Close</title><polygon points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2" transform="rotate(45 10 10)"/></svg></label><ul id=nav-menu class="navbar-nav order-3 hidden lg:flex w-full pb-6 lg:order-1 lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8"><li class=nav-item><a class=nav-link href=/en/kigo.github.io/en/>Home</a></li><li class=nav-item><a class=nav-link href=/en/kigo.github.io/en/blog>Blog</a></li><li class="nav-item nav-dropdown group relative"><span class="nav-link
+inline-flex items-center">Pages
+<svg class="h-4 w-4 fill-current" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg></span><ul class="nav-dropdown-list lg:group-hover:visible lg:group-hover:opacity-100"><li class=nav-dropdown-item><a class=nav-dropdown-link href=/en/kigo.github.io/en/categories>Categories</a></li><li class=nav-dropdown-item><a class=nav-dropdown-link href=/en/kigo.github.io/en/tags>Tags</a></li></ul></li></ul><div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0"><button aria-label=search class="border-border text-text-dark hover:text-primary
+dark:border-darkmode-border mr-5 inline-block border-r pr-5
+text-xl dark:text-white cursor-pointer dark:hover:text-darkmode-primary" data-target=search-modal>
+<i class="fa-solid fa-search"></i>
+</button>
+<select class="mr-5 pl-2 py-1 dark:bg-darkmode-light rounded" onchange="location=this.value"><option id=ko value=https://kigo1031.github.io/kigo.github.io/blog/microservices-architecture/>한국어</option><option id=en value=https://kigo1031.github.io/kigo.github.io/en/blog/microservices-architecture/ selected>English</option></select><div class="theme-switcher mr-5 invisible"><input id=theme-switcher data-theme-switcher type=checkbox>
+<label for=theme-switcher><span class=sr-only>theme switcher</span>
+<span><svg class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 opacity-100 dark:opacity-0" viewBox="0 0 56 56" fill="#fff" height="16" width="16"><path d="M30 4.6c0-1-.9-2-2-2a2 2 0 00-2 2v5c0 1 .9 2 2 2s2-1 2-2zm9.6 9a2 2 0 000 2.8c.8.8 2 .8 2.9.0L46 13a2 2 0 000-2.9 2 2 0 00-3 0zm-26 2.8c.7.8 2 .8 2.8.0.8-.7.8-2 0-2.9L13 10c-.7-.7-2-.8-2.9.0-.7.8-.7 2.1.0 3zM28 16A12 12 0 0016 28a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0028 16zm23.3 14c1.1.0 2-.9 2-2s-.9-2-2-2h-4.9a2 2 0 00-2 2c0 1.1 1 2 2 2zM4.7 26a2 2 0 00-2 2c0 1.1.9 2 2 2h4.9c1 0 2-.9 2-2s-1-2-2-2zm37.8 13.6a2 2 0 00-3 0 2 2 0 000 2.9l3.6 3.5a2 2 0 002.9.0c.8-.8.8-2.1.0-3zM10 43.1a2 2 0 000 2.9c.8.7 2.1.8 3 0l3.4-3.5c.8-.8.8-2.1.0-2.9s-2-.8-2.9.0zm20 3.4c0-1.1-.9-2-2-2a2 2 0 00-2 2v4.9c0 1 .9 2 2 2s2-1 2-2z"/></svg>
+<svg class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 opacity-0 dark:opacity-100" viewBox="0 0 24 24" fill="none" height="16" width="16"><path fill="#000" fill-rule="evenodd" clip-rule="evenodd" d="M8.2 2.2c1-.4 2 .6 1.6 1.5-1 3-.4 6.4 1.8 8.7a8.4 8.4.0 008.7 1.8c1-.3 2 .5 1.5 1.5v.1A10.3 10.3.0 0112.4 22 10.3 10.3.0 013.2 6.7c1-2 2.9-3.5 4.9-4.4z"/></svg></span></label></div><script>var darkMode=localStorage.getItem("theme")==="dark";localStorage.getItem("theme")===null&&(darkMode=!1,window.matchMedia("(prefers-color-scheme: dark)").matches&&(darkMode=!0)),darkMode?document.documentElement.classList.add("dark"):document.documentElement.classList.remove("dark"),document.addEventListener("DOMContentLoaded",()=>{var e=document.querySelectorAll("[data-theme-switcher]"),t=document.querySelector(".theme-switcher");[].forEach.call(e,function(e){e.checked=darkMode,e.addEventListener("click",()=>{document.documentElement.classList.toggle("dark"),localStorage.setItem("theme",document.documentElement.classList.contains("dark")?"dark":"light")})}),t.classList.remove("invisible")})</script></div></nav></header><div class=search-modal aria-hidden=true style=--color-primary:#121212><div data-target=close-search-modal class=search-modal-overlay></div><div class=search-wrapper data-image=true data-description=true data-tags=true data-categories=true><div class=search-wrapper-header><label for=search-modal-input style=margin-top:-1px><span class=sr-only>search icon</span>
+<svg viewBox="0 0 512 512" height="18" width="18" class="search-icon" data-type="search"><path fill="currentColor" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8.0 45.3s-32.8 12.5-45.3.0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9.0 208S93.1.0 208 0 416 93.1 416 208zM208 352a144 144 0 100-288 144 144 0 100 288z"/></svg>
+<svg viewBox="0 0 512 512" height="18" width="18" class="search-reset" data-type="reset"><path fill="currentColor" d="M256 512A256 256 0 10256 0a256 256 0 100 512zM175 175c9.4-9.4 24.6-9.4 33.9.0l47 47 47-47c9.4-9.4 24.6-9.4 33.9.0s9.4 24.6.0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6.0 33.9s-24.6 9.4-33.9.0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9.0s-9.4-24.6.0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6.0-33.9z"/></svg>
+</label><input id=search-modal-input type=text data-search-input autocomplete=off aria-label=Search placeholder="Search Post..."></div><div class=search-wrapper-body><div class=search-result data-search-result></div><span class=search-result-empty>Type something to search..</span></div><div class=search-wrapper-footer><span><kbd><svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 011.506.0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 01-.753-1.659z"/></svg>
+</kbd><kbd><svg width="14" height="14" fill="currentColor" style="margin-top:1px" viewBox="0 0 16 16"><path d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 001.506.0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 00-.753 1.659z"/></svg>
+</kbd>to navigate
+</span><span><kbd><svg width="12" height="12" fill="currentColor" style="display:inline-block" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M14.5 1.5a.5.5.0 01.5.5v4.8a2.5 2.5.0 01-2.5 2.5H2.707l3.347 3.346a.5.5.0 01-.708.708l-4.2-4.2a.5.5.0 010-.708l4-4a.5.5.0 11.708.708L2.707 8.3H12.5A1.5 1.5.0 0014 6.8V2a.5.5.0 01.5-.5z"/></svg>
+</kbd>to select
+</span><span class=search-result-info></span>
+<span data-target=close-search-modal><kbd>ESC</kbd> to close</span></div></div></div><main><section class="section pt-7"><div class=container><div class="row justify-center"><article class=lg:col-10><div class=mb-10><picture><source srcset=/kigo.github.io/images/service-3_hu_1454e73fb9cfabc3.webp media="(max-width: 575px)"><source srcset=/kigo.github.io/images/service-3_hu_3d5b59fef3ea5ca1.webp media="(max-width: 767px)"><source srcset=/kigo.github.io/images/service-3_hu_be05d096620b9265.webp media="(max-width: 991px)"><source srcset=/kigo.github.io/images/service-3_hu_72e3a36a4d5532ad.webp><img loading=lazy decoding=async src=/kigo.github.io/images/service-3_hu_929c06d4b6feba56.png class="w-full rounded img" alt="Microservices Architecture with Spring Boot" width=532 height=433></picture></div><h1 class="h2 mb-4">Microservices Architecture with Spring Boot</h1><ul class=mb-4><li class="mr-4 inline-block"><a href=/kigo.github.io/en/authors/kigo/><i class="fa-regular fa-circle-user mr-2"></i>Kigo</a></li><li class="mr-4 inline-block"><i class="fa-regular fa-folder mr-2"></i>
+<a href=/kigo.github.io/en/categories/backend/>Backend
+,
+</a><a href=/kigo.github.io/en/categories/architecture/>Architecture</a></li><li class="mr-4 inline-block"><i class="fa-regular fa-clock mr-2"></i>
+April 6, 2022</li></ul><div class="content mb-10"><details open class="table-of-content blog"><summary>Table of Contents</summary><nav id=TableOfContents><ol><li><a href=#microservices-architecture-overview>Microservices Architecture Overview</a><ol><li><a href=#service-decomposition-strategy>Service Decomposition Strategy</a></li></ol></li><li><a href=#service-discovery>Service Discovery</a><ol><li><a href=#eureka-server-setup>Eureka Server Setup</a></li><li><a href=#service-registration-client>Service Registration (Client)</a></li></ol></li><li><a href=#api-gateway>API Gateway</a><ol><li><a href=#spring-cloud-gateway-configuration>Spring Cloud Gateway Configuration</a></li><li><a href=#global-filter>Global Filter</a></li></ol></li><li><a href=#inter-service-communication>Inter-Service Communication</a><ol><li><a href=#synchronous-communication-with-openfeign>Synchronous Communication with OpenFeign</a></li><li><a href=#asynchronous-message-communication-rabbitmq>Asynchronous Message Communication (RabbitMQ)</a></li></ol></li><li><a href=#circuit-breaker-pattern>Circuit Breaker Pattern</a><ol><li><a href=#resilience4j-configuration>Resilience4j Configuration</a></li></ol></li><li><a href=#distributed-configuration-management>Distributed Configuration Management</a><ol><li><a href=#spring-cloud-config>Spring Cloud Config</a></li></ol></li><li><a href=#distributed-tracing>Distributed Tracing</a><ol><li><a href=#sleuth--zipkin-configuration>Sleuth + Zipkin Configuration</a></li></ol></li><li><a href=#monitoring-and-health-checks>Monitoring and Health Checks</a><ol><li><a href=#actuator-configuration>Actuator Configuration</a></li></ol></li><li><a href=#integration-testing>Integration Testing</a></li></ol></nav></details><p>To overcome the limitations of monolithic applications and build scalable and flexible systems, microservices architecture is gaining attention. Let&rsquo;s explore how to build microservices that can be used in actual production environments using the Spring Boot and Spring Cloud ecosystem.</p><h2 id=microservices-architecture-overview>Microservices Architecture Overview</h2><h3 id=service-decomposition-strategy>Service Decomposition Strategy</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#75715e># Example of domain-based service separation</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>services</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>user-service</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>responsibility</span>: <span style=color:#e6db74>&#34;User management, authentication&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>database</span>: <span style=color:#e6db74>&#34;user_db&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>port</span>: <span style=color:#ae81ff>8081</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>product-service</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>responsibility</span>: <span style=color:#e6db74>&#34;Product management, catalog&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>database</span>: <span style=color:#e6db74>&#34;product_db&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>port</span>: <span style=color:#ae81ff>8082</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>order-service</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>responsibility</span>: <span style=color:#e6db74>&#34;Order processing, payment&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>database</span>: <span style=color:#e6db74>&#34;order_db&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>port</span>: <span style=color:#ae81ff>8083</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>notification-service</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>responsibility</span>: <span style=color:#e6db74>&#34;Notifications, email sending&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>database</span>: <span style=color:#e6db74>&#34;notification_db&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>port</span>: <span style=color:#ae81ff>8084</span>
+</span></span></code></pre></div><h2 id=service-discovery>Service Discovery</h2><h3 id=eureka-server-setup>Eureka Server Setup</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#a6e22e>@SpringBootApplication</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@EnableEurekaServer</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>EurekaServerApplication</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>(String<span style=color:#f92672>[]</span> args) {
+</span></span><span style=display:flex><span>        SpringApplication.<span style=color:#a6e22e>run</span>(EurekaServerApplication.<span style=color:#a6e22e>class</span>, args);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#75715e># application.yml (Eureka Server)</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>server</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>port</span>: <span style=color:#ae81ff>8761</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>eureka</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>instance</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>hostname</span>: <span style=color:#ae81ff>localhost</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>client</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>register-with-eureka</span>: <span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>fetch-registry</span>: <span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>service-url</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>defaultZone</span>: <span style=color:#ae81ff>http://${eureka.instance.hostname}:${server.port}/eureka/</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>server</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>enable-self-preservation</span>: <span style=color:#66d9ef>false</span>
+</span></span></code></pre></div><h3 id=service-registration-client>Service Registration (Client)</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#a6e22e>@SpringBootApplication</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@EnableEurekaClient</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@EnableJpaAuditing</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>UserServiceApplication</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>(String<span style=color:#f92672>[]</span> args) {
+</span></span><span style=display:flex><span>        SpringApplication.<span style=color:#a6e22e>run</span>(UserServiceApplication.<span style=color:#a6e22e>class</span>, args);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#75715e># application.yml (User Service)</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>server</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>port</span>: <span style=color:#ae81ff>8081</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>spring</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>application</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>name</span>: <span style=color:#ae81ff>user-service</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>datasource</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>url</span>: <span style=color:#ae81ff>jdbc:postgresql://localhost:5432/user_db</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>username</span>: <span style=color:#ae81ff>${DB_USERNAME:user}</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>password</span>: <span style=color:#ae81ff>${DB_PASSWORD:password}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>eureka</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>client</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>service-url</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>defaultZone</span>: <span style=color:#ae81ff>http://localhost:8761/eureka/</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>instance</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>prefer-ip-address</span>: <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>lease-renewal-interval-in-seconds</span>: <span style=color:#ae81ff>30</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>lease-expiration-duration-in-seconds</span>: <span style=color:#ae81ff>90</span>
+</span></span></code></pre></div><h2 id=api-gateway>API Gateway</h2><h3 id=spring-cloud-gateway-configuration>Spring Cloud Gateway Configuration</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#a6e22e>@SpringBootApplication</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>ApiGatewayApplication</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>(String<span style=color:#f92672>[]</span> args) {
+</span></span><span style=display:flex><span>        SpringApplication.<span style=color:#a6e22e>run</span>(ApiGatewayApplication.<span style=color:#a6e22e>class</span>, args);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Bean</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> RouteLocator <span style=color:#a6e22e>customRouteLocator</span>(RouteLocatorBuilder builder) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> builder.<span style=color:#a6e22e>routes</span>()
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>route</span>(<span style=color:#e6db74>&#34;user-service&#34;</span>, r <span style=color:#f92672>-&gt;</span> r.<span style=color:#a6e22e>path</span>(<span style=color:#e6db74>&#34;/api/users/**&#34;</span>)
+</span></span><span style=display:flex><span>                .<span style=color:#a6e22e>filters</span>(f <span style=color:#f92672>-&gt;</span> f
+</span></span><span style=display:flex><span>                    .<span style=color:#a6e22e>stripPrefix</span>(1)
+</span></span><span style=display:flex><span>                    .<span style=color:#a6e22e>addRequestHeader</span>(<span style=color:#e6db74>&#34;X-Gateway-Name&#34;</span>, <span style=color:#e6db74>&#34;api-gateway&#34;</span>)
+</span></span><span style=display:flex><span>                    .<span style=color:#a6e22e>circuitBreaker</span>(c <span style=color:#f92672>-&gt;</span> c.<span style=color:#a6e22e>setName</span>(<span style=color:#e6db74>&#34;user-service-cb&#34;</span>)))
+</span></span><span style=display:flex><span>                .<span style=color:#a6e22e>uri</span>(<span style=color:#e6db74>&#34;lb://user-service&#34;</span>))
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>route</span>(<span style=color:#e6db74>&#34;product-service&#34;</span>, r <span style=color:#f92672>-&gt;</span> r.<span style=color:#a6e22e>path</span>(<span style=color:#e6db74>&#34;/api/products/**&#34;</span>)
+</span></span><span style=display:flex><span>                .<span style=color:#a6e22e>filters</span>(f <span style=color:#f92672>-&gt;</span> f
+</span></span><span style=display:flex><span>                    .<span style=color:#a6e22e>stripPrefix</span>(1)
+</span></span><span style=display:flex><span>                    .<span style=color:#a6e22e>retry</span>(3))
+</span></span><span style=display:flex><span>                .<span style=color:#a6e22e>uri</span>(<span style=color:#e6db74>&#34;lb://product-service&#34;</span>))
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>route</span>(<span style=color:#e6db74>&#34;order-service&#34;</span>, r <span style=color:#f92672>-&gt;</span> r.<span style=color:#a6e22e>path</span>(<span style=color:#e6db74>&#34;/api/orders/**&#34;</span>)
+</span></span><span style=display:flex><span>                .<span style=color:#a6e22e>filters</span>(f <span style=color:#f92672>-&gt;</span> f
+</span></span><span style=display:flex><span>                    .<span style=color:#a6e22e>stripPrefix</span>(1)
+</span></span><span style=display:flex><span>                    .<span style=color:#a6e22e>requestRateLimiter</span>(c <span style=color:#f92672>-&gt;</span> c
+</span></span><span style=display:flex><span>                        .<span style=color:#a6e22e>setRateLimiter</span>(redisRateLimiter())
+</span></span><span style=display:flex><span>                        .<span style=color:#a6e22e>setKeyResolver</span>(userKeyResolver())))
+</span></span><span style=display:flex><span>                .<span style=color:#a6e22e>uri</span>(<span style=color:#e6db74>&#34;lb://order-service&#34;</span>))
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>build</span>();
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Bean</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> RedisRateLimiter <span style=color:#a6e22e>redisRateLimiter</span>() {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>new</span> RedisRateLimiter(10, 20, 1);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Bean</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> KeyResolver <span style=color:#a6e22e>userKeyResolver</span>() {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> exchange <span style=color:#f92672>-&gt;</span> exchange.<span style=color:#a6e22e>getRequest</span>()
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>getHeaders</span>()
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>getFirst</span>(<span style=color:#e6db74>&#34;X-User-Id&#34;</span>) <span style=color:#f92672>!=</span> <span style=color:#66d9ef>null</span> <span style=color:#f92672>?</span>
+</span></span><span style=display:flex><span>            Mono.<span style=color:#a6e22e>just</span>(exchange.<span style=color:#a6e22e>getRequest</span>().<span style=color:#a6e22e>getHeaders</span>().<span style=color:#a6e22e>getFirst</span>(<span style=color:#e6db74>&#34;X-User-Id&#34;</span>)) :
+</span></span><span style=display:flex><span>            Mono.<span style=color:#a6e22e>just</span>(<span style=color:#e6db74>&#34;anonymous&#34;</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=global-filter>Global Filter</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#a6e22e>@Component</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@Slf4j</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>LoggingGlobalFilter</span> <span style=color:#66d9ef>implements</span> GlobalFilter, Ordered {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> Mono<span style=color:#f92672>&lt;</span>Void<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>filter</span>(ServerWebExchange exchange, GatewayFilterChain chain) {
+</span></span><span style=display:flex><span>        ServerHttpRequest request <span style=color:#f92672>=</span> exchange.<span style=color:#a6e22e>getRequest</span>();
+</span></span><span style=display:flex><span>        String path <span style=color:#f92672>=</span> request.<span style=color:#a6e22e>getPath</span>().<span style=color:#a6e22e>pathWithinApplication</span>().<span style=color:#a6e22e>value</span>();
+</span></span><span style=display:flex><span>        String method <span style=color:#f92672>=</span> request.<span style=color:#a6e22e>getMethod</span>().<span style=color:#a6e22e>name</span>();
+</span></span><span style=display:flex><span>        String correlationId <span style=color:#f92672>=</span> UUID.<span style=color:#a6e22e>randomUUID</span>().<span style=color:#a6e22e>toString</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        log.<span style=color:#a6e22e>info</span>(<span style=color:#e6db74>&#34;Request started - Method: {}, Path: {}, CorrelationId: {}&#34;</span>,
+</span></span><span style=display:flex><span>                method, path, correlationId);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// Add correlation ID to request</span>
+</span></span><span style=display:flex><span>        ServerHttpRequest mutatedRequest <span style=color:#f92672>=</span> request.<span style=color:#a6e22e>mutate</span>()
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>header</span>(<span style=color:#e6db74>&#34;X-Correlation-ID&#34;</span>, correlationId)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>build</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        ServerWebExchange mutatedExchange <span style=color:#f92672>=</span> exchange.<span style=color:#a6e22e>mutate</span>()
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>request</span>(mutatedRequest)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>build</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>long</span> startTime <span style=color:#f92672>=</span> System.<span style=color:#a6e22e>currentTimeMillis</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> chain.<span style=color:#a6e22e>filter</span>(mutatedExchange)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>doOnSuccess</span>(aVoid <span style=color:#f92672>-&gt;</span> {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>long</span> duration <span style=color:#f92672>=</span> System.<span style=color:#a6e22e>currentTimeMillis</span>() <span style=color:#f92672>-</span> startTime;
+</span></span><span style=display:flex><span>                log.<span style=color:#a6e22e>info</span>(<span style=color:#e6db74>&#34;Request completed - Path: {}, Duration: {}ms, CorrelationId: {}&#34;</span>,
+</span></span><span style=display:flex><span>                        path, duration, correlationId);
+</span></span><span style=display:flex><span>            })
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>doOnError</span>(throwable <span style=color:#f92672>-&gt;</span> {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>long</span> duration <span style=color:#f92672>=</span> System.<span style=color:#a6e22e>currentTimeMillis</span>() <span style=color:#f92672>-</span> startTime;
+</span></span><span style=display:flex><span>                log.<span style=color:#a6e22e>error</span>(<span style=color:#e6db74>&#34;Request failed - Path: {}, Duration: {}ms, CorrelationId: {}, Error: {}&#34;</span>,
+</span></span><span style=display:flex><span>                         path, duration, correlationId, throwable.<span style=color:#a6e22e>getMessage</span>());
+</span></span><span style=display:flex><span>            });
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>int</span> <span style=color:#a6e22e>getOrder</span>() {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#f92672>-</span>1; <span style=color:#75715e>// Execute first</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=inter-service-communication>Inter-Service Communication</h2><h3 id=synchronous-communication-with-openfeign>Synchronous Communication with OpenFeign</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#a6e22e>@FeignClient</span>(name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;user-service&#34;</span>, fallback <span style=color:#f92672>=</span> UserServiceFallback.<span style=color:#a6e22e>class</span>)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>UserServiceClient</span> {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@GetMapping</span>(<span style=color:#e6db74>&#34;/users/{userId}&#34;</span>)
+</span></span><span style=display:flex><span>    UserDto <span style=color:#a6e22e>getUser</span>(<span style=color:#a6e22e>@PathVariable</span>(<span style=color:#e6db74>&#34;userId&#34;</span>) Long userId);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@PostMapping</span>(<span style=color:#e6db74>&#34;/users&#34;</span>)
+</span></span><span style=display:flex><span>    UserDto <span style=color:#a6e22e>createUser</span>(<span style=color:#a6e22e>@RequestBody</span> CreateUserRequest request);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@GetMapping</span>(<span style=color:#e6db74>&#34;/users/{userId}/profile&#34;</span>)
+</span></span><span style=display:flex><span>    UserProfileDto <span style=color:#a6e22e>getUserProfile</span>(<span style=color:#a6e22e>@PathVariable</span>(<span style=color:#e6db74>&#34;userId&#34;</span>) Long userId);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@Component</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@Slf4j</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>UserServiceFallback</span> <span style=color:#66d9ef>implements</span> UserServiceClient {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> UserDto <span style=color:#a6e22e>getUser</span>(Long userId) {
+</span></span><span style=display:flex><span>        log.<span style=color:#a6e22e>warn</span>(<span style=color:#e6db74>&#34;User service call failed, executing fallback - userId: {}&#34;</span>, userId);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> UserDto.<span style=color:#a6e22e>builder</span>()
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>id</span>(userId)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>name</span>(<span style=color:#e6db74>&#34;Unknown User&#34;</span>)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>email</span>(<span style=color:#e6db74>&#34;unknown@example.com&#34;</span>)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>build</span>();
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> UserDto <span style=color:#a6e22e>createUser</span>(CreateUserRequest request) {
+</span></span><span style=display:flex><span>        log.<span style=color:#a6e22e>error</span>(<span style=color:#e6db74>&#34;User creation service call failed&#34;</span>);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>throw</span> <span style=color:#66d9ef>new</span> ServiceUnavailableException(<span style=color:#e6db74>&#34;User service is unavailable&#34;</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> UserProfileDto <span style=color:#a6e22e>getUserProfile</span>(Long userId) {
+</span></span><span style=display:flex><span>        log.<span style=color:#a6e22e>warn</span>(<span style=color:#e6db74>&#34;User profile service call failed, returning default values&#34;</span>);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> UserProfileDto.<span style=color:#a6e22e>builder</span>()
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>userId</span>(userId)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>displayName</span>(<span style=color:#e6db74>&#34;Unknown&#34;</span>)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>build</span>();
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=asynchronous-message-communication-rabbitmq>Asynchronous Message Communication (RabbitMQ)</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#a6e22e>@Configuration</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@EnableRabbit</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>RabbitConfig</span> {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>final</span> String ORDER_EXCHANGE <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;order.exchange&#34;</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>final</span> String ORDER_CREATED_QUEUE <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;order.created.queue&#34;</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>final</span> String ORDER_CREATED_ROUTING_KEY <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;order.created&#34;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Bean</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> TopicExchange <span style=color:#a6e22e>orderExchange</span>() {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>new</span> TopicExchange(ORDER_EXCHANGE);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Bean</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> Queue <span style=color:#a6e22e>orderCreatedQueue</span>() {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> QueueBuilder.<span style=color:#a6e22e>durable</span>(ORDER_CREATED_QUEUE)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>withArgument</span>(<span style=color:#e6db74>&#34;x-dead-letter-exchange&#34;</span>, <span style=color:#e6db74>&#34;dlx.exchange&#34;</span>)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>withArgument</span>(<span style=color:#e6db74>&#34;x-dead-letter-routing-key&#34;</span>, <span style=color:#e6db74>&#34;dlx.order.created&#34;</span>)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>build</span>();
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Bean</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> Binding <span style=color:#a6e22e>orderCreatedBinding</span>() {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> BindingBuilder
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>bind</span>(orderCreatedQueue())
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>to</span>(orderExchange())
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>with</span>(ORDER_CREATED_ROUTING_KEY);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Bean</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> RabbitTemplate <span style=color:#a6e22e>rabbitTemplate</span>(ConnectionFactory connectionFactory) {
+</span></span><span style=display:flex><span>        RabbitTemplate template <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> RabbitTemplate(connectionFactory);
+</span></span><span style=display:flex><span>        template.<span style=color:#a6e22e>setMessageConverter</span>(<span style=color:#66d9ef>new</span> Jackson2JsonMessageConverter());
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> template;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Message Publishing (Order Service)</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@Service</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@Slf4j</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>OrderEventPublisher</span> {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>final</span> RabbitTemplate rabbitTemplate;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>publishOrderCreated</span>(OrderCreatedEvent event) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span> {
+</span></span><span style=display:flex><span>            rabbitTemplate.<span style=color:#a6e22e>convertAndSend</span>(
+</span></span><span style=display:flex><span>                RabbitConfig.<span style=color:#a6e22e>ORDER_EXCHANGE</span>,
+</span></span><span style=display:flex><span>                RabbitConfig.<span style=color:#a6e22e>ORDER_CREATED_ROUTING_KEY</span>,
+</span></span><span style=display:flex><span>                event
+</span></span><span style=display:flex><span>            );
+</span></span><span style=display:flex><span>            log.<span style=color:#a6e22e>info</span>(<span style=color:#e6db74>&#34;Order created event published - orderId: {}&#34;</span>, event.<span style=color:#a6e22e>getOrderId</span>());
+</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>catch</span> (Exception e) {
+</span></span><span style=display:flex><span>            log.<span style=color:#a6e22e>error</span>(<span style=color:#e6db74>&#34;Order created event publishing failed - orderId: {}&#34;</span>, event.<span style=color:#a6e22e>getOrderId</span>(), e);
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>throw</span> <span style=color:#66d9ef>new</span> EventPublishException(<span style=color:#e6db74>&#34;Failed to publish event&#34;</span>, e);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Message Subscription (Notification Service)</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@RabbitListener</span>(queues <span style=color:#f92672>=</span> RabbitConfig.<span style=color:#a6e22e>ORDER_CREATED_QUEUE</span>)
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@Component</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@Slf4j</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>OrderEventListener</span> {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>final</span> NotificationService notificationService;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>final</span> UserServiceClient userServiceClient;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@RabbitHandler</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>handleOrderCreated</span>(OrderCreatedEvent event) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span> {
+</span></span><span style=display:flex><span>            log.<span style=color:#a6e22e>info</span>(<span style=color:#e6db74>&#34;Order created event received - orderId: {}&#34;</span>, event.<span style=color:#a6e22e>getOrderId</span>());
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            UserDto user <span style=color:#f92672>=</span> userServiceClient.<span style=color:#a6e22e>getUser</span>(event.<span style=color:#a6e22e>getUserId</span>());
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            NotificationRequest notification <span style=color:#f92672>=</span> NotificationRequest.<span style=color:#a6e22e>builder</span>()
+</span></span><span style=display:flex><span>                .<span style=color:#a6e22e>userId</span>(event.<span style=color:#a6e22e>getUserId</span>())
+</span></span><span style=display:flex><span>                .<span style=color:#a6e22e>email</span>(user.<span style=color:#a6e22e>getEmail</span>())
+</span></span><span style=display:flex><span>                .<span style=color:#a6e22e>type</span>(NotificationType.<span style=color:#a6e22e>ORDER_CONFIRMATION</span>)
+</span></span><span style=display:flex><span>                .<span style=color:#a6e22e>title</span>(<span style=color:#e6db74>&#34;Your order has been received&#34;</span>)
+</span></span><span style=display:flex><span>                .<span style=color:#a6e22e>content</span>(String.<span style=color:#a6e22e>format</span>(<span style=color:#e6db74>&#34;Order number %s has been successfully received.&#34;</span>, event.<span style=color:#a6e22e>getOrderId</span>()))
+</span></span><span style=display:flex><span>                .<span style=color:#a6e22e>build</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            notificationService.<span style=color:#a6e22e>sendNotification</span>(notification);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>catch</span> (Exception e) {
+</span></span><span style=display:flex><span>            log.<span style=color:#a6e22e>error</span>(<span style=color:#e6db74>&#34;Order created event processing failed - orderId: {}&#34;</span>, event.<span style=color:#a6e22e>getOrderId</span>(), e);
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>throw</span> <span style=color:#66d9ef>new</span> MessageProcessingException(<span style=color:#e6db74>&#34;Failed to process message&#34;</span>, e);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=circuit-breaker-pattern>Circuit Breaker Pattern</h2><h3 id=resilience4j-configuration>Resilience4j Configuration</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#a6e22e>@Configuration</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>ResilienceConfig</span> {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Bean</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> CircuitBreaker <span style=color:#a6e22e>userServiceCircuitBreaker</span>() {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> CircuitBreaker.<span style=color:#a6e22e>of</span>(<span style=color:#e6db74>&#34;user-service&#34;</span>, CircuitBreakerConfig.<span style=color:#a6e22e>custom</span>()
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>failureRateThreshold</span>(50)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>waitDurationInOpenState</span>(Duration.<span style=color:#a6e22e>ofSeconds</span>(30))
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>slidingWindowSize</span>(10)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>minimumNumberOfCalls</span>(5)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>slowCallRateThreshold</span>(50)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>slowCallDurationThreshold</span>(Duration.<span style=color:#a6e22e>ofSeconds</span>(2))
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>build</span>());
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Bean</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> Retry <span style=color:#a6e22e>userServiceRetry</span>() {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> Retry.<span style=color:#a6e22e>of</span>(<span style=color:#e6db74>&#34;user-service&#34;</span>, RetryConfig.<span style=color:#a6e22e>custom</span>()
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>maxAttempts</span>(3)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>waitDuration</span>(Duration.<span style=color:#a6e22e>ofSeconds</span>(1))
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>retryExceptions</span>(ConnectException.<span style=color:#a6e22e>class</span>, SocketTimeoutException.<span style=color:#a6e22e>class</span>)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>build</span>());
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Bean</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> TimeLimiter <span style=color:#a6e22e>userServiceTimeLimiter</span>() {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> TimeLimiter.<span style=color:#a6e22e>of</span>(<span style=color:#e6db74>&#34;user-service&#34;</span>, TimeLimiterConfig.<span style=color:#a6e22e>custom</span>()
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>timeoutDuration</span>(Duration.<span style=color:#a6e22e>ofSeconds</span>(3))
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>build</span>());
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@Service</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>OrderService</span> {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>final</span> UserServiceClient userServiceClient;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>final</span> CircuitBreaker circuitBreaker;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>final</span> Retry retry;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> Order <span style=color:#a6e22e>createOrder</span>(CreateOrderRequest request) {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// User information lookup with Circuit Breaker + Retry</span>
+</span></span><span style=display:flex><span>        UserDto user <span style=color:#f92672>=</span> Decorators.<span style=color:#a6e22e>ofSupplier</span>(() <span style=color:#f92672>-&gt;</span> userServiceClient.<span style=color:#a6e22e>getUser</span>(request.<span style=color:#a6e22e>getUserId</span>()))
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>withCircuitBreaker</span>(circuitBreaker)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>withRetry</span>(retry)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>withFallback</span>(Arrays.<span style=color:#a6e22e>asList</span>(Exception.<span style=color:#a6e22e>class</span>),
+</span></span><span style=display:flex><span>                ex <span style=color:#f92672>-&gt;</span> createDefaultUser(request.<span style=color:#a6e22e>getUserId</span>()))
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>get</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// Order creation logic</span>
+</span></span><span style=display:flex><span>        Order order <span style=color:#f92672>=</span> Order.<span style=color:#a6e22e>builder</span>()
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>userId</span>(user.<span style=color:#a6e22e>getId</span>())
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>productId</span>(request.<span style=color:#a6e22e>getProductId</span>())
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>quantity</span>(request.<span style=color:#a6e22e>getQuantity</span>())
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>status</span>(OrderStatus.<span style=color:#a6e22e>CREATED</span>)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>build</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> orderRepository.<span style=color:#a6e22e>save</span>(order);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> UserDto <span style=color:#a6e22e>createDefaultUser</span>(Long userId) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> UserDto.<span style=color:#a6e22e>builder</span>()
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>id</span>(userId)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>name</span>(<span style=color:#e6db74>&#34;Guest User&#34;</span>)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>email</span>(<span style=color:#e6db74>&#34;guest@example.com&#34;</span>)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>build</span>();
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=distributed-configuration-management>Distributed Configuration Management</h2><h3 id=spring-cloud-config>Spring Cloud Config</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#75715e>// Config Server</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@SpringBootApplication</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@EnableConfigServer</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>ConfigServerApplication</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>(String<span style=color:#f92672>[]</span> args) {
+</span></span><span style=display:flex><span>        SpringApplication.<span style=color:#a6e22e>run</span>(ConfigServerApplication.<span style=color:#a6e22e>class</span>, args);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#75715e># Config Server - application.yml</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>server</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>port</span>: <span style=color:#ae81ff>8888</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>spring</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>cloud</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>config</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>server</span>:
+</span></span><span style=display:flex><span>        <span style=color:#f92672>git</span>:
+</span></span><span style=display:flex><span>          <span style=color:#f92672>uri</span>: <span style=color:#ae81ff>https://github.com/your-org/config-repo</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>clone-on-start</span>: <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>default-label</span>: <span style=color:#ae81ff>main</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>encrypt</span>:
+</span></span><span style=display:flex><span>          <span style=color:#f92672>enabled</span>: <span style=color:#66d9ef>false</span>
+</span></span></code></pre></div><h2 id=distributed-tracing>Distributed Tracing</h2><h3 id=sleuth--zipkin-configuration>Sleuth + Zipkin Configuration</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#75715e># application.yml for each service</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>spring</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>sleuth</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>sampler</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>probability</span>: <span style=color:#ae81ff>1.0</span> <span style=color:#75715e># 100% sampling in development</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>zipkin</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>base-url</span>: <span style=color:#ae81ff>http://localhost:9411</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>enabled</span>: <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>application</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>name</span>: <span style=color:#ae81ff>user-service</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#a6e22e>@RestController</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@Slf4j</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>UserController</span> {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>final</span> UserService userService;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>final</span> Tracer tracer;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@GetMapping</span>(<span style=color:#e6db74>&#34;/users/{id}&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> ResponseEntity<span style=color:#f92672>&lt;</span>UserDto<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>getUser</span>(<span style=color:#a6e22e>@PathVariable</span> Long id) {
+</span></span><span style=display:flex><span>        Span customSpan <span style=color:#f92672>=</span> tracer.<span style=color:#a6e22e>nextSpan</span>()
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>name</span>(<span style=color:#e6db74>&#34;get-user-operation&#34;</span>)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>tag</span>(<span style=color:#e6db74>&#34;user.id&#34;</span>, String.<span style=color:#a6e22e>valueOf</span>(id))
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>start</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span> (Tracer.<span style=color:#a6e22e>SpanInScope</span> ws <span style=color:#f92672>=</span> tracer.<span style=color:#a6e22e>withSpanInScope</span>(customSpan)) {
+</span></span><span style=display:flex><span>            log.<span style=color:#a6e22e>info</span>(<span style=color:#e6db74>&#34;User lookup request - userId: {}&#34;</span>, id);
+</span></span><span style=display:flex><span>            UserDto user <span style=color:#f92672>=</span> userService.<span style=color:#a6e22e>findById</span>(id);
+</span></span><span style=display:flex><span>            customSpan.<span style=color:#a6e22e>tag</span>(<span style=color:#e6db74>&#34;user.found&#34;</span>, <span style=color:#e6db74>&#34;true&#34;</span>);
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> ResponseEntity.<span style=color:#a6e22e>ok</span>(user);
+</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>catch</span> (Exception e) {
+</span></span><span style=display:flex><span>            customSpan.<span style=color:#a6e22e>tag</span>(<span style=color:#e6db74>&#34;error&#34;</span>, e.<span style=color:#a6e22e>getMessage</span>());
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>throw</span> e;
+</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>finally</span> {
+</span></span><span style=display:flex><span>            customSpan.<span style=color:#a6e22e>end</span>();
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=monitoring-and-health-checks>Monitoring and Health Checks</h2><h3 id=actuator-configuration>Actuator Configuration</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#75715e># Common configuration for each service</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>management</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>endpoints</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>web</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>exposure</span>:
+</span></span><span style=display:flex><span>        <span style=color:#f92672>include</span>: <span style=color:#ae81ff>health,info,metrics,prometheus,refresh</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>endpoint</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>health</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>show-details</span>: <span style=color:#ae81ff>always</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>health</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>circuitbreakers</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>enabled</span>: <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>metrics</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>export</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>prometheus</span>:
+</span></span><span style=display:flex><span>        <span style=color:#f92672>enabled</span>: <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>distribution</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>percentiles-histogram</span>:
+</span></span><span style=display:flex><span>        <span style=color:#f92672>http.server.requests</span>: <span style=color:#66d9ef>true</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#a6e22e>@Component</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>CustomHealthIndicator</span> <span style=color:#66d9ef>implements</span> HealthIndicator {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>final</span> UserRepository userRepository;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> Health <span style=color:#a6e22e>health</span>() {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span> {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>long</span> userCount <span style=color:#f92672>=</span> userRepository.<span style=color:#a6e22e>count</span>();
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (userCount <span style=color:#f92672>&gt;=</span> 0) {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>return</span> Health.<span style=color:#a6e22e>up</span>()
+</span></span><span style=display:flex><span>                    .<span style=color:#a6e22e>withDetail</span>(<span style=color:#e6db74>&#34;database&#34;</span>, <span style=color:#e6db74>&#34;Available&#34;</span>)
+</span></span><span style=display:flex><span>                    .<span style=color:#a6e22e>withDetail</span>(<span style=color:#e6db74>&#34;userCount&#34;</span>, userCount)
+</span></span><span style=display:flex><span>                    .<span style=color:#a6e22e>build</span>();
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>catch</span> (Exception e) {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> Health.<span style=color:#a6e22e>down</span>()
+</span></span><span style=display:flex><span>                .<span style=color:#a6e22e>withDetail</span>(<span style=color:#e6db74>&#34;database&#34;</span>, <span style=color:#e6db74>&#34;Unavailable&#34;</span>)
+</span></span><span style=display:flex><span>                .<span style=color:#a6e22e>withException</span>(e)
+</span></span><span style=display:flex><span>                .<span style=color:#a6e22e>build</span>();
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> Health.<span style=color:#a6e22e>down</span>().<span style=color:#a6e22e>build</span>();
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=integration-testing>Integration Testing</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#a6e22e>@SpringBootTest</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@TestPropertySource</span>(properties <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;spring.cloud.config.enabled=false&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;eureka.client.enabled=false&#34;</span>
+</span></span><span style=display:flex><span>})
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@AutoConfigureTestDatabase</span>(replace <span style=color:#f92672>=</span> AutoConfigureTestDatabase.<span style=color:#a6e22e>Replace</span>.<span style=color:#a6e22e>NONE</span>)
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@Testcontainers</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>UserServiceIntegrationTest</span> {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Container</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>static</span> PostgreSQLContainer<span style=color:#f92672>&lt;?&gt;</span> postgres <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> PostgreSQLContainer<span style=color:#f92672>&lt;&gt;</span>(<span style=color:#e6db74>&#34;postgres:13&#34;</span>)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>withDatabaseName</span>(<span style=color:#e6db74>&#34;test_db&#34;</span>)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>withUsername</span>(<span style=color:#e6db74>&#34;test&#34;</span>)
+</span></span><span style=display:flex><span>            .<span style=color:#a6e22e>withPassword</span>(<span style=color:#e6db74>&#34;test&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@MockBean</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> ProductServiceClient productServiceClient;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Autowired</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> TestRestTemplate restTemplate;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@DynamicPropertySource</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>configureProperties</span>(DynamicPropertyRegistry registry) {
+</span></span><span style=display:flex><span>        registry.<span style=color:#a6e22e>add</span>(<span style=color:#e6db74>&#34;spring.datasource.url&#34;</span>, postgres::getJdbcUrl);
+</span></span><span style=display:flex><span>        registry.<span style=color:#a6e22e>add</span>(<span style=color:#e6db74>&#34;spring.datasource.username&#34;</span>, postgres::getUsername);
+</span></span><span style=display:flex><span>        registry.<span style=color:#a6e22e>add</span>(<span style=color:#e6db74>&#34;spring.datasource.password&#34;</span>, postgres::getPassword);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Test</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>user_creation_and_lookup_integration_test</span>() {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// Given</span>
+</span></span><span style=display:flex><span>        CreateUserRequest request <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> CreateUserRequest(<span style=color:#e6db74>&#34;test@example.com&#34;</span>, <span style=color:#e6db74>&#34;Test User&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// When - Create user</span>
+</span></span><span style=display:flex><span>        ResponseEntity<span style=color:#f92672>&lt;</span>UserDto<span style=color:#f92672>&gt;</span> createResponse <span style=color:#f92672>=</span> restTemplate.<span style=color:#a6e22e>postForEntity</span>(
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;/api/users&#34;</span>, request, UserDto.<span style=color:#a6e22e>class</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// Then</span>
+</span></span><span style=display:flex><span>        assertThat(createResponse.<span style=color:#a6e22e>getStatusCode</span>()).<span style=color:#a6e22e>isEqualTo</span>(HttpStatus.<span style=color:#a6e22e>CREATED</span>);
+</span></span><span style=display:flex><span>        UserDto createdUser <span style=color:#f92672>=</span> createResponse.<span style=color:#a6e22e>getBody</span>();
+</span></span><span style=display:flex><span>        assertThat(createdUser.<span style=color:#a6e22e>getEmail</span>()).<span style=color:#a6e22e>isEqualTo</span>(<span style=color:#e6db74>&#34;test@example.com&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// When - Get user</span>
+</span></span><span style=display:flex><span>        ResponseEntity<span style=color:#f92672>&lt;</span>UserDto<span style=color:#f92672>&gt;</span> getResponse <span style=color:#f92672>=</span> restTemplate.<span style=color:#a6e22e>getForEntity</span>(
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;/api/users/&#34;</span> <span style=color:#f92672>+</span> createdUser.<span style=color:#a6e22e>getId</span>(), UserDto.<span style=color:#a6e22e>class</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// Then</span>
+</span></span><span style=display:flex><span>        assertThat(getResponse.<span style=color:#a6e22e>getStatusCode</span>()).<span style=color:#a6e22e>isEqualTo</span>(HttpStatus.<span style=color:#a6e22e>OK</span>);
+</span></span><span style=display:flex><span>        assertThat(getResponse.<span style=color:#a6e22e>getBody</span>().<span style=color:#a6e22e>getId</span>()).<span style=color:#a6e22e>isEqualTo</span>(createdUser.<span style=color:#a6e22e>getId</span>());
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Through these patterns and configurations, you can build scalable and robust microservices architecture. Each service can be developed, deployed, and scaled independently, creating systems with fault isolation and resilience.</p></div><div class="row items-start justify-between"><div class="lg:col-6 mb-10 flex items-center lg:mb-0"><h5 class=mr-3>Tags :</h5><ul><li class=inline-block><a class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white" href=/kigo.github.io/en/tags/spring-boot/>Spring boot</a></li><li class=inline-block><a class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white" href=/kigo.github.io/en/tags/microservices/>Microservices</a></li><li class=inline-block><a class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white" href=/kigo.github.io/en/tags/spring-cloud/>Spring cloud</a></li><li class=inline-block><a class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white" href=/kigo.github.io/en/tags/architecture/>Architecture</a></li></ul></div><div class="lg:col-6 flex items-center lg:justify-end"><h5>Share :</h5><div class=share-icons><a class="share-link share-facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fkigo1031.github.io%2fkigo.github.io%2fen%2fblog%2fmicroservices-architecture%2f" target=_blank rel=noopener aria-label="share facebook"><span class=share-icon><svg viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg>
+</span></a><a class="share-link share-x" href="https://x.com/intent/tweet/?text=Microservices%20Architecture%20with%20Spring%20Boot&amp;url=https%3a%2f%2fkigo1031.github.io%2fkigo.github.io%2fen%2fblog%2fmicroservices-architecture%2f" target=_blank rel=noopener aria-label="share x"><span aria-hidden=true class=share-icon><svg viewBox="0 0 24 24"><path d="M8 2H1l8.26 11.015L1.45 22H4.1l6.388-7.349L16 22h7l-8.608-11.478L21.8 2h-2.65l-5.986 6.886zm9 18L5 4h2l12 16z"/></svg>
+</span></a><a class="share-link share-email" href="mailto:?subject=Microservices%20Architecture%20with%20Spring%20Boot&amp;body=https%3a%2f%2fkigo1031.github.io%2fkigo.github.io%2fen%2fblog%2fmicroservices-architecture%2f" target=_self rel=noopener aria-label="share email"><span aria-hidden=true class=share-icon><svg viewBox="0 0 24 24"><path d="M22 4H2C.9 4 0 4.9.0 6v12c0 1.1.9 2 2 2h20c1.1.0 2-.9 2-2V6c0-1.1-.9-2-2-2zM7.25 14.43l-3.5 2c-.08.05-.17.07-.25.07-.17.0-.34-.1-.43-.25-.14-.24-.06-.55.18-.68l3.5-2c.24-.14.55-.06.68.18.14.24.06.55-.18.68zm4.75.07c-.1.0-.2-.03-.27-.08l-8.5-5.5c-.23-.15-.3-.46-.15-.7.15-.22.46-.3.7-.14L12 13.4l8.23-5.32c.23-.15.54-.08.7.15.14.23.07.54-.16.7l-8.5 5.5c-.08.04-.17.07-.27.07zm8.93 1.75c-.1.16-.26.25-.43.25-.08.0-.17-.02-.25-.07l-3.5-2c-.24-.13-.32-.44-.18-.68s.44-.32.68-.18l3.5 2c.24.13.32.44.18.68z"/></svg>
+</span></a><span class=fediverse-share><a class="share-link share-fediverse" href=javascript:void(0); onclick=toggleFediverseInput(this) aria-label="share fediverse"><span aria-hidden=true class=share-icon><svg viewBox="-10 -5 1034 1034" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="SVGRepo_bgCarrier" stroke-width="0"/><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/><g id="SVGRepo_iconCarrier"><path d="M539 176q-32 0-55 22t-25 55 20.5 58 56 27 58.5-20.5 27-56-20.5-59T544 176h-5zm-87 95-232 118q20 20 25 48l231-118q-19-20-24-48zm167 27q-13 25-38 38l183 184q13-25 39-38zM477 320 342 585l40 40 143-280q-28-5-48-25zm104 16q-22 11-46 10l-8-1 21 132 56 9zM155 370q-32 0-55 22.5t-25 55 20.5 58 56.5 27 59-21 26.5-56-21-58.5-55.5-27h-6zm90 68q1 9 1 18-1 19-10 35l132 21 26-50zm225 36-26 51 311 49q-1-8-1-17 1-19 10-36zm372 6q-32 1-55 23t-24.5 55 21 58 56 27 58.5-20.5 27-56.5-20.5-59-56.5-27h-6zM236 493q-13 25-39 38l210 210 51-25zm-40 38q-21 11-44 10l-9-1 40 256q21-10 45-9l8 1zm364 22 48 311q21-10 44-9l10 1-46-294zm195 23-118 60 8 56 135-68q-20-20-25-48zm26 49-119 231q28 5 48 25l119-231q-28-5-48-25zM306 654l-68 134q28 5 48 25l60-119zm262 17-281 143q19 20 24 48l265-135zM513 771l-51 25 106 107q13-25 39-38zM222 795q-32 0-55.5 22.5t-25 55 21 57.5 56 27 58.5-20.5 27-56-20.5-58.5-56.5-27h-5zm89 68q2 9 1 18-1 19-9 35l256 41q-1-9-1-18 1-18 10-35zm335 0q-32 0-55 22.5t-24.5 55 20.5 58 56 27 59-21 27-56-20.5-58.5-56.5-27h-6z"/></g></svg>
+</span></a><span class=fediverse-input-wrapper style=display:none><input type=text placeholder="Enter Fediverse Instance URL" class=fediverse-input onkeypress='handleFediverseShare(event,"https://kigo1031.github.io/kigo.github.io/en/blog/microservices-architecture/","Microservices Architecture with Spring Boot")'>
+<button class=fediverse-check-button onclick='handleFediverseShareButton(this,"https://kigo1031.github.io/kigo.github.io/en/blog/microservices-architecture/","Microservices Architecture with Spring Boot")'>
+Share
+</button>
+</span></span><button class="share-link share-copy" onclick='copyToClipboard(this,"https://kigo1031.github.io/kigo.github.io/en/blog/microservices-architecture/")'>
+<span class=share-icon><svg viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1.0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1.0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7-1c.55.0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm7 17H5V5h14v14z"/></svg></span></button></div><script>function toggleFediverseInput(e){const n=e.closest(".fediverse-share"),t=n.querySelector(".fediverse-input-wrapper");t.style.display=t.style.display==="none"?"block":"none"}function handleFediverseShare(e,t,n){if(e.key==="Enter"){const o=e.target;let s=o.value.trim();if(s){s.startsWith("https://")||(s=`https://${s}`);const e=`${s}/share?text=${encodeURIComponent(n)}&url=${encodeURIComponent(t)}`;window.open(e,"_blank","noopener")}}}function handleFediverseShareButton(e,t,n){const o=e.previousElementSibling;let s=o.value.trim();if(s){s.startsWith("https://")||(s=`https://${s}`);const e=`${s}/share?text=${encodeURIComponent(n)}&url=${encodeURIComponent(t)}`;window.open(e,"_blank","noopener")}}function copyToClipboard(e,t){navigator.clipboard.writeText(t).then(()=>{const t=e.querySelector("svg path"),n="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7-1c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm7 17H5V5h14v14z",s="M9 16.2l-3.5-3.5-1.4 1.4L9 19 20 8l-1.4-1.4L9 16.2z";t.setAttribute("d",s),setTimeout(()=>{t.setAttribute("d",n)},1e3)})}</script></div></div><div class=mt-20><div id=disqus_thread></div><script>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.";return}var t=document,e=t.createElement("script");e.async=!0,e.src="//kigo-blog.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div></article></div><div class="section pb-0"><h2 class="h3 mb-12">Related Posts</h2><div class=row><div class="lg:col-4 md:col-6 mb-14"><div class="bg-body dark:bg-darkmode-body"><picture><source srcset=/kigo.github.io/images/service-1_hu_929e1a7812c6d1fe.webp media="(max-width: 575px)"><source srcset=/kigo.github.io/images/service-1_hu_b1075cc11ad28fb0.webp media="(max-width: 767px)"><source srcset=/kigo.github.io/images/service-1_hu_3527cad0cb0b4cd5.webp media="(max-width: 991px)"><source srcset=/kigo.github.io/images/service-1_hu_359afd51d4fd2457.webp><img loading=lazy decoding=async src=/kigo.github.io/images/service-1_hu_734bba9c014561a1.png class="mb-6 w-full rounded img" alt="Spring Boot Production Best Practices" width=559 height=518></picture><h4 class=mb-3><a href=/kigo.github.io/en/blog/spring-boot-best-practices/>Spring Boot Production Best Practices</a></h4><ul class=mb-4><li class="mr-4 inline-block"><a href=/kigo.github.io/en/authors/kigo/><i class="fa-regular fa-circle-user mr-2"></i>Kigo</a></li><li class="mr-4 inline-block"><i class="fa-regular fa-folder mr-1"></i>
+<a href=/kigo.github.io/en/categories/backend/ class=ms-1>Backend
+,
+</a><a href=/kigo.github.io/en/categories/java/ class=ms-1>Java</a></li></ul><p class=mb-6>To create stable Spring Boot applications in production, you need more than just basic functionality. Let&rsquo;s explore essential practices for building robust, secure, and maintainable applications.</p><a class="btn btn-outline-primary btn-sm" href=/kigo.github.io/en/blog/spring-boot-best-practices/>Read More</a></div></div></div></div></div></section></main><footer class="bg-light dark:bg-darkmode-light"><div class=container><div class="row items-center py-10"><div class="lg:col-3 mb-8 text-center lg:mb-0 lg:text-left"><a class="navbar-brand inline-block" href=/kigo.github.io/en/><img fetchpriority=high decoding=async src=https://kigo1031.github.io/kigo.github.io/images/logo-kigo.svg alt="Kigo's Blog" class="img img-light" height=32 width=160>
+<img fetchpriority=high decoding=async src=https://kigo1031.github.io/kigo.github.io/images/logo-kigo-darkmode.svg alt="Kigo's Blog" class="img img-dark" height=32 width=160></a></div><div class="lg:col-6 mb-8 text-center lg:mb-0"><ul><li class="m-3 inline-block"><a href=/en/kigo.github.io/en/blog>Blog</a></li><li class="m-3 inline-block"><a href=/en/kigo.github.io/en/privacy-policy>Privacy Policy</a></li></ul></div><div class="lg:col-3 mb-8 text-center lg:mb-0 lg:mt-0 lg:text-right"><ul class=social-icons><li><a target=_blank aria-label=github rel="nofollow noopener" href=https://github.com/kigo1031><i class="fab fa-github"></i></a></li></ul></div></div></div><div class="border-border dark:border-darkmode-border border-t py-7"><div class="text-text-light dark:text-darkmode-text-light container text-center"><p>Creating tomorrow, one line at a time</p></div></div></footer><script crossorigin=anonymous integrity="sha256-NoqgJlugD+mB4Hf8AueiiPBQSb7ASin+oZS0fYEdtiA=" src=/kigo.github.io/js/script.min.368aa0265ba00fe981e077fc02e7a288f05049bec04a29fea194b47d811db620.js></script><script defer async crossorigin=anonymous integrity="sha256-8w9V5+VCnGhgTHXOsnVQjFqhE3cwvfCJD4096vUhMp0=" src=/kigo.github.io/js/script-lazy.min.f30f55e7e5429c68604c75ceb275508c5aa1137730bdf0890f8d3deaf521329d.js></script><script>"serviceWorker"in navigator&&navigator.serviceWorker.register("/kigo.github.io/service-worker.js")</script></body></html>
