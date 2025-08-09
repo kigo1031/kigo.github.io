@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>프론트엔드 on Kigo&#39;s Blog - 백엔드 Java 개발자</title>
-    <link>http://localhost:1314/tags/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C/</link>
+    <link>http://localhost:1313/tags/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C/</link>
     <description>Recent content in 프론트엔드 on Kigo&#39;s Blog - 백엔드 Java 개발자</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
     <lastBuildDate>Fri, 01 Aug 2025 16:30:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1314/tags/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>React 함수형 컴포넌트와 Hooks 사용법</title>
-      <link>http://localhost:1314/blog/react-hooks-guide/</link>
+      <link>http://localhost:1313/blog/react-hooks-guide/</link>
       <pubDate>Fri, 01 Aug 2025 16:30:00 +0000</pubDate>
-      <guid>http://localhost:1314/blog/react-hooks-guide/</guid>
+      <guid>http://localhost:1313/blog/react-hooks-guide/</guid>
       <description>&lt;p&gt;React 16.8에서 도입된 Hooks는 함수형 컴포넌트에서도 상태 관리와 생명주기 기능을 사용할 수 있게 해주었습니다. 오늘은 주요 Hooks들의 사용법을 알아보겠습니다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>JavaScript ES6&#43; 핵심 기능들</title>
-      <link>http://localhost:1314/blog/javascript-es6-features/</link>
+      <link>http://localhost:1313/blog/javascript-es6-features/</link>
       <pubDate>Tue, 29 Jul 2025 15:45:00 +0000</pubDate>
-      <guid>http://localhost:1314/blog/javascript-es6-features/</guid>
+      <guid>http://localhost:1313/blog/javascript-es6-features/</guid>
       <description>&lt;p&gt;JavaScript ES6(ECMAScript 2015)부터 많은 새로운 기능들이 추가되었습니다. 오늘은 실무에서 자주 사용되는 핵심 기능들을 알아보겠습니다.&lt;/p&gt;</description>
     </item>
   </channel>

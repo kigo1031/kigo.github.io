@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Frontend on Kigo&#39;s Blog - 백엔드 Java 개발자</title>
-    <link>http://localhost:1314/en/tags/frontend/</link>
+    <link>http://localhost:1313/en/tags/frontend/</link>
     <description>Recent content in Frontend on Kigo&#39;s Blog - 백엔드 Java 개발자</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 01 Aug 2025 16:30:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1314/en/tags/frontend/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/en/tags/frontend/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>React Functional Components and Hooks Guide</title>
-      <link>http://localhost:1314/en/blog/react-hooks-guide/</link>
+      <link>http://localhost:1313/en/blog/react-hooks-guide/</link>
       <pubDate>Fri, 01 Aug 2025 16:30:00 +0000</pubDate>
-      <guid>http://localhost:1314/en/blog/react-hooks-guide/</guid>
+      <guid>http://localhost:1313/en/blog/react-hooks-guide/</guid>
       <description>&lt;p&gt;React Hooks, introduced in React 16.8, enable state management and lifecycle features in functional components. Let&amp;rsquo;s explore the essential Hooks and their usage.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Essential JavaScript ES6&#43; Features</title>
-      <link>http://localhost:1314/en/blog/javascript-es6-features/</link>
+      <link>http://localhost:1313/en/blog/javascript-es6-features/</link>
       <pubDate>Tue, 29 Jul 2025 15:45:00 +0000</pubDate>
-      <guid>http://localhost:1314/en/blog/javascript-es6-features/</guid>
+      <guid>http://localhost:1313/en/blog/javascript-es6-features/</guid>
       <description>&lt;p&gt;JavaScript ES6 (ECMAScript 2015) introduced many new features. Let&amp;rsquo;s explore the essential features commonly used in real-world development.&lt;/p&gt;</description>
     </item>
   </channel>

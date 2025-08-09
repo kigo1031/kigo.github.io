@@ -2,31 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Backend on Kigo&#39;s Blog - 백엔드 Java 개발자</title>
-    <link>http://localhost:1314/en/tags/backend/</link>
+    <link>http://localhost:1313/en/tags/backend/</link>
     <description>Recent content in Backend on Kigo&#39;s Blog - 백엔드 Java 개발자</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 03 Aug 2025 10:00:00 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1314/en/tags/backend/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/en/tags/backend/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Complete Quarkus JPA Guide - From Entity to Transaction</title>
-      <link>http://localhost:1314/en/blog/quarkus-jpa-guide/</link>
+      <link>http://localhost:1313/en/blog/quarkus-jpa-guide/</link>
       <pubDate>Sun, 03 Aug 2025 10:00:00 +0900</pubDate>
-      <guid>http://localhost:1314/en/blog/quarkus-jpa-guide/</guid>
+      <guid>http://localhost:1313/en/blog/quarkus-jpa-guide/</guid>
       <description>&lt;p&gt;When transitioning from Spring Boot to Quarkus, one of the first questions that comes to mind is &amp;ldquo;How do I handle database integration?&amp;rdquo; Fortunately, Quarkus provides excellent JPA support, often with better performance and simpler configuration.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Kotlin Multiplatform and Backend Development: 2025 Trends</title>
+      <link>http://localhost:1313/en/blog/kotlin-multiplatform-backend-integration/</link>
+      <pubDate>Wed, 15 Jan 2025 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/blog/kotlin-multiplatform-backend-integration/</guid>
+      <description>&lt;p&gt;One of the backend development trends in 2025 is full-stack development using Kotlin Multiplatform. Let&amp;rsquo;s explore how to develop from mobile to backend using a single language by combining KMM (Kotlin Multiplatform Mobile) and Ktor.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>REST API Design Best Practices</title>
-      <link>http://localhost:1314/en/blog/rest-api-design/</link>
+      <link>http://localhost:1313/en/blog/rest-api-design/</link>
       <pubDate>Thu, 07 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1314/en/blog/rest-api-design/</guid>
+      <guid>http://localhost:1313/en/blog/rest-api-design/</guid>
       <description>&lt;p&gt;Well-designed REST APIs improve developer experience and ensure system scalability. Let&amp;rsquo;s explore REST API design principles and best practices that can be applied in real projects, along with Spring Boot examples.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Spring Boot Production Best Practices</title>
-      <link>http://localhost:1314/en/blog/spring-boot-best-practices/</link>
+      <link>http://localhost:1313/en/blog/spring-boot-best-practices/</link>
       <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1314/en/blog/spring-boot-best-practices/</guid>
+      <guid>http://localhost:1313/en/blog/spring-boot-best-practices/</guid>
       <description>&lt;p&gt;To create stable Spring Boot applications in production, you need more than just basic functionality. Let&amp;rsquo;s explore essential practices for building robust, secure, and maintainable applications.&lt;/p&gt;</description>
     </item>
   </channel>

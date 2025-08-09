@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Spring Boot on Kigo&#39;s Blog - 백엔드 Java 개발자</title>
-    <link>http://localhost:1314/en/tags/spring-boot/</link>
+    <link>http://localhost:1313/en/tags/spring-boot/</link>
     <description>Recent content in Spring Boot on Kigo&#39;s Blog - 백엔드 Java 개발자</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 06 Apr 2022 05:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1314/en/tags/spring-boot/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/en/tags/spring-boot/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Microservices Architecture with Spring Boot</title>
-      <link>http://localhost:1314/en/blog/microservices-architecture/</link>
+      <link>http://localhost:1313/en/blog/microservices-architecture/</link>
       <pubDate>Wed, 06 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1314/en/blog/microservices-architecture/</guid>
+      <guid>http://localhost:1313/en/blog/microservices-architecture/</guid>
       <description>&lt;p&gt;To overcome the limitations of monolithic applications and build scalable and flexible systems, microservices architecture is gaining attention. Let&amp;rsquo;s explore how to build microservices that can be used in actual production environments using the Spring Boot and Spring Cloud ecosystem.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Spring Boot Production Best Practices</title>
-      <link>http://localhost:1314/en/blog/spring-boot-best-practices/</link>
+      <link>http://localhost:1313/en/blog/spring-boot-best-practices/</link>
       <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1314/en/blog/spring-boot-best-practices/</guid>
+      <guid>http://localhost:1313/en/blog/spring-boot-best-practices/</guid>
       <description>&lt;p&gt;To create stable Spring Boot applications in production, you need more than just basic functionality. Let&amp;rsquo;s explore essential practices for building robust, secure, and maintainable applications.&lt;/p&gt;</description>
     </item>
   </channel>

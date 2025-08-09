@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hello, I&#39;m Kigo! on Kigo&#39;s Blog - 백엔드 Java 개발자</title>
-    <link>http://localhost:1314/en/about/</link>
+    <link>http://localhost:1313/en/about/</link>
     <description>Recent content in Hello, I&#39;m Kigo! on Kigo&#39;s Blog - 백엔드 Java 개발자</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="http://localhost:1314/en/about/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/en/about/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Spring Cloud on Kigo&#39;s Blog - 백엔드 Java 개발자</title>
-    <link>http://localhost:1314/en/tags/spring-cloud/</link>
+    <link>http://localhost:1313/en/tags/spring-cloud/</link>
     <description>Recent content in Spring Cloud on Kigo&#39;s Blog - 백엔드 Java 개발자</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 06 Apr 2022 05:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1314/en/tags/spring-cloud/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/en/tags/spring-cloud/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Microservices Architecture with Spring Boot</title>
-      <link>http://localhost:1314/en/blog/microservices-architecture/</link>
+      <link>http://localhost:1313/en/blog/microservices-architecture/</link>
       <pubDate>Wed, 06 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1314/en/blog/microservices-architecture/</guid>
+      <guid>http://localhost:1313/en/blog/microservices-architecture/</guid>
       <description>&lt;p&gt;To overcome the limitations of monolithic applications and build scalable and flexible systems, microservices architecture is gaining attention. Let&amp;rsquo;s explore how to build microservices that can be used in actual production environments using the Spring Boot and Spring Cloud ecosystem.&lt;/p&gt;</description>
     </item>
   </channel>
